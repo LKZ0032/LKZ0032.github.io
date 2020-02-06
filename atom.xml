@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
-  
-  
+  <title>Blessing</title>
+  <icon>https://www.gravatar.com/avatar/03b4eb8380871257951a60fb3887278e</icon>
+  <subtitle>面朝大海，春暖花开</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://lkz0032.github.io/"/>
   <updated>2019-12-31T12:02:16.570Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://lkz0032.github.io/</id>
   
   <author>
-    <name>John Doe</name>
-    
+    <name>Kailun Zhu</name>
+    <email>495805263@qq.com</email>
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2019/12/31/hello-world/"/>
-    <id>http://yoursite.com/2019/12/31/hello-world/</id>
+    <link href="https://lkz0032.github.io/2019/12/31/hello-world/"/>
+    <id>https://lkz0032.github.io/2019/12/31/hello-world/</id>
     <published>2019-12-31T12:02:16.570Z</published>
     <updated>2019-12-31T12:02:16.570Z</updated>
     
@@ -36,6 +36,29 @@
     </summary>
     
     
+    
+  </entry>
+  
+  <entry>
+    <title>原汁原味黔东南</title>
+    <link href="https://lkz0032.github.io/2018/11/21/try/"/>
+    <id>https://lkz0032.github.io/2018/11/21/try/</id>
+    <published>2018-11-20T16:15:20.000Z</published>
+    <updated>2020-02-06T05:54:27.305Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;从昆明向东过来，我预选的目的地有两个，都匀和凯里。到都匀的话去荔波比较方便，到凯里的话去看黔东南苗寨比较方便。考虑到荔波在南边，而且交通不是很方便（目前正在建凯里到荔波的大路，建成后大巴过去还是挺方便的），如果从都匀过去的话也会浪费几天时间，所以就留下了这一程最遗憾的一点，就是没能去荔波看看喀斯特地貌（其实来之前我对荔波已经做足了攻略）。好在这一点遗憾马上就被朗德和镇远给弥补了。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="旅行" scheme="https://lkz0032.github.io/categories/%E6%97%85%E8%A1%8C/"/>
+    
+    
+      <category term="旅行" scheme="https://lkz0032.github.io/tags/%E6%97%85%E8%A1%8C/"/>
+    
+      <category term="国内" scheme="https://lkz0032.github.io/tags/%E5%9B%BD%E5%86%85/"/>
     
   </entry>
   
