@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Blessing</title>
   <icon>https://www.gravatar.com/avatar/03b4eb8380871257951a60fb3887278e</icon>
-  <subtitle>面朝大海，春暖花开</subtitle>
+  <subtitle>A man is only as good as what he loves</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lkz0032.github.io/"/>
-  <updated>2019-12-31T12:02:16.570Z</updated>
+  <updated>2020-02-12T12:46:11.151Z</updated>
   <id>https://lkz0032.github.io/</id>
   
   <author>
@@ -17,48 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="https://lkz0032.github.io/2019/12/31/hello-world/"/>
-    <id>https://lkz0032.github.io/2019/12/31/hello-world/</id>
-    <published>2019-12-31T12:02:16.570Z</published>
-    <updated>2019-12-31T12:02:16.570Z</updated>
+    <title>new a blog article</title>
+    <link href="https://lkz0032.github.io/2020/02/12/new-a-blog-article/"/>
+    <id>https://lkz0032.github.io/2020/02/12/new-a-blog-article/</id>
+    <published>2020-02-12T05:11:39.000Z</published>
+    <updated>2020-02-12T12:46:11.151Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
-        
-      
+      &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;创建一个文章的md文件&lt;br&gt;&lt;code&gt;hexo new &amp;quot;XXX&amp;quot;&lt;/code&gt;&lt;br&gt;格式如上，XXX部分为文章的名字&lt;/p&gt;
     
     </summary>
     
     
+    
+      <category term="学习笔记" scheme="https://lkz0032.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
-    <title>原汁原味黔东南</title>
-    <link href="https://lkz0032.github.io/2018/11/21/try/"/>
-    <id>https://lkz0032.github.io/2018/11/21/try/</id>
-    <published>2018-11-20T16:15:20.000Z</published>
-    <updated>2020-02-06T05:54:27.305Z</updated>
+    <title>Hello World</title>
+    <link href="https://lkz0032.github.io/2019/12/31/hello-world/"/>
+    <id>https://lkz0032.github.io/2019/12/31/hello-world/</id>
+    <published>2019-12-31T12:02:16.570Z</published>
+    <updated>2020-02-12T04:06:31.694Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;从昆明向东过来，我预选的目的地有两个，都匀和凯里。到都匀的话去荔波比较方便，到凯里的话去看黔东南苗寨比较方便。考虑到荔波在南边，而且交通不是很方便（目前正在建凯里到荔波的大路，建成后大巴过去还是挺方便的），如果从都匀过去的话也会浪费几天时间，所以就留下了这一程最遗憾的一点，就是没能去荔波看看喀斯特地貌（其实来之前我对荔波已经做足了攻略）。好在这一点遗憾马上就被朗德和镇远给弥补了。&lt;/p&gt;
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
     
     </summary>
     
     
-      <category term="旅行" scheme="https://lkz0032.github.io/categories/%E6%97%85%E8%A1%8C/"/>
-    
-    
-      <category term="旅行" scheme="https://lkz0032.github.io/tags/%E6%97%85%E8%A1%8C/"/>
-    
-      <category term="国内" scheme="https://lkz0032.github.io/tags/%E5%9B%BD%E5%86%85/"/>
     
   </entry>
   
