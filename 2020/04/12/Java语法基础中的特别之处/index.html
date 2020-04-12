@@ -10,7 +10,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    new a blog article |  Blessing
+    Java语法基础中的特别之处 |  Blessing
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -35,7 +35,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-new-a-blog-article" class="article article-type-post" itemscope
+  <article id="post-Java语法基础中的特别之处" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -43,7 +43,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  new a blog article
+  Java语法基础中的特别之处
 </h1>
   
 
@@ -52,8 +52,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/02/12/new-a-blog-article/" class="article-date">
-  <time datetime="2020-02-12T05:11:39.000Z" itemprop="datePublished">2020-02-12</time>
+      <a href="/2020/04/12/Java%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B8%AD%E7%9A%84%E7%89%B9%E5%88%AB%E4%B9%8B%E5%A4%84/" class="article-date">
+  <time datetime="2020-04-12T04:34:09.000Z" itemprop="datePublished">2020-04-12</time>
 </a>
       
       
@@ -63,7 +63,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">243字</span>
+            <span class="post-count">1.3k字</span>
         </span>
     </span>
 
@@ -72,7 +72,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1分钟</span>
+            <span class="post-count">4分钟</span>
         </span>
     </span>
 </div>
@@ -83,6 +83,8 @@
 
     
     
+    <div class="tocbot"></div>
+
 
 
 
@@ -96,24 +98,124 @@
       
 
       
-      <ol>
-<li><p>创建一个文章的md文件<br><code>hexo new &quot;XXX&quot;</code><br>格式如上，XXX部分为文章的名字</p>
-<a id="more"></a></li>
-<li><p>自定义文章的标签<br>在md文件中的头部，tags中写入标签的类型</p>
-</li>
-<li><p>运用markdown格式书写内容<br>markdown格式的学习会在之后的文章中详细的写出。</p>
-</li>
-<li><p>编译运行网站<br>运行hexo的命令为<br><code>hexo s</code> 或 <code>hexo server</code></p>
-</li>
-<li><p>部署到远端<br>如果已经在GitHub搭建了博客主页，要部署到远端，则需要一下几步（用GitHub搭建博客的方法，在之后的文章中详细的描述）：  </p>
+      <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>这是一篇对Java基础语法学习中，遇到的异难的地方进行的总结。</p>
+<a id="more"></a>
 <ul>
-<li><code>hexo clean</code> (执行此步骤，直到hexo目录下的public文件夹删除)</li>
-<li><code>hexo g</code> 或 <code>hexo generate</code> (执行此步，重新编译网站文件)</li>
-<li><code>hexo s</code> 或 <code>hexo server</code> (执行此步，在本地预览，无问题的话，执行下一步，部署到远端)</li>
-<li><code>hexo d</code> 或 <code>hexo deploy</code> (执行此步，将网站public文件夹中新的文件部署到远端，过程结束)</li>
+<li>变量定义时，“”标识string类型，‘’标识char类型</li>
+</ul>
+<ul>
+<li>Java命名规范<ul>
+<li>项目名全部小写.</li>
+<li>包名全部小写.</li>
+<li>类名首字母大写,其余组成词首字母依次大写（单词首字母大写）.</li>
+<li>变量名,方法名首字母小写,如果名称由多个单词组成,除首字母外的每个单词的首字母都要大写（驼峰式命名规则）.</li>
+<li>常量名全部大写，每个单词用‘_’隔开.</li>
+<li>所有命名规则必须遵循以下规则 :<br>  名称只能由字母、数字、下划线、$符号组成.<br>  不能以数字开头.<br>  名称不能使用Java中的关键字.  </li>
+<li><a href="https://baijiahao.baidu.com/s?id=1654685815662722805&wfr=spider&for=pc" target="_blank" rel="noopener">其余具体命名细节</a></li>
 </ul>
 </li>
-</ol>
+</ul>
+<ul>
+<li><p>使用文档注释（文档注释以/<em>*开始，以</em>/结尾）时还可以使用 javadoc 标记，生成更详细的文档信息：</p>
+<pre><code>@author 标明开发该类模块的作者
+
+@version 标明该类模块的版本
+
+@see 参考转向，也就是相关主题
+
+@param 对方法中某参数的说明
+
+@return 对方法返回值的说明
+
+@exception 对方法可能抛出的异常进行说明</code></pre></li>
+</ul>
+<ul>
+<li>算数运算符++，在变量右边，则先赋值再自增，在变量左边，则先自增再赋值。–的规律以此类推。</li>
+</ul>
+<ul>
+<li>\uff1b  Java中出现中文字符，仔细检查。</li>
+</ul>
+<ul>
+<li>foreach方法遍历数组的写法for(元素类型 元素变量:遍历数组){}，如：<br>for ( int score:scores ) {<br>  System.out.println(score);<br>}</li>
+</ul>
+<ul>
+<li>算数运算时，double类型运算时，后面如果全为int类型，则运算结果会产生误差，需要使其后面的值中有一个为小数才可，如：<br>double avg=(i+j)/2.0;</li>
+</ul>
+<ul>
+<li>Java成员变量的默认值为0，局部变量没有默认值。</li>
+</ul>
+<ul>
+<li>Java中的包名命名规范为全小写字母</li>
+</ul>
+<ul>
+<li>Java中的访问修饰符总结<br><img src="https://i.loli.net/2020/04/12/LnbQKCzvVaXJpo1.png" alt="Java中的访问修饰符.png"></li>
+</ul>
+<ul>
+<li>如果对象属性和参数同名时，必须加this，否则相反。</li>
+</ul>
+<ul>
+<li>如果外部类和内部类具有相同的成员变量或方法，内部类默认访问自己的成员变量或方法，如果要访问外部类的成员变量，可以使用 this 关键字。方法如下：<br><img src="https://i.loli.net/2020/04/13/sIp1NoSV9MkRQtK.jpg" alt="内部类中用this调用外部类成员变量.jpg"></li>
+</ul>
+<ul>
+<li>Java中的继承是单继承（接口可以继承自多个父接口）的，子类不能访问父类中的private修饰符修饰的成员</li>
+</ul>
+<ul>
+<li>继承的初始化顺序：初始化父类再初始子类、先执行初始化对象中属性，再执行构造方法中的初始化</li>
+</ul>
+<ul>
+<li>final关键字修饰的变量（即常量）的赋值必须在变量声明时，或者在构造函数中。</li>
+</ul>
+<ul>
+<li>Super关键字：在对象的内部使用，可以代表父类对象</li>
+</ul>
+<ul>
+<li>接口定义：常量：接口中的属性（方法）是常量（抽象方法），即使定义时不添加[public] [static] [final]（[public] [abstract]）修饰符，系统也会自动加上；<br>注：接口的定义：    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[修饰符] interface 接口名 [extends 父接口名列表]&#123;</span><br><span class="line">[public] [static] [final] 常量;</span><br><span class="line">[public] [abstract] 方法;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<ul>
+<li>抽象类和接口的区别：  <ul>
+<li>抽象类要被子类继承，接口要被类实现。</li>
+<li>接口只能做方法声明，抽象类中可以作方法声明，也可以做方法实现。</li>
+<li>接口里定义的变量只能是公共的静态的常量，抽象类中的变量是普通变量。</li>
+<li>接口是设计的结果，抽象类是重构的结果。</li>
+<li>抽象类和接口都是用来抽象具体对象的，但是接口的抽象级别最高。</li>
+<li>抽象类可以有具体的方法和属性，接口只能有抽象方法和不可变常量。</li>
+<li>抽象类主要用来抽象类别，接口主要用来抽象功能。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><blockquote>
+<p>Java异常处理try…catch执行完之后，还会继续执行之后的代码语句  </p>
+</blockquote>
+<ul>
+<li>finally语句在return语句执行之后return返回之前执行的。  </li>
+<li>finally块中的return语句会覆盖try块中的return返回。 </li>
+<li>try块里的return语句在异常的情况下不会被执行。   <blockquote>
+<p>总结：finally块的语句在try或catch中的return语句执行之后返回之前执行且finally里的修改语句可能影响也可能不影响try或catch中 return已经确定的返回值，若finally里也有return语句则覆盖try或catch中的return语句直接返回。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><ul>
+<li>泛型集合可以添加泛型指定类型的子类型的对象实例，即，泛型集合中不能添加泛型规定的类型及其子类型以外的对象，否则会报错。</li>
+<li>泛型集合中的限定类型不能使用基本数据类型。可以通过使用对应的包装类限定允许存入的基本数据类型如<code>int</code>类型使用<code>Integer</code>。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Collection.sort()方法对String类型进行排序时，按照数字0-9、大写字母A-Z、小写字母a-z的顺序来排序，即，数字最前，小写字母z最后</li>
+</ul>
+<ul>
+<li>Java集合框架结构（内容）<br><img src="https://i.loli.net/2020/04/13/Btxp8oGRg3FHsI4.png" alt="Java集合框架内容.png"></li>
+</ul>
+<ul>
+<li>容器：里面装有很多相同属性的对象。</li>
+</ul>
 
       
       <!-- 打赏 -->
@@ -124,11 +226,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://lkz0032.github.io/2020/02/12/new-a-blog-article/" data-id="ck8xekd91000dvovlbx3rgvw8"
+      <a data-url="https://lkz0032.github.io/2020/04/12/Java%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B8%AD%E7%9A%84%E7%89%B9%E5%88%AB%E4%B9%8B%E5%A4%84/" data-id="ck8xekd7u0002vovl9lhiekjp"
         class="article-share-link">分享</a>
         
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7hexo/" rel="tag">学习笔记·hexo</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7Java/" rel="tag">学习笔记·Java</a></li></ul>
 
     </footer>
 
@@ -138,19 +240,10 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/02/18/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            关于博客网站
-          
-        </div>
-      </a>
     
-    
-      <a href="/2019/12/31/hello-world/" class="article-nav-link">
+      <a href="/2020/04/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%8F%8A%E5%9B%9E%E9%A1%BE/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Hello World</div>
+        <div class="article-nav-title">Mysql数据库相关的学习及回顾</div>
       </a>
     
   </nav>
