@@ -63,7 +63,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">0字</span>
+            <span class="post-count">969字</span>
         </span>
     </span>
 
@@ -72,7 +72,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1分钟</span>
+            <span class="post-count">3分钟</span>
         </span>
     </span>
 </div>
@@ -83,6 +83,8 @@
 
     
     
+    <div class="tocbot"></div>
+
 
 
 
@@ -96,7 +98,59 @@
       
 
       
-      
+      <p>对大学课程《数据库原理与应用MySQL》的综合实验的回顾与总结，以及后续数据库学习中的知识点的摘记。  </p>
+<a id="more"></a>
+
+<h2 id="数据库设计的流程"><a href="#数据库设计的流程" class="headerlink" title="数据库设计的流程"></a>数据库设计的流程</h2><ol>
+<li><p>需求分析<br>包括：  </p>
+<ul>
+<li>信息要求  </li>
+<li>处理要求 </li>
+<li>系统要求<ul>
+<li>安全性要求</li>
+<li>使用方式要求</li>
+<li>可扩充性要求</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>概念结构设计<br>将需求分析得到的用户需求抽象为信息结构（即概念模型）的过程。（这一步中可做出E-R图）<br>E-R图：方形表示实体，椭圆形表示实体的属性，实体间的菱形表示实体间的联系（联系有1-1[一对一]，1-m[一对多]，m-n[多对多]三种形式）。  </p>
+</li>
+<li><p>逻辑结构设计<br>将E-R图拆分为数据库的表（实体和联系都对应一张表）。<br>拆分出表之后，调整为第三范式。<br>同时也可以对视图进行设计。  </p>
+</li>
+<li><p>物理设计<br>分析数据库中已有的索引，考虑需要增加索引的字段有哪些。  </p>
+</li>
+<li><p>数据库的实现<br>创建库、表、用户、触发器和存储过程等。</p>
+</li>
+</ol>
+<h2 id="数据库常用技术"><a href="#数据库常用技术" class="headerlink" title="数据库常用技术"></a>数据库常用技术</h2><ol>
+<li>[LEFT]JOIN …… on [条件]</li>
+<li>GROUP BY  </li>
+<li>事务的四大特性：ACID  <ul>
+<li>原子性（Atomic）</li>
+<li>一致性（Consistency）</li>
+<li>隔离性（Isolation）</li>
+<li>持久性（Durability）</li>
+</ul>
+</li>
+<li>事务的隔离级别  <ul>
+<li>Read uncommitted</li>
+<li>Read Committed  </li>
+<li>Repeatable Reads</li>
+<li>Serializable  </li>
+</ul>
+</li>
+<li>乐观锁<br>不是真正在数据库中添加锁（真正添加的锁为悲观锁）。是在数据查询时，添加另一个数据为参考，看数据是否发生了变化，如果发生了变化，则表示发生了冲突，则可做出相应的处理。  </li>
+<li>密集索引和稀疏索引的区别<br>密集索引将索引和叶子节点的信息（整行数据）保存在一个文件中，按照索引的B+树找到叶子节点时，即可获得整行数据。稀疏索引则将内容和索引分开在两个文件中，在索引文件中（稀疏索引的B+树）找到叶子节点中的节点信息（主键信息）后，在另一个主键B+树中查找对应的叶子节点中存放的数据库内容。<br>密集索引以空间为代价，可以提高存取效率；稀疏索引则所占空间较小。<br>网上说法不一：<del>聚簇索引是稀疏索引，数据页上一级索引存储是页指针，非行指针。非聚簇索引是密集索引，在数据页的上一级索引页它为每一个数据行存储一条记录</del>   </li>
+<li>定位并优化慢查询Sql:  <ul>
+<li>根据慢日志定位慢查询sql</li>
+<li>使用explain等工具分析sql<br>（里面会显示type和extra字段值，其中type显示index和all时常常需要调优，而extra字段中显示Using filesort时表示，MySQL没能使用索引完成操作，排序可能在内存和磁盘上进行；Using temporary则表示，使用了临时表，常见于排序order by和group by）  </li>
+<li>修改sql或者尽量让sql走索引（让SQL走索引的方法见 8.最左匹配原则）  </li>
+</ul>
+</li>
+<li>最左匹配原则<br>MySQL会一直向右匹配直到遇到范围查询（&gt;,&lt;,between,like）就停止匹配，比如a=3 and b=4 and c&gt;5 and d=6。以这样的条件进行查询时，联合索引只能结合a,b,c，到c处就停止了。因此，若c写在了最前面，则执行查询时，只能用到c的索引来排序。又，若，c字段没有建立索引，则会使查询无索引可用，从而导致速度下降。因此，这种情况下，要尽量让c出现在后面。（注：其它=的字段或in可以随意安排前后顺序，MySQL的查询优化器会帮你优化成索引可以识别的形式。）</li>
+</ol>
+
       
       <!-- 打赏 -->
       
@@ -106,7 +160,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://lkz0032.github.io/2020/04/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%8F%8A%E5%9B%9E%E9%A1%BE/" data-id="ck8xekd850005vovl4xrfguy8"
+      <a data-url="https://lkz0032.github.io/2020/04/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%8F%8A%E5%9B%9E%E9%A1%BE/" data-id="ck980ojtr0006kovlcuon7e05"
         class="article-share-link">分享</a>
         
       
