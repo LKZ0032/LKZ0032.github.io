@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Java开发学习路线</title>
+    <url>/2020/04/09/Java%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</url>
+    <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>思路整理参考B站UP主“程序羊”，文章地址为：<a href="https://www.bilibili.com/read/cv4184856" target="_blank" rel="noopener">上次是谁说搞不清学习路线来着？</a>以及其它一些知乎回答。</p>
+<a id="more"></a>  
+
+<h1 id="全局脑图"><a href="#全局脑图" class="headerlink" title="全局脑图"></a>全局脑图</h1><p><img src="https://i.loli.net/2020/04/09/34ty7FciTbOvds5.jpg" alt="Java开发学习路线 .jpg">  </p>
+<h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><ol>
+<li>语言本身<br>如下一些重点必须掌握：  <ul>
+<li>语法基础</li>
+<li>OO编程思想：类、对象、封装、继承、多态、接口  </li>
+<li>容器、异常、泛型、I/O、反射、注解  </li>
+<li><del>图形化界面，如 <code>swing</code> 的东西跳过不看</del></li>
+</ul>
+</li>
+<li>数据结构和算法  <ul>
+<li>几大基础数据结构类型得烂熟于心，比如：字符串、链表、二叉树、栈、队列等等；基本的几大算法要了如指掌，比如查找、排序、动态规划等等。  </li>
+<li>练习方式：<a href="https://leetcode-cn.com/explore/" target="_blank" rel="noopener">leetcode</a>、<a href="https://www.nowcoder.com/index" target="_blank" rel="noopener">牛客网</a>  </li>
+</ul>
+</li>
+<li>TCP/IP协议栈  <ul>
+<li>TCP/IP协议可以说是当下互联网通信的基石，无论如何一定要对TCP/IP的协议栈了如指掌，包括：ARP协议、IP协议、ICMP协议、TCP和UDP协议、DNS协议、HTTP协议、HTTPS协议等等。</li>
+<li>对于Java来说，熟悉Netty开发是入门网络开发的捷径。</li>
+<li>爬虫是网络开发中另外一个极具魅力的点，但建议使用python而不是java去做。 </li>
+</ul>
+</li>
+<li>设计模式<br>倒不需要23种设计模式全部很熟悉，常见的几个，比如：单例模式、工厂模式、代理模式、策略模式、模板方法模式等几个熟练于心即可。</li>
+<li>数据库和SQL<br>数据库基本原理了解，SQL语句熟练书写。  </li>
+</ol>
+<h1 id="项目工具"><a href="#项目工具" class="headerlink" title="项目工具"></a>项目工具</h1><ol>
+<li>Linux系统基本命令会使用， Linux系统上常用的服务会部署  </li>
+<li>代码管理SVN或 Git 二选一，持续练习，熟练使用  </li>
+<li>基于 Maven或Gradle的Java项目管理二选一，熟练使用  </li>
+</ol>
+<h1 id="应用框架"><a href="#应用框架" class="headerlink" title="应用框架"></a>应用框架</h1><ol>
+<li>Spring全家桶<br>了解Spring、Mybatis等框架的基本原理 Spring Boot框架会熟练使用、掌握基本原理 SSM组合框架会上手搭建项目、开发业务、掌握基本原理  </li>
+<li>中间件技术<br><strong>消息队列</strong>，主流的如 RabbitMQ Kafka等<br><strong>RPC通信</strong> 框架，主流的如  gRPC Thrift Dubbo 等<br><strong>NoSQL数据库</strong> ：主流的如  Redis memcached ElasticSearch 等<br><strong>NIO网络通信</strong> 框架，主流的如  Netty 等<br>这些成熟的中间件框架在企业级产品里应用得广泛而深远，建议先是要会 熟练使用 ，要是能了解 底层原理 实现那就更加分了！</li>
+<li>分布式微服务 当下微服务盛行，是个公司都说自己在搞微服务，所以诸如  Spring Cloud 这样的微服务框架怎么能不学，要求也是先会使用，再尝试搞懂原理 </li>
+<li>虚拟化/容器化 虚拟化、容器化平台是未来发展的大趋势，很多规模化企业都在搭建各SaaS/PaaS/IaaS平台，在此过程中诞生的一系列关于该方面的技术在学有余力的情况下最好也涉猎一下，典型的比如：  Docker 容器、  kubernetes编排技术。  </li>
+</ol>
+<h1 id="源码-性能"><a href="#源码-性能" class="headerlink" title="源码/性能"></a>源码/性能</h1><p>在如今这个流量极其密集的互联网时代，关注到 源码和性能 层面的程序员才是顶级好码农，所以：   </p>
+<ul>
+<li>关注JDK源码和设计思想  </li>
+<li>关注Java并发编程原理和实践  </li>
+<li>关注JVM细节原理与调优  </li>
+<li>关注上述应用框架的核心思想和内部源码  </li>
+<li>关注数据库深度优化  </li>
+<li>等等…  </li>
+</ul>
+<p>Java学习知识树【来源：<a href="https://www.nowcoder.com/tutorial/94/74ef45a524ad445399276e54c59d1eab" target="_blank" rel="noopener">牛客网Java面经</a>】<br><img src="https://i.loli.net/2020/04/17/opkLaPKzdxnwcT2.png" alt="Java学习知识树.png"></p>
+]]></content>
+      <tags>
+        <tag>所思所想</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java注解入门</title>
+    <url>/2020/04/21/Java%E6%B3%A8%E8%A7%A3%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>摘记学习慕课网中初级课——<a href="https://www.imooc.com/video/8865/0" target="_blank" rel="noopener">《全面解析Java注解》</a>中的知识点。  </p>
+<a id="more"></a>
+<ol>
+<li><p>注解的概念：Java提供了一种原程序中的元素关联任何信息和任何元数据的途径和方法。  </p>
+</li>
+<li><p>JDK自带注解：<br><code>@Override</code>  表示重写<br><code>@Deprecated</code>  表示方法过时<br><code>@Suppvisewarnings</code>  表示忽略某种注释，如忽略方法过时，则写法为<code>@Suppvisewarnings(&quot;deprecation&quot;)</code>  </p>
+</li>
+<li><p>注解的分类：  </p>
+<ul>
+<li>按照运行机制分：  <ul>
+<li>源码注解：注解只在源码中存在，编译成.class文件就不存在了。  </li>
+<li>编译时注解：注解在源码和.class文件中都存在。如：<code>@Override</code>等jdk自带的注解。  </li>
+<li>运行时注解：在运行阶段还会起作用，甚至会影响运行逻辑的注解。如spring中表示自动注入的<code>@Autowired</code>。  </li>
+</ul>
+</li>
+<li>按照来源分：  <ul>
+<li>来自JDK的注解  </li>
+<li>来自第三方的注解  </li>
+<li>我们自己定义的注解  </li>
+</ul>
+</li>
+</ul>
+</li>
+<li></li>
+</ol>
+<p>……看至4-1，以后继续更新本文。（2020-4-22）</p>
+]]></content>
+      <tags>
+        <tag>学习笔记·Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java反射</title>
+    <url>/2020/04/22/Java%E5%8F%8D%E5%B0%84/</url>
+    <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>本文摘记自慕课网付费教程《剑指Java面试-Offer直通车》6-4  </p>
+<a id="more"></a>
+<ol>
+<li><p>谈谈反射<br>Java反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意方法和属性；这种动态获取信息以及动态调用对像方法的功能称为Java语言的反射机制。  </p>
+</li>
+<li><p>对象<br><code>Method</code>对象用来装类中的方法，<code>Field</code>用来装类中的属性。</p>
+</li>
+<li><p>常用的Java反射函数  </p>
+<ul>
+<li><code>GetDeclaredMethod()</code>方法：<br>可以获得所有访问类型的方法，但是不能获得继承的和实现接口的方法。若获取的方法为私有方法，则需要将返回的对象调用<code>setAccessible()</code>方法，将<code>true</code>作为参数传入才不会报错。形如：<code>getHello.setAccessible(true)</code>  </li>
+<li><code>getMethod()</code>方法：<br>只能调用public方法，但是可以调用对象的继承和实现的接口的方法。若获取的方法为私有方法，则需要将返回的对象调用setAccessible()方法，将true作为参数传入才不会报错。形如：getHello.setAccessible(true)    </li>
+<li><code>invoke(Object,Object)</code>方法：<br>通过让<code>Method</code>对象调用<code>invoke()</code>方法来传参调用方法，其中<code>invoke()</code>方法的第一个参数为含有此方法的对象的实例化，第二个参数为方法要传入的参数。  </li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>学习笔记·Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java设计模式</title>
+    <url>/2020/04/22/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Java语法基础中的特别之处</title>
+    <url>/2020/04/12/Java%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B8%AD%E7%9A%84%E7%89%B9%E5%88%AB%E4%B9%8B%E5%A4%84/</url>
+    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>这是一篇对Java基础语法学习中，遇到的异难的地方进行的总结。</p>
+<a id="more"></a>
+<ul>
+<li>变量定义时，“”标识string类型，‘’标识char类型</li>
+</ul>
+<ul>
+<li>Java命名规范<ul>
+<li>项目名全部小写.</li>
+<li>包名全部小写.</li>
+<li>类名首字母大写,其余组成词首字母依次大写（单词首字母大写）.</li>
+<li>变量名,方法名首字母小写,如果名称由多个单词组成,除首字母外的每个单词的首字母都要大写（驼峰式命名规则）.</li>
+<li>常量名全部大写，每个单词用‘_’隔开.</li>
+<li>所有命名规则必须遵循以下规则 :<br>  名称只能由字母、数字、下划线、$符号组成.<br>  不能以数字开头.<br>  名称不能使用Java中的关键字.  </li>
+<li><a href="https://baijiahao.baidu.com/s?id=1654685815662722805&wfr=spider&for=pc" target="_blank" rel="noopener">其余具体命名细节</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>使用文档注释（文档注释以/<em>*开始，以</em>/结尾）时还可以使用 javadoc 标记，生成更详细的文档信息：</p>
+<pre><code>@author 标明开发该类模块的作者
+
+@version 标明该类模块的版本
+
+@see 参考转向，也就是相关主题
+
+@param 对方法中某参数的说明
+
+@return 对方法返回值的说明
+
+@exception 对方法可能抛出的异常进行说明</code></pre></li>
+</ul>
+<ul>
+<li>算数运算符++，在变量右边，则先赋值再自增，在变量左边，则先自增再赋值。–的规律以此类推。</li>
+</ul>
+<ul>
+<li>\uff1b  Java中出现中文字符，仔细检查。</li>
+</ul>
+<ul>
+<li>foreach方法遍历数组的写法for(元素类型 元素变量:遍历数组){}，如：<br>for ( int score:scores ) {<br>  System.out.println(score);<br>}</li>
+</ul>
+<ul>
+<li>算数运算时，double类型运算时，后面如果全为int类型，则运算结果会产生误差，需要使其后面的值中有一个为小数才可，如：<br>double avg=(i+j)/2.0;</li>
+</ul>
+<ul>
+<li>Java成员变量的默认值为0，局部变量没有默认值。</li>
+</ul>
+<ul>
+<li>Java中的包名命名规范为全小写字母</li>
+</ul>
+<ul>
+<li>Java中的访问修饰符总结<br><img src="https://i.loli.net/2020/04/12/LnbQKCzvVaXJpo1.png" alt="Java中的访问修饰符.png"></li>
+</ul>
+<ul>
+<li>如果对象属性和参数同名时，必须加this，否则相反。</li>
+</ul>
+<ul>
+<li>如果外部类和内部类具有相同的成员变量或方法，内部类默认访问自己的成员变量或方法，如果要访问外部类的成员变量，可以使用 this 关键字。方法如下：<br><img src="https://i.loli.net/2020/04/13/sIp1NoSV9MkRQtK.jpg" alt="内部类中用this调用外部类成员变量.jpg"></li>
+</ul>
+<ul>
+<li>Java中的继承是单继承（接口可以继承自多个父接口）的，子类不能访问父类中的private修饰符修饰的成员</li>
+</ul>
+<ul>
+<li>继承的初始化顺序：初始化父类再初始子类、先执行初始化对象中属性，再执行构造方法中的初始化</li>
+</ul>
+<ul>
+<li>final关键字修饰的变量（即常量）的赋值必须在变量声明时，或者在构造函数中。</li>
+</ul>
+<ul>
+<li>Super关键字：在对象的内部使用，可以代表父类对象</li>
+</ul>
+<ul>
+<li>接口定义：常量：接口中的属性（方法）是常量（抽象方法），即使定义时不添加[public] [static] [final]（[public] [abstract]）修饰符，系统也会自动加上；<br>注：接口的定义：    <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[修饰符] interface 接口名 [extends 父接口名列表]&#123;</span><br><span class="line">[public] [static] [final] 常量;</span><br><span class="line">[public] [abstract] 方法;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<ul>
+<li>抽象类和接口的区别：  <ul>
+<li>抽象类要被子类继承，接口要被类实现。</li>
+<li>接口只能做方法声明，抽象类中可以作方法声明，也可以做方法实现。</li>
+<li>接口里定义的变量只能是公共的静态的常量，抽象类中的变量是普通变量。</li>
+<li>接口是设计的结果，抽象类是重构的结果。</li>
+<li>抽象类和接口都是用来抽象具体对象的，但是接口的抽象级别最高。</li>
+<li>抽象类可以有具体的方法和属性，接口只能有抽象方法和不可变常量。</li>
+<li>抽象类主要用来抽象类别，接口主要用来抽象功能。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><blockquote>
+<p>Java异常处理try…catch执行完之后，还会继续执行之后的代码语句  </p>
+</blockquote>
+<ul>
+<li>finally语句在return语句执行之后return返回之前执行的。  </li>
+<li>finally块中的return语句会覆盖try块中的return返回。 </li>
+<li>try块里的return语句在异常的情况下不会被执行。   <blockquote>
+<p>总结：finally块的语句在try或catch中的return语句执行之后返回之前执行且finally里的修改语句可能影响也可能不影响try或catch中 return已经确定的返回值，若finally里也有return语句则覆盖try或catch中的return语句直接返回。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><ul>
+<li>泛型集合可以添加泛型指定类型的子类型的对象实例，即，泛型集合中不能添加泛型规定的类型及其子类型以外的对象，否则会报错。</li>
+<li>泛型集合中的限定类型不能使用基本数据类型。可以通过使用对应的包装类限定允许存入的基本数据类型如<code>int</code>类型使用<code>Integer</code>。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Collection.sort()方法对String类型进行排序时，按照数字0-9、大写字母A-Z、小写字母a-z的顺序来排序，即，数字最前，小写字母z最后</li>
+</ul>
+<ul>
+<li>Java集合框架结构（内容）<br><img src="https://i.loli.net/2020/04/13/Btxp8oGRg3FHsI4.png" alt="Java集合框架内容.png"></li>
+</ul>
+<ul>
+<li>容器：里面装有很多相同属性的对象。</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>学习笔记·Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown的学习总结和巩固</title>
+    <url>/2020/02/18/Markdown%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E5%92%8C%E5%B7%A9%E5%9B%BA/</url>
+    <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>对markdown的个人认识：是一种语法格式，用这种语法写出的文件以.md后缀结尾。通过特定的环境的浏览，可以快速的识别并形成漂亮的格式，效率和美观都可以保证。（此hexo博客文章采用markdown格式书写。）（注：语法符号若没有实现效果时，往往在前后用空格将文字和符号隔开可以恢复效果）（本篇暂时收录平时会用到的格式方式，语法学习来自——<a href="https://www.runoob.com/markdown/md-tutorial.html" target="_blank" rel="noopener">菜鸟教程</a>）</p>
+<a id="more"></a>
+<h1 id="标题的写法"><a href="#标题的写法" class="headerlink" title="标题的写法"></a>标题的写法</h1><ul>
+<li><p>一、二级标题写法可以为</p>
+<ul>
+<li><code>一级标题</code><br><code>===========（一个即可）</code><br><code>二级标题</code><br><code>------------（一个即可）</code><br>显示效果为：<blockquote>
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题  "></a>一级标题  </h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2></blockquote>
+</li>
+<li>或<br><code># 一级标题</code><br><code>## 二级标题</code><br>显示效果为：<blockquote>
+<h1 id="一级标题-1"><a href="#一级标题-1" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题-1"><a href="#二级标题-1" class="headerlink" title="二级标题"></a>二级标题</h2></blockquote>
+</li>
+</ul>
+</li>
+<li><p>随后的标题级别只能用 <code>#</code>来标识，几个 <code>#</code>代表是几级标题（最多六个 <code>#</code>）</p>
+</li>
+</ul>
+<h1 id="段落和换行"><a href="#段落和换行" class="headerlink" title="段落和换行"></a>段落和换行</h1><ul>
+<li>行末或段末可以使用两个空格加上回车来实现换行</li>
+<li>在空行直接回车可以实现空一行，且只有第一个回车有效<br>（注：行内文字间空格只有第一个有效，要实现多个空格，可以使用HTML标记中的空格标记如 <code>&amp;nbsp</code>）</li>
+</ul>
+<h1 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h1><ul>
+<li>字体可实现斜体和粗体<ul>
+<li>斜体的写法有两种：<code>*斜体*</code> 或者 <code>_斜体_</code></li>
+<li>粗体的写法有两种：<code>**粗体**</code> 或者 <code>__粗体__</code></li>
+</ul>
+</li>
+<li>斜体可加粗，写法为： <code>***加粗斜体***</code> 或者 <code>___加粗斜体___</code>  </li>
+</ul>
+<h1 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h1><ul>
+<li>当行内只有三个以上的 <code>*</code> 、<code>_</code> 或者 <code>-</code> 时（可以有空格），可以实现分隔线效果，写法如下：<br><code>---</code><br><code>***</code><br><code>- - -</code><br><code>* * *</code><br><code>___</code><br>效果为：<blockquote>
+<p>分隔线</p>
+<hr>
+<p>分隔线</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h1><ul>
+<li>文字上添加删除线样式的方法是在两端分别加上两个 <code>~</code>，如：<br><code>~~删除线~~</code><br>效果为：<blockquote>
+<p><del>1删除线11111</del></p>
+</blockquote>
+</li>
+</ul>
+<h1 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h1><ul>
+<li>下划线用HTML的 <code>&lt;u&gt;</code> 标签来实现，如：<br><code>&lt;u&gt;下划线&lt;/u&gt;</code><br>效果为：  <blockquote>
+<p><u>下划线</u></p>
+</blockquote>
+</li>
+</ul>
+<h1 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h1><ul>
+<li>脚注是对文本的补充说明，写法为：<code>[^要注明的文本]</code><br>效果为：  <blockquote>
+<p>创建脚注格式类似这样[^RUNOOB]。<br>[^RUNOOB]: 菜鸟教程 – 学的不仅是技术，更是梦想！！！</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><ul>
+<li>无序列表使用星号 <code>*</code>、加号 <code>+</code> 或是减号 <code>-</code>作为列表标记，如：<br><code>*无序列表</code><br><code>+无序列表</code><br><code>-无序列表</code><br>效果为：  <blockquote>
+<ul>
+<li>无序列表</li>
+</ul>
+<ul>
+<li>无序列表</li>
+</ul>
+<ul>
+<li>无序列表</li>
+</ul>
+</blockquote>
+</li>
+<li>有序列表使用数字并加上 . 号来表示，如：<br><code>1. 第一项</code><br><code>2. 第二项</code><br><code>3. 第三项</code><br>效果为：<blockquote>
+<ol>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h1 id="列表嵌套"><a href="#列表嵌套" class="headerlink" title="列表嵌套"></a>列表嵌套</h1><ul>
+<li>列表嵌套只需在子列表中的选项添加四个空格（或一个tab）即可，写法如下：    <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 第一项：</span><br><span class="line">    - 第一项嵌套的第一个元素</span><br><span class="line">    - 第一项嵌套的第二个元素</span><br><span class="line">2. 第二项：</span><br><span class="line">    - 第二项嵌套的第一个元素</span><br><span class="line">    - 第二项嵌套的第二个元素</span><br></pre></td></tr></table></figure>
+  效果为：<blockquote>
+<ol>
+<li>第一项：<ul>
+<li>第一项嵌套的第一个元素</li>
+<li>第一项嵌套的第二个元素</li>
+</ul>
+</li>
+<li>第二项：<ul>
+<li>第二项嵌套的第一个元素</li>
+<li>第二项嵌套的第二个元素</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h1 id="区块"><a href="#区块" class="headerlink" title="区块"></a>区块</h1><ul>
+<li>区块引用是在段落开头使用 <code>&gt;</code> 符号 ，然后后面紧跟一个空格符号（不跟，在vscode中也可识别，当前版本为1.42.1），另外区块是可以嵌套的，一个 <code>&gt;</code> 符号是最外层，两个 <code>&gt;</code> 符号是第一层嵌套，以此类推：如： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; 最外层</span><br><span class="line">&gt; &gt; 第一层嵌套</span><br><span class="line">&gt; &gt; &gt; 第二层嵌套</span><br></pre></td></tr></table></figure>
+ 效果为：  <blockquote>
+<p>最外层11</p>
+<blockquote>
+<p>第一层嵌套</p>
+<blockquote>
+<p>第二层嵌套</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<p>另，区块中可以插入列表，列表中可以插入区块（若文字与内层嵌套的区块未空有一行，则认为，此行文字还在区块中）</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><ul>
+<li>如果是段落上的一个函数或片段的代码可以用反引号(`)把它包起来，<br>你也可以用 ``` 包裹一段代码，并指定一种语言（也可以不指定）：  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#96;&#96;&#96;javascript  </span><br><span class="line">$(document).ready(function () &#123;  </span><br><span class="line">    alert(&#39;RUNOOB&#39;);  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">效果如下：  </span><br><span class="line">&#96;&#96;&#96;javascript</span><br><span class="line">$(document).ready(function () &#123;</span><br><span class="line">    alert(&#39;RUNOOB&#39;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><ul>
+<li><p>链接使用方法如下<br><code>[链接名称](链接地址)</code><br>（此方法类似HTML中的a标签，不显示具体的链接地址）<br>或者<br><code>&lt;链接地址&gt;</code><br>（此方法直接显示可跳转的链接的内容）</p>
+</li>
+<li><p>高级链接<br>链接也可以用变量来代替，文档末尾附带变量地址，如：</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">这个链接用 1 作为网址变量 [Google][1]</span><br><span class="line">这个链接用 runoob 作为网址变量 [Runoob][runoob]</span><br><span class="line">然后在文档的结尾为变量赋值（网址）</span><br><span class="line"></span><br><span class="line">[1]: http:&#x2F;&#x2F;www.google.com&#x2F;</span><br><span class="line">[runoob]: http:&#x2F;&#x2F;www.runoob.com&#x2F;</span><br></pre></td></tr></table></figure>
+<p>  效果为：<br>  这个链接用 1 作为网址变量 [Google][1]<br>  这个链接用 runoob 作为网址变量 [Runoob][runoob]<br>  然后在文档的结尾为变量赋值（网址）</p>
+<p>  [1]: <a href="http://www.google.com/" target="_blank" rel="noopener">http://www.google.com/</a><br>  [runoob]: <a href="http://www.runoob.com/" target="_blank" rel="noopener">http://www.runoob.com/</a></p>
+</li>
+</ul>
+<h1 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h1><ul>
+<li>Markdown 图片语法格式如下：  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![alt 属性文本](图片地址)</span><br><span class="line">或</span><br><span class="line">![alt 属性文本](图片地址 &quot;可选标题&quot;)</span><br></pre></td></tr></table></figure>
+  开头一个感叹号 <code>!</code>，接着一个方括号，里面放上图片的替代文字，接着一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上选择性的，’title’ 属性的文字（当鼠标移动到图片上时，会显示的文字为title中的值）。<br>  写法如：<br>  <code>![示例图片](https://i.loli.net/2020/02/12/yOigcUF4CS1MN8v.jpg &quot;示例图片&quot;)</code><br>  <img src="https://i.loli.net/2020/02/12/yOigcUF4CS1MN8v.jpg" alt="示例图片" title="示例图片"><br>  当然，你也可以像网址那样对图片网址使用变量（这里不会直接显示图片，当点击链接之后，会在新的页面中显示出来）。<br>  Markdown 还没有办法指定图片的高度与宽度，如果你需要的话，你可以使用普通的 <code>&lt;img&gt;</code> 标签。  </li>
+</ul>
+<h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h1><ul>
+<li><p>Markdown 制作表格使用 <code>|</code> 来分隔不同的单元格，使用 <code>-</code> 来分隔表头和其他行。</p>
+<p>  语法格式如下：</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">|  表头   | 表头  |</span><br><span class="line">|  ----  | ----  |</span><br><span class="line">| 单元格  | 单元格 |</span><br><span class="line">| 单元格  | 单元格 |</span><br></pre></td></tr></table></figure>
+<p>  效果为：</p>
+<table>
+<thead>
+<tr>
+<th>表头</th>
+<th>表头</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+<tr>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>对齐方式</p>
+<p>我们可以设置表格的对齐方式：</p>
+<p><code>-:</code> 设置内容和标题栏居右对齐。<br><code>:-</code> 设置内容和标题栏居左对齐。<br><code>:-:</code> 设置内容和标题栏居中对齐。<br>实例如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">| 左对齐 | 右对齐 | 居中对齐 |</span><br><span class="line">| :-----| ----: | :----: |</span><br><span class="line">| 单元格 | 单元格 | 单元格 |</span><br><span class="line">| 单元格 | 单元格 | 单元格 |</span><br></pre></td></tr></table></figure>
+<p>效果为：  </p>
+<table>
+<thead>
+<tr>
+<th align="left">左对齐左对齐</th>
+<th align="right">右对齐右对齐</th>
+<th align="center">居中对齐居中对齐</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">单元格</td>
+<td align="right">单元格</td>
+<td align="center">单元格</td>
+</tr>
+<tr>
+<td align="left">单元格</td>
+<td align="right">单元格</td>
+<td align="center">单元格</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="转义"><a href="#转义" class="headerlink" title="转义"></a>转义</h1><ul>
+<li>Markdown 使用了很多特殊符号来表示特定的意义，如果需要显示特定的符号则需要使用转义字符，Markdown 使用反斜杠转义特殊字符。<br>  示例为：  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">**文本加粗** </span><br><span class="line">\*\* 正常显示星号 \*\*</span><br></pre></td></tr></table></figure>
+  显示效果为：<br>  <strong>文本加粗</strong><br>  ** 正常显示星号 **</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>学习笔记·Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2019/12/31/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<a id="more"></a>
+
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<hr>
+<p>藏起来的TODOList:  </p>
+<ol>
+<li>明清史等历史的了解（起因：金庸小说）  </li>
+<li>贝爷绳结种类的剪辑制作（起因：怎样将两节绳子不松脱的绑在一起）  </li>
+<li>金融知识的简单学习（起因：眉山剑客陈平）  </li>
+<li>自驾游（起因：航拍中国·福建）</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>new a blog article</title>
+    <url>/2020/02/12/new-a-blog-article/</url>
+    <content><![CDATA[<ol>
+<li><p>创建一个文章的md文件<br><code>hexo new &quot;XXX&quot;</code><br>格式如上，XXX部分为文章的名字</p>
+<a id="more"></a></li>
+<li><p>自定义文章的标签<br>在md文件中的头部，tags中写入标签的类型</p>
+</li>
+<li><p>运用markdown格式书写内容<br>markdown格式的学习会在之后的文章中详细的写出。</p>
+</li>
+<li><p>编译运行网站<br>运行hexo的命令为<br><code>hexo s</code> 或 <code>hexo server</code></p>
+</li>
+<li><p>部署到远端<br>如果已经在GitHub搭建了博客主页，要部署到远端，则需要一下几步（用GitHub搭建博客的方法，在之后的文章中详细的描述）：  </p>
+<ul>
+<li><code>hexo clean</code> (执行此步骤，直到hexo目录下的public文件夹删除)</li>
+<li><code>hexo g</code> 或 <code>hexo generate</code> (执行此步，重新编译网站文件)</li>
+<li><code>hexo s</code> 或 <code>hexo server</code> (执行此步，在本地预览，无问题的话，执行下一步，部署到远端)</li>
+<li><code>hexo d</code> 或 <code>hexo deploy</code> (执行此步，将网站public文件夹中新的文件部署到远端，过程结束)</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>学习笔记·hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于博客网站</title>
+    <url>/2020/02/18/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/</url>
+    <content><![CDATA[<h1 id="关于这篇博客"><a href="#关于这篇博客" class="headerlink" title="关于这篇博客"></a>关于这篇博客</h1><h2 id="博客的主要内容"><a href="#博客的主要内容" class="headerlink" title="博客的主要内容"></a>博客的主要内容</h2><a id="more"></a>
+<ul>
+<li>学习笔记<ul>
+<li>平时学习到的技术知识的总结</li>
+<li>学校课程的笔记</li>
+</ul>
+</li>
+<li>所思所想<ul>
+<li>对学习路线的梳理</li>
+<li>对博客相关的整理</li>
+<li>对一些平时所见结合知识点发表的见解</li>
+</ul>
+</li>
+<li>（待增加……）</li>
+</ul>
+<h2 id="博客的目的"><a href="#博客的目的" class="headerlink" title="博客的目的"></a>博客的目的</h2><ul>
+<li>为了能够在遇到相同问题时，快速的找到相应的解决办法，并加深印象</li>
+<li>为了能够使自己对自己的技术能力、技术学习周期和时限有一个更直观的认识</li>
+<li>(待完善……)</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>所思所想</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初识Redis</title>
+    <url>/2020/04/20/%E5%88%9D%E8%AF%86Redis/</url>
+    <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>2020年四月末，在教程视频中，第一次简单了解了Redis，在此记录其间的部分知识点  </p>
+<a id="more"></a>  
+<ol>
+<li><p>说说你用过的Redis的数据类型<br>供用户使用的数据类型  </p>
+<ul>
+<li><p>String：最基本的数据类型，二进制安全  </p>
+</li>
+<li><p>Hash：String元素组成的字典，适合用于存储对象  </p>
+</li>
+<li><p>List：列表，按照String元素插入顺序排序  </p>
+</li>
+<li><p>Set：String元素组成的无序集合，通过哈希表实现，不允许重复  </p>
+</li>
+<li><p>Sorted Set：通过分数来为集合中的成员进行从小到大的排序</p>
+</li>
+<li><p>用于计数的HyperLogLog，用于支持存储地理位置信息的Geo </p>
+<p>（记前五个）  </p>
+</li>
+</ul>
+</li>
+<li><p>如何解决SETNX长期有效的问题<br>EXPIRE key seconds<br>设置key的生存时间，当key过期时（即生存时间为0），会被自动删除  </p>
+</li>
+<li><p>如何通过Redis实现分布式锁<br>SET key value [EX seconds] [PX milliseconds] [NX|XX]  </p>
+<ul>
+<li>EX second：设置键的过期时间为second秒  </li>
+<li>PX millisecond：设置键的过期时间为millisecond毫秒  </li>
+<li>NX：只在键不存在时，才对键进行设置操作  </li>
+<li>XX：只在键已经存在时，才对键进行设置操作  </li>
+<li>SET操作完成时，返回OK，否则返回nil  </li>
+</ul>
+</li>
+<li><p>大量的key同时过期的注意事项<br>集中过期，由于清除大量的key很耗时，会出现短暂的卡顿现象<br>解决方案：在设置key的过期时间的时候，给每个key加上随机值  </p>
+</li>
+<li><p>pub/sub的缺点<br>消息的发布是无状态的，无法保证可达。  </p>
+</li>
+<li><p>自动化触发RDB持久化的方式  </p>
+<ul>
+<li>根据redis.conf配置里的SAVE m n 定时触发（用的是BGSAVE）  </li>
+<li>主从复制时，主节点自动触发  </li>
+<li>执行Debug Reload  </li>
+<li>执行Shutdown且没有开启AOF持久化  </li>
+</ul>
+</li>
+<li></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>学习笔记·Redis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>操作系统相关知识点的回顾和学习</title>
+    <url>/2020/04/17/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9%E7%9A%84%E5%9B%9E%E9%A1%BE%E5%92%8C%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>学习笔记·操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据库相关的学习及回顾</title>
+    <url>/2020/04/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%8F%8A%E5%9B%9E%E9%A1%BE/</url>
+    <content><![CDATA[<hr>
+<p>title: Mysql数据库相关的学习及回顾<br>date: 2020-04-09 20:58:19<br>tags: 学习笔记·Mysql</p>
+<hr>
+<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>对大学课程《数据库原理与应用MySQL》的综合实验的回顾与总结，以及后续数据库学习中的知识点的摘记。  </p>
+<a id="more"></a>
+
+<h2 id="数据库设计的流程"><a href="#数据库设计的流程" class="headerlink" title="数据库设计的流程"></a>数据库设计的流程</h2><ol>
+<li><p>需求分析<br>包括：  </p>
+<ul>
+<li>信息要求  </li>
+<li>处理要求 </li>
+<li>系统要求<ul>
+<li>安全性要求</li>
+<li>使用方式要求</li>
+<li>可扩充性要求</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>概念结构设计<br>将需求分析得到的用户需求抽象为信息结构（即概念模型）的过程。（这一步中可做出E-R图）<br>E-R图：方形表示实体，椭圆形表示实体的属性，实体间的菱形表示实体间的联系（联系有1-1[一对一]，1-m[一对多]，m-n[多对多]三种形式）。  </p>
+</li>
+<li><p>逻辑结构设计<br>将E-R图拆分为数据库的表（实体和联系都对应一张表）。<br>拆分出表之后，调整为第三范式。<br>同时也可以对视图进行设计。  </p>
+</li>
+<li><p>物理设计<br>分析数据库中已有的索引，考虑需要增加索引的字段有哪些。  </p>
+</li>
+<li><p>数据库的实现<br>创建库、表、用户、触发器和存储过程等。</p>
+</li>
+</ol>
+<h2 id="数据库常用技术"><a href="#数据库常用技术" class="headerlink" title="数据库常用技术"></a>数据库常用技术</h2><ol>
+<li><p>[LEFT]JOIN …… on [条件]</p>
+</li>
+<li><p>GROUP BY  </p>
+</li>
+<li><p>事务的四大特性：ACID  </p>
+<ul>
+<li>原子性（Atomic）</li>
+<li>一致性（Consistency）</li>
+<li>隔离性（Isolation）</li>
+<li>持久性（Durability）</li>
+</ul>
+</li>
+<li><p>事务的隔离级别  </p>
+<ul>
+<li>Read uncommitted</li>
+<li>Read Committed  </li>
+<li>Repeatable Reads</li>
+<li>Serializable  </li>
+</ul>
+</li>
+<li><p>乐观锁<br>不是真正在数据库中添加锁（真正添加的锁为悲观锁）。是在数据查询时，添加另一个数据为参考，看数据是否发生了变化，如果发生了变化，则表示发生了冲突，则可做出相应的处理。 </p>
+</li>
+<li><p>密集索引和稀疏索引的区别<br>密集索引将索引和叶子节点的信息（整行数据）保存在一个文件中，按照索引的B+树找到叶子节点时，即可获得整行数据。稀疏索引则将内容和索引分开在两个文件中，在索引文件中（稀疏索引的B+树）找到叶子节点中的节点信息（主键信息）后，在另一个主键B+树中查找对应的叶子节点中存放的数据库内容。<br>密集索引以空间为代价，可以提高存取效率；稀疏索引则所占空间较小。<br>网上说法不一：<del>聚簇索引是稀疏索引，数据页上一级索引存储是页指针，非行指针。非聚簇索引是密集索引，在数据页的上一级索引页它为每一个数据行存储一条记录</del>   </p>
+</li>
+<li><p>定位并优化慢查询Sql:  </p>
+<ul>
+<li>根据慢日志定位慢查询sql</li>
+<li>使用explain等工具分析sql<br>（里面会显示type和extra字段值，其中type显示index和all时常常需要调优，而extra字段中显示Using filesort时表示，MySQL没能使用索引完成操作，排序可能在内存和磁盘上进行；Using temporary则表示，使用了临时表，常见于排序order by和group by）  </li>
+<li>修改sql或者尽量让sql走索引（让SQL走索引的方法见 8.最左匹配原则）  </li>
+</ul>
+</li>
+<li><p>最左匹配原则<br>MySQL会一直向右匹配直到遇到范围查询（&gt;,&lt;,between,like）就停止匹配，比如a=3 and b=4 and c&gt;5 and d=6。以这样的条件进行查询时，联合索引只能结合a,b,c，到c处就停止了。因此，若c写在了最前面，则执行查询时，只能用到c的索引来排序。又，若，c字段没有建立索引，则会使查询无索引可用，从而导致速度下降。因此，这种情况下，要尽量让c出现在后面。（注：其它=的字段或in可以随意安排前后顺序，MySQL的查询优化器会帮你优化成索引可以识别的形式。）  </p>
+</li>
+<li><p>MyISAM与InnoDB关于锁方面的区别<br>MyISAM默认用的是表级锁，不支持行级锁。<br>InnoDB默认用的是行级锁，也支持表级锁。<br>（只有读锁（共享锁）之间是兼容的，写锁（排它锁）和读锁、写锁和写锁之间是冲突不兼容的。）</p>
+</li>
+<li><p>数据库锁的分类  </p>
+<ul>
+<li>按锁的粒度划分，可分为表级锁、行级锁、页级锁</li>
+<li>按锁级别划分，可分为共享锁、排它锁</li>
+<li>按加锁方式划分，可分为自动锁（增删改时自动加的锁）、显式锁（查时，语句中自己加的锁）</li>
+<li>按操作划分，可分为DML锁，DDL锁（DML为数据操作时加的锁，DDL为表结构更改时加的锁）</li>
+<li>按使用方式划分，可分为乐观锁、悲观锁  </li>
+</ul>
+</li>
+<li><p>当前读和快照读<br>当前读表示增加了锁的增删改查语句。快照读则表示未加锁的数据库操作语句返回的结果。  </p>
+</li>
+<li><p>RC、RR级别下的InnoDB的非阻塞读如何实现<br>三个因子</p>
+<ul>
+<li>数据行里的<br>DB_TRX_ID（标识最近一次对本行数据做修改，无论是insert，update，事务的标识符，即最后一次修改本行数据的事务ID，delete在innoDB看来也是一次update操作，更新行中的一个特殊位，将行标识为deleted,也就是说数据行中除了这三列，还有一个被称为deleted的隐藏列）<br>DB_ROLL_PTR（回滚指针，指写入回滚段ROLLBACK SEGMENT的undo日志记录，如果一行记录被更新，则undolockrecalled包含从建该行记录被更新之前内容所必须的信息）<br>DB_ROW_ID（行号，包含一个随着新行插入而单调递增的行ID,当由innoDB自动产生具体索引时，具体索引会包括这个行id的值，否则这个行ID不会出现在任何索引中）字段</li>
+<li>undo日志：当我们对记录做了变更操作时，就会产生undo记录，undo记录中存储的是老版的数据，当一个旧的事务需要读取数据时，为了能读取到老版本的数据，需要顺着undo链找到满足其可见性的记录，undolog主要分为两种insertundolog,updateundolog,其中insertundolog表示事务对insert新记录产生的undolog,只在事务回滚时需要并且在事务提交后就可能会立即丢弃。updateundolog事务对记录进行delete或者update时产生的undolog，不仅在事务回滚时需要，快照读也需要所以不能删除，只有数据库所使用的快照中不涉及该日志记录对应的回滚日志才会被删除</li>
+<li>read view:主要用来做可见性判断的，即当我们做快照读select的时候会针对我们所查询的数据创建出一个read view来决定当前事务能看到的是哪个版本的数据，有可能是当前最新的数据，也有可能只允许你看undolog里面某个版本的数据，遵循可见性算法。主要是将要修改的数据的DB_TRX_ID取出来，与系统其他活跃ID做对比如果大于或者等于这些ID的话，就通过DB_ROLL_PTR指针去取出undolog上一层的DB_TRX_ID直到小于这些活跃事务的ID为止，这样就保证了我们获取的数据版本是是当前最稳定的版本</li>
+</ul>
+<p>每当我们start transaction的时候事务ID都会去递增，也就是说越新开启的事务这个ID就会越大由于生成是时机不同，造成了RC,RR两种事务隔离级别的可见性不同<br>在Repeatable read隔离级别下，session Strat transaction后的第一条快照读会创建一个快照即read view ,将当前活跃的其他事务记录起来，此后再调用快照读的时候还是用的是同一个read view<br>在 read committed级别下，事务中每条 select语句每次调用快照读的时候都会创建新的快照，这就是为什么我们在此隔离级别下能用快照读看到其他事务已提交的对表的增删改了，而在RR下如果首次使用快照读是在别的事务对数据进行增删改提交之前的，此后即便别的事务对数据做了增删改并提交，还是读不到数据变更的原因（首次select的时机很重要）<br>由于以上的三个因子才使得innoDB在RR或者RC级别下支持非阻塞读，而读取数据时的非阻塞就是所谓的MVCC(Multi-Version Concurrency Control多版本控制)，而InnoDB的非阻塞读机制实现的仿制版的MVCC,并没有实现MVCC的核心的多版本共存，undolog中的内容只是串行化的结果，记录了多个事务的过程，不属于多版本共存读不加锁，读写不冲突，在读多写少的应用中读写不冲突是非常重要的，极大的增加了系统的并发性能，快照读并非是幻读现象发生的根本，只是你如果先要提交数据变更的事务，打开read view时不论别的事务的变更是否已提交，在当前事务内再次调用快照读的时候还是读的可见性版本内的数据，有一种掩耳盗铃的意思在里面。而真正防止幻读发生的原因是事务对数据加了next-key锁。  </p>
+</li>
+<li><p>InnoDB可重复读级别下如何避免幻读<br>表象： 快照读（非阻塞读）中的伪MVCC<br>内在： next-key锁（行锁+gap锁）  </p>
+<ul>
+<li>行锁：是对单独行记录上的锁，</li>
+<li>gap锁：Gap是索引树中插入新记录的空隙，而gaplock间隙锁即锁定一个范围但不包括记录本身，gap锁的目的是为了防止事务的两次当前读出现幻读的情况gap在RC隔离级别或者更低的隔离级别下是没有的，这就是RC等隔离级别无法避免幻读的原因，而在RR以及serializable级别下默认都支持gap锁  </li>
+</ul>
+<p>gap锁会用在非唯一索引或者不走索引的当前读中</p>
+</li>
+<li><p>对主键索引或者唯一索引会用Gap锁吗？  </p>
+<ul>
+<li>如果where条件全部命中，则不会用Gap锁，只会加记录锁  </li>
+<li>如果where条件部分命中或者全不命中，则会加Gap锁</li>
+</ul>
+</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>计算机网络相关知识点的回顾和学习</title>
+    <url>/2020/04/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9%E7%9A%84%E5%9B%9E%E9%A1%BE%E5%92%8C%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<ol>
+<li>七层网络模型  <a id="more"></a></li>
+<li>滑动窗口问题  </li>
+<li>TCP/IP协议：  </li>
+</ol>
+]]></content>
+      <tags>
+        <tag>学习笔记·计算机网络</tag>
+      </tags>
+  </entry>
+</search>
