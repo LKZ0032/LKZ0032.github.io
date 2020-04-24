@@ -10,7 +10,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    计算机网络相关知识点的回顾和学习 |  Blessing
+    微信小程序项目的常见面试题 |  Blessing
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -36,7 +36,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-计算机网络相关知识点的回顾和学习" class="article article-type-post" itemscope
+  <article id="post-微信小程序项目的常见面试题" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -44,7 +44,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  计算机网络相关知识点的回顾和学习
+  微信小程序项目的常见面试题
 </h1>
   
 
@@ -53,8 +53,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/04/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9%E7%9A%84%E5%9B%9E%E9%A1%BE%E5%92%8C%E5%AD%A6%E4%B9%A0/" class="article-date">
-  <time datetime="2020-04-17T08:01:19.000Z" itemprop="datePublished">2020-04-17</time>
+      <a href="/2020/04/23/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/" class="article-date">
+  <time datetime="2020-04-23T12:23:39.000Z" itemprop="datePublished">2020-04-23</time>
 </a>
       
       
@@ -64,7 +64,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">16字</span>
+            <span class="post-count">2.3k字</span>
         </span>
     </span>
 
@@ -73,7 +73,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1分钟</span>
+            <span class="post-count">7分钟</span>
         </span>
     </span>
 </div>
@@ -84,6 +84,8 @@
 
     
     
+    <div class="tocbot"></div>
+
 
 
 
@@ -97,10 +99,55 @@
       
 
       
-      <ol>
-<li>七层网络模型  <a id="more"></a></li>
-<li>滑动窗口问题  </li>
-<li>TCP/IP协议：  </li>
+      <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>慕课网付费教程中的微信小程序相关面试题及其解答的摘记。  </p>
+<a id="more"></a>
+<ol>
+<li><p>你能讲一下小程序的MVVM架构吗？<br>答：此架构是将页面抽象为三个层次，及view层，model层和view model层。view层保存的是页面的内容，对应的是小程序中的wxml文件，wxss文件。model层和view model层的代码则保存在js文件中，model层用来缓存数据和处理业务的，比如用户在页面上填写的注册信息，先要缓存到model层中，用户点击按钮之后，触发回调函数，回调函数也定义在model层中，点击之后就由AJAX将数据传给后端。view model层则是在其中传送数据和事件的，如果不是MVVM架构，则用户要将数据输出到页面，需要先通过选择器查找控件，再修改控件的内容才可，MVVM架构则只需要在view层定义变量，然后在页面中用表达式写出变量的名字，view model层的数据就会将model层的数据搬运到页面上。同样的，页面上的数据也会交由view model层传送到model层。  </p>
+</li>
+<li><p>onLoad、onReady、onShow这些函数有什么区别？<br>答：onLoad函数为小程序页面第一次加载时会触发的回调函数；onReady函数是页面渲染完毕时触发的回调函数，只有在第一次时才触发；onShow函数是页面渲染显示的时候的回调函数，可调用多次。  </p>
+</li>
+<li><p>小程序的sitemap.json文件是用来干什么的？<br>答：用来设置小程序的seo信息，设置好seo信息可使得用户使用关键词搜索来搜索到小程序页面的信息。提升了搜索效率和优质小程序的曝光可能。文件中有rules属性，来设置哪些页面可以被索引，也可以通过通配符规定，有哪些参数的页面才可以被索引。  </p>
+</li>
+<li><p>在小程序中如何阻止事件的冒泡传播？<br>答：在绑定事件时使用catch属性即可阻止事件的冒泡传播。如catchtap点击事件不会传到上一层，bindtap属性则会一层层向上触发。  </p>
+</li>
+<li><p>小程序发通知给用户，可以有哪些渠道？  </p>
+<ul>
+<li>短信通知方案，成本高，需要用户绑定手机  </li>
+<li>模板消息，内容死板，需要用户触发操作，不能主动推送  </li>
+<li>消息订阅，内容灵活，最多发送3条消息，不能主动推送  </li>
+<li>消息模块（内置，自己写的），无限制消息推送，必须开启小程序  </li>
+</ul>
+</li>
+<li><p>怎么提升小程序的启动速度？<br>答：最直接的办法是压缩资源文件的体积。图片、音频等放在服务器端在小程序端引用即可。再是开启游客模式，即，用户没有登录就可看到小程序的内容，这样做可以让小程序在第一次启动时不用用户登录这部分代码的响应时间。精简小程序的第三方依赖，只有用到的UI组件才放到工程文件里面。还有就是给图片添加懒加载功能。将页面数据缓存起来可以减少页面重复加载所需的时间，同时，缓存还可以让页面预渲染，之后再请求服务器数据，更新页面，从而缩短响应时间。最后是分包加载技术，加载时最先加载主包的页面，从而提高小程序的启动速度。   </p>
+</li>
+<li><p>在小程序中怎么实现客服功能？<br>答：添加一个按钮，属性open-type值为contact，然后在小程序开放平台上添加客服的微信号码即可。之后当用户点击客服会话按钮之后，就会自动进入客服会话界面。  </p>
+</li>
+<li><p>navigateTo、redirectTo和switchTab有什么区别？<br>答：navigateTo跳转到其它页面时，当前页面只是隐藏起来，并不会销毁，当点击后退按钮时，就可回到原来的页面。redirectTo会销毁页面，无法返回，如登录页面发生的跳转时。switchTab用来跳转到tabBar页面，其它两个不能跳转到tabBar页面。  </p>
+</li>
+<li><p>小程序页面之间怎么传递参数？<br>答：第一种是在页面跳转的路径上带上参数，但是switchTab跳转到tabBar页面时不能带参数。再有就是在缓存和全局变量里添加想要传递的参数，这样在tabBar页面也可以获取到参数值。  </p>
+</li>
+<li><p>怎么能把小程序分享给好友？<br>答：小程序的每个页面都有分享按钮，另外也可在页面中自定义分享按钮，按钮的open-type属性设为share，然后在回调函数中写上小程序的页面和参数就可实现跳转到特定页面和内容了。  </p>
+</li>
+<li><p>怎么才能把小程序分享到朋友圈？<br>答：首先在页面中创建一个画布控件，然后用js代码生成画布的内容，可以包括图片和文字，然后把小程序的二维码也绘制到画布上。接下来将画布控件转换为图片，用户可以将图片在相册保存为零时文件。用户将图片分享到朋友圈，朋友扫码即可。  </p>
+</li>
+<li><p>怎么封装全局URL地址？<br>答：我们可以创建一个js文件，然后在文件里声明一个全局变量，定义好URL路径，接下来用model.exports导出这些内容。最后用app.js文件中用require函数导入这个js文件即可。  </p>
+</li>
+<li><p>小程序怎么突破2M体积的限制？<br>答：我们可以使用分包加载，每一个分包代表一个模块，每个分包不超过2M，小程序总体积不超过8M。  </p>
+</li>
+<li><p>怎么实现小程序的内容审查？<br>答：用户在提交文字和图片数据的时候，后端必须对这些内容做审查。小程序提供了内容审查的接口，详见<a href="https://developers.weixin.qq.com/miniprogram/dev/api-backend/open-api/sec-check/security.msgSecCheck.html" target="_blank" rel="noopener">《微信官方文档》</a>。  </p>
+</li>
+<li><p>怎么实现小程序的上拉加载？<br>答：小程序提供了onreachBottom回调函数，当用户上滑触底的时候，这个页面就会运行。这个时候，我们判断这个页面是不是最后一页，如果不是最后一页，则小程序向后端发送请求，获取下一页数据并将数据返回到模型层再渲染到页面上，之后将当前页数加一。  </p>
+</li>
+<li><p>小程序中的图片懒加载怎么实现？<br>答：在图片标签上加上lazeLoad属性即可。小程序会只加载三屏以内的图片，如果用户上滑页面，三屏外的图片进入三屏以内才开始加载。  </p>
+</li>
+<li><p>怎么实现用户微信账号登录小程序？<br>答：在页面上用wx.login函数获取临时授权的字符串和用户的基本信息。小程序将code字符串和这些基本信息发送给后端，后端将code字符串、appId，appSecret发送给微信平台验证用户的临时授权是否有效，若有效，则返回openId字符串。后端查询是否有对应的openId，没有则添加，之后根据记录的ID值向前端返回一个token值，小程序将token值保存在本地，以后需要向后端发送请求时，将token值带给后端来判断已经登录过小程序了。  </p>
+</li>
+<li><p>小程序如何调用其他小程序？<br>答：首先在app.json文件中记录需要调用的小程序的appId,然后在页面上可以用按钮或者超链接的方式打开小程序，若是超链接，则要在超链接上加上open-type属性，值为miniprogram，然后在appId属性中写上appId值，要打开特定页面时，需要加上path属性。若是按钮的话，需要在调用函数navigateToProgram，在其中传入参数——第三方小程序的appId和页面的路径。  </p>
+</li>
+<li><p>小程序提交POST请求，后台为什么接收不到数据？<br>答：我们需要给小程序的POST请求设置上特定的header，值为<code>&quot;content-type&quot;:&quot;application/x-www-form-urlencoded&quot;</code>。  </p>
+</li>
+<li><p>小程序云开发是什么东西？<br>答：小程序云开发就是利用微信平台提供的云空间部署小程序的后端项目。这个后端项目是用js语言构建的，同时还提供了noSql数据库，文件云存储等功能，基本上可以满足简单的业务场景。比如在线猜谜、抽奖等小程序。但是电商类、办公类的小程序就不适合用云开发来做。办公类需要在后端具备工作流引擎，电商类需要许多的子系统，如物流子系统、电商子系统和财务子系统等。</p>
+</li>
 </ol>
 
       
@@ -112,11 +159,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://lkz0032.github.io/2020/04/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9%E7%9A%84%E5%9B%9E%E9%A1%BE%E5%92%8C%E5%AD%A6%E4%B9%A0/" data-id="ck9ecrxw5000gqcvl1xaz572i"
+      <a data-url="https://lkz0032.github.io/2020/04/23/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/" data-id="ck9ecrxwa000iqcvl1ved6ru8"
         class="article-share-link">分享</a>
         
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">学习笔记·计算机网络</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">学习笔记·微信小程序</a></li></ul>
 
     </footer>
 
@@ -126,19 +173,10 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/04/17/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9%E7%9A%84%E5%9B%9E%E9%A1%BE%E5%92%8C%E5%AD%A6%E4%B9%A0/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            操作系统相关知识点的回顾和学习
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/04/12/Java%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B8%AD%E7%9A%84%E7%89%B9%E5%88%AB%E4%B9%8B%E5%A4%84/" class="article-nav-link">
+      <a href="/2020/04/23/ThinkPHP5%E6%A1%86%E6%9E%B6%E5%9B%9E%E9%A1%BE/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Java语法基础中的特别之处</div>
+        <div class="article-nav-title">ThinkPHP5框架回顾</div>
       </a>
     
   </nav>

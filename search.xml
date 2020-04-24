@@ -56,6 +56,34 @@
       </tags>
   </entry>
   <entry>
+    <title>Java设计模式</title>
+    <url>/2020/04/22/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Java反射</title>
+    <url>/2020/04/22/Java%E5%8F%8D%E5%B0%84/</url>
+    <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>本文摘记自慕课网付费教程《剑指Java面试-Offer直通车》6-4  </p>
+<a id="more"></a>
+<ol>
+<li><p>谈谈反射<br>Java反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意方法和属性；这种动态获取信息以及动态调用对像方法的功能称为Java语言的反射机制。  </p>
+</li>
+<li><p>对象<br><code>Method</code>对象用来装类中的方法，<code>Field</code>用来装类中的属性。</p>
+</li>
+<li><p>常用的Java反射函数  </p>
+<ul>
+<li><code>GetDeclaredMethod()</code>方法：<br>可以获得所有访问类型的方法，但是不能获得继承的和实现接口的方法。若获取的方法为私有方法，则需要将返回的对象调用<code>setAccessible()</code>方法，将<code>true</code>作为参数传入才不会报错。形如：<code>getHello.setAccessible(true)</code>  </li>
+<li><code>getMethod()</code>方法：<br>只能调用public方法，但是可以调用对象的继承和实现的接口的方法。若获取的方法为私有方法，则需要将返回的对象调用setAccessible()方法，将true作为参数传入才不会报错。形如：getHello.setAccessible(true)    </li>
+<li><code>invoke(Object,Object)</code>方法：<br>通过让<code>Method</code>对象调用<code>invoke()</code>方法来传参调用方法，其中<code>invoke()</code>方法的第一个参数为含有此方法的对象的实例化，第二个参数为方法要传入的参数。  </li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>学习笔记·Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java注解入门</title>
     <url>/2020/04/21/Java%E6%B3%A8%E8%A7%A3%E5%85%A5%E9%97%A8/</url>
     <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>摘记学习慕课网中初级课——<a href="https://www.imooc.com/video/8865/0" target="_blank" rel="noopener">《全面解析Java注解》</a>中的知识点。  </p>
@@ -84,160 +112,6 @@
 <li></li>
 </ol>
 <p>……看至4-1，以后继续更新本文。（2020-4-22）</p>
-]]></content>
-      <tags>
-        <tag>学习笔记·Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java反射</title>
-    <url>/2020/04/22/Java%E5%8F%8D%E5%B0%84/</url>
-    <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>本文摘记自慕课网付费教程《剑指Java面试-Offer直通车》6-4  </p>
-<a id="more"></a>
-<ol>
-<li><p>谈谈反射<br>Java反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意方法和属性；这种动态获取信息以及动态调用对像方法的功能称为Java语言的反射机制。  </p>
-</li>
-<li><p>对象<br><code>Method</code>对象用来装类中的方法，<code>Field</code>用来装类中的属性。</p>
-</li>
-<li><p>常用的Java反射函数  </p>
-<ul>
-<li><code>GetDeclaredMethod()</code>方法：<br>可以获得所有访问类型的方法，但是不能获得继承的和实现接口的方法。若获取的方法为私有方法，则需要将返回的对象调用<code>setAccessible()</code>方法，将<code>true</code>作为参数传入才不会报错。形如：<code>getHello.setAccessible(true)</code>  </li>
-<li><code>getMethod()</code>方法：<br>只能调用public方法，但是可以调用对象的继承和实现的接口的方法。若获取的方法为私有方法，则需要将返回的对象调用setAccessible()方法，将true作为参数传入才不会报错。形如：getHello.setAccessible(true)    </li>
-<li><code>invoke(Object,Object)</code>方法：<br>通过让<code>Method</code>对象调用<code>invoke()</code>方法来传参调用方法，其中<code>invoke()</code>方法的第一个参数为含有此方法的对象的实例化，第二个参数为方法要传入的参数。  </li>
-</ul>
-</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>学习笔记·Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java设计模式</title>
-    <url>/2020/04/22/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Java语法基础中的特别之处</title>
-    <url>/2020/04/12/Java%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B8%AD%E7%9A%84%E7%89%B9%E5%88%AB%E4%B9%8B%E5%A4%84/</url>
-    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>这是一篇对Java基础语法学习中，遇到的异难的地方进行的总结。</p>
-<a id="more"></a>
-<ul>
-<li>变量定义时，“”标识string类型，‘’标识char类型</li>
-</ul>
-<ul>
-<li>Java命名规范<ul>
-<li>项目名全部小写.</li>
-<li>包名全部小写.</li>
-<li>类名首字母大写,其余组成词首字母依次大写（单词首字母大写）.</li>
-<li>变量名,方法名首字母小写,如果名称由多个单词组成,除首字母外的每个单词的首字母都要大写（驼峰式命名规则）.</li>
-<li>常量名全部大写，每个单词用‘_’隔开.</li>
-<li>所有命名规则必须遵循以下规则 :<br>  名称只能由字母、数字、下划线、$符号组成.<br>  不能以数字开头.<br>  名称不能使用Java中的关键字.  </li>
-<li><a href="https://baijiahao.baidu.com/s?id=1654685815662722805&wfr=spider&for=pc" target="_blank" rel="noopener">其余具体命名细节</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>使用文档注释（文档注释以/<em>*开始，以</em>/结尾）时还可以使用 javadoc 标记，生成更详细的文档信息：</p>
-<pre><code>@author 标明开发该类模块的作者
-
-@version 标明该类模块的版本
-
-@see 参考转向，也就是相关主题
-
-@param 对方法中某参数的说明
-
-@return 对方法返回值的说明
-
-@exception 对方法可能抛出的异常进行说明</code></pre></li>
-</ul>
-<ul>
-<li>算数运算符++，在变量右边，则先赋值再自增，在变量左边，则先自增再赋值。–的规律以此类推。</li>
-</ul>
-<ul>
-<li>\uff1b  Java中出现中文字符，仔细检查。</li>
-</ul>
-<ul>
-<li>foreach方法遍历数组的写法for(元素类型 元素变量:遍历数组){}，如：<br>for ( int score:scores ) {<br>  System.out.println(score);<br>}</li>
-</ul>
-<ul>
-<li>算数运算时，double类型运算时，后面如果全为int类型，则运算结果会产生误差，需要使其后面的值中有一个为小数才可，如：<br>double avg=(i+j)/2.0;</li>
-</ul>
-<ul>
-<li>Java成员变量的默认值为0，局部变量没有默认值。</li>
-</ul>
-<ul>
-<li>Java中的包名命名规范为全小写字母</li>
-</ul>
-<ul>
-<li>Java中的访问修饰符总结<br><img src="https://i.loli.net/2020/04/12/LnbQKCzvVaXJpo1.png" alt="Java中的访问修饰符.png"></li>
-</ul>
-<ul>
-<li>如果对象属性和参数同名时，必须加this，否则相反。</li>
-</ul>
-<ul>
-<li>如果外部类和内部类具有相同的成员变量或方法，内部类默认访问自己的成员变量或方法，如果要访问外部类的成员变量，可以使用 this 关键字。方法如下：<br><img src="https://i.loli.net/2020/04/13/sIp1NoSV9MkRQtK.jpg" alt="内部类中用this调用外部类成员变量.jpg"></li>
-</ul>
-<ul>
-<li>Java中的继承是单继承（接口可以继承自多个父接口）的，子类不能访问父类中的private修饰符修饰的成员</li>
-</ul>
-<ul>
-<li>继承的初始化顺序：初始化父类再初始子类、先执行初始化对象中属性，再执行构造方法中的初始化</li>
-</ul>
-<ul>
-<li>final关键字修饰的变量（即常量）的赋值必须在变量声明时，或者在构造函数中。</li>
-</ul>
-<ul>
-<li>Super关键字：在对象的内部使用，可以代表父类对象</li>
-</ul>
-<ul>
-<li>接口定义：常量：接口中的属性（方法）是常量（抽象方法），即使定义时不添加[public] [static] [final]（[public] [abstract]）修饰符，系统也会自动加上；<br>注：接口的定义：    <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[修饰符] interface 接口名 [extends 父接口名列表]&#123;</span><br><span class="line">[public] [static] [final] 常量;</span><br><span class="line">[public] [abstract] 方法;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-<ul>
-<li>抽象类和接口的区别：  <ul>
-<li>抽象类要被子类继承，接口要被类实现。</li>
-<li>接口只能做方法声明，抽象类中可以作方法声明，也可以做方法实现。</li>
-<li>接口里定义的变量只能是公共的静态的常量，抽象类中的变量是普通变量。</li>
-<li>接口是设计的结果，抽象类是重构的结果。</li>
-<li>抽象类和接口都是用来抽象具体对象的，但是接口的抽象级别最高。</li>
-<li>抽象类可以有具体的方法和属性，接口只能有抽象方法和不可变常量。</li>
-<li>抽象类主要用来抽象类别，接口主要用来抽象功能。</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><blockquote>
-<p>Java异常处理try…catch执行完之后，还会继续执行之后的代码语句  </p>
-</blockquote>
-<ul>
-<li>finally语句在return语句执行之后return返回之前执行的。  </li>
-<li>finally块中的return语句会覆盖try块中的return返回。 </li>
-<li>try块里的return语句在异常的情况下不会被执行。   <blockquote>
-<p>总结：finally块的语句在try或catch中的return语句执行之后返回之前执行且finally里的修改语句可能影响也可能不影响try或catch中 return已经确定的返回值，若finally里也有return语句则覆盖try或catch中的return语句直接返回。</p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><ul>
-<li>泛型集合可以添加泛型指定类型的子类型的对象实例，即，泛型集合中不能添加泛型规定的类型及其子类型以外的对象，否则会报错。</li>
-<li>泛型集合中的限定类型不能使用基本数据类型。可以通过使用对应的包装类限定允许存入的基本数据类型如<code>int</code>类型使用<code>Integer</code>。</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>Collection.sort()方法对String类型进行排序时，按照数字0-9、大写字母A-Z、小写字母a-z的顺序来排序，即，数字最前，小写字母z最后</li>
-</ul>
-<ul>
-<li>Java集合框架结构（内容）<br><img src="https://i.loli.net/2020/04/13/Btxp8oGRg3FHsI4.png" alt="Java集合框架内容.png"></li>
-</ul>
-<ul>
-<li>容器：里面装有很多相同属性的对象。</li>
-</ul>
 ]]></content>
       <tags>
         <tag>学习笔记·Java</tag>
@@ -433,6 +307,134 @@
       </tags>
   </entry>
   <entry>
+    <title>new a blog article</title>
+    <url>/2020/02/12/new-a-blog-article/</url>
+    <content><![CDATA[<ol>
+<li><p>创建一个文章的md文件<br><code>hexo new &quot;XXX&quot;</code><br>格式如上，XXX部分为文章的名字</p>
+<a id="more"></a></li>
+<li><p>自定义文章的标签<br>在md文件中的头部，tags中写入标签的类型</p>
+</li>
+<li><p>运用markdown格式书写内容<br>markdown格式的学习会在之后的文章中详细的写出。</p>
+</li>
+<li><p>编译运行网站<br>运行hexo的命令为<br><code>hexo s</code> 或 <code>hexo server</code></p>
+</li>
+<li><p>部署到远端<br>如果已经在GitHub搭建了博客主页，要部署到远端，则需要一下几步（用GitHub搭建博客的方法，在之后的文章中详细的描述）：  </p>
+<ul>
+<li><code>hexo clean</code> (执行此步骤，直到hexo目录下的public文件夹删除)</li>
+<li><code>hexo g</code> 或 <code>hexo generate</code> (执行此步，重新编译网站文件)</li>
+<li><code>hexo s</code> 或 <code>hexo server</code> (执行此步，在本地预览，无问题的话，执行下一步，部署到远端)</li>
+<li><code>hexo d</code> 或 <code>hexo deploy</code> (执行此步，将网站public文件夹中新的文件部署到远端，过程结束)</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>学习笔记·hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ThinkPHP5框架回顾</title>
+    <url>/2020/04/23/ThinkPHP5%E6%A1%86%E6%9E%B6%E5%9B%9E%E9%A1%BE/</url>
+    <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>本文为回顾<a href="https://www.kancloud.cn/manual/thinkphp5/118003" target="_blank" rel="noopener">《ThinkPHP5.0完全开发手册》</a>时的摘记  </p>
+<a id="more"></a>
+
+<ol>
+<li><p>框架的目录结构  </p>
+<pre><code>project  应用部署目录
+├─application           应用目录（可设置）
+│  ├─common             公共模块目录（可更改）
+│  ├─index              模块目录(可更改)
+│  │  ├─config.php      模块配置文件
+│  │  ├─common.php      模块函数文件
+│  │  ├─controller      控制器目录
+│  │  ├─model           模型目录
+│  │  ├─view            视图目录
+│  │  └─ ...            更多类库目录
+│  ├─command.php        命令行工具配置文件
+│  ├─common.php         应用公共（函数）文件
+│  ├─config.php         应用（公共）配置文件
+│  ├─database.php       数据库配置文件
+│  ├─tags.php           应用行为扩展定义文件
+│  └─route.php          路由配置文件
+├─extend                扩展类库目录（可定义）
+├─public                WEB 部署目录（对外访问目录）
+│  ├─static             静态资源存放目录(css,js,image)
+│  ├─index.php          应用入口文件
+│  ├─router.php         快速测试文件
+│  └─.htaccess          用于 apache 的重写
+├─runtime               应用的运行时目录（可写，可设置）
+├─vendor                第三方类库目录（Composer）
+├─thinkphp              框架系统目录
+│  ├─lang               语言包目录
+│  ├─library            框架核心类库目录
+│  │  ├─think           Think 类库包目录
+│  │  └─traits          系统 Traits 目录
+│  ├─tpl                系统模板目录
+│  ├─.htaccess          用于 apache 的重写
+│  ├─.travis.yml        CI 定义文件
+│  ├─base.php           基础定义文件
+│  ├─composer.json      composer 定义文件
+│  ├─console.php        控制台入口文件
+│  ├─convention.php     惯例配置文件
+│  ├─helper.php         助手函数文件（可选）
+│  ├─LICENSE.txt        授权说明文件
+│  ├─phpunit.xml        单元测试配置文件
+│  ├─README.md          README 文件
+│  └─start.php          框架引导文件
+├─build.php             自动生成定义文件（参考）
+├─composer.json         composer 定义文件
+├─LICENSE.txt           授权说明文件
+├─README.md             README 文件
+├─think                 命令行入口文件</code></pre></li>
+<li><p>注册路由规则<br>路由注册可以采用方法动态单个和批量注册，也可以直接定义路由定义文件的方式进行集中注册。  </p>
+<ul>
+<li>动态单个注册：<br>  路由定义采用<code>\think\Route</code>类的<code>rule</code>方法注册，通常是在应用的路由配置文件<code>application/route.php</code>进行注册，格式是：  <pre><code class="PHP">Route::rule(<span class="string">'路由表达式'</span>,<span class="string">'路由地址'</span>,<span class="string">'请求类型'</span>,<span class="string">'路由参数（数组）'</span>,<span class="string">'变量规则（数组）'</span>);  </code></pre>
+  例如：  <pre><code class="PHP"><span class="keyword">use</span> <span class="title">think</span>\<span class="title">Route</span>;
+<span class="comment">// 注册路由到index模块的News控制器的read操作</span>
+Route::rule(<span class="string">'new/:id'</span>,<span class="string">'index/News/read'</span>);</code></pre>
+  系统提供了为不同的请求类型定义路由规则的简化方法，例如：  <pre><code class="PHP">Route::get(<span class="string">'new/:id'</span>,<span class="string">'News/read'</span>); <span class="comment">// 定义GET请求路由规则</span>
+Route::post(<span class="string">'new/:id'</span>,<span class="string">'News/update'</span>); <span class="comment">// 定义POST请求路由规则</span>
+Route::put(<span class="string">'new/:id'</span>,<span class="string">'News/update'</span>); <span class="comment">// 定义PUT请求路由规则</span>
+Route::delete(<span class="string">'new/:id'</span>,<span class="string">'News/delete'</span>); <span class="comment">// 定义DELETE请求路由规则</span>
+Route::any(<span class="string">'new/:id'</span>,<span class="string">'News/read'</span>); <span class="comment">// 所有请求都支持的路由规则</span></code></pre>
+  注：注册多个路由规则后，系统会依次遍历注册过的满足请求类型的路由规则，一旦匹配到正确的路由规则后则开始调用控制器的操作方法，后续规则就不再检测。</li>
+<li>批量注册<br>  规则如下：  <pre><code class="PHP">Route::rule([
+<span class="string">'路由规则1'</span>=&gt;<span class="string">'路由地址和参数'</span>,
+<span class="string">'路由规则2'</span>=&gt;[<span class="string">'路由地址和参数'</span>,<span class="string">'匹配参数（数组）'</span>,<span class="string">'变量规则（数组）'</span>]
+...
+],<span class="string">''</span>,<span class="string">'请求类型'</span>,<span class="string">'匹配参数（数组）'</span>,<span class="string">'变量规则'</span>);</code></pre>
+  如果在外面和规则里面同时传入了匹配参数和变量规则的话，路由规则定义里面的最终生效，但请求类型参数以最外层决定，例如：  <pre><code class="PHP">Route::rule([
+<span class="string">'new/:id'</span>  =&gt;  <span class="string">'News/read'</span>,
+<span class="string">'blog/:id'</span> =&gt;  [<span class="string">'Blog/update'</span>,[<span class="string">'ext'</span>=&gt;<span class="string">'shtml'</span>],[<span class="string">'id'</span>=&gt;<span class="string">'\d{4}'</span>]],
+...
+],<span class="string">''</span>,<span class="string">'GET'</span>,[<span class="string">'ext'</span>=&gt;<span class="string">'html'</span>],[<span class="string">'id'</span>=&gt;<span class="string">'\d+'</span>]);</code></pre>
+  以上的路由注册，最终<code>blog/:id</code>只会在匹配<code>shtml</code>后缀的访问请求，id变量的规则则是 <code>\d{4}</code>  </li>
+<li>路由分组<br>  路由分组功能允许把相同前缀的路由定义合并分组，这样可以提高路由匹配的效率，不必每次都去遍历完整的路由规则。<br>  例如，我们有定义如下两个路由规则的话  <pre><code class="PHP"><span class="string">'blog/:id'</span>   =&gt; [<span class="string">'Blog/read'</span>, [<span class="string">'method'</span> =&gt; <span class="string">'get'</span>], [<span class="string">'id'</span> =&gt; <span class="string">'\d+'</span>]],
+<span class="string">'blog/:name'</span> =&gt; [<span class="string">'Blog/read'</span>, [<span class="string">'method'</span> =&gt; <span class="string">'post'</span>]],</code></pre>
+  可以合并到一个blog分组  <pre><code class="PHP"><span class="string">'[blog]'</span>     =&gt; [
+<span class="string">':id'</span>   =&gt; [<span class="string">'Blog/read'</span>, [<span class="string">'method'</span> =&gt; <span class="string">'get'</span>], [<span class="string">'id'</span> =&gt; <span class="string">'\d+'</span>]],
+<span class="string">':name'</span> =&gt; [<span class="string">'Blog/read'</span>, [<span class="string">'method'</span> =&gt; <span class="string">'post'</span>]],
+],</code></pre>
+  可以使用Route类的group方法进行注册，如下：  <pre><code class="PHP">Route::group(<span class="string">'blog'</span>,[
+<span class="string">':id'</span>   =&gt; [<span class="string">'Blog/read'</span>, [<span class="string">'method'</span> =&gt; <span class="string">'get'</span>], [<span class="string">'id'</span> =&gt; <span class="string">'\d+'</span>]],
+<span class="string">':name'</span> =&gt; [<span class="string">'Blog/read'</span>, [<span class="string">'method'</span> =&gt; <span class="string">'post'</span>]],
+]);</code></pre>
+  实战中的例子：  <pre><code class="PHP">Route::group(<span class="string">'lkz'</span>,<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{  
+    Route::post(<span class="string">'select/school'</span>,<span class="string">'lkz.SelectSchool/selectSchool'</span>);<span class="comment">//获取学校信息  </span>
+    Route::post(<span class="string">'update/user'</span>,<span class="string">'lkz.UpdUser/updUser'</span>);<span class="comment">//更新User表信息  </span>
+    Route::post(<span class="string">'return/label'</span>,<span class="string">'lkz.ReturnLabel/returnLabel'</span>);<span class="comment">//返回标签信息  </span>
+    Route::post(<span class="string">'write/apply'</span>,<span class="string">'lkz.ApplyCheck/applyCheck'</span>);<span class="comment">//报名信息表信息写入  </span>
+});</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>学习笔记·PHP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2019/12/31/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
@@ -461,57 +463,82 @@
 ]]></content>
   </entry>
   <entry>
-    <title>new a blog article</title>
-    <url>/2020/02/12/new-a-blog-article/</url>
+    <title>操作系统相关知识点的回顾和学习</title>
+    <url>/2020/04/17/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9%E7%9A%84%E5%9B%9E%E9%A1%BE%E5%92%8C%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>学习笔记·操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络相关知识点的回顾和学习</title>
+    <url>/2020/04/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9%E7%9A%84%E5%9B%9E%E9%A1%BE%E5%92%8C%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<ol>
-<li><p>创建一个文章的md文件<br><code>hexo new &quot;XXX&quot;</code><br>格式如上，XXX部分为文章的名字</p>
-<a id="more"></a></li>
-<li><p>自定义文章的标签<br>在md文件中的头部，tags中写入标签的类型</p>
+<li>七层网络模型  <a id="more"></a></li>
+<li>滑动窗口问题  </li>
+<li>TCP/IP协议：  </li>
+</ol>
+]]></content>
+      <tags>
+        <tag>学习笔记·计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>微信小程序项目的常见面试题</title>
+    <url>/2020/04/23/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>慕课网付费教程中的微信小程序相关面试题及其解答的摘记。  </p>
+<a id="more"></a>
+<ol>
+<li><p>你能讲一下小程序的MVVM架构吗？<br>答：此架构是将页面抽象为三个层次，及view层，model层和view model层。view层保存的是页面的内容，对应的是小程序中的wxml文件，wxss文件。model层和view model层的代码则保存在js文件中，model层用来缓存数据和处理业务的，比如用户在页面上填写的注册信息，先要缓存到model层中，用户点击按钮之后，触发回调函数，回调函数也定义在model层中，点击之后就由AJAX将数据传给后端。view model层则是在其中传送数据和事件的，如果不是MVVM架构，则用户要将数据输出到页面，需要先通过选择器查找控件，再修改控件的内容才可，MVVM架构则只需要在view层定义变量，然后在页面中用表达式写出变量的名字，view model层的数据就会将model层的数据搬运到页面上。同样的，页面上的数据也会交由view model层传送到model层。  </p>
 </li>
-<li><p>运用markdown格式书写内容<br>markdown格式的学习会在之后的文章中详细的写出。</p>
+<li><p>onLoad、onReady、onShow这些函数有什么区别？<br>答：onLoad函数为小程序页面第一次加载时会触发的回调函数；onReady函数是页面渲染完毕时触发的回调函数，只有在第一次时才触发；onShow函数是页面渲染显示的时候的回调函数，可调用多次。  </p>
 </li>
-<li><p>编译运行网站<br>运行hexo的命令为<br><code>hexo s</code> 或 <code>hexo server</code></p>
+<li><p>小程序的sitemap.json文件是用来干什么的？<br>答：用来设置小程序的seo信息，设置好seo信息可使得用户使用关键词搜索来搜索到小程序页面的信息。提升了搜索效率和优质小程序的曝光可能。文件中有rules属性，来设置哪些页面可以被索引，也可以通过通配符规定，有哪些参数的页面才可以被索引。  </p>
 </li>
-<li><p>部署到远端<br>如果已经在GitHub搭建了博客主页，要部署到远端，则需要一下几步（用GitHub搭建博客的方法，在之后的文章中详细的描述）：  </p>
+<li><p>在小程序中如何阻止事件的冒泡传播？<br>答：在绑定事件时使用catch属性即可阻止事件的冒泡传播。如catchtap点击事件不会传到上一层，bindtap属性则会一层层向上触发。  </p>
+</li>
+<li><p>小程序发通知给用户，可以有哪些渠道？  </p>
 <ul>
-<li><code>hexo clean</code> (执行此步骤，直到hexo目录下的public文件夹删除)</li>
-<li><code>hexo g</code> 或 <code>hexo generate</code> (执行此步，重新编译网站文件)</li>
-<li><code>hexo s</code> 或 <code>hexo server</code> (执行此步，在本地预览，无问题的话，执行下一步，部署到远端)</li>
-<li><code>hexo d</code> 或 <code>hexo deploy</code> (执行此步，将网站public文件夹中新的文件部署到远端，过程结束)</li>
+<li>短信通知方案，成本高，需要用户绑定手机  </li>
+<li>模板消息，内容死板，需要用户触发操作，不能主动推送  </li>
+<li>消息订阅，内容灵活，最多发送3条消息，不能主动推送  </li>
+<li>消息模块（内置，自己写的），无限制消息推送，必须开启小程序  </li>
 </ul>
+</li>
+<li><p>怎么提升小程序的启动速度？<br>答：最直接的办法是压缩资源文件的体积。图片、音频等放在服务器端在小程序端引用即可。再是开启游客模式，即，用户没有登录就可看到小程序的内容，这样做可以让小程序在第一次启动时不用用户登录这部分代码的响应时间。精简小程序的第三方依赖，只有用到的UI组件才放到工程文件里面。还有就是给图片添加懒加载功能。将页面数据缓存起来可以减少页面重复加载所需的时间，同时，缓存还可以让页面预渲染，之后再请求服务器数据，更新页面，从而缩短响应时间。最后是分包加载技术，加载时最先加载主包的页面，从而提高小程序的启动速度。   </p>
+</li>
+<li><p>在小程序中怎么实现客服功能？<br>答：添加一个按钮，属性open-type值为contact，然后在小程序开放平台上添加客服的微信号码即可。之后当用户点击客服会话按钮之后，就会自动进入客服会话界面。  </p>
+</li>
+<li><p>navigateTo、redirectTo和switchTab有什么区别？<br>答：navigateTo跳转到其它页面时，当前页面只是隐藏起来，并不会销毁，当点击后退按钮时，就可回到原来的页面。redirectTo会销毁页面，无法返回，如登录页面发生的跳转时。switchTab用来跳转到tabBar页面，其它两个不能跳转到tabBar页面。  </p>
+</li>
+<li><p>小程序页面之间怎么传递参数？<br>答：第一种是在页面跳转的路径上带上参数，但是switchTab跳转到tabBar页面时不能带参数。再有就是在缓存和全局变量里添加想要传递的参数，这样在tabBar页面也可以获取到参数值。  </p>
+</li>
+<li><p>怎么能把小程序分享给好友？<br>答：小程序的每个页面都有分享按钮，另外也可在页面中自定义分享按钮，按钮的open-type属性设为share，然后在回调函数中写上小程序的页面和参数就可实现跳转到特定页面和内容了。  </p>
+</li>
+<li><p>怎么才能把小程序分享到朋友圈？<br>答：首先在页面中创建一个画布控件，然后用js代码生成画布的内容，可以包括图片和文字，然后把小程序的二维码也绘制到画布上。接下来将画布控件转换为图片，用户可以将图片在相册保存为零时文件。用户将图片分享到朋友圈，朋友扫码即可。  </p>
+</li>
+<li><p>怎么封装全局URL地址？<br>答：我们可以创建一个js文件，然后在文件里声明一个全局变量，定义好URL路径，接下来用model.exports导出这些内容。最后用app.js文件中用require函数导入这个js文件即可。  </p>
+</li>
+<li><p>小程序怎么突破2M体积的限制？<br>答：我们可以使用分包加载，每一个分包代表一个模块，每个分包不超过2M，小程序总体积不超过8M。  </p>
+</li>
+<li><p>怎么实现小程序的内容审查？<br>答：用户在提交文字和图片数据的时候，后端必须对这些内容做审查。小程序提供了内容审查的接口，详见<a href="https://developers.weixin.qq.com/miniprogram/dev/api-backend/open-api/sec-check/security.msgSecCheck.html" target="_blank" rel="noopener">《微信官方文档》</a>。  </p>
+</li>
+<li><p>怎么实现小程序的上拉加载？<br>答：小程序提供了onreachBottom回调函数，当用户上滑触底的时候，这个页面就会运行。这个时候，我们判断这个页面是不是最后一页，如果不是最后一页，则小程序向后端发送请求，获取下一页数据并将数据返回到模型层再渲染到页面上，之后将当前页数加一。  </p>
+</li>
+<li><p>小程序中的图片懒加载怎么实现？<br>答：在图片标签上加上lazeLoad属性即可。小程序会只加载三屏以内的图片，如果用户上滑页面，三屏外的图片进入三屏以内才开始加载。  </p>
+</li>
+<li><p>怎么实现用户微信账号登录小程序？<br>答：在页面上用wx.login函数获取临时授权的字符串和用户的基本信息。小程序将code字符串和这些基本信息发送给后端，后端将code字符串、appId，appSecret发送给微信平台验证用户的临时授权是否有效，若有效，则返回openId字符串。后端查询是否有对应的openId，没有则添加，之后根据记录的ID值向前端返回一个token值，小程序将token值保存在本地，以后需要向后端发送请求时，将token值带给后端来判断已经登录过小程序了。  </p>
+</li>
+<li><p>小程序如何调用其他小程序？<br>答：首先在app.json文件中记录需要调用的小程序的appId,然后在页面上可以用按钮或者超链接的方式打开小程序，若是超链接，则要在超链接上加上open-type属性，值为miniprogram，然后在appId属性中写上appId值，要打开特定页面时，需要加上path属性。若是按钮的话，需要在调用函数navigateToProgram，在其中传入参数——第三方小程序的appId和页面的路径。  </p>
+</li>
+<li><p>小程序提交POST请求，后台为什么接收不到数据？<br>答：我们需要给小程序的POST请求设置上特定的header，值为<code>&quot;content-type&quot;:&quot;application/x-www-form-urlencoded&quot;</code>。  </p>
+</li>
+<li><p>小程序云开发是什么东西？<br>答：小程序云开发就是利用微信平台提供的云空间部署小程序的后端项目。这个后端项目是用js语言构建的，同时还提供了noSql数据库，文件云存储等功能，基本上可以满足简单的业务场景。比如在线猜谜、抽奖等小程序。但是电商类、办公类的小程序就不适合用云开发来做。办公类需要在后端具备工作流引擎，电商类需要许多的子系统，如物流子系统、电商子系统和财务子系统等。</p>
 </li>
 </ol>
 ]]></content>
       <tags>
-        <tag>学习笔记·hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于博客网站</title>
-    <url>/2020/02/18/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/</url>
-    <content><![CDATA[<h1 id="关于这篇博客"><a href="#关于这篇博客" class="headerlink" title="关于这篇博客"></a>关于这篇博客</h1><h2 id="博客的主要内容"><a href="#博客的主要内容" class="headerlink" title="博客的主要内容"></a>博客的主要内容</h2><a id="more"></a>
-<ul>
-<li>学习笔记<ul>
-<li>平时学习到的技术知识的总结</li>
-<li>学校课程的笔记</li>
-</ul>
-</li>
-<li>所思所想<ul>
-<li>对学习路线的梳理</li>
-<li>对博客相关的整理</li>
-<li>对一些平时所见结合知识点发表的见解</li>
-</ul>
-</li>
-<li>（待增加……）</li>
-</ul>
-<h2 id="博客的目的"><a href="#博客的目的" class="headerlink" title="博客的目的"></a>博客的目的</h2><ul>
-<li>为了能够在遇到相同问题时，快速的找到相应的解决办法，并加深印象</li>
-<li>为了能够使自己对自己的技术能力、技术学习周期和时限有一个更直观的认识</li>
-<li>(待完善……)</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>所思所想</tag>
+        <tag>学习笔记·微信小程序</tag>
       </tags>
   </entry>
   <entry>
@@ -568,20 +595,9 @@
       </tags>
   </entry>
   <entry>
-    <title>操作系统相关知识点的回顾和学习</title>
-    <url>/2020/04/17/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9%E7%9A%84%E5%9B%9E%E9%A1%BE%E5%92%8C%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>学习笔记·操作系统</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据库相关的学习及回顾</title>
+    <title>Mysql数据库相关的学习及回顾</title>
     <url>/2020/04/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%8F%8A%E5%9B%9E%E9%A1%BE/</url>
-    <content><![CDATA[<hr>
-<p>title: Mysql数据库相关的学习及回顾<br>date: 2020-04-09 20:58:19<br>tags: 学习笔记·Mysql</p>
-<hr>
-<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>对大学课程《数据库原理与应用MySQL》的综合实验的回顾与总结，以及后续数据库学习中的知识点的摘记。  </p>
+    <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>对大学课程《数据库原理与应用MySQL》的综合实验的回顾与总结，以及后续数据库学习中的知识点的摘记。  </p>
 <a id="more"></a>
 
 <h2 id="数据库设计的流程"><a href="#数据库设计的流程" class="headerlink" title="数据库设计的流程"></a>数据库设计的流程</h2><ol>
@@ -676,18 +692,162 @@
 </li>
 </ol>
 ]]></content>
+      <tags>
+        <tag>学习笔记·Mysql</tag>
+      </tags>
   </entry>
   <entry>
-    <title>计算机网络相关知识点的回顾和学习</title>
-    <url>/2020/04/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9%E7%9A%84%E5%9B%9E%E9%A1%BE%E5%92%8C%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<ol>
-<li>七层网络模型  <a id="more"></a></li>
-<li>滑动窗口问题  </li>
-<li>TCP/IP协议：  </li>
-</ol>
+    <title>Java语法基础中的特别之处</title>
+    <url>/2020/04/12/Java%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B8%AD%E7%9A%84%E7%89%B9%E5%88%AB%E4%B9%8B%E5%A4%84/</url>
+    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>这是一篇对Java基础语法学习中，遇到的异难的地方进行的总结。</p>
+<a id="more"></a>
+<ul>
+<li>变量定义时，“”标识string类型，‘’标识char类型</li>
+</ul>
+<ul>
+<li>Java命名规范<ul>
+<li>项目名全部小写.</li>
+<li>包名全部小写.</li>
+<li>类名首字母大写,其余组成词首字母依次大写（单词首字母大写）.</li>
+<li>变量名,方法名首字母小写,如果名称由多个单词组成,除首字母外的每个单词的首字母都要大写（驼峰式命名规则）.</li>
+<li>常量名全部大写，每个单词用‘_’隔开.</li>
+<li>所有命名规则必须遵循以下规则 :<br>  名称只能由字母、数字、下划线、$符号组成.<br>  不能以数字开头.<br>  名称不能使用Java中的关键字.  </li>
+<li><a href="https://baijiahao.baidu.com/s?id=1654685815662722805&wfr=spider&for=pc" target="_blank" rel="noopener">其余具体命名细节</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>使用文档注释（文档注释以/<em>*开始，以</em>/结尾）时还可以使用 javadoc 标记，生成更详细的文档信息：</p>
+<pre><code>@author 标明开发该类模块的作者
+
+@version 标明该类模块的版本
+
+@see 参考转向，也就是相关主题
+
+@param 对方法中某参数的说明
+
+@return 对方法返回值的说明
+
+@exception 对方法可能抛出的异常进行说明</code></pre></li>
+</ul>
+<ul>
+<li>算数运算符++，在变量右边，则先赋值再自增，在变量左边，则先自增再赋值。–的规律以此类推。</li>
+</ul>
+<ul>
+<li>\uff1b  Java中出现中文字符，仔细检查。</li>
+</ul>
+<ul>
+<li>foreach方法遍历数组的写法for(元素类型 元素变量:遍历数组){}，如：<br>for ( int score:scores ) {<br>  System.out.println(score);<br>}</li>
+</ul>
+<ul>
+<li>算数运算时，double类型运算时，后面如果全为int类型，则运算结果会产生误差，需要使其后面的值中有一个为小数才可，如：<br>double avg=(i+j)/2.0;</li>
+</ul>
+<ul>
+<li>Java成员变量的默认值为0，局部变量没有默认值。</li>
+</ul>
+<ul>
+<li>Java中的包名命名规范为全小写字母</li>
+</ul>
+<ul>
+<li>Java中的访问修饰符总结<br><img src="https://i.loli.net/2020/04/12/LnbQKCzvVaXJpo1.png" alt="Java中的访问修饰符.png"></li>
+</ul>
+<ul>
+<li>如果对象属性和参数同名时，必须加this，否则相反。</li>
+</ul>
+<ul>
+<li>如果外部类和内部类具有相同的成员变量或方法，内部类默认访问自己的成员变量或方法，如果要访问外部类的成员变量，可以使用 this 关键字。方法如下：<br><img src="https://i.loli.net/2020/04/13/sIp1NoSV9MkRQtK.jpg" alt="内部类中用this调用外部类成员变量.jpg"></li>
+</ul>
+<ul>
+<li>Java中的继承是单继承（接口可以继承自多个父接口）的，子类不能访问父类中的private修饰符修饰的成员</li>
+</ul>
+<ul>
+<li>继承的初始化顺序：初始化父类再初始子类、先执行初始化对象中属性，再执行构造方法中的初始化</li>
+</ul>
+<ul>
+<li>final关键字修饰的变量（即常量）的赋值必须在变量声明时，或者在构造函数中。</li>
+</ul>
+<ul>
+<li>Super关键字：在对象的内部使用，可以代表父类对象</li>
+</ul>
+<ul>
+<li>接口定义：常量：接口中的属性（方法）是常量（抽象方法），即使定义时不添加[public] [static] [final]（[public] [abstract]）修饰符，系统也会自动加上；<br>注：接口的定义：    <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[修饰符] interface 接口名 [extends 父接口名列表]&#123;</span><br><span class="line">[public] [static] [final] 常量;</span><br><span class="line">[public] [abstract] 方法;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<ul>
+<li>抽象类和接口的区别：  <ul>
+<li>抽象类要被子类继承，接口要被类实现。</li>
+<li>接口只能做方法声明，抽象类中可以作方法声明，也可以做方法实现。</li>
+<li>接口里定义的变量只能是公共的静态的常量，抽象类中的变量是普通变量。</li>
+<li>接口是设计的结果，抽象类是重构的结果。</li>
+<li>抽象类和接口都是用来抽象具体对象的，但是接口的抽象级别最高。</li>
+<li>抽象类可以有具体的方法和属性，接口只能有抽象方法和不可变常量。</li>
+<li>抽象类主要用来抽象类别，接口主要用来抽象功能。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><blockquote>
+<p>Java异常处理try…catch执行完之后，还会继续执行之后的代码语句  </p>
+</blockquote>
+<ul>
+<li>finally语句在return语句执行之后return返回之前执行的。  </li>
+<li>finally块中的return语句会覆盖try块中的return返回。 </li>
+<li>try块里的return语句在异常的情况下不会被执行。   <blockquote>
+<p>总结：finally块的语句在try或catch中的return语句执行之后返回之前执行且finally里的修改语句可能影响也可能不影响try或catch中 return已经确定的返回值，若finally里也有return语句则覆盖try或catch中的return语句直接返回。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><ul>
+<li>泛型集合可以添加泛型指定类型的子类型的对象实例，即，泛型集合中不能添加泛型规定的类型及其子类型以外的对象，否则会报错。</li>
+<li>泛型集合中的限定类型不能使用基本数据类型。可以通过使用对应的包装类限定允许存入的基本数据类型如<code>int</code>类型使用<code>Integer</code>。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Collection.sort()方法对String类型进行排序时，按照数字0-9、大写字母A-Z、小写字母a-z的顺序来排序，即，数字最前，小写字母z最后</li>
+</ul>
+<ul>
+<li>Java集合框架结构（内容）<br><img src="https://i.loli.net/2020/04/13/Btxp8oGRg3FHsI4.png" alt="Java集合框架内容.png"></li>
+</ul>
+<ul>
+<li>容器：里面装有很多相同属性的对象。</li>
+</ul>
 ]]></content>
       <tags>
-        <tag>学习笔记·计算机网络</tag>
+        <tag>学习笔记·Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于博客网站</title>
+    <url>/2020/02/18/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/</url>
+    <content><![CDATA[<h1 id="关于这篇博客"><a href="#关于这篇博客" class="headerlink" title="关于这篇博客"></a>关于这篇博客</h1><h2 id="博客的主要内容"><a href="#博客的主要内容" class="headerlink" title="博客的主要内容"></a>博客的主要内容</h2><a id="more"></a>
+<ul>
+<li>学习笔记<ul>
+<li>平时学习到的技术知识的总结</li>
+<li>学校课程的笔记</li>
+</ul>
+</li>
+<li>所思所想<ul>
+<li>对学习路线的梳理</li>
+<li>对博客相关的整理</li>
+<li>对一些平时所见结合知识点发表的见解</li>
+</ul>
+</li>
+<li>（待增加……）</li>
+</ul>
+<h2 id="博客的目的"><a href="#博客的目的" class="headerlink" title="博客的目的"></a>博客的目的</h2><ul>
+<li>为了能够在遇到相同问题时，快速的找到相应的解决办法，并加深印象</li>
+<li>为了能够使自己对自己的技术能力、技术学习周期和时限有一个更直观的认识</li>
+<li>(待完善……)</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>所思所想</tag>
       </tags>
   </entry>
 </search>

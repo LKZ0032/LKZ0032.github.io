@@ -10,7 +10,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    计算机网络相关知识点的回顾和学习 |  Blessing
+    ThinkPHP5框架回顾 |  Blessing
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -36,7 +36,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-计算机网络相关知识点的回顾和学习" class="article article-type-post" itemscope
+  <article id="post-ThinkPHP5框架回顾" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -44,7 +44,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  计算机网络相关知识点的回顾和学习
+  ThinkPHP5框架回顾
 </h1>
   
 
@@ -53,8 +53,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/04/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9%E7%9A%84%E5%9B%9E%E9%A1%BE%E5%92%8C%E5%AD%A6%E4%B9%A0/" class="article-date">
-  <time datetime="2020-04-17T08:01:19.000Z" itemprop="datePublished">2020-04-17</time>
+      <a href="/2020/04/23/ThinkPHP5%E6%A1%86%E6%9E%B6%E5%9B%9E%E9%A1%BE/" class="article-date">
+  <time datetime="2020-04-23T05:10:32.000Z" itemprop="datePublished">2020-04-23</time>
 </a>
       
       
@@ -64,7 +64,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">16字</span>
+            <span class="post-count">1.1k字</span>
         </span>
     </span>
 
@@ -73,7 +73,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1分钟</span>
+            <span class="post-count">4分钟</span>
         </span>
     </span>
 </div>
@@ -84,6 +84,8 @@
 
     
     
+    <div class="tocbot"></div>
+
 
 
 
@@ -97,10 +99,99 @@
       
 
       
-      <ol>
-<li>七层网络模型  <a id="more"></a></li>
-<li>滑动窗口问题  </li>
-<li>TCP/IP协议：  </li>
+      <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>本文为回顾<a href="https://www.kancloud.cn/manual/thinkphp5/118003" target="_blank" rel="noopener">《ThinkPHP5.0完全开发手册》</a>时的摘记  </p>
+<a id="more"></a>
+
+<ol>
+<li><p>框架的目录结构  </p>
+<pre><code>project  应用部署目录
+├─application           应用目录（可设置）
+│  ├─common             公共模块目录（可更改）
+│  ├─index              模块目录(可更改)
+│  │  ├─config.php      模块配置文件
+│  │  ├─common.php      模块函数文件
+│  │  ├─controller      控制器目录
+│  │  ├─model           模型目录
+│  │  ├─view            视图目录
+│  │  └─ ...            更多类库目录
+│  ├─command.php        命令行工具配置文件
+│  ├─common.php         应用公共（函数）文件
+│  ├─config.php         应用（公共）配置文件
+│  ├─database.php       数据库配置文件
+│  ├─tags.php           应用行为扩展定义文件
+│  └─route.php          路由配置文件
+├─extend                扩展类库目录（可定义）
+├─public                WEB 部署目录（对外访问目录）
+│  ├─static             静态资源存放目录(css,js,image)
+│  ├─index.php          应用入口文件
+│  ├─router.php         快速测试文件
+│  └─.htaccess          用于 apache 的重写
+├─runtime               应用的运行时目录（可写，可设置）
+├─vendor                第三方类库目录（Composer）
+├─thinkphp              框架系统目录
+│  ├─lang               语言包目录
+│  ├─library            框架核心类库目录
+│  │  ├─think           Think 类库包目录
+│  │  └─traits          系统 Traits 目录
+│  ├─tpl                系统模板目录
+│  ├─.htaccess          用于 apache 的重写
+│  ├─.travis.yml        CI 定义文件
+│  ├─base.php           基础定义文件
+│  ├─composer.json      composer 定义文件
+│  ├─console.php        控制台入口文件
+│  ├─convention.php     惯例配置文件
+│  ├─helper.php         助手函数文件（可选）
+│  ├─LICENSE.txt        授权说明文件
+│  ├─phpunit.xml        单元测试配置文件
+│  ├─README.md          README 文件
+│  └─start.php          框架引导文件
+├─build.php             自动生成定义文件（参考）
+├─composer.json         composer 定义文件
+├─LICENSE.txt           授权说明文件
+├─README.md             README 文件
+├─think                 命令行入口文件</code></pre></li>
+<li><p>注册路由规则<br>路由注册可以采用方法动态单个和批量注册，也可以直接定义路由定义文件的方式进行集中注册。  </p>
+<ul>
+<li>动态单个注册：<br>  路由定义采用<code>\think\Route</code>类的<code>rule</code>方法注册，通常是在应用的路由配置文件<code>application/route.php</code>进行注册，格式是：  <pre><code class="PHP">Route::rule(<span class="string">'路由表达式'</span>,<span class="string">'路由地址'</span>,<span class="string">'请求类型'</span>,<span class="string">'路由参数（数组）'</span>,<span class="string">'变量规则（数组）'</span>);  </code></pre>
+  例如：  <pre><code class="PHP"><span class="keyword">use</span> <span class="title">think</span>\<span class="title">Route</span>;
+<span class="comment">// 注册路由到index模块的News控制器的read操作</span>
+Route::rule(<span class="string">'new/:id'</span>,<span class="string">'index/News/read'</span>);</code></pre>
+  系统提供了为不同的请求类型定义路由规则的简化方法，例如：  <pre><code class="PHP">Route::get(<span class="string">'new/:id'</span>,<span class="string">'News/read'</span>); <span class="comment">// 定义GET请求路由规则</span>
+Route::post(<span class="string">'new/:id'</span>,<span class="string">'News/update'</span>); <span class="comment">// 定义POST请求路由规则</span>
+Route::put(<span class="string">'new/:id'</span>,<span class="string">'News/update'</span>); <span class="comment">// 定义PUT请求路由规则</span>
+Route::delete(<span class="string">'new/:id'</span>,<span class="string">'News/delete'</span>); <span class="comment">// 定义DELETE请求路由规则</span>
+Route::any(<span class="string">'new/:id'</span>,<span class="string">'News/read'</span>); <span class="comment">// 所有请求都支持的路由规则</span></code></pre>
+  注：注册多个路由规则后，系统会依次遍历注册过的满足请求类型的路由规则，一旦匹配到正确的路由规则后则开始调用控制器的操作方法，后续规则就不再检测。</li>
+<li>批量注册<br>  规则如下：  <pre><code class="PHP">Route::rule([
+<span class="string">'路由规则1'</span>=&gt;<span class="string">'路由地址和参数'</span>,
+<span class="string">'路由规则2'</span>=&gt;[<span class="string">'路由地址和参数'</span>,<span class="string">'匹配参数（数组）'</span>,<span class="string">'变量规则（数组）'</span>]
+...
+],<span class="string">''</span>,<span class="string">'请求类型'</span>,<span class="string">'匹配参数（数组）'</span>,<span class="string">'变量规则'</span>);</code></pre>
+  如果在外面和规则里面同时传入了匹配参数和变量规则的话，路由规则定义里面的最终生效，但请求类型参数以最外层决定，例如：  <pre><code class="PHP">Route::rule([
+<span class="string">'new/:id'</span>  =&gt;  <span class="string">'News/read'</span>,
+<span class="string">'blog/:id'</span> =&gt;  [<span class="string">'Blog/update'</span>,[<span class="string">'ext'</span>=&gt;<span class="string">'shtml'</span>],[<span class="string">'id'</span>=&gt;<span class="string">'\d{4}'</span>]],
+...
+],<span class="string">''</span>,<span class="string">'GET'</span>,[<span class="string">'ext'</span>=&gt;<span class="string">'html'</span>],[<span class="string">'id'</span>=&gt;<span class="string">'\d+'</span>]);</code></pre>
+  以上的路由注册，最终<code>blog/:id</code>只会在匹配<code>shtml</code>后缀的访问请求，id变量的规则则是 <code>\d{4}</code>  </li>
+<li>路由分组<br>  路由分组功能允许把相同前缀的路由定义合并分组，这样可以提高路由匹配的效率，不必每次都去遍历完整的路由规则。<br>  例如，我们有定义如下两个路由规则的话  <pre><code class="PHP"><span class="string">'blog/:id'</span>   =&gt; [<span class="string">'Blog/read'</span>, [<span class="string">'method'</span> =&gt; <span class="string">'get'</span>], [<span class="string">'id'</span> =&gt; <span class="string">'\d+'</span>]],
+<span class="string">'blog/:name'</span> =&gt; [<span class="string">'Blog/read'</span>, [<span class="string">'method'</span> =&gt; <span class="string">'post'</span>]],</code></pre>
+  可以合并到一个blog分组  <pre><code class="PHP"><span class="string">'[blog]'</span>     =&gt; [
+<span class="string">':id'</span>   =&gt; [<span class="string">'Blog/read'</span>, [<span class="string">'method'</span> =&gt; <span class="string">'get'</span>], [<span class="string">'id'</span> =&gt; <span class="string">'\d+'</span>]],
+<span class="string">':name'</span> =&gt; [<span class="string">'Blog/read'</span>, [<span class="string">'method'</span> =&gt; <span class="string">'post'</span>]],
+],</code></pre>
+  可以使用Route类的group方法进行注册，如下：  <pre><code class="PHP">Route::group(<span class="string">'blog'</span>,[
+<span class="string">':id'</span>   =&gt; [<span class="string">'Blog/read'</span>, [<span class="string">'method'</span> =&gt; <span class="string">'get'</span>], [<span class="string">'id'</span> =&gt; <span class="string">'\d+'</span>]],
+<span class="string">':name'</span> =&gt; [<span class="string">'Blog/read'</span>, [<span class="string">'method'</span> =&gt; <span class="string">'post'</span>]],
+]);</code></pre>
+  实战中的例子：  <pre><code class="PHP">Route::group(<span class="string">'lkz'</span>,<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{  
+    Route::post(<span class="string">'select/school'</span>,<span class="string">'lkz.SelectSchool/selectSchool'</span>);<span class="comment">//获取学校信息  </span>
+    Route::post(<span class="string">'update/user'</span>,<span class="string">'lkz.UpdUser/updUser'</span>);<span class="comment">//更新User表信息  </span>
+    Route::post(<span class="string">'return/label'</span>,<span class="string">'lkz.ReturnLabel/returnLabel'</span>);<span class="comment">//返回标签信息  </span>
+    Route::post(<span class="string">'write/apply'</span>,<span class="string">'lkz.ApplyCheck/applyCheck'</span>);<span class="comment">//报名信息表信息写入  </span>
+});</code></pre>
+</li>
+</ul>
+</li>
 </ol>
 
       
@@ -112,11 +203,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://lkz0032.github.io/2020/04/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9%E7%9A%84%E5%9B%9E%E9%A1%BE%E5%92%8C%E5%AD%A6%E4%B9%A0/" data-id="ck9ecrxw5000gqcvl1xaz572i"
+      <a data-url="https://lkz0032.github.io/2020/04/23/ThinkPHP5%E6%A1%86%E6%9E%B6%E5%9B%9E%E9%A1%BE/" data-id="ck9ecrxvs000aqcvlguabhl28"
         class="article-share-link">分享</a>
         
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">学习笔记·计算机网络</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7PHP/" rel="tag">学习笔记·PHP</a></li></ul>
 
     </footer>
 
@@ -126,19 +217,19 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/04/17/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9%E7%9A%84%E5%9B%9E%E9%A1%BE%E5%92%8C%E5%AD%A6%E4%B9%A0/" class="article-nav-link">
+      <a href="/2020/04/23/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            操作系统相关知识点的回顾和学习
+            微信小程序项目的常见面试题
           
         </div>
       </a>
     
     
-      <a href="/2020/04/12/Java%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B8%AD%E7%9A%84%E7%89%B9%E5%88%AB%E4%B9%8B%E5%A4%84/" class="article-nav-link">
+      <a href="/2020/04/22/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Java语法基础中的特别之处</div>
+        <div class="article-nav-title">Java设计模式</div>
       </a>
     
   </nav>
