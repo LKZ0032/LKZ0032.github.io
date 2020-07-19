@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="博客,代码,学习" />
+   
+  <meta name="description" content="祝福" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    微信小程序项目的常见面试题 |  Blessing
+  </title>
+  <meta name="generator" content="hexo-theme-yilia-plus">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="Blessing" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content">
+      <section class="outer">
+  <article id="post-微信小程序项目的常见面试题" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  微信小程序项目的常见面试题
+</h1>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/04/23/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/" class="article-date">
+  <time datetime="2020-04-23T12:23:39.000Z" itemprop="datePublished">2020-04-23</time>
+</a>
+      
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2.3k字</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">7分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>慕课网付费教程中的微信小程序相关面试题及其解答的摘记。  </p>
+<a id="more"></a>
+<ol>
+<li><p>你能讲一下小程序的MVVM架构吗？<br>答：此架构是将页面抽象为三个层次，及view层，model层和view model层。view层保存的是页面的内容，对应的是小程序中的wxml文件，wxss文件。model层和view model层的代码则保存在js文件中，model层用来缓存数据和处理业务的，比如用户在页面上填写的注册信息，先要缓存到model层中，用户点击按钮之后，触发回调函数，回调函数也定义在model层中，点击之后就由AJAX将数据传给后端。view model层则是在其中传送数据和事件的，如果不是MVVM架构，则用户要将数据输出到页面，需要先通过选择器查找控件，再修改控件的内容才可，MVVM架构则只需要在view层定义变量，然后在页面中用表达式写出变量的名字，view model层的数据就会将model层的数据搬运到页面上。同样的，页面上的数据也会交由view model层传送到model层。  </p>
+</li>
+<li><p>onLoad、onReady、onShow这些函数有什么区别？<br>答：onLoad函数为小程序页面第一次加载时会触发的回调函数；onReady函数是页面渲染完毕时触发的回调函数，只有在第一次时才触发；onShow函数是页面渲染显示的时候的回调函数，可调用多次。  </p>
+</li>
+<li><p>小程序的sitemap.json文件是用来干什么的？<br>答：用来设置小程序的seo信息，设置好seo信息可使得用户使用关键词搜索来搜索到小程序页面的信息。提升了搜索效率和优质小程序的曝光可能。文件中有rules属性，来设置哪些页面可以被索引，也可以通过通配符规定，有哪些参数的页面才可以被索引。  </p>
+</li>
+<li><p>在小程序中如何阻止事件的冒泡传播？<br>答：在绑定事件时使用catch属性即可阻止事件的冒泡传播。如catchtap点击事件不会传到上一层，bindtap属性则会一层层向上触发。  </p>
+</li>
+<li><p>小程序发通知给用户，可以有哪些渠道？  </p>
+<ul>
+<li>短信通知方案，成本高，需要用户绑定手机  </li>
+<li>模板消息，内容死板，需要用户触发操作，不能主动推送  </li>
+<li>消息订阅，内容灵活，最多发送3条消息，不能主动推送  </li>
+<li>消息模块（内置，自己写的），无限制消息推送，必须开启小程序  </li>
+</ul>
+</li>
+<li><p>怎么提升小程序的启动速度？<br>答：最直接的办法是压缩资源文件的体积。图片、音频等放在服务器端在小程序端引用即可。再是开启游客模式，即，用户没有登录就可看到小程序的内容，这样做可以让小程序在第一次启动时不用用户登录这部分代码的响应时间。精简小程序的第三方依赖，只有用到的UI组件才放到工程文件里面。还有就是给图片添加懒加载功能。将页面数据缓存起来可以减少页面重复加载所需的时间，同时，缓存还可以让页面预渲染，之后再请求服务器数据，更新页面，从而缩短响应时间。最后是分包加载技术，加载时最先加载主包的页面，从而提高小程序的启动速度。   </p>
+</li>
+<li><p>在小程序中怎么实现客服功能？<br>答：添加一个按钮，属性open-type值为contact，然后在小程序开放平台上添加客服的微信号码即可。之后当用户点击客服会话按钮之后，就会自动进入客服会话界面。  </p>
+</li>
+<li><p>navigateTo、redirectTo和switchTab有什么区别？<br>答：navigateTo跳转到其它页面时，当前页面只是隐藏起来，并不会销毁，当点击后退按钮时，就可回到原来的页面。redirectTo会销毁页面，无法返回，如登录页面发生的跳转时。switchTab用来跳转到tabBar页面，其它两个不能跳转到tabBar页面。  </p>
+</li>
+<li><p>小程序页面之间怎么传递参数？<br>答：第一种是在页面跳转的路径上带上参数，但是switchTab跳转到tabBar页面时不能带参数。再有就是在缓存和全局变量里添加想要传递的参数，这样在tabBar页面也可以获取到参数值。  </p>
+</li>
+<li><p>怎么能把小程序分享给好友？<br>答：小程序的每个页面都有分享按钮，另外也可在页面中自定义分享按钮，按钮的open-type属性设为share，然后在回调函数中写上小程序的页面和参数就可实现跳转到特定页面和内容了。  </p>
+</li>
+<li><p>怎么才能把小程序分享到朋友圈？<br>答：首先在页面中创建一个画布控件，然后用js代码生成画布的内容，可以包括图片和文字，然后把小程序的二维码也绘制到画布上。接下来将画布控件转换为图片，用户可以将图片在相册保存为零时文件。用户将图片分享到朋友圈，朋友扫码即可。  </p>
+</li>
+<li><p>怎么封装全局URL地址？<br>答：我们可以创建一个js文件，然后在文件里声明一个全局变量，定义好URL路径，接下来用model.exports导出这些内容。最后用app.js文件中用require函数导入这个js文件即可。  </p>
+</li>
+<li><p>小程序怎么突破2M体积的限制？<br>答：我们可以使用分包加载，每一个分包代表一个模块，每个分包不超过2M，小程序总体积不超过8M。  </p>
+</li>
+<li><p>怎么实现小程序的内容审查？<br>答：用户在提交文字和图片数据的时候，后端必须对这些内容做审查。小程序提供了内容审查的接口，详见<a href="https://developers.weixin.qq.com/miniprogram/dev/api-backend/open-api/sec-check/security.msgSecCheck.html" target="_blank" rel="noopener">《微信官方文档》</a>。  </p>
+</li>
+<li><p>怎么实现小程序的上拉加载？<br>答：小程序提供了onreachBottom回调函数，当用户上滑触底的时候，这个页面就会运行。这个时候，我们判断这个页面是不是最后一页，如果不是最后一页，则小程序向后端发送请求，获取下一页数据并将数据返回到模型层再渲染到页面上，之后将当前页数加一。  </p>
+</li>
+<li><p>小程序中的图片懒加载怎么实现？<br>答：在图片标签上加上lazeLoad属性即可。小程序会只加载三屏以内的图片，如果用户上滑页面，三屏外的图片进入三屏以内才开始加载。  </p>
+</li>
+<li><p>怎么实现用户微信账号登录小程序？<br>答：在页面上用wx.login函数获取临时授权的字符串和用户的基本信息。小程序将code字符串和这些基本信息发送给后端，后端将code字符串、appId，appSecret发送给微信平台验证用户的临时授权是否有效，若有效，则返回openId字符串。后端查询是否有对应的openId，没有则添加，之后根据记录的ID值向前端返回一个token值，小程序将token值保存在本地，以后需要向后端发送请求时，将token值带给后端来判断已经登录过小程序了。  </p>
+</li>
+<li><p>小程序如何调用其他小程序？<br>答：首先在app.json文件中记录需要调用的小程序的appId,然后在页面上可以用按钮或者超链接的方式打开小程序，若是超链接，则要在超链接上加上open-type属性，值为miniprogram，然后在appId属性中写上appId值，要打开特定页面时，需要加上path属性。若是按钮的话，需要在调用函数navigateToProgram，在其中传入参数——第三方小程序的appId和页面的路径。  </p>
+</li>
+<li><p>小程序提交POST请求，后台为什么接收不到数据？<br>答：我们需要给小程序的POST请求设置上特定的header，值为<code>&quot;content-type&quot;:&quot;application/x-www-form-urlencoded&quot;</code>。  </p>
+</li>
+<li><p>小程序云开发是什么东西？<br>答：小程序云开发就是利用微信平台提供的云空间部署小程序的后端项目。这个后端项目是用js语言构建的，同时还提供了noSql数据库，文件云存储等功能，基本上可以满足简单的业务场景。比如在线猜谜、抽奖等小程序。但是电商类、办公类的小程序就不适合用云开发来做。办公类需要在后端具备工作流引擎，电商类需要许多的子系统，如物流子系统、电商子系统和财务子系统等。</p>
+</li>
+</ol>
+
+      
+      <!-- 打赏 -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://lkz0032.github.io/2020/04/23/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/" data-id="ckcsi7w9a000wv0ayhfvmch6l"
+        class="article-share-link">分享</a>
+        
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag">学习笔记·微信小程序</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/2020/05/03/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%AD%E7%9A%84%E6%8E%92%E5%BA%8F/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            数据结构中的排序
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/04/23/ThinkPHP5%E6%A1%86%E6%9E%B6%E5%9B%9E%E9%A1%BE/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">ThinkPHP5框架回顾</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: '',
+        app_id: '',
+        app_key: '',
+        path: window.location.pathname,
+        avatar: 'mp',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2019-2020
+        Kailun Zhu
+      </li>
+      <li>
+        
+          Powered by
+        
+        
+        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+        
+        <ul class="list-inline">
+  <li>PV:<span id="busuanzi_value_page_pv"></span></li>
+  <li>UV:<span id="busuanzi_value_site_uv"></span></li>
+</ul>
+        
+      </li>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+    <div class="to_top">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+      </div>
+    </main>
+      <aside class="sidebar">
+        <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="Blessing"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">目录</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+      </aside>
+      <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+      
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+    strings: ['A man','is only as good as','what he loves'],
+    startDelay: 0,
+    typeSpeed: 160,
+    loop: true,
+    backSpeed: 80,
+    showCursor: true
+    });
+  } catch (err) {
+  }
+  
+</script>
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer:'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+    onClick: (e) => {
+      $('.toc-link').removeClass('is-active-link');
+      $(`a[href=${e.target.hash}]`).addClass('is-active-link');
+      $(e.target.hash).scrollIntoView();
+      return false;
+    }
+  });
+</script>
+
+
+<script>
+  var ayerConfig = {
+    mathjax: false
+  }
+</script>
+
+
+<script src="/js/ayer.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+  </div>
+</body>
+
+</html>

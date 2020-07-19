@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="博客,代码,学习" />
+   
+  <meta name="description" content="祝福" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    Java语法基础中的特别之处 |  Blessing
+  </title>
+  <meta name="generator" content="hexo-theme-yilia-plus">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="Blessing" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content">
+      <section class="outer">
+  <article id="post-Java语法基础中的特别之处" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Java语法基础中的特别之处
+</h1>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/04/12/Java%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B8%AD%E7%9A%84%E7%89%B9%E5%88%AB%E4%B9%8B%E5%A4%84/" class="article-date">
+  <time datetime="2020-04-12T04:34:09.000Z" itemprop="datePublished">2020-04-12</time>
+</a>
+      
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.3k字</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">4分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>这是一篇对Java基础语法学习中，遇到的异难的地方进行的总结。</p>
+<a id="more"></a>
+<ul>
+<li>变量定义时，“”标识string类型，‘’标识char类型</li>
+</ul>
+<ul>
+<li>Java命名规范<ul>
+<li>项目名全部小写.</li>
+<li>包名全部小写.</li>
+<li>类名首字母大写,其余组成词首字母依次大写（单词首字母大写）.</li>
+<li>变量名,方法名首字母小写,如果名称由多个单词组成,除首字母外的每个单词的首字母都要大写（驼峰式命名规则）.</li>
+<li>常量名全部大写，每个单词用‘_’隔开.</li>
+<li>所有命名规则必须遵循以下规则 :<br>  名称只能由字母、数字、下划线、$符号组成.<br>  不能以数字开头.<br>  名称不能使用Java中的关键字.  </li>
+<li><a href="https://baijiahao.baidu.com/s?id=1654685815662722805&wfr=spider&for=pc" target="_blank" rel="noopener">其余具体命名细节</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>使用文档注释（文档注释以/<em>*开始，以</em>/结尾）时还可以使用 javadoc 标记，生成更详细的文档信息：</p>
+<pre><code>@author 标明开发该类模块的作者
+
+@version 标明该类模块的版本
+
+@see 参考转向，也就是相关主题
+
+@param 对方法中某参数的说明
+
+@return 对方法返回值的说明
+
+@exception 对方法可能抛出的异常进行说明</code></pre></li>
+</ul>
+<ul>
+<li>算数运算符++，在变量右边，则先赋值再自增，在变量左边，则先自增再赋值。–的规律以此类推。</li>
+</ul>
+<ul>
+<li>\uff1b  Java中出现中文字符，仔细检查。</li>
+</ul>
+<ul>
+<li>foreach方法遍历数组的写法for(元素类型 元素变量:遍历数组){}，如：<br>for ( int score:scores ) {<br>  System.out.println(score);<br>}</li>
+</ul>
+<ul>
+<li>算数运算时，double类型运算时，后面如果全为int类型，则运算结果会产生误差，需要使其后面的值中有一个为小数才可，如：<br>double avg=(i+j)/2.0;</li>
+</ul>
+<ul>
+<li>Java成员变量的默认值为0，局部变量没有默认值。</li>
+</ul>
+<ul>
+<li>Java中的包名命名规范为全小写字母</li>
+</ul>
+<ul>
+<li>Java中的访问修饰符总结<br><img src="https://i.loli.net/2020/04/12/LnbQKCzvVaXJpo1.png" alt="Java中的访问修饰符.png"></li>
+</ul>
+<ul>
+<li>如果对象属性和参数同名时，必须加this，否则相反。</li>
+</ul>
+<ul>
+<li>如果外部类和内部类具有相同的成员变量或方法，内部类默认访问自己的成员变量或方法，如果要访问外部类的成员变量，可以使用 this 关键字。方法如下：<br><img src="https://i.loli.net/2020/04/13/sIp1NoSV9MkRQtK.jpg" alt="内部类中用this调用外部类成员变量.jpg"></li>
+</ul>
+<ul>
+<li>Java中的继承是单继承（接口可以继承自多个父接口）的，子类不能访问父类中的private修饰符修饰的成员</li>
+</ul>
+<ul>
+<li>继承的初始化顺序：初始化父类再初始子类、先执行初始化对象中属性，再执行构造方法中的初始化</li>
+</ul>
+<ul>
+<li>final关键字修饰的变量（即常量）的赋值必须在变量声明时，或者在构造函数中。</li>
+</ul>
+<ul>
+<li>Super关键字：在对象的内部使用，可以代表父类对象</li>
+</ul>
+<ul>
+<li>接口定义：常量：接口中的属性（方法）是常量（抽象方法），即使定义时不添加[public] [static] [final]（[public] [abstract]）修饰符，系统也会自动加上；<br>注：接口的定义：    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[修饰符] interface 接口名 [extends 父接口名列表]&#123;</span><br><span class="line">[public] [static] [final] 常量;</span><br><span class="line">[public] [abstract] 方法;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<ul>
+<li>抽象类和接口的区别：  <ul>
+<li>抽象类要被子类继承，接口要被类实现。</li>
+<li>接口只能做方法声明，抽象类中可以作方法声明，也可以做方法实现。</li>
+<li>接口里定义的变量只能是公共的静态的常量，抽象类中的变量是普通变量。</li>
+<li>接口是设计的结果，抽象类是重构的结果。</li>
+<li>抽象类和接口都是用来抽象具体对象的，但是接口的抽象级别最高。</li>
+<li>抽象类可以有具体的方法和属性，接口只能有抽象方法和不可变常量。</li>
+<li>抽象类主要用来抽象类别，接口主要用来抽象功能。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><blockquote>
+<p>Java异常处理try…catch执行完之后，还会继续执行之后的代码语句  </p>
+</blockquote>
+<ul>
+<li>finally语句在return语句执行之后return返回之前执行的。  </li>
+<li>finally块中的return语句会覆盖try块中的return返回。 </li>
+<li>try块里的return语句在异常的情况下不会被执行。   <blockquote>
+<p>总结：finally块的语句在try或catch中的return语句执行之后返回之前执行且finally里的修改语句可能影响也可能不影响try或catch中 return已经确定的返回值，若finally里也有return语句则覆盖try或catch中的return语句直接返回。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><ul>
+<li>泛型集合可以添加泛型指定类型的子类型的对象实例，即，泛型集合中不能添加泛型规定的类型及其子类型以外的对象，否则会报错。</li>
+<li>泛型集合中的限定类型不能使用基本数据类型。可以通过使用对应的包装类限定允许存入的基本数据类型如<code>int</code>类型使用<code>Integer</code>。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Collection.sort()方法对String类型进行排序时，按照数字0-9、大写字母A-Z、小写字母a-z的顺序来排序，即，数字最前，小写字母z最后</li>
+</ul>
+<ul>
+<li>Java集合框架结构（内容）<br><img src="https://i.loli.net/2020/04/13/Btxp8oGRg3FHsI4.png" alt="Java集合框架内容.png"></li>
+</ul>
+<ul>
+<li>容器：里面装有很多相同属性的对象。</li>
+</ul>
+
+      
+      <!-- 打赏 -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://lkz0032.github.io/2020/04/12/Java%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B8%AD%E7%9A%84%E7%89%B9%E5%88%AB%E4%B9%8B%E5%A4%84/" data-id="ckcsi7w8u0006v0ayf5svehz6"
+        class="article-share-link">分享</a>
+        
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7Java/" rel="tag">学习笔记·Java</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/2020/04/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9%E7%9A%84%E5%9B%9E%E9%A1%BE%E5%92%8C%E5%AD%A6%E4%B9%A0/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            计算机网络相关知识点的回顾和学习
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/04/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%8F%8A%E5%9B%9E%E9%A1%BE/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Mysql数据库相关的学习及回顾</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: '',
+        app_id: '',
+        app_key: '',
+        path: window.location.pathname,
+        avatar: 'mp',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2019-2020
+        Kailun Zhu
+      </li>
+      <li>
+        
+          Powered by
+        
+        
+        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+        
+        <ul class="list-inline">
+  <li>PV:<span id="busuanzi_value_page_pv"></span></li>
+  <li>UV:<span id="busuanzi_value_site_uv"></span></li>
+</ul>
+        
+      </li>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+    <div class="to_top">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+      </div>
+    </main>
+      <aside class="sidebar">
+        <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="Blessing"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">目录</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+      </aside>
+      <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+      
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+    strings: ['A man','is only as good as','what he loves'],
+    startDelay: 0,
+    typeSpeed: 160,
+    loop: true,
+    backSpeed: 80,
+    showCursor: true
+    });
+  } catch (err) {
+  }
+  
+</script>
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer:'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+    onClick: (e) => {
+      $('.toc-link').removeClass('is-active-link');
+      $(`a[href=${e.target.hash}]`).addClass('is-active-link');
+      $(e.target.hash).scrollIntoView();
+      return false;
+    }
+  });
+</script>
+
+
+<script>
+  var ayerConfig = {
+    mathjax: false
+  }
+</script>
+
+
+<script src="/js/ayer.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,1295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Java反射</title>
+    <url>/2020/04/22/Java%E5%8F%8D%E5%B0%84/</url>
+    <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>本文摘记自慕课网付费教程《剑指Java面试-Offer直通车》6-4  </p>
+<a id="more"></a>
+<ol>
+<li><p>谈谈反射<br>Java反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意方法和属性；这种动态获取信息以及动态调用对像方法的功能称为Java语言的反射机制。  </p>
+</li>
+<li><p>对象<br><code>Method</code>对象用来装类中的方法，<code>Field</code>用来装类中的属性。</p>
+</li>
+<li><p>常用的Java反射函数  </p>
+<ul>
+<li><code>GetDeclaredMethod()</code>方法：<br>可以获得所有访问类型的方法，但是不能获得继承的和实现接口的方法。若获取的方法为私有方法，则需要将返回的对象调用<code>setAccessible()</code>方法，将<code>true</code>作为参数传入才不会报错。形如：<code>getHello.setAccessible(true)</code>  </li>
+<li><code>getMethod()</code>方法：<br>只能调用public方法，但是可以调用对象的继承和实现的接口的方法。若获取的方法为私有方法，则需要将返回的对象调用setAccessible()方法，将true作为参数传入才不会报错。形如：getHello.setAccessible(true)    </li>
+<li><code>invoke(Object,Object)</code>方法：<br>通过让<code>Method</code>对象调用<code>invoke()</code>方法来传参调用方法，其中<code>invoke()</code>方法的第一个参数为含有此方法的对象的实例化，第二个参数为方法要传入的参数。  </li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>学习笔记·Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java开发学习路线</title>
+    <url>/2020/04/09/Java%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</url>
+    <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>思路整理参考B站UP主“程序羊”，文章地址为：<a href="https://www.bilibili.com/read/cv4184856" target="_blank" rel="noopener">上次是谁说搞不清学习路线来着？</a>以及其它一些知乎回答。</p>
+<a id="more"></a>  
+
+<h1 id="全局脑图"><a href="#全局脑图" class="headerlink" title="全局脑图"></a>全局脑图</h1><p><img src="https://i.loli.net/2020/04/09/34ty7FciTbOvds5.jpg" alt="Java开发学习路线 .jpg">  </p>
+<h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><ol>
+<li>语言本身<br>如下一些重点必须掌握：  <ul>
+<li>语法基础</li>
+<li>OO编程思想：类、对象、封装、继承、多态、接口  </li>
+<li>容器、异常、泛型、I/O、反射、注解  </li>
+<li><del>图形化界面，如 <code>swing</code> 的东西跳过不看</del></li>
+</ul>
+</li>
+<li>数据结构和算法  <ul>
+<li>几大基础数据结构类型得烂熟于心，比如：字符串、链表、二叉树、栈、队列等等；基本的几大算法要了如指掌，比如查找、排序、动态规划等等。  </li>
+<li>练习方式：<a href="https://leetcode-cn.com/explore/" target="_blank" rel="noopener">leetcode</a>、<a href="https://www.nowcoder.com/index" target="_blank" rel="noopener">牛客网</a>  </li>
+</ul>
+</li>
+<li>TCP/IP协议栈  <ul>
+<li>TCP/IP协议可以说是当下互联网通信的基石，无论如何一定要对TCP/IP的协议栈了如指掌，包括：ARP协议、IP协议、ICMP协议、TCP和UDP协议、DNS协议、HTTP协议、HTTPS协议等等。</li>
+<li>对于Java来说，熟悉Netty开发是入门网络开发的捷径。</li>
+<li>爬虫是网络开发中另外一个极具魅力的点，但建议使用python而不是java去做。 </li>
+</ul>
+</li>
+<li>设计模式<br>倒不需要23种设计模式全部很熟悉，常见的几个，比如：单例模式、工厂模式、代理模式、策略模式、模板方法模式等几个熟练于心即可。</li>
+<li>数据库和SQL<br>数据库基本原理了解，SQL语句熟练书写。  </li>
+</ol>
+<h1 id="项目工具"><a href="#项目工具" class="headerlink" title="项目工具"></a>项目工具</h1><ol>
+<li>Linux系统基本命令会使用， Linux系统上常用的服务会部署  </li>
+<li>代码管理SVN或 Git 二选一，持续练习，熟练使用  </li>
+<li>基于 Maven或Gradle的Java项目管理二选一，熟练使用  </li>
+</ol>
+<h1 id="应用框架"><a href="#应用框架" class="headerlink" title="应用框架"></a>应用框架</h1><ol>
+<li>Spring全家桶<br>了解Spring、Mybatis等框架的基本原理 Spring Boot框架会熟练使用、掌握基本原理 SSM组合框架会上手搭建项目、开发业务、掌握基本原理  </li>
+<li>中间件技术<br><strong>消息队列</strong>，主流的如 RabbitMQ Kafka等<br><strong>RPC通信</strong> 框架，主流的如  gRPC Thrift Dubbo 等<br><strong>NoSQL数据库</strong> ：主流的如  Redis memcached ElasticSearch 等<br><strong>NIO网络通信</strong> 框架，主流的如  Netty 等<br>这些成熟的中间件框架在企业级产品里应用得广泛而深远，建议先是要会 熟练使用 ，要是能了解 底层原理 实现那就更加分了！</li>
+<li>分布式微服务 当下微服务盛行，是个公司都说自己在搞微服务，所以诸如  Spring Cloud 这样的微服务框架怎么能不学，要求也是先会使用，再尝试搞懂原理 </li>
+<li>虚拟化/容器化 虚拟化、容器化平台是未来发展的大趋势，很多规模化企业都在搭建各SaaS/PaaS/IaaS平台，在此过程中诞生的一系列关于该方面的技术在学有余力的情况下最好也涉猎一下，典型的比如：  Docker 容器、  kubernetes编排技术。  </li>
+</ol>
+<h1 id="源码-性能"><a href="#源码-性能" class="headerlink" title="源码/性能"></a>源码/性能</h1><p>在如今这个流量极其密集的互联网时代，关注到 源码和性能 层面的程序员才是顶级好码农，所以：   </p>
+<ul>
+<li>关注JDK源码和设计思想  </li>
+<li>关注Java并发编程原理和实践  </li>
+<li>关注JVM细节原理与调优  </li>
+<li>关注上述应用框架的核心思想和内部源码  </li>
+<li>关注数据库深度优化  </li>
+<li>等等…  </li>
+</ul>
+<p>Java学习知识树【来源：<a href="https://www.nowcoder.com/tutorial/94/74ef45a524ad445399276e54c59d1eab" target="_blank" rel="noopener">牛客网Java面经</a>】<br><img src="https://i.loli.net/2020/04/17/opkLaPKzdxnwcT2.png" alt="Java学习知识树.png"></p>
+]]></content>
+      <tags>
+        <tag>所思所想</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java设计模式</title>
+    <url>/2020/04/22/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Java注解入门</title>
+    <url>/2020/04/21/Java%E6%B3%A8%E8%A7%A3%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>摘记学习慕课网中初级课——<a href="https://www.imooc.com/video/8865/0" target="_blank" rel="noopener">《全面解析Java注解》</a>中的知识点。  </p>
+<a id="more"></a>
+<ol>
+<li><p>注解的概念：Java提供了一种原程序中的元素关联任何信息和任何元数据的途径和方法。  </p>
+</li>
+<li><p>JDK自带注解：<br><code>@Override</code>  表示重写<br><code>@Deprecated</code>  表示方法过时<br><code>@Suppvisewarnings</code>  表示忽略某种注释，如忽略方法过时，则写法为<code>@Suppvisewarnings(&quot;deprecation&quot;)</code>  </p>
+</li>
+<li><p>注解的分类：  </p>
+<ul>
+<li>按照运行机制分：  <ul>
+<li>源码注解：注解只在源码中存在，编译成.class文件就不存在了。  </li>
+<li>编译时注解：注解在源码和.class文件中都存在。如：<code>@Override</code>等jdk自带的注解。  </li>
+<li>运行时注解：在运行阶段还会起作用，甚至会影响运行逻辑的注解。如spring中表示自动注入的<code>@Autowired</code>。  </li>
+</ul>
+</li>
+<li>按照来源分：  <ul>
+<li>来自JDK的注解  </li>
+<li>来自第三方的注解  </li>
+<li>我们自己定义的注解  </li>
+</ul>
+</li>
+</ul>
+</li>
+<li></li>
+</ol>
+<p>……看至4-1，以后继续更新本文。（2020-4-22）</p>
+]]></content>
+      <tags>
+        <tag>学习笔记·Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java语法基础中的特别之处</title>
+    <url>/2020/04/12/Java%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B8%AD%E7%9A%84%E7%89%B9%E5%88%AB%E4%B9%8B%E5%A4%84/</url>
+    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>这是一篇对Java基础语法学习中，遇到的异难的地方进行的总结。</p>
+<a id="more"></a>
+<ul>
+<li>变量定义时，“”标识string类型，‘’标识char类型</li>
+</ul>
+<ul>
+<li>Java命名规范<ul>
+<li>项目名全部小写.</li>
+<li>包名全部小写.</li>
+<li>类名首字母大写,其余组成词首字母依次大写（单词首字母大写）.</li>
+<li>变量名,方法名首字母小写,如果名称由多个单词组成,除首字母外的每个单词的首字母都要大写（驼峰式命名规则）.</li>
+<li>常量名全部大写，每个单词用‘_’隔开.</li>
+<li>所有命名规则必须遵循以下规则 :<br>  名称只能由字母、数字、下划线、$符号组成.<br>  不能以数字开头.<br>  名称不能使用Java中的关键字.  </li>
+<li><a href="https://baijiahao.baidu.com/s?id=1654685815662722805&wfr=spider&for=pc" target="_blank" rel="noopener">其余具体命名细节</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>使用文档注释（文档注释以/<em>*开始，以</em>/结尾）时还可以使用 javadoc 标记，生成更详细的文档信息：</p>
+<pre><code>@author 标明开发该类模块的作者
+
+@version 标明该类模块的版本
+
+@see 参考转向，也就是相关主题
+
+@param 对方法中某参数的说明
+
+@return 对方法返回值的说明
+
+@exception 对方法可能抛出的异常进行说明</code></pre></li>
+</ul>
+<ul>
+<li>算数运算符++，在变量右边，则先赋值再自增，在变量左边，则先自增再赋值。–的规律以此类推。</li>
+</ul>
+<ul>
+<li>\uff1b  Java中出现中文字符，仔细检查。</li>
+</ul>
+<ul>
+<li>foreach方法遍历数组的写法for(元素类型 元素变量:遍历数组){}，如：<br>for ( int score:scores ) {<br>  System.out.println(score);<br>}</li>
+</ul>
+<ul>
+<li>算数运算时，double类型运算时，后面如果全为int类型，则运算结果会产生误差，需要使其后面的值中有一个为小数才可，如：<br>double avg=(i+j)/2.0;</li>
+</ul>
+<ul>
+<li>Java成员变量的默认值为0，局部变量没有默认值。</li>
+</ul>
+<ul>
+<li>Java中的包名命名规范为全小写字母</li>
+</ul>
+<ul>
+<li>Java中的访问修饰符总结<br><img src="https://i.loli.net/2020/04/12/LnbQKCzvVaXJpo1.png" alt="Java中的访问修饰符.png"></li>
+</ul>
+<ul>
+<li>如果对象属性和参数同名时，必须加this，否则相反。</li>
+</ul>
+<ul>
+<li>如果外部类和内部类具有相同的成员变量或方法，内部类默认访问自己的成员变量或方法，如果要访问外部类的成员变量，可以使用 this 关键字。方法如下：<br><img src="https://i.loli.net/2020/04/13/sIp1NoSV9MkRQtK.jpg" alt="内部类中用this调用外部类成员变量.jpg"></li>
+</ul>
+<ul>
+<li>Java中的继承是单继承（接口可以继承自多个父接口）的，子类不能访问父类中的private修饰符修饰的成员</li>
+</ul>
+<ul>
+<li>继承的初始化顺序：初始化父类再初始子类、先执行初始化对象中属性，再执行构造方法中的初始化</li>
+</ul>
+<ul>
+<li>final关键字修饰的变量（即常量）的赋值必须在变量声明时，或者在构造函数中。</li>
+</ul>
+<ul>
+<li>Super关键字：在对象的内部使用，可以代表父类对象</li>
+</ul>
+<ul>
+<li>接口定义：常量：接口中的属性（方法）是常量（抽象方法），即使定义时不添加[public] [static] [final]（[public] [abstract]）修饰符，系统也会自动加上；<br>注：接口的定义：    <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[修饰符] interface 接口名 [extends 父接口名列表]&#123;</span><br><span class="line">[public] [static] [final] 常量;</span><br><span class="line">[public] [abstract] 方法;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<ul>
+<li>抽象类和接口的区别：  <ul>
+<li>抽象类要被子类继承，接口要被类实现。</li>
+<li>接口只能做方法声明，抽象类中可以作方法声明，也可以做方法实现。</li>
+<li>接口里定义的变量只能是公共的静态的常量，抽象类中的变量是普通变量。</li>
+<li>接口是设计的结果，抽象类是重构的结果。</li>
+<li>抽象类和接口都是用来抽象具体对象的，但是接口的抽象级别最高。</li>
+<li>抽象类可以有具体的方法和属性，接口只能有抽象方法和不可变常量。</li>
+<li>抽象类主要用来抽象类别，接口主要用来抽象功能。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><blockquote>
+<p>Java异常处理try…catch执行完之后，还会继续执行之后的代码语句  </p>
+</blockquote>
+<ul>
+<li>finally语句在return语句执行之后return返回之前执行的。  </li>
+<li>finally块中的return语句会覆盖try块中的return返回。 </li>
+<li>try块里的return语句在异常的情况下不会被执行。   <blockquote>
+<p>总结：finally块的语句在try或catch中的return语句执行之后返回之前执行且finally里的修改语句可能影响也可能不影响try或catch中 return已经确定的返回值，若finally里也有return语句则覆盖try或catch中的return语句直接返回。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><ul>
+<li>泛型集合可以添加泛型指定类型的子类型的对象实例，即，泛型集合中不能添加泛型规定的类型及其子类型以外的对象，否则会报错。</li>
+<li>泛型集合中的限定类型不能使用基本数据类型。可以通过使用对应的包装类限定允许存入的基本数据类型如<code>int</code>类型使用<code>Integer</code>。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Collection.sort()方法对String类型进行排序时，按照数字0-9、大写字母A-Z、小写字母a-z的顺序来排序，即，数字最前，小写字母z最后</li>
+</ul>
+<ul>
+<li>Java集合框架结构（内容）<br><img src="https://i.loli.net/2020/04/13/Btxp8oGRg3FHsI4.png" alt="Java集合框架内容.png"></li>
+</ul>
+<ul>
+<li>容器：里面装有很多相同属性的对象。</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>学习笔记·Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Maven梳理</title>
+    <url>/2020/05/31/Maven%E6%A2%B3%E7%90%86/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>学习笔记·Maven</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于博客网站</title>
+    <url>/2020/02/18/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/</url>
+    <content><![CDATA[<h1 id="关于这篇博客"><a href="#关于这篇博客" class="headerlink" title="关于这篇博客"></a>关于这篇博客</h1><h2 id="博客的主要内容"><a href="#博客的主要内容" class="headerlink" title="博客的主要内容"></a>博客的主要内容</h2><a id="more"></a>
+<ul>
+<li>学习笔记<ul>
+<li>平时学习到的技术知识的总结</li>
+<li>学校课程的笔记</li>
+</ul>
+</li>
+<li>所思所想<ul>
+<li>对学习路线的梳理</li>
+<li>对博客相关的整理</li>
+<li>对一些平时所见结合知识点发表的见解</li>
+</ul>
+</li>
+<li>（待增加……）</li>
+</ul>
+<h2 id="博客的目的"><a href="#博客的目的" class="headerlink" title="博客的目的"></a>博客的目的</h2><ul>
+<li>为了能够在遇到相同问题时，快速的找到相应的解决办法，并加深印象</li>
+<li>为了能够使自己对自己的技术能力、技术学习周期和时限有一个更直观的认识</li>
+<li>(待完善……)</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>所思所想</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown的学习总结和巩固</title>
+    <url>/2020/02/18/Markdown%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E5%92%8C%E5%B7%A9%E5%9B%BA/</url>
+    <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>对markdown的个人认识：是一种语法格式，用这种语法写出的文件以.md后缀结尾。通过特定的环境的浏览，可以快速的识别并形成漂亮的格式，效率和美观都可以保证。（此hexo博客文章采用markdown格式书写。）（注：语法符号若没有实现效果时，往往在前后用空格将文字和符号隔开可以恢复效果）（本篇暂时收录平时会用到的格式方式，语法学习来自——<a href="https://www.runoob.com/markdown/md-tutorial.html" target="_blank" rel="noopener">菜鸟教程</a>）</p>
+<a id="more"></a>
+<h1 id="标题的写法"><a href="#标题的写法" class="headerlink" title="标题的写法"></a>标题的写法</h1><ul>
+<li><p>一、二级标题写法可以为</p>
+<ul>
+<li><code>一级标题</code><br><code>===========（一个即可）</code><br><code>二级标题</code><br><code>------------（一个即可）</code><br>显示效果为：<blockquote>
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题  "></a>一级标题  </h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2></blockquote>
+</li>
+<li>或<br><code># 一级标题</code><br><code>## 二级标题</code><br>显示效果为：<blockquote>
+<h1 id="一级标题-1"><a href="#一级标题-1" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题-1"><a href="#二级标题-1" class="headerlink" title="二级标题"></a>二级标题</h2></blockquote>
+</li>
+</ul>
+</li>
+<li><p>随后的标题级别只能用 <code>#</code>来标识，几个 <code>#</code>代表是几级标题（最多六个 <code>#</code>）</p>
+</li>
+</ul>
+<h1 id="段落和换行"><a href="#段落和换行" class="headerlink" title="段落和换行"></a>段落和换行</h1><ul>
+<li>行末或段末可以使用两个空格加上回车来实现换行</li>
+<li>在空行直接回车可以实现空一行，且只有第一个回车有效<br>（注：行内文字间空格只有第一个有效，要实现多个空格，可以使用HTML标记中的空格标记如 <code>&amp;nbsp</code>）</li>
+</ul>
+<h1 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h1><ul>
+<li>字体可实现斜体和粗体<ul>
+<li>斜体的写法有两种：<code>*斜体*</code> 或者 <code>_斜体_</code></li>
+<li>粗体的写法有两种：<code>**粗体**</code> 或者 <code>__粗体__</code></li>
+</ul>
+</li>
+<li>斜体可加粗，写法为： <code>***加粗斜体***</code> 或者 <code>___加粗斜体___</code>  </li>
+</ul>
+<h1 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h1><ul>
+<li>当行内只有三个以上的 <code>*</code> 、<code>_</code> 或者 <code>-</code> 时（可以有空格），可以实现分隔线效果，写法如下：<br><code>---</code><br><code>***</code><br><code>- - -</code><br><code>* * *</code><br><code>___</code><br>效果为：<blockquote>
+<p>分隔线</p>
+<hr>
+<p>分隔线</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h1><ul>
+<li>文字上添加删除线样式的方法是在两端分别加上两个 <code>~</code>，如：<br><code>~~删除线~~</code><br>效果为：<blockquote>
+<p><del>1删除线11111</del></p>
+</blockquote>
+</li>
+</ul>
+<h1 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h1><ul>
+<li>下划线用HTML的 <code>&lt;u&gt;</code> 标签来实现，如：<br><code>&lt;u&gt;下划线&lt;/u&gt;</code><br>效果为：  <blockquote>
+<p><u>下划线</u></p>
+</blockquote>
+</li>
+</ul>
+<h1 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h1><ul>
+<li>脚注是对文本的补充说明，写法为：<code>[^要注明的文本]</code><br>效果为：  <blockquote>
+<p>创建脚注格式类似这样[^RUNOOB]。<br>[^RUNOOB]: 菜鸟教程 – 学的不仅是技术，更是梦想！！！</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><ul>
+<li>无序列表使用星号 <code>*</code>、加号 <code>+</code> 或是减号 <code>-</code>作为列表标记，如：<br><code>*无序列表</code><br><code>+无序列表</code><br><code>-无序列表</code><br>效果为：  <blockquote>
+<ul>
+<li>无序列表</li>
+</ul>
+<ul>
+<li>无序列表</li>
+</ul>
+<ul>
+<li>无序列表</li>
+</ul>
+</blockquote>
+</li>
+<li>有序列表使用数字并加上 . 号来表示，如：<br><code>1. 第一项</code><br><code>2. 第二项</code><br><code>3. 第三项</code><br>效果为：<blockquote>
+<ol>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h1 id="列表嵌套"><a href="#列表嵌套" class="headerlink" title="列表嵌套"></a>列表嵌套</h1><ul>
+<li>列表嵌套只需在子列表中的选项添加四个空格（或一个tab）即可，写法如下：    <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 第一项：</span><br><span class="line">    - 第一项嵌套的第一个元素</span><br><span class="line">    - 第一项嵌套的第二个元素</span><br><span class="line">2. 第二项：</span><br><span class="line">    - 第二项嵌套的第一个元素</span><br><span class="line">    - 第二项嵌套的第二个元素</span><br></pre></td></tr></table></figure>
+  效果为：<blockquote>
+<ol>
+<li>第一项：<ul>
+<li>第一项嵌套的第一个元素</li>
+<li>第一项嵌套的第二个元素</li>
+</ul>
+</li>
+<li>第二项：<ul>
+<li>第二项嵌套的第一个元素</li>
+<li>第二项嵌套的第二个元素</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h1 id="区块"><a href="#区块" class="headerlink" title="区块"></a>区块</h1><ul>
+<li>区块引用是在段落开头使用 <code>&gt;</code> 符号 ，然后后面紧跟一个空格符号（不跟，在vscode中也可识别，当前版本为1.42.1），另外区块是可以嵌套的，一个 <code>&gt;</code> 符号是最外层，两个 <code>&gt;</code> 符号是第一层嵌套，以此类推：如： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; 最外层</span><br><span class="line">&gt; &gt; 第一层嵌套</span><br><span class="line">&gt; &gt; &gt; 第二层嵌套</span><br></pre></td></tr></table></figure>
+ 效果为：  <blockquote>
+<p>最外层11</p>
+<blockquote>
+<p>第一层嵌套</p>
+<blockquote>
+<p>第二层嵌套</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<p>另，区块中可以插入列表，列表中可以插入区块（若文字与内层嵌套的区块未空有一行，则认为，此行文字还在区块中）</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><ul>
+<li>如果是段落上的一个函数或片段的代码可以用反引号(`)把它包起来，<br>你也可以用 ``` 包裹一段代码，并指定一种语言（也可以不指定）：  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#96;&#96;&#96;javascript  </span><br><span class="line">$(document).ready(function () &#123;  </span><br><span class="line">    alert(&#39;RUNOOB&#39;);  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">效果如下：  </span><br><span class="line">&#96;&#96;&#96;javascript</span><br><span class="line">$(document).ready(function () &#123;</span><br><span class="line">    alert(&#39;RUNOOB&#39;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><ul>
+<li><p>链接使用方法如下<br><code>[链接名称](链接地址)</code><br>（此方法类似HTML中的a标签，不显示具体的链接地址）<br>或者<br><code>&lt;链接地址&gt;</code><br>（此方法直接显示可跳转的链接的内容）</p>
+</li>
+<li><p>高级链接<br>链接也可以用变量来代替，文档末尾附带变量地址，如：</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">这个链接用 1 作为网址变量 [Google][1]</span><br><span class="line">这个链接用 runoob 作为网址变量 [Runoob][runoob]</span><br><span class="line">然后在文档的结尾为变量赋值（网址）</span><br><span class="line"></span><br><span class="line">[1]: http:&#x2F;&#x2F;www.google.com&#x2F;</span><br><span class="line">[runoob]: http:&#x2F;&#x2F;www.runoob.com&#x2F;</span><br></pre></td></tr></table></figure>
+<p>  效果为：<br>  这个链接用 1 作为网址变量 [Google][1]<br>  这个链接用 runoob 作为网址变量 [Runoob][runoob]<br>  然后在文档的结尾为变量赋值（网址）</p>
+<p>  [1]: <a href="http://www.google.com/" target="_blank" rel="noopener">http://www.google.com/</a><br>  [runoob]: <a href="http://www.runoob.com/" target="_blank" rel="noopener">http://www.runoob.com/</a></p>
+</li>
+</ul>
+<h1 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h1><ul>
+<li>Markdown 图片语法格式如下：  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![alt 属性文本](图片地址)</span><br><span class="line">或</span><br><span class="line">![alt 属性文本](图片地址 &quot;可选标题&quot;)</span><br></pre></td></tr></table></figure>
+  开头一个感叹号 <code>!</code>，接着一个方括号，里面放上图片的替代文字，接着一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上选择性的，’title’ 属性的文字（当鼠标移动到图片上时，会显示的文字为title中的值）。<br>  写法如：<br>  <code>![示例图片](https://i.loli.net/2020/02/12/yOigcUF4CS1MN8v.jpg &quot;示例图片&quot;)</code><br>  <img src="https://i.loli.net/2020/02/12/yOigcUF4CS1MN8v.jpg" alt="示例图片" title="示例图片"><br>  当然，你也可以像网址那样对图片网址使用变量（这里不会直接显示图片，当点击链接之后，会在新的页面中显示出来）。<br>  Markdown 还没有办法指定图片的高度与宽度，如果你需要的话，你可以使用普通的 <code>&lt;img&gt;</code> 标签。  </li>
+</ul>
+<h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h1><ul>
+<li><p>Markdown 制作表格使用 <code>|</code> 来分隔不同的单元格，使用 <code>-</code> 来分隔表头和其他行。</p>
+<p>  语法格式如下：</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">|  表头   | 表头  |</span><br><span class="line">|  ----  | ----  |</span><br><span class="line">| 单元格  | 单元格 |</span><br><span class="line">| 单元格  | 单元格 |</span><br></pre></td></tr></table></figure>
+<p>  效果为：</p>
+<table>
+<thead>
+<tr>
+<th>表头</th>
+<th>表头</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+<tr>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>对齐方式</p>
+<p>我们可以设置表格的对齐方式：</p>
+<p><code>-:</code> 设置内容和标题栏居右对齐。<br><code>:-</code> 设置内容和标题栏居左对齐。<br><code>:-:</code> 设置内容和标题栏居中对齐。<br>实例如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">| 左对齐 | 右对齐 | 居中对齐 |</span><br><span class="line">| :-----| ----: | :----: |</span><br><span class="line">| 单元格 | 单元格 | 单元格 |</span><br><span class="line">| 单元格 | 单元格 | 单元格 |</span><br></pre></td></tr></table></figure>
+<p>效果为：  </p>
+<table>
+<thead>
+<tr>
+<th align="left">左对齐左对齐</th>
+<th align="right">右对齐右对齐</th>
+<th align="center">居中对齐居中对齐</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">单元格</td>
+<td align="right">单元格</td>
+<td align="center">单元格</td>
+</tr>
+<tr>
+<td align="left">单元格</td>
+<td align="right">单元格</td>
+<td align="center">单元格</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="转义"><a href="#转义" class="headerlink" title="转义"></a>转义</h1><ul>
+<li>Markdown 使用了很多特殊符号来表示特定的意义，如果需要显示特定的符号则需要使用转义字符，Markdown 使用反斜杠转义特殊字符。<br>  示例为：  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">**文本加粗** </span><br><span class="line">\*\* 正常显示星号 \*\*</span><br></pre></td></tr></table></figure>
+  显示效果为：<br>  <strong>文本加粗</strong><br>  ** 正常显示星号 **</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>学习笔记·Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java虚拟机</title>
+    <url>/2020/05/05/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/</url>
+    <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>本文转载自<a href="https://cyc2018.github.io/CS-Notes/#/" target="_blank" rel="noopener">GitHub的开源项目</a>，转载的目的是为了能够对文章中不懂的内容进行自由注解。<br>以下为文章内容： </p>
+<a id="more"></a> 
+
+<p>本文大部分内容参考 周志明《深入理解 Java 虚拟机》 ，想要深入学习的话请看原书。</p>
+<h1 id="一、运行时数据区域"><a href="#一、运行时数据区域" class="headerlink" title="一、运行时数据区域"></a>一、运行时数据区域</h1><p><img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/5778d113-8e13-4c53-b5bf-801e58080b97.png" alt="JVM分区图"></p>
+<h2 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h2><p>记录正在执行的虚拟机字节码指令的地址（如果正在执行的是本地方法则为空）。</p>
+<h2 id="Java-虚拟机栈"><a href="#Java-虚拟机栈" class="headerlink" title="Java 虚拟机栈"></a>Java 虚拟机栈</h2><p>每个 Java 方法在执行的同时会创建一个栈帧用于存储局部变量表、操作数栈、常量池引用等信息。从方法调用直至执行完成的过程，对应着一个栈帧在 Java 虚拟机栈中入栈和出栈的过程。  </p>
+<p><img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/8442519f-0b4d-48f4-8229-56f984363c69.png" alt="Java虚拟机栈">  </p>
+<p>可以通过 -Xss 这个虚拟机参数来指定每个线程的 Java 虚拟机栈内存大小，在 JDK 1.4 中默认为 256K，而在 JDK 1.5+ 默认为 1M：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">java -Xss2M HackTheJava</span><br></pre></td></tr></table></figure>
+<p>该区域可能抛出以下异常：</p>
+<ul>
+<li>当线程请求的栈深度超过最大值，会抛出 StackOverflowError 异常；</li>
+<li>栈进行动态扩展时如果无法申请到足够内存，会抛出 OutOfMemoryError 异常。</li>
+</ul>
+<h2 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h2><p>本地方法栈与 Java 虚拟机栈类似，它们之间的区别只不过是本地方法栈为本地方法服务。</p>
+<p>本地方法一般是用其它语言（C、C++ 或汇编语言等）编写的，并且被编译为基于本机硬件和操作系统的程序，对待这些方法需要特别处理。<br><img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/66a6899d-c6b0-4a47-8569-9d08f0baf86c.png" alt="本地方法栈示意图"></p>
+<h2 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h2><p>所有对象都在这里分配内存，是垃圾收集的主要区域（”GC 堆”）。</p>
+<p>现代的垃圾收集器基本都是采用分代收集算法，其主要的思想是针对不同类型的对象采取不同的垃圾回收算法。可以将堆分成两块：  </p>
+<ul>
+<li>新生代（Young Generation）</li>
+<li>老年代（Old Generation）<br>堆不需要连续内存，并且可以动态增加其内存，增加失败会抛出 OutOfMemoryError 异常。</li>
+</ul>
+<p>可以通过 -Xms 和 -Xmx 这两个虚拟机参数来指定一个程序的堆内存大小，第一个参数设置初始值，第二个参数设置最大值。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">java -Xms1M -Xmx2M HackTheJava</span><br></pre></td></tr></table></figure>
+<h2 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h2><p>用于存放已被加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p>
+<p>和堆一样不需要连续的内存，并且可以动态扩展，动态扩展失败一样会抛出 OutOfMemoryError 异常。</p>
+<p>对这块区域进行垃圾回收的主要目标是对常量池的回收和对类的卸载，但是一般比较难实现。</p>
+<p>HotSpot 虚拟机把它当成永久代来进行垃圾回收。但很难确定永久代的大小，因为它受到很多因素影响，并且每次 Full GC 之后永久代的大小都会改变，所以经常会抛出 OutOfMemoryError 异常。为了更容易管理方法区，从 JDK 1.8 开始，移除永久代，并把方法区移至元空间，它位于本地内存中，而不是虚拟机内存中。</p>
+<p>方法区是一个 JVM 规范，永久代与元空间都是其一种实现方式。在 JDK 1.8 之后，原来永久代的数据被分到了堆和元空间中。元空间存储类的元信息，静态变量和常量池等放入堆中。(<em>注：个人理解，方法区不是真实存在的，而是一部分东西的集合，之前这个集合是在虚拟机内存中，后来1.8之后取消了这块虚拟机内存，集合被拆开，分配到堆和计算机内存中。</em>)</p>
+<h2 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a>运行时常量池</h2><p>运行时常量池是方法区的一部分。</p>
+<p>Class 文件中的常量池（编译器生成的字面量和符号引用）会在类加载后被放入这个区域。</p>
+<p>除了在编译期生成的常量，还允许动态生成，例如 String 类的 intern()。(<em>注：intern()方法的返回值为一个字符串，内容与此字符串相同，但一定取自具有唯一字符串的池。对于任意两个字符串 s 和 t，当且仅当 s.equals(t) 为 true 时，s.intern() == t.intern() 才为 true，即出自同一内存地址时。</em>)</p>
+<h2 id="直接内存"><a href="#直接内存" class="headerlink" title="直接内存"></a>直接内存</h2><p>在 JDK 1.4 中新引入了 NIO 类，它可以使用 Native 函数库直接分配堆外内存，然后通过 Java 堆里的 DirectByteBuffer 对象作为这块内存的引用进行操作。这样能在一些场景中显著提高性能，因为避免了在堆内存和堆外内存来回拷贝数据。(<em>注：在 JDK 1. 4 中 新 加入 了 NIO( New Input/ Output) 类, 引入了一种基于通道和缓冲区的 I/O 方式，为所有的原始类型（boolean类型除外）提供缓存支持的数据容器，使用它可以提供非阻塞式的高伸缩性网络。它可以使用 Native 函数库直接分配堆外内存，然后通过一个存储在 Java 堆的 DirectByteBuffer 对象作为这块内存的引用进行操作，避免了在 Java 堆和 Native 堆中来回复制数据。</em>)</p>
+<h1 id="二、垃圾收集"><a href="#二、垃圾收集" class="headerlink" title="二、垃圾收集"></a>二、垃圾收集</h1><p>垃圾收集主要是针对堆和方法区进行。程序计数器、虚拟机栈和本地方法栈这三个区域属于线程私有的，只存在于线程的生命周期内，线程结束之后就会消失，因此不需要对这三个区域进行垃圾回收。</p>
+<h2 id="判断一个对象是否可被回收"><a href="#判断一个对象是否可被回收" class="headerlink" title="判断一个对象是否可被回收"></a>判断一个对象是否可被回收</h2><ol>
+<li><p>引用计数算法<br>为对象添加一个引用计数器，当对象增加一个引用时计数器加 1，引用失效时计数器减 1。引用计数为 0 的对象可被回收。<br>在两个对象出现循环引用的情况下，此时引用计数器永远不为 0，导致无法对它们进行回收。正是因为循环引用的存在，因此 Java 虚拟机不使用引用计数算法。</p>
+ <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Object instance = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Test a = <span class="keyword">new</span> Test();</span><br><span class="line">        Test b = <span class="keyword">new</span> Test();</span><br><span class="line">        a.instance = b;</span><br><span class="line">        b.instance = a;</span><br><span class="line">        a = <span class="keyword">null</span>;</span><br><span class="line">        b = <span class="keyword">null</span>;</span><br><span class="line">        doSomething();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 在上述代码中，a 与 b 引用的对象实例互相持有了对象的引用，因此当我们把对 a 对象与 b 对象的引用去除之后，由于两个对象还存在互相之间的引用，导致两个 Test 对象无法被回收。</p>
+</li>
+<li><p>可达性分析算法<br>以 GC Roots 为起始点进行搜索，可达的对象都是存活的，不可达的对象可被回收。</p>
+<p> Java 虚拟机使用该算法来判断对象是否可被回收，GC Roots 一般包含以下内容：</p>
+<ul>
+<li><p>虚拟机栈中局部变量表中引用的对象  </p>
+</li>
+<li><p>本地方法栈中 JNI 中引用的对象  </p>
+</li>
+<li><p>方法区中类静态属性引用的对象  </p>
+</li>
+<li><p>方法区中的常量引用的对象  </p>
+<p><img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/83d909d2-3858-4fe1-8ff4-16471db0b180.png" alt="可达性分析算法示意图"></p>
+</li>
+</ul>
+</li>
+<li><p>方法区的回收<br>因为方法区主要存放永久代对象，而永久代对象的回收率比新生代低很多，所以在方法区上进行回收性价比不高。</p>
+<p> 主要是对常量池的回收和对类的卸载。</p>
+<p> 为了避免内存溢出，在大量使用反射和动态代理的场景都需要虚拟机具备类卸载功能。</p>
+<p> 类的卸载条件很多，需要满足以下三个条件，并且满足了条件也不一定会被卸载：</p>
+<ul>
+<li>该类所有的实例都已经被回收，此时堆中不存在该类的任何实例。</li>
+<li>加载该类的 ClassLoader 已经被回收。</li>
+<li>该类对应的 Class 对象没有在任何地方被引用，也就无法在任何地方通过反射访问该类方法。  </li>
+</ul>
+</li>
+<li><p>finalize()<br>类似 C++ 的析构函数，用于关闭外部资源。但是 try-finally 等方式可以做得更好，并且该方法运行代价很高，不确定性大，无法保证各个对象的调用顺序，因此最好不要使用。</p>
+<p> 当一个对象可被回收时，如果需要执行该对象的 finalize() 方法，那么就有可能在该方法中让对象重新被引用，从而实现自救。自救只能进行一次，如果回收的对象之前调用了 finalize() 方法自救，后面回收时不会再调用该方法。(<em>注：finalize()方法是Object类中提供的一个方法，在GC准备释放对象所占用的内存空间之前，它将首先调用finalize()方法。</em>)</p>
+</li>
+</ol>
+<h2 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h2><p>无论是通过引用计数算法判断对象的引用数量，还是通过可达性分析算法判断对象是否可达，判定对象是否可被回收都与引用有关。</p>
+<p>Java 提供了四种强度不同的引用类型。</p>
+<ol>
+<li><p>强引用<br>被强引用关联的对象不会被回收。</p>
+<p> 使用 new 一个新对象的方式来创建强引用。</p>
+ <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Object obj = <span class="keyword">new</span> Object();</span><br></pre></td></tr></table></figure></li>
+<li><p>软引用<br>被软引用关联的对象只有在内存不够的情况下才会被回收。</p>
+<p> 使用 SoftReference 类来创建软引用。</p>
+ <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Object obj = <span class="keyword">new</span> Object();</span><br><span class="line">SoftReference&lt;Object&gt; sf = <span class="keyword">new</span> SoftReference&lt;Object&gt;(obj);</span><br><span class="line">obj = <span class="keyword">null</span>;  <span class="comment">// 使对象只被软引用关联</span></span><br></pre></td></tr></table></figure></li>
+<li><p>弱引用<br>被弱引用关联的对象一定会被回收，也就是说它只能存活到下一次垃圾回收发生之前。</p>
+<p> 使用 WeakReference 类来创建弱引用。</p>
+ <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Object obj = <span class="keyword">new</span> Object();</span><br><span class="line">WeakReference&lt;Object&gt; wf = <span class="keyword">new</span> WeakReference&lt;Object&gt;(obj);</span><br><span class="line">obj = <span class="keyword">null</span>;</span><br></pre></td></tr></table></figure></li>
+<li><p>虚引用<br>又称为幽灵引用或者幻影引用，一个对象是否有虚引用的存在，不会对其生存时间造成影响，也无法通过虚引用得到一个对象。</p>
+<p> 为一个对象设置虚引用的唯一目的是能在这个对象被回收时收到一个系统通知。</p>
+<p> 使用 PhantomReference 来创建虚引用。</p>
+ <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Object obj = <span class="keyword">new</span> Object();</span><br><span class="line">PhantomReference&lt;Object&gt; pf = <span class="keyword">new</span> PhantomReference&lt;Object&gt;(obj, <span class="keyword">null</span>);</span><br><span class="line">obj = <span class="keyword">null</span>;</span><br></pre></td></tr></table></figure>
+<p> (<em>注：个人理解，引用何时被回收指的是引用的对象，即创建的对象何时被回收</em>)  </p>
+</li>
+</ol>
+<h2 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h2><ol>
+<li><p>标记 - 清除<br><img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/005b481b-502b-4e3f-985d-d043c2b330aa.png" alt="标记清除算法示意图"></p>
+<p> 在标记阶段，程序会检查每个对象是否为活动对象，如果是活动对象，则程序会在对象头部打上标记。</p>
+<p> 在清除阶段，会进行对象回收并取消标志位，另外，还会判断回收后的分块与前一个空闲分块是否连续，若连续，会合并这两个分块。回收对象就是把对象作为分块，连接到被称为 “空闲链表” 的单向链表，之后进行分配时只需要遍历这个空闲链表，就可以找到分块。</p>
+<p> 在分配时，程序会搜索空闲链表寻找空间大于等于新对象大小 size 的块 block。如果它找到的块等于 size，会直接返回这个分块；如果找到的块大于 size，会将块分割成大小为 size 与 (block - size) 的两部分，返回大小为 size 的分块，并把大小为 (block - size) 的块返回给空闲链表。</p>
+<p> 不足：</p>
+<ul>
+<li>标记和清除过程效率都不高；</li>
+<li>会产生大量不连续的内存碎片，导致无法给大对象分配内存。  </li>
+</ul>
+</li>
+<li><p>标记 - 整理<br><img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/ccd773a5-ad38-4022-895c-7ac318f31437.png" alt="标记整理算法示意图"></p>
+<p> 让所有存活的对象都向一端移动，然后直接清理掉端边界以外的内存。</p>
+<p> 优点:  </p>
+<ul>
+<li><p>不会产生内存碎片  </p>
+<p>不足:  </p>
+</li>
+<li><p>需要移动大量对象，处理效率比较低。  </p>
+</li>
+</ul>
+</li>
+<li><p>复制<br><img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/b2b77b9e-958c-4016-8ae5-9c6edd83871e.png" alt="复制算法的示意图"></p>
+<p> 将内存划分为大小相等的两块，每次只使用其中一块，当这一块内存用完了就将还存活的对象复制到另一块上面，然后再把使用过的内存空间进行一次清理。</p>
+<p> 主要不足是只使用了内存的一半。</p>
+<p> 现在的商业虚拟机都采用这种收集算法回收新生代，但是并不是划分为大小相等的两块，而是一块较大的 Eden 空间和两块较小的 Survivor 空间，每次使用 Eden 和其中一块 Survivor。在回收时，将 Eden 和 Survivor 中还存活着的对象全部复制到另一块 Survivor 上，最后清理 Eden 和使用过的那一块 Survivor。</p>
+<p> HotSpot 虚拟机的 Eden 和 Survivor 大小比例默认为 8:1，保证了内存的利用率达到 90%。如果每次回收有多于 10% 的对象存活，那么一块 Survivor 就不够用了，此时需要依赖于老年代进行空间分配担保，也就是借用老年代的空间存储放不下的对象。</p>
+</li>
+<li><p>分代收集<br>现在的商业虚拟机采用分代收集算法，它根据对象存活周期将内存划分为几块，不同块采用适当的收集算法。</p>
+<p> 一般将堆分为新生代和老年代。</p>
+<ul>
+<li>新生代使用：复制算法</li>
+<li>老年代使用：标记 - 清除 或者 标记 - 整理 算法  </li>
+</ul>
+</li>
+</ol>
+<h2 id="垃圾收集器"><a href="#垃圾收集器" class="headerlink" title="垃圾收集器"></a>垃圾收集器</h2><p><img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/c625baa0-dde6-449e-93df-c3a67f2f430f.jpg" alt="垃圾收集器关系图"></p>
+<p>以上是 HotSpot 虚拟机中的 7 个垃圾收集器，连线表示垃圾收集器可以配合使用。</p>
+<ul>
+<li>单线程与多线程：单线程指的是垃圾收集器只使用一个线程，而多线程使用多个线程；</li>
+<li>串行与并行：串行指的是垃圾收集器与用户程序交替执行，这意味着在执行垃圾收集的时候需要停顿用户程序；并行指的是垃圾收集器和用户程序同时执行。除了 CMS 和 G1 之外，其它垃圾收集器都是以串行的方式执行。</li>
+</ul>
+<ol>
+<li><p>Serial 收集器<br> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/22fda4ae-4dd5-489d-ab10-9ebfdad22ae0.jpg" alt="Serial收集器示意图"></p>
+<p> Serial 翻译为串行，也就是说它以串行的方式执行。</p>
+<p> 它是单线程的收集器，只会使用一个线程进行垃圾收集工作。</p>
+<p> 它的优点是简单高效，在单个 CPU 环境下，由于没有线程交互的开销，因此拥有最高的单线程收集效率。</p>
+<p> 它是 Client 场景下的默认新生代收集器，因为在该场景下内存一般来说不会很大。它收集一两百兆垃圾的停顿时间可以控制在一百多毫秒以内，只要不是太频繁，这点停顿时间是可以接受的。</p>
+</li>
+<li><p>ParNew 收集器<br> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/81538cd5-1bcf-4e31-86e5-e198df1e013b.jpg" alt="ParNew收集器示意图"></p>
+<p> 它是 Serial 收集器的多线程版本。</p>
+<p> 它是 Server 场景下默认的新生代收集器，除了性能原因外，主要是因为除了 Serial 收集器，只有它能与 CMS 收集器配合使用。</p>
+</li>
+<li><p>Parallel Scavenge 收集器<br> 与 ParNew 一样是多线程收集器。</p>
+<p> 其它收集器目标是尽可能缩短垃圾收集时用户线程的停顿时间，而它的目标是达到一个可控制的吞吐量，因此它被称为“吞吐量优先”收集器。这里的吞吐量指 CPU 用于运行用户程序的时间占总时间的比值。</p>
+<p> 停顿时间越短就越适合需要与用户交互的程序，良好的响应速度能提升用户体验。而高吞吐量则可以高效率地利用 CPU 时间，尽快完成程序的运算任务，适合在后台运算而不需要太多交互的任务。</p>
+<p> 缩短停顿时间是以牺牲吞吐量和新生代空间来换取的：新生代空间变小，垃圾回收变得频繁，导致吞吐量下降。</p>
+<p> 可以通过一个开关参数打开 GC 自适应的调节策略（GC Ergonomics），就不需要手工指定新生代的大小（-Xmn）、Eden 和 Survivor 区的比例、晋升老年代对象年龄等细节参数了。虚拟机会根据当前系统的运行情况收集性能监控信息，动态调整这些参数以提供最合适的停顿时间或者最大的吞吐量。</p>
+</li>
+<li><p>Serial Old 收集器<br> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/08f32fd3-f736-4a67-81ca-295b2a7972f2.jpg" alt="Serial Old收集器示意图"></p>
+<p> 是 Serial 收集器的老年代版本，也是给 Client 场景下的虚拟机使用。如果用在 Server 场景下，它有两大用途：</p>
+<ul>
+<li>在 JDK 1.5 以及之前版本（Parallel Old 诞生以前）中与 Parallel Scavenge 收集器搭配使用。</li>
+<li>作为 CMS 收集器的后备预案，在并发收集发生 Concurrent Mode Failure 时使用。</li>
+</ul>
+</li>
+<li><p>Parallel Old 收集器<br><img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/08f32fd3-f736-4a67-81ca-295b2a7972f2.jpg" alt="Parallel Old收集器示意图"></p>
+<p> 是 Parallel Scavenge 收集器的老年代版本。</p>
+<p> 在注重吞吐量以及 CPU 资源敏感的场合，都可以优先考虑 Parallel Scavenge 加 Parallel Old 收集器。</p>
+</li>
+<li><p>CMS 收集器<br> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/62e77997-6957-4b68-8d12-bfd609bb2c68.jpg" alt="CMS收集器示意图"></p>
+<p> CMS（Concurrent Mark Sweep），Mark Sweep 指的是标记 - 清除算法。</p>
+<p> 分为以下四个流程：</p>
+<ul>
+<li><p>初始标记：仅仅只是标记一下 GC Roots 能直接关联到的对象，速度很快，需要停顿。</p>
+</li>
+<li><p>并发标记：进行 GC Roots Tracing 的过程，它在整个回收过程中耗时最长，不需要停顿。</p>
+</li>
+<li><p>重新标记：为了修正并发标记期间因用户程序继续运作而导致标记产生变动的那一部分对象的标记记录，需要停顿。</p>
+</li>
+<li><p>并发清除：不需要停顿。<br>在整个过程中耗时最长的并发标记和并发清除过程中，收集器线程都可以与用户线程一起工作，不需要进行停顿。</p>
+<p>具有以下缺点：</p>
+</li>
+<li><p>吞吐量低：低停顿时间是以牺牲吞吐量为代价的，导致 CPU 利用率不够高。</p>
+</li>
+<li><p>无法处理浮动垃圾，可能出现 Concurrent Mode Failure。浮动垃圾是指并发清除阶段由于用户线程继续运行而产生的垃圾，这部分垃圾只能到下一次 GC 时才能进行回收。由于浮动垃圾的存在，因此需要预留出一部分内存，意味着 CMS 收集不能像其它收集器那样等待老年代快满的时候再回收。如果预留的内存不够存放浮动垃圾，就会出现 Concurrent Mode Failure，这时虚拟机将临时启用 Serial Old 来替代 CMS。</p>
+</li>
+<li><p>标记 - 清除算法导致的空间碎片，往往出现老年代空间剩余，但无法找到足够大连续空间来分配当前对象，不得不提前触发一次 Full GC。</p>
+</li>
+</ul>
+</li>
+<li><p>G1 收集器<br> G1（Garbage-First），它是一款面向服务端应用的垃圾收集器，在多 CPU 和大内存的场景下有很好的性能。HotSpot 开发团队赋予它的使命是未来可以替换掉 CMS 收集器。</p>
+<p> 堆被分为新生代和老年代，其它收集器进行收集的范围都是整个新生代或者老年代，而 G1 可以直接对新生代和老年代一起回收。<br> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/4cf711a8-7ab2-4152-b85c-d5c226733807.png" alt="G1收集器示意图"></p>
+<p> G1 把堆划分成多个大小相等的独立区域（Region），新生代和老年代不再物理隔离。<br> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/9bbddeeb-e939-41f0-8e8e-2b1a0aa7e0a7.png" alt="G1收集器分割示意图"></p>
+<p> 通过引入 Region 的概念，从而将原来的一整块内存空间划分成多个的小空间，使得每个小空间可以单独进行垃圾回收。这种划分方法带来了很大的灵活性，使得可预测的停顿时间模型成为可能。通过记录每个 Region 垃圾回收时间以及回收所获得的空间（这两个值是通过过去回收的经验获得），并维护一个优先列表，每次根据允许的收集时间，优先回收价值最大的 Region。</p>
+<p> 每个 Region 都有一个 Remembered Set，用来记录该 Region 对象的引用对象所在的 Region。通过使用 Remembered Set，在做可达性分析的时候就可以避免全堆扫描。<br> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/f99ee771-c56f-47fb-9148-c0036695b5fe.jpg" alt="G1收集器示意图"></p>
+<p> 如果不计算维护 Remembered Set 的操作，G1 收集器的运作大致可划分为以下几个步骤：</p>
+<ul>
+<li><p>初始标记</p>
+</li>
+<li><p>并发标记</p>
+</li>
+<li><p>最终标记：为了修正在并发标记期间因用户程序继续运作而导致标记产生变动的那一部分标记记录，虚拟机将这段时间对象变化记录在线程的 Remembered Set Logs 里面，最终标记阶段需要把 Remembered Set Logs 的数据合并到 Remembered Set 中。这阶段需要停顿线程，但是可并行执行。</p>
+</li>
+<li><p>筛选回收：首先对各个 Region 中的回收价值和成本进行排序，根据用户所期望的 GC 停顿时间来制定回收计划。此阶段其实也可以做到与用户程序一起并发执行，但是因为只回收一部分 Region，时间是用户可控制的，而且停顿用户线程将大幅度提高收集效率。<br>具备如下特点：</p>
+</li>
+<li><p>空间整合：整体来看是基于“标记 - 整理”算法实现的收集器，从局部（两个 Region 之间）上来看是基于“复制”算法实现的，这意味着运行期间不会产生内存空间碎片。</p>
+</li>
+<li><p>可预测的停顿：能让使用者明确指定在一个长度为 M 毫秒的时间片段内，消耗在 GC 上的时间不得超过 N 毫秒。  </p>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="三、内存分配与回收策略"><a href="#三、内存分配与回收策略" class="headerlink" title="三、内存分配与回收策略"></a>三、内存分配与回收策略</h1><h2 id="Minor-GC-和-Full-GC"><a href="#Minor-GC-和-Full-GC" class="headerlink" title="Minor GC 和 Full GC"></a>Minor GC 和 Full GC</h2><p>Minor GC：回收新生代，因为新生代对象存活时间很短，因此 Minor GC 会频繁执行，执行的速度一般也会比较快。</p>
+<p>Full GC：回收老年代和新生代，老年代对象其存活时间长，因此 Full GC 很少执行，执行速度会比 Minor GC 慢很多。(<em>注：个人理解，Full GC里会包含多个垃圾收集算法，每个垃圾收集算法的具体实现为垃圾收集器</em>)</p>
+<h2 id="内存分配策略"><a href="#内存分配策略" class="headerlink" title="内存分配策略"></a>内存分配策略</h2><ol>
+<li><p>对象优先在 Eden 分配<br>大多数情况下，对象在新生代 Eden 上分配，当 Eden 空间不够时，发起 Minor GC。</p>
+</li>
+<li><p>大对象直接进入老年代<br> 大对象是指需要连续内存空间的对象，最典型的大对象是那种很长的字符串以及数组。</p>
+<p> 经常出现大对象会提前触发垃圾收集以获取足够的连续空间分配给大对象。</p>
+<p> -XX:PretenureSizeThreshold，大于此值的对象直接在老年代分配，避免在 Eden 和 Survivor 之间的大量内存复制。</p>
+</li>
+<li><p>长期存活的对象进入老年代<br> 为对象定义年龄计数器，对象在 Eden 出生并经过 Minor GC 依然存活，将移动到 Survivor 中，年龄就增加 1 岁，增加到一定年龄则移动到老年代中。</p>
+<p> -XX:MaxTenuringThreshold 用来定义年龄的阈值。</p>
+</li>
+<li><p>动态对象年龄判定<br>虚拟机并不是永远要求对象的年龄必须达到 MaxTenuringThreshold 才能晋升老年代，如果在 Survivor 中相同年龄所有对象大小的总和大于 Survivor 空间的一半，则年龄大于或等于该年龄的对象可以直接进入老年代，无需等到 MaxTenuringThreshold 中要求的年龄。</p>
+</li>
+<li><p>空间分配担保<br> 在发生 Minor GC 之前，虚拟机先检查老年代最大可用的连续空间是否大于新生代所有对象总空间，如果条件成立的话，那么 Minor GC 可以确认是安全的。</p>
+<p> 如果不成立的话虚拟机会查看 HandlePromotionFailure 的值是否允许担保失败，如果允许那么就会继续检查老年代最大可用的连续空间是否大于历次晋升到老年代对象的平均大小，如果大于，将尝试着进行一次 Minor GC；如果小于，或者 HandlePromotionFailure 的值不允许冒险，那么就要进行一次 Full GC。</p>
+</li>
+</ol>
+<h2 id="Full-GC-的触发条件"><a href="#Full-GC-的触发条件" class="headerlink" title="Full GC 的触发条件"></a>Full GC 的触发条件</h2><p>对于 Minor GC，其触发条件非常简单，当 Eden 空间满时，就将触发一次 Minor GC。而 Full GC 则相对复杂，有以下条件：</p>
+<ol>
+<li><p>调用 System.gc()<br>只是建议虚拟机执行 Full GC，但是虚拟机不一定真正去执行。不建议使用这种方式，而是让虚拟机管理内存。</p>
+</li>
+<li><p>老年代空间不足<br> 老年代空间不足的常见场景为前文所讲的大对象直接进入老年代、长期存活的对象进入老年代等。</p>
+<p> 为了避免以上原因引起的 Full GC，应当尽量不要创建过大的对象以及数组。除此之外，可以通过 -Xmn 虚拟机参数调大新生代的大小，让对象尽量在新生代被回收掉，不进入老年代。还可以通过 -XX:MaxTenuringThreshold 调大对象进入老年代的年龄，让对象在新生代多存活一段时间。</p>
+</li>
+<li><p>空间分配担保失败<br> 使用复制算法的 Minor GC 需要老年代的内存空间作担保，如果担保失败会执行一次 Full GC。具体内容请参考上面的第 5 小节。</p>
+</li>
+<li><p>JDK 1.7 及以前的永久代空间不足<br> 在 JDK 1.7 及以前，HotSpot 虚拟机中的方法区是用永久代实现的，永久代中存放的为一些 Class 的信息、常量、静态变量等数据。</p>
+<p> 当系统中要加载的类、反射的类和调用的方法较多时，永久代可能会被占满，在未配置为采用 CMS GC 的情况下也会执行 Full GC。如果经过 Full GC 仍然回收不了，那么虚拟机会抛出 java.lang.OutOfMemoryError。</p>
+<p> 为避免以上原因引起的 Full GC，可采用的方法为增大永久代空间或转为使用 CMS GC。</p>
+</li>
+<li><p>Concurrent Mode Failure<br> 执行 CMS GC 的过程中同时有对象要放入老年代，而此时老年代空间不足（可能是 GC 过程中浮动垃圾过多导致暂时性的空间不足），便会报 Concurrent Mode Failure 错误，并触发 Full GC。</p>
+</li>
+</ol>
+<h1 id="四、类加载机制"><a href="#四、类加载机制" class="headerlink" title="四、类加载机制"></a>四、类加载机制</h1><p>类是在运行期间第一次使用时动态加载的，而不是一次性加载所有类。因为如果一次性加载，那么会占用很多的内存。</p>
+<h2 id="类的生命周期"><a href="#类的生命周期" class="headerlink" title="类的生命周期"></a>类的生命周期</h2><p><img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/335fe19c-4a76-45ab-9320-88c90d6a0d7e.png" alt="类的生命周期示意图"></p>
+<p>包括以下 7 个阶段：</p>
+<ul>
+<li>加载（Loading）</li>
+<li>验证（Verification）</li>
+<li>准备（Preparation）</li>
+<li>解析（Resolution）</li>
+<li>初始化（Initialization）</li>
+<li>使用（Using）</li>
+<li>卸载（Unloading）<br>类加载过程<br>包含了加载、验证、准备、解析和初始化这 5 个阶段。</li>
+</ul>
+<ol>
+<li><p>加载<br> 加载是类加载的一个阶段，注意不要混淆。</p>
+<p> 加载过程完成以下三件事：  </p>
+<ul>
+<li><p>通过类的完全限定名称获取定义该类的二进制字节流。</p>
+</li>
+<li><p>将该字节流表示的静态存储结构转换为方法区的运行时存储结构。</p>
+</li>
+<li><p>在内存中生成一个代表该类的 Class 对象，作为方法区中该类各种数据的访问入口。  </p>
+<p>其中二进制字节流可以从以下方式中获取：  </p>
+</li>
+<li><p>从 ZIP 包读取，成为 JAR、EAR、WAR 格式的基础。</p>
+</li>
+<li><p>从网络中获取，最典型的应用是 Applet。</p>
+</li>
+<li><p>运行时计算生成，例如动态代理技术，在 java.lang.reflect.Proxy 使用 ProxyGenerator.generateProxyClass 的代理类的二进制字节流。</p>
+</li>
+<li><p>由其他文件生成，例如由 JSP 文件生成对应的 Class 类。</p>
+</li>
+</ul>
+</li>
+<li><p>验证<br>确保 Class 文件的字节流中包含的信息符合当前虚拟机的要求，并且不会危害虚拟机自身的安全。</p>
+</li>
+<li><p>准备<br> 类变量是被 static 修饰的变量，准备阶段为类变量分配内存并设置初始值，使用的是方法区的内存。</p>
+<p> 实例变量不会在这阶段分配内存，它会在对象实例化时随着对象一起被分配在堆中。应该注意到，实例化不是类加载的一个过程，类加载发生在所有实例化操作之前，并且类加载只进行一次，实例化可以进行多次。</p>
+<p> 初始值一般为 0 值，例如下面的类变量 value 被初始化为 0 而不是 123。</p>
+ <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> value = <span class="number">123</span>;</span><br></pre></td></tr></table></figure>
+<p> 如果类变量是常量，那么它将初始化为表达式所定义的值而不是 0。例如下面的常量 value 被初始化为 123 而不是 0。</p>
+ <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> value = <span class="number">123</span>;</span><br></pre></td></tr></table></figure></li>
+<li><p>解析<br>将常量池的符号引用替换为直接引用的过程。<br>其中解析过程在某些情况下可以在初始化阶段之后再开始，这是为了支持 Java 的动态绑定。</p>
+</li>
+<li><p>初始化<br> 初始化阶段才真正开始执行类中定义的 Java 程序代码。初始化阶段是虚拟机执行类构造器 <clinit>() 方法的过程。在准备阶段，类变量已经赋过一次系统要求的初始值，而在初始化阶段，根据程序员通过程序制定的主观计划去初始化类变量和其它资源。<br> <clinit>() 是由编译器自动收集类中所有类变量的赋值动作和静态语句块中的语句合并产生的，编译器收集的顺序由语句在源文件中出现的顺序决定。特别注意的是，静态语句块只能访问到定义在它之前的类变量，定义在它之后的类变量只能赋值，不能访问。例如以下代码：</p>
+ <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        i = <span class="number">0</span>;                <span class="comment">// 给变量赋值可以正常编译通过</span></span><br><span class="line">        System.out.print(i);  <span class="comment">// 这句编译器会提示“非法向前引用”</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 由于父类的 <clinit>() 方法先执行，也就意味着父类中定义的静态语句块的执行要优先于子类。例如以下代码：</p>
+ <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Parent</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> A = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        A = <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Sub</span> <span class="keyword">extends</span> <span class="title">Parent</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> B = A;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    System.out.println(Sub.B);  <span class="comment">// 2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 接口中不可以使用静态语句块，但仍然有类变量初始化的赋值操作，因此接口与类一样都会生成 <clinit>() 方法。但接口与类不同的是，执行接口的 <clinit>() 方法不需要先执行父接口的 <clinit>() 方法。只有当父接口中定义的变量使用时，父接口才会初始化。另外，接口的实现类在初始化时也一样不会执行接口的 <clinit>() 方法。</p>
+<p> 虚拟机会保证一个类的 <clinit>() 方法在多线程环境下被正确的加锁和同步，如果多个线程同时初始化一个类，只会有一个线程执行这个类的 <clinit>() 方法，其它线程都会阻塞等待，直到活动线程执行 <clinit>() 方法完毕。如果在一个类的 <clinit>() 方法中有耗时的操作，就可能造成多个线程阻塞，在实际过程中此种阻塞很隐蔽。</p>
+</li>
+</ol>
+<h2 id="类初始化时机"><a href="#类初始化时机" class="headerlink" title="类初始化时机"></a>类初始化时机</h2><ol>
+<li><p>主动引用<br> 虚拟机规范中并没有强制约束何时进行加载，但是规范严格规定了有且只有下列五种情况必须对类进行初始化（加载、验证、准备都会随之发生）：</p>
+<ul>
+<li><p>遇到 new、getstatic、putstatic、invokestatic 这四条字节码指令时，如果类没有进行过初始化，则必须先触发其初始化。最常见的生成这 4 条指令的场景是：使用 new 关键字实例化对象的时候；读取或设置一个类的静态字段（被 final 修饰、已在编译期把结果放入常量池的静态字段除外）的时候；以及调用一个类的静态方法的时候。</p>
+</li>
+<li><p>使用 java.lang.reflect 包的方法对类进行反射调用的时候，如果类没有进行初始化，则需要先触发其初始化。</p>
+</li>
+<li><p>当初始化一个类的时候，如果发现其父类还没有进行过初始化，则需要先触发其父类的初始化。</p>
+</li>
+<li><p>当虚拟机启动时，用户需要指定一个要执行的主类（包含 main() 方法的那个类），虚拟机会先初始化这个主类；</p>
+</li>
+<li><p>当使用 JDK 1.7 的动态语言支持时，如果一个 java.lang.invoke.MethodHandle 实例最后的解析结果为 REF_getStatic, REF_putStatic, REF_invokeStatic 的方法句柄，并且这个方法句柄所对应的类没有进行过初始化，则需要先触发其初始化；</p>
+</li>
+</ul>
+</li>
+<li><p>被动引用<br> 以上 5 种场景中的行为称为对一个类进行主动引用。除此之外，所有引用类的方式都不会触发初始化，称为被动引用。被动引用的常见例子包括：</p>
+<ul>
+<li><p>通过子类引用父类的静态字段，不会导致子类初始化。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">System.out.println(SubClass.value);  <span class="comment">// value 字段在 SuperClass 中定义</span></span><br></pre></td></tr></table></figure></li>
+<li><p>通过数组定义来引用类，不会触发此类的初始化。该过程会对数组类进行初始化，数组类是一个由虚拟机自动生成的、直接继承自 Object 的子类，其中包含了数组的属性和方法。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">SuperClass[] sca = <span class="keyword">new</span> SuperClass[<span class="number">10</span>];</span><br></pre></td></tr></table></figure></li>
+<li><p>常量在编译阶段会存入调用类的常量池中，本质上并没有直接引用到定义常量的类，因此不会触发定义常量的类的初始化。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">System.out.println(ConstClass.HELLOWORLD);</span><br></pre></td></tr></table></figure>
+<h2 id="类与类加载器"><a href="#类与类加载器" class="headerlink" title="类与类加载器"></a>类与类加载器</h2><p>两个类相等，需要类本身相等，并且使用同一个类加载器进行加载。这是因为每一个类加载器都拥有一个独立的类名称空间。</p>
+<p>这里的相等，包括类的 Class 对象的 equals() 方法、isAssignableFrom() 方法、isInstance() 方法的返回结果为 true，也包括使用 instanceof 关键字做对象所属关系判定结果为 true。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="类加载器分类"><a href="#类加载器分类" class="headerlink" title="类加载器分类"></a>类加载器分类</h2><p>从 Java 虚拟机的角度来讲，只存在以下两种不同的类加载器：</p>
+<ul>
+<li><p>启动类加载器（Bootstrap ClassLoader），使用 C++ 实现，是虚拟机自身的一部分；</p>
+</li>
+<li><p>所有其它类的加载器，使用 Java 实现，独立于虚拟机，继承自抽象类 java.lang.ClassLoader。</p>
+</li>
+</ul>
+<p>从 Java 开发人员的角度看，类加载器可以划分得更细致一些：</p>
+<ul>
+<li><p>启动类加载器（Bootstrap ClassLoader）此类加载器负责将存放在 <JRE_HOME>\lib 目录中的，或者被 -Xbootclasspath 参数所指定的路径中的，并且是虚拟机识别的（仅按照文件名识别，如 rt.jar，名字不符合的类库即使放在 lib 目录中也不会被加载）类库加载到虚拟机内存中。启动类加载器无法被 Java 程序直接引用，用户在编写自定义类加载器时，如果需要把加载请求委派给启动类加载器，直接使用 null 代替即可。</p>
+</li>
+<li><p>扩展类加载器（Extension ClassLoader）这个类加载器是由 ExtClassLoader（sun.misc.Launcher$ExtClassLoader）实现的。它负责将 <JAVA_HOME>/lib/ext 或者被 java.ext.dir 系统变量所指定路径中的所有类库加载到内存中，开发者可以直接使用扩展类加载器。</p>
+</li>
+<li><p>应用程序类加载器（Application ClassLoader）这个类加载器是由 AppClassLoader（sun.misc.Launcher$AppClassLoader）实现的。由于这个类加载器是 ClassLoader 中的 getSystemClassLoader() 方法的返回值，因此一般称为系统类加载器。它负责加载用户类路径（ClassPath）上所指定的类库，开发者可以直接使用这个类加载器，如果应用程序中没有自定义过自己的类加载器，一般情况下这个就是程序中默认的类加载器。</p>
+</li>
+</ul>
+<h2 id="双亲委派模型"><a href="#双亲委派模型" class="headerlink" title="双亲委派模型"></a>双亲委派模型</h2><p>应用程序是由三种类加载器互相配合从而实现类加载，除此之外还可以加入自己定义的类加载器。</p>
+<p>下图展示了类加载器之间的层次关系，称为双亲委派模型（Parents Delegation Model）。该模型要求除了顶层的启动类加载器外，其它的类加载器都要有自己的父类加载器。这里的父子关系一般通过组合关系（Composition）来实现，而不是继承关系（Inheritance）。<br><img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/0dd2d40a-5b2b-4d45-b176-e75a4cd4bdbf.png" alt="双亲委派机制示意图"></p>
+<ol>
+<li><p>工作过程<br>一个类加载器首先将类加载请求转发到父类加载器，只有当父类加载器无法完成时才尝试自己加载。</p>
+</li>
+<li><p>好处<br> 使得 Java 类随着它的类加载器一起具有一种带有优先级的层次关系，从而使得基础类得到统一。</p>
+<p> 例如 java.lang.Object 存放在 rt.jar 中，如果编写另外一个 java.lang.Object 并放到 ClassPath 中，程序可以编译通过。由于双亲委派模型的存在，所以在 rt.jar 中的 Object 比在 ClassPath 中的 Object 优先级更高，这是因为 rt.jar 中的 Object 使用的是启动类加载器，而 ClassPath 中的 Object 使用的是应用程序类加载器。rt.jar 中的 Object 优先级更高，那么程序中所有的 Object 都是这个 Object。</p>
+</li>
+<li><p>实现<br> 以下是抽象类 java.lang.ClassLoader 的代码片段，其中的 loadClass() 方法运行过程如下：先检查类是否已经加载过，如果没有则让父类加载器去加载。当父类加载器加载失败时抛出 ClassNotFoundException，此时尝试自己去加载。</p>
+ <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">ClassLoader</span> </span>&#123;</span><br><span class="line">    <span class="comment">// The parent class loader for delegation</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> ClassLoader parent;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Class&lt;?&gt; loadClass(String name) <span class="keyword">throws</span> ClassNotFoundException &#123;</span><br><span class="line">        <span class="keyword">return</span> loadClass(name, <span class="keyword">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> Class&lt;?&gt; loadClass(String name, <span class="keyword">boolean</span> resolve) <span class="keyword">throws</span> ClassNotFoundException &#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (getClassLoadingLock(name)) &#123;</span><br><span class="line">            <span class="comment">// First, check if the class has already been loaded</span></span><br><span class="line">            Class&lt;?&gt; c = findLoadedClass(name);</span><br><span class="line">            <span class="keyword">if</span> (c == <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (parent != <span class="keyword">null</span>) &#123;</span><br><span class="line">                        c = parent.loadClass(name, <span class="keyword">false</span>);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        c = findBootstrapClassOrNull(name);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">                    <span class="comment">// ClassNotFoundException thrown if class not found</span></span><br><span class="line">                    <span class="comment">// from the non-null parent class loader</span></span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (c == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    <span class="comment">// If still not found, then invoke findClass in order</span></span><br><span class="line">                    <span class="comment">// to find the class.</span></span><br><span class="line">                    c = findClass(name);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (resolve) &#123;</span><br><span class="line">                resolveClass(c);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> c;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> Class&lt;?&gt; findClass(String name) <span class="keyword">throws</span> ClassNotFoundException &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ClassNotFoundException(name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="自定义类加载器实现"><a href="#自定义类加载器实现" class="headerlink" title="自定义类加载器实现"></a>自定义类加载器实现</h2><p>以下代码中的 FileSystemClassLoader 是自定义类加载器，继承自 java.lang.ClassLoader，用于加载文件系统上的类。它首先根据类的全名在文件系统上查找类的字节代码文件（.class 文件），然后读取该文件内容，最后通过 defineClass() 方法来把这些字节代码转换成 java.lang.Class 类的实例。</p>
+<p>java.lang.ClassLoader 的 loadClass() 实现了双亲委派模型的逻辑，自定义类加载器一般不去重写它，但是需要重写 findClass() 方法。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileSystemClassLoader</span> <span class="keyword">extends</span> <span class="title">ClassLoader</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String rootDir;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FileSystemClassLoader</span><span class="params">(String rootDir)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.rootDir = rootDir;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> Class&lt;?&gt; findClass(String name) <span class="keyword">throws</span> ClassNotFoundException &#123;</span><br><span class="line">        <span class="keyword">byte</span>[] classData = getClassData(name);</span><br><span class="line">        <span class="keyword">if</span> (classData == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> ClassNotFoundException();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> defineClass(name, classData, <span class="number">0</span>, classData.length);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">byte</span>[] getClassData(String className) &#123;</span><br><span class="line">        String path = classNameToPath(className);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            InputStream ins = <span class="keyword">new</span> FileInputStream(path);</span><br><span class="line">            ByteArrayOutputStream baos = <span class="keyword">new</span> ByteArrayOutputStream();</span><br><span class="line">            <span class="keyword">int</span> bufferSize = <span class="number">4096</span>;</span><br><span class="line">            <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[bufferSize];</span><br><span class="line">            <span class="keyword">int</span> bytesNumRead;</span><br><span class="line">            <span class="keyword">while</span> ((bytesNumRead = ins.read(buffer)) != -<span class="number">1</span>) &#123;</span><br><span class="line">                baos.write(buffer, <span class="number">0</span>, bytesNumRead);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> baos.toByteArray();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">classNameToPath</span><span class="params">(String className)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> rootDir + File.separatorChar</span><br><span class="line">                + className.replace(<span class="string">'.'</span>, File.separatorChar) + <span class="string">".class"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>学习笔记·Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2019/12/31/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<a id="more"></a>
+
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<hr>
+<p>藏起来的TodoList:  </p>
+<ol>
+<li>明清史等历史的了解（起因：金庸小说）  </li>
+<li>贝爷绳结种类的剪辑制作（起因：怎样将两节绳子不松脱的绑在一起）  </li>
+<li>金融知识的简单学习（起因：眉山剑客陈平）  </li>
+<li>自驾游（起因：航拍中国·福建）  </li>
+</ol>
+<h2 id="时间轴"><a href="#时间轴" class="headerlink" title="时间轴"></a>时间轴</h2><h3 id="2020年7月17日-21点46分"><a href="#2020年7月17日-21点46分" class="headerlink" title="2020年7月17日 21点46分"></a>2020年7月17日 21点46分</h3><ul>
+<li>DONE：  <ul>
+<li>finished learning VUE  </li>
+<li>install git and Node.js in the new computer</li>
+<li>uninstall idea version 2015 and change it into version 2020 </li>
+</ul>
+</li>
+<li>TODO:  <ul>
+<li>learning Java Web  </li>
+<li>fix CV and its online version  </li>
+<li>clone blog’s article and push it into github  </li>
+<li>learning course in baidunetdisk,spring boot and spring cloud  </li>
+</ul>
+</li>
+<li>NOTE:  <ul>
+<li>Vue  <ul>
+<li>main.js为入口文件，其中引入了App.vue  </li>
+<li>App.vue中为template，script和style的Vue结构  </li>
+<li>template中写需要引入的其它Vue模块；script中name属性相当于一个全局ID，可以不写，写了可以提供更好的调试信息（官方文档有）；style写此Vue的样式  </li>
+<li>点击跳转需要路由来实现，且template中的Vue模块引入变为<code>&lt;router-link to=&quot;&quot;&gt;&lt;/router-link&gt;</code>  </li>
+<li>之后在router文件夹下的index.js(这个文件名可使得路由文件可以被自动扫描)中配置路由，即可使得路由生效  </li>
+<li><code>&lt;router-view&gt;&lt;/router-view&gt;</code>可以使得路由页面在本页展示  </li>
+<li>在js文件中使用<code>import</code>引入需要使用的组件  </li>
+</ul>
+</li>
+<li>git  <ul>
+<li>生成密钥的时候，最好不要更改它的默认位置，不然连接查询时，会因为查询不到等问题报错。  </li>
+</ul>
+</li>
+<li>Node.js  <ul>
+<li>其中npm指令下载的模块，默认是下载到C盘的，这可能使得系统盘吃紧  </li>
+<li>使用  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">        npm config set prefix &quot;D:\\Program Files (x86)\\Node\\prefix&quot;</span><br><span class="line">        npm config set cache &quot;D:\\Program Files (x86)\\Node\\cache&quot;</span><br><span class="line">        &#96;&#96;&#96;  </span><br><span class="line">        可以更改默认的安装路径到其它盘  </span><br><span class="line">    - 此后会出现下载安装的模块无法在cmd命令中识别的情况，如使用vue时，&#96;vue init webpack projectName&#96;指令会出现vue不是内部指令的错误提示，解决办法为，将上述更改了位置的prefix文件夹路径加到&#96;Path&#96;环境变量下  </span><br><span class="line">- idea  </span><br><span class="line">    - 卸载前先导出配置，安装完成后导入配置  </span><br><span class="line">    - 修改默认配置目录的位置，默认为C盘，修改 &#123;IDEA目录&#125;&#x2F;bin&#x2F;idea.properties 文件，将其中的四项改为如下自己想要的位置即可</span><br></pre></td></tr></table></figure>
+  idea.config.path=D:/Java/JetBrains/.IntelliJIdea2018.3/config<br>  idea.system.path=D:/Java/JetBrains/.IntelliJIdea2018.3/system<br>  idea.plugins.path=${idea.config.path}/plugins<br>  idea.log.path=${idea.system.path}/log<br>```  </li>
+<li>安装完成后，2020版本会出现连接不到插件商店的情况，解决办法是将打开File—&gt;Setting—&gt;Appearance&amp;Behavior—&gt;System Settings—&gt;HTTP Proxy 进行配置，其中选择Auto-detect proxy settings，输入框中地址推荐用：<code>https://plugins.jetbrains.com</code>，如果不行也可以配置 <code>http://127.0.0.1:1080</code>  </li>
+<li>已安装的插件位置，默认为<code>C:\Users\Administrator\.IntelliJIdea2019.2\config\plugins</code>，找到更改后的config文件夹下的plugins即可  </li>
+<li>在idea中配置数据库连接时，有timezone相关错误时，注意将Advanced中的serverTimezone设置成中国时区，如<code>Asia/Shanghai</code>或者<code>Hongkong</code>  </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2020年7月18日-13点13分"><a href="#2020年7月18日-13点13分" class="headerlink" title="2020年7月18日 13点13分"></a>2020年7月18日 13点13分</h3><ul>
+<li><h2 id="DONE："><a href="#DONE：" class="headerlink" title="DONE：  "></a>DONE：  </h2></li>
+<li><h2 id="TODO："><a href="#TODO：" class="headerlink" title="TODO："></a>TODO：</h2></li>
+<li><h2 id="NOTE："><a href="#NOTE：" class="headerlink" title="NOTE："></a>NOTE：</h2></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>PHP语法回顾</title>
+    <url>/2020/05/07/PHP%E8%AF%AD%E6%B3%95%E5%9B%9E%E9%A1%BE/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>ThinkPHP5框架回顾</title>
+    <url>/2020/04/23/ThinkPHP5%E6%A1%86%E6%9E%B6%E5%9B%9E%E9%A1%BE/</url>
+    <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>本文为回顾<a href="https://www.kancloud.cn/manual/thinkphp5/118003" target="_blank" rel="noopener">《ThinkPHP5.0完全开发手册》</a>时的摘记  </p>
+<a id="more"></a>
+
+<ol>
+<li><p>框架的目录结构  </p>
+<pre><code>project  应用部署目录
+├─application           应用目录（可设置）
+│  ├─common             公共模块目录（可更改）
+│  ├─index              模块目录(可更改)
+│  │  ├─config.php      模块配置文件
+│  │  ├─common.php      模块函数文件
+│  │  ├─controller      控制器目录
+│  │  ├─model           模型目录
+│  │  ├─view            视图目录
+│  │  └─ ...            更多类库目录
+│  ├─command.php        命令行工具配置文件
+│  ├─common.php         应用公共（函数）文件
+│  ├─config.php         应用（公共）配置文件
+│  ├─database.php       数据库配置文件
+│  ├─tags.php           应用行为扩展定义文件
+│  └─route.php          路由配置文件
+├─extend                扩展类库目录（可定义）
+├─public                WEB 部署目录（对外访问目录）
+│  ├─static             静态资源存放目录(css,js,image)
+│  ├─index.php          应用入口文件
+│  ├─router.php         快速测试文件
+│  └─.htaccess          用于 apache 的重写
+├─runtime               应用的运行时目录（可写，可设置）
+├─vendor                第三方类库目录（Composer）
+├─thinkphp              框架系统目录
+│  ├─lang               语言包目录
+│  ├─library            框架核心类库目录
+│  │  ├─think           Think 类库包目录
+│  │  └─traits          系统 Traits 目录
+│  ├─tpl                系统模板目录
+│  ├─.htaccess          用于 apache 的重写
+│  ├─.travis.yml        CI 定义文件
+│  ├─base.php           基础定义文件
+│  ├─composer.json      composer 定义文件
+│  ├─console.php        控制台入口文件
+│  ├─convention.php     惯例配置文件
+│  ├─helper.php         助手函数文件（可选）
+│  ├─LICENSE.txt        授权说明文件
+│  ├─phpunit.xml        单元测试配置文件
+│  ├─README.md          README 文件
+│  └─start.php          框架引导文件
+├─build.php             自动生成定义文件（参考）
+├─composer.json         composer 定义文件
+├─LICENSE.txt           授权说明文件
+├─README.md             README 文件
+├─think                 命令行入口文件</code></pre></li>
+<li><p>注册路由规则<br>路由注册可以采用方法动态单个和批量注册，也可以直接定义路由定义文件的方式进行集中注册。  </p>
+<ul>
+<li>动态单个注册：<br>  路由定义采用<code>\think\Route</code>类的<code>rule</code>方法注册，通常是在应用的路由配置文件<code>application/route.php</code>进行注册，格式是：  <pre><code class="PHP">Route::rule(<span class="string">'路由表达式'</span>,<span class="string">'路由地址'</span>,<span class="string">'请求类型'</span>,<span class="string">'路由参数（数组）'</span>,<span class="string">'变量规则（数组）'</span>);  </code></pre>
+  例如：  <pre><code class="PHP"><span class="keyword">use</span> <span class="title">think</span>\<span class="title">Route</span>;
+<span class="comment">// 注册路由到index模块的News控制器的read操作</span>
+Route::rule(<span class="string">'new/:id'</span>,<span class="string">'index/News/read'</span>);</code></pre>
+  系统提供了为不同的请求类型定义路由规则的简化方法，例如：  <pre><code class="PHP">Route::get(<span class="string">'new/:id'</span>,<span class="string">'News/read'</span>); <span class="comment">// 定义GET请求路由规则</span>
+Route::post(<span class="string">'new/:id'</span>,<span class="string">'News/update'</span>); <span class="comment">// 定义POST请求路由规则</span>
+Route::put(<span class="string">'new/:id'</span>,<span class="string">'News/update'</span>); <span class="comment">// 定义PUT请求路由规则</span>
+Route::delete(<span class="string">'new/:id'</span>,<span class="string">'News/delete'</span>); <span class="comment">// 定义DELETE请求路由规则</span>
+Route::any(<span class="string">'new/:id'</span>,<span class="string">'News/read'</span>); <span class="comment">// 所有请求都支持的路由规则</span></code></pre>
+  注：注册多个路由规则后，系统会依次遍历注册过的满足请求类型的路由规则，一旦匹配到正确的路由规则后则开始调用控制器的操作方法，后续规则就不再检测。</li>
+<li>批量注册<br>  规则如下：  <pre><code class="PHP">Route::rule([
+<span class="string">'路由规则1'</span>=&gt;<span class="string">'路由地址和参数'</span>,
+<span class="string">'路由规则2'</span>=&gt;[<span class="string">'路由地址和参数'</span>,<span class="string">'匹配参数（数组）'</span>,<span class="string">'变量规则（数组）'</span>]
+...
+],<span class="string">''</span>,<span class="string">'请求类型'</span>,<span class="string">'匹配参数（数组）'</span>,<span class="string">'变量规则'</span>);</code></pre>
+  如果在外面和规则里面同时传入了匹配参数和变量规则的话，路由规则定义里面的最终生效，但请求类型参数以最外层决定，例如：  <pre><code class="PHP">Route::rule([
+<span class="string">'new/:id'</span>  =&gt;  <span class="string">'News/read'</span>,
+<span class="string">'blog/:id'</span> =&gt;  [<span class="string">'Blog/update'</span>,[<span class="string">'ext'</span>=&gt;<span class="string">'shtml'</span>],[<span class="string">'id'</span>=&gt;<span class="string">'\d{4}'</span>]],
+...
+],<span class="string">''</span>,<span class="string">'GET'</span>,[<span class="string">'ext'</span>=&gt;<span class="string">'html'</span>],[<span class="string">'id'</span>=&gt;<span class="string">'\d+'</span>]);</code></pre>
+  以上的路由注册，最终<code>blog/:id</code>只会在匹配<code>shtml</code>后缀的访问请求，id变量的规则则是 <code>\d{4}</code>  </li>
+<li>路由分组<br>  路由分组功能允许把相同前缀的路由定义合并分组，这样可以提高路由匹配的效率，不必每次都去遍历完整的路由规则。<br>  例如，我们有定义如下两个路由规则的话  <pre><code class="PHP"><span class="string">'blog/:id'</span>   =&gt; [<span class="string">'Blog/read'</span>, [<span class="string">'method'</span> =&gt; <span class="string">'get'</span>], [<span class="string">'id'</span> =&gt; <span class="string">'\d+'</span>]],
+<span class="string">'blog/:name'</span> =&gt; [<span class="string">'Blog/read'</span>, [<span class="string">'method'</span> =&gt; <span class="string">'post'</span>]],</code></pre>
+  可以合并到一个blog分组  <pre><code class="PHP"><span class="string">'[blog]'</span>     =&gt; [
+<span class="string">':id'</span>   =&gt; [<span class="string">'Blog/read'</span>, [<span class="string">'method'</span> =&gt; <span class="string">'get'</span>], [<span class="string">'id'</span> =&gt; <span class="string">'\d+'</span>]],
+<span class="string">':name'</span> =&gt; [<span class="string">'Blog/read'</span>, [<span class="string">'method'</span> =&gt; <span class="string">'post'</span>]],
+],</code></pre>
+  可以使用Route类的group方法进行注册，如下：  <pre><code class="PHP">Route::group(<span class="string">'blog'</span>,[
+<span class="string">':id'</span>   =&gt; [<span class="string">'Blog/read'</span>, [<span class="string">'method'</span> =&gt; <span class="string">'get'</span>], [<span class="string">'id'</span> =&gt; <span class="string">'\d+'</span>]],
+<span class="string">':name'</span> =&gt; [<span class="string">'Blog/read'</span>, [<span class="string">'method'</span> =&gt; <span class="string">'post'</span>]],
+]);</code></pre>
+  实战中的例子：  <pre><code class="PHP">Route::group(<span class="string">'lkz'</span>,<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{  
+    Route::post(<span class="string">'select/school'</span>,<span class="string">'lkz.SelectSchool/selectSchool'</span>);<span class="comment">//获取学校信息  </span>
+    Route::post(<span class="string">'update/user'</span>,<span class="string">'lkz.UpdUser/updUser'</span>);<span class="comment">//更新User表信息  </span>
+    Route::post(<span class="string">'return/label'</span>,<span class="string">'lkz.ReturnLabel/returnLabel'</span>);<span class="comment">//返回标签信息  </span>
+    Route::post(<span class="string">'write/apply'</span>,<span class="string">'lkz.ApplyCheck/applyCheck'</span>);<span class="comment">//报名信息表信息写入  </span>
+});</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>学习笔记·PHP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>操作系统相关知识点的回顾和学习</title>
+    <url>/2020/04/17/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9%E7%9A%84%E5%9B%9E%E9%A1%BE%E5%92%8C%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>学习笔记·操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初识Redis</title>
+    <url>/2020/04/20/%E5%88%9D%E8%AF%86Redis/</url>
+    <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>2020年四月末，在教程视频中，第一次简单了解了Redis，在此记录其间的部分知识点  </p>
+<a id="more"></a>  
+<ol>
+<li><p>说说你用过的Redis的数据类型<br>供用户使用的数据类型  </p>
+<ul>
+<li><p>String：最基本的数据类型，二进制安全  </p>
+</li>
+<li><p>Hash：String元素组成的字典，适合用于存储对象  </p>
+</li>
+<li><p>List：列表，按照String元素插入顺序排序  </p>
+</li>
+<li><p>Set：String元素组成的无序集合，通过哈希表实现，不允许重复  </p>
+</li>
+<li><p>Sorted Set：通过分数来为集合中的成员进行从小到大的排序</p>
+</li>
+<li><p>用于计数的HyperLogLog，用于支持存储地理位置信息的Geo </p>
+<p>（记前五个）  </p>
+</li>
+</ul>
+</li>
+<li><p>如何解决SETNX长期有效的问题<br>EXPIRE key seconds<br>设置key的生存时间，当key过期时（即生存时间为0），会被自动删除  </p>
+</li>
+<li><p>如何通过Redis实现分布式锁<br>SET key value [EX seconds] [PX milliseconds] [NX|XX]  </p>
+<ul>
+<li>EX second：设置键的过期时间为second秒  </li>
+<li>PX millisecond：设置键的过期时间为millisecond毫秒  </li>
+<li>NX：只在键不存在时，才对键进行设置操作  </li>
+<li>XX：只在键已经存在时，才对键进行设置操作  </li>
+<li>SET操作完成时，返回OK，否则返回nil  </li>
+</ul>
+</li>
+<li><p>大量的key同时过期的注意事项<br>集中过期，由于清除大量的key很耗时，会出现短暂的卡顿现象<br>解决方案：在设置key的过期时间的时候，给每个key加上随机值  </p>
+</li>
+<li><p>pub/sub的缺点<br>消息的发布是无状态的，无法保证可达。  </p>
+</li>
+<li><p>自动化触发RDB持久化的方式  </p>
+<ul>
+<li>根据redis.conf配置里的SAVE m n 定时触发（用的是BGSAVE）  </li>
+<li>主从复制时，主节点自动触发  </li>
+<li>执行Debug Reload  </li>
+<li>执行Shutdown且没有开启AOF持久化  </li>
+</ul>
+</li>
+<li></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>学习笔记·Redis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络相关知识点的回顾和学习</title>
+    <url>/2020/04/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9%E7%9A%84%E5%9B%9E%E9%A1%BE%E5%92%8C%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<ol>
+<li>七层网络模型  <a id="more"></a></li>
+<li>滑动窗口问题  </li>
+<li>TCP/IP协议：  </li>
+</ol>
+]]></content>
+      <tags>
+        <tag>学习笔记·计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>new a blog article</title>
+    <url>/2020/02/12/new-a-blog-article/</url>
+    <content><![CDATA[<ol>
+<li><p>创建一个文章的md文件<br><code>hexo new &quot;XXX&quot;</code><br>格式如上，XXX部分为文章的名字</p>
+<a id="more"></a></li>
+<li><p>自定义文章的标签<br>在md文件中的头部，tags中写入标签的类型</p>
+</li>
+<li><p>运用markdown格式书写内容<br>markdown格式的学习会在之后的文章中详细的写出。</p>
+</li>
+<li><p>编译运行网站<br>运行hexo的命令为<br><code>hexo s</code> 或 <code>hexo server</code></p>
+</li>
+<li><p>部署到远端<br>如果已经在GitHub搭建了博客主页，要部署到远端，则需要一下几步（用GitHub搭建博客的方法，在之后的文章中详细的描述）：  </p>
+<ul>
+<li><code>hexo clean</code> (执行此步骤，直到hexo目录下的public文件夹删除)</li>
+<li><code>hexo g</code> 或 <code>hexo generate</code> (执行此步，重新编译网站文件)</li>
+<li><code>hexo s</code> 或 <code>hexo server</code> (执行此步，在本地预览，无问题的话，执行下一步，部署到远端)</li>
+<li><code>hexo d</code> 或 <code>hexo deploy</code> (执行此步，将网站public文件夹中新的文件部署到远端，过程结束)</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>学习笔记·hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>微信小程序项目的常见面试题</title>
+    <url>/2020/04/23/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>慕课网付费教程中的微信小程序相关面试题及其解答的摘记。  </p>
+<a id="more"></a>
+<ol>
+<li><p>你能讲一下小程序的MVVM架构吗？<br>答：此架构是将页面抽象为三个层次，及view层，model层和view model层。view层保存的是页面的内容，对应的是小程序中的wxml文件，wxss文件。model层和view model层的代码则保存在js文件中，model层用来缓存数据和处理业务的，比如用户在页面上填写的注册信息，先要缓存到model层中，用户点击按钮之后，触发回调函数，回调函数也定义在model层中，点击之后就由AJAX将数据传给后端。view model层则是在其中传送数据和事件的，如果不是MVVM架构，则用户要将数据输出到页面，需要先通过选择器查找控件，再修改控件的内容才可，MVVM架构则只需要在view层定义变量，然后在页面中用表达式写出变量的名字，view model层的数据就会将model层的数据搬运到页面上。同样的，页面上的数据也会交由view model层传送到model层。  </p>
+</li>
+<li><p>onLoad、onReady、onShow这些函数有什么区别？<br>答：onLoad函数为小程序页面第一次加载时会触发的回调函数；onReady函数是页面渲染完毕时触发的回调函数，只有在第一次时才触发；onShow函数是页面渲染显示的时候的回调函数，可调用多次。  </p>
+</li>
+<li><p>小程序的sitemap.json文件是用来干什么的？<br>答：用来设置小程序的seo信息，设置好seo信息可使得用户使用关键词搜索来搜索到小程序页面的信息。提升了搜索效率和优质小程序的曝光可能。文件中有rules属性，来设置哪些页面可以被索引，也可以通过通配符规定，有哪些参数的页面才可以被索引。  </p>
+</li>
+<li><p>在小程序中如何阻止事件的冒泡传播？<br>答：在绑定事件时使用catch属性即可阻止事件的冒泡传播。如catchtap点击事件不会传到上一层，bindtap属性则会一层层向上触发。  </p>
+</li>
+<li><p>小程序发通知给用户，可以有哪些渠道？  </p>
+<ul>
+<li>短信通知方案，成本高，需要用户绑定手机  </li>
+<li>模板消息，内容死板，需要用户触发操作，不能主动推送  </li>
+<li>消息订阅，内容灵活，最多发送3条消息，不能主动推送  </li>
+<li>消息模块（内置，自己写的），无限制消息推送，必须开启小程序  </li>
+</ul>
+</li>
+<li><p>怎么提升小程序的启动速度？<br>答：最直接的办法是压缩资源文件的体积。图片、音频等放在服务器端在小程序端引用即可。再是开启游客模式，即，用户没有登录就可看到小程序的内容，这样做可以让小程序在第一次启动时不用用户登录这部分代码的响应时间。精简小程序的第三方依赖，只有用到的UI组件才放到工程文件里面。还有就是给图片添加懒加载功能。将页面数据缓存起来可以减少页面重复加载所需的时间，同时，缓存还可以让页面预渲染，之后再请求服务器数据，更新页面，从而缩短响应时间。最后是分包加载技术，加载时最先加载主包的页面，从而提高小程序的启动速度。   </p>
+</li>
+<li><p>在小程序中怎么实现客服功能？<br>答：添加一个按钮，属性open-type值为contact，然后在小程序开放平台上添加客服的微信号码即可。之后当用户点击客服会话按钮之后，就会自动进入客服会话界面。  </p>
+</li>
+<li><p>navigateTo、redirectTo和switchTab有什么区别？<br>答：navigateTo跳转到其它页面时，当前页面只是隐藏起来，并不会销毁，当点击后退按钮时，就可回到原来的页面。redirectTo会销毁页面，无法返回，如登录页面发生的跳转时。switchTab用来跳转到tabBar页面，其它两个不能跳转到tabBar页面。  </p>
+</li>
+<li><p>小程序页面之间怎么传递参数？<br>答：第一种是在页面跳转的路径上带上参数，但是switchTab跳转到tabBar页面时不能带参数。再有就是在缓存和全局变量里添加想要传递的参数，这样在tabBar页面也可以获取到参数值。  </p>
+</li>
+<li><p>怎么能把小程序分享给好友？<br>答：小程序的每个页面都有分享按钮，另外也可在页面中自定义分享按钮，按钮的open-type属性设为share，然后在回调函数中写上小程序的页面和参数就可实现跳转到特定页面和内容了。  </p>
+</li>
+<li><p>怎么才能把小程序分享到朋友圈？<br>答：首先在页面中创建一个画布控件，然后用js代码生成画布的内容，可以包括图片和文字，然后把小程序的二维码也绘制到画布上。接下来将画布控件转换为图片，用户可以将图片在相册保存为零时文件。用户将图片分享到朋友圈，朋友扫码即可。  </p>
+</li>
+<li><p>怎么封装全局URL地址？<br>答：我们可以创建一个js文件，然后在文件里声明一个全局变量，定义好URL路径，接下来用model.exports导出这些内容。最后用app.js文件中用require函数导入这个js文件即可。  </p>
+</li>
+<li><p>小程序怎么突破2M体积的限制？<br>答：我们可以使用分包加载，每一个分包代表一个模块，每个分包不超过2M，小程序总体积不超过8M。  </p>
+</li>
+<li><p>怎么实现小程序的内容审查？<br>答：用户在提交文字和图片数据的时候，后端必须对这些内容做审查。小程序提供了内容审查的接口，详见<a href="https://developers.weixin.qq.com/miniprogram/dev/api-backend/open-api/sec-check/security.msgSecCheck.html" target="_blank" rel="noopener">《微信官方文档》</a>。  </p>
+</li>
+<li><p>怎么实现小程序的上拉加载？<br>答：小程序提供了onreachBottom回调函数，当用户上滑触底的时候，这个页面就会运行。这个时候，我们判断这个页面是不是最后一页，如果不是最后一页，则小程序向后端发送请求，获取下一页数据并将数据返回到模型层再渲染到页面上，之后将当前页数加一。  </p>
+</li>
+<li><p>小程序中的图片懒加载怎么实现？<br>答：在图片标签上加上lazeLoad属性即可。小程序会只加载三屏以内的图片，如果用户上滑页面，三屏外的图片进入三屏以内才开始加载。  </p>
+</li>
+<li><p>怎么实现用户微信账号登录小程序？<br>答：在页面上用wx.login函数获取临时授权的字符串和用户的基本信息。小程序将code字符串和这些基本信息发送给后端，后端将code字符串、appId，appSecret发送给微信平台验证用户的临时授权是否有效，若有效，则返回openId字符串。后端查询是否有对应的openId，没有则添加，之后根据记录的ID值向前端返回一个token值，小程序将token值保存在本地，以后需要向后端发送请求时，将token值带给后端来判断已经登录过小程序了。  </p>
+</li>
+<li><p>小程序如何调用其他小程序？<br>答：首先在app.json文件中记录需要调用的小程序的appId,然后在页面上可以用按钮或者超链接的方式打开小程序，若是超链接，则要在超链接上加上open-type属性，值为miniprogram，然后在appId属性中写上appId值，要打开特定页面时，需要加上path属性。若是按钮的话，需要在调用函数navigateToProgram，在其中传入参数——第三方小程序的appId和页面的路径。  </p>
+</li>
+<li><p>小程序提交POST请求，后台为什么接收不到数据？<br>答：我们需要给小程序的POST请求设置上特定的header，值为<code>&quot;content-type&quot;:&quot;application/x-www-form-urlencoded&quot;</code>。  </p>
+</li>
+<li><p>小程序云开发是什么东西？<br>答：小程序云开发就是利用微信平台提供的云空间部署小程序的后端项目。这个后端项目是用js语言构建的，同时还提供了noSql数据库，文件云存储等功能，基本上可以满足简单的业务场景。比如在线猜谜、抽奖等小程序。但是电商类、办公类的小程序就不适合用云开发来做。办公类需要在后端具备工作流引擎，电商类需要许多的子系统，如物流子系统、电商子系统和财务子系统等。</p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>学习笔记·微信小程序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mysql数据库相关的学习及回顾</title>
+    <url>/2020/04/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%8F%8A%E5%9B%9E%E9%A1%BE/</url>
+    <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>对大学课程《数据库原理与应用MySQL》的综合实验的回顾与总结，以及后续数据库学习中的知识点的摘记。  </p>
+<a id="more"></a>
+
+<h2 id="数据库设计的流程"><a href="#数据库设计的流程" class="headerlink" title="数据库设计的流程"></a>数据库设计的流程</h2><ol>
+<li><p>需求分析<br>包括：  </p>
+<ul>
+<li>信息要求  </li>
+<li>处理要求 </li>
+<li>系统要求<ul>
+<li>安全性要求</li>
+<li>使用方式要求</li>
+<li>可扩充性要求</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>概念结构设计<br>将需求分析得到的用户需求抽象为信息结构（即概念模型）的过程。（这一步中可做出E-R图）<br>E-R图：方形表示实体，椭圆形表示实体的属性，实体间的菱形表示实体间的联系（联系有1-1[一对一]，1-m[一对多]，m-n[多对多]三种形式）。  </p>
+</li>
+<li><p>逻辑结构设计<br>将E-R图拆分为数据库的表（实体和联系都对应一张表）。<br>拆分出表之后，调整为第三范式。<br>同时也可以对视图进行设计。  </p>
+</li>
+<li><p>物理设计<br>分析数据库中已有的索引，考虑需要增加索引的字段有哪些。  </p>
+</li>
+<li><p>数据库的实现<br>创建库、表、用户、触发器和存储过程等。</p>
+</li>
+</ol>
+<h2 id="数据库常用技术"><a href="#数据库常用技术" class="headerlink" title="数据库常用技术"></a>数据库常用技术</h2><ol>
+<li><p>[LEFT]JOIN …… on [条件]</p>
+</li>
+<li><p>GROUP BY  </p>
+</li>
+<li><p>事务的四大特性：ACID  </p>
+<ul>
+<li>原子性（Atomic）</li>
+<li>一致性（Consistency）</li>
+<li>隔离性（Isolation）</li>
+<li>持久性（Durability）</li>
+</ul>
+</li>
+<li><p>事务的隔离级别  </p>
+<ul>
+<li>Read uncommitted</li>
+<li>Read Committed  </li>
+<li>Repeatable Reads</li>
+<li>Serializable  </li>
+</ul>
+</li>
+<li><p>乐观锁<br>不是真正在数据库中添加锁（真正添加的锁为悲观锁）。是在数据查询时，添加另一个数据为参考，看数据是否发生了变化，如果发生了变化，则表示发生了冲突，则可做出相应的处理。 </p>
+</li>
+<li><p>密集索引和稀疏索引的区别<br>密集索引将索引和叶子节点的信息（整行数据）保存在一个文件中，按照索引的B+树找到叶子节点时，即可获得整行数据。稀疏索引则将内容和索引分开在两个文件中，在索引文件中（稀疏索引的B+树）找到叶子节点中的节点信息（主键信息）后，在另一个主键B+树中查找对应的叶子节点中存放的数据库内容。<br>密集索引以空间为代价，可以提高存取效率；稀疏索引则所占空间较小。<br>网上说法不一：<del>聚簇索引是稀疏索引，数据页上一级索引存储是页指针，非行指针。非聚簇索引是密集索引，在数据页的上一级索引页它为每一个数据行存储一条记录</del>   </p>
+</li>
+<li><p>定位并优化慢查询Sql:  </p>
+<ul>
+<li>根据慢日志定位慢查询sql</li>
+<li>使用explain等工具分析sql<br>（里面会显示type和extra字段值，其中type显示index和all时常常需要调优，而extra字段中显示Using filesort时表示，MySQL没能使用索引完成操作，排序可能在内存和磁盘上进行；Using temporary则表示，使用了临时表，常见于排序order by和group by）  </li>
+<li>修改sql或者尽量让sql走索引（让SQL走索引的方法见 8.最左匹配原则）  </li>
+</ul>
+</li>
+<li><p>最左匹配原则<br>MySQL会一直向右匹配直到遇到范围查询（&gt;,&lt;,between,like）就停止匹配，比如a=3 and b=4 and c&gt;5 and d=6。以这样的条件进行查询时，联合索引只能结合a,b,c，到c处就停止了。因此，若c写在了最前面，则执行查询时，只能用到c的索引来排序。又，若，c字段没有建立索引，则会使查询无索引可用，从而导致速度下降。因此，这种情况下，要尽量让c出现在后面。（注：其它=的字段或in可以随意安排前后顺序，MySQL的查询优化器会帮你优化成索引可以识别的形式。）  </p>
+</li>
+<li><p>MyISAM与InnoDB关于锁方面的区别<br>MyISAM默认用的是表级锁，不支持行级锁。<br>InnoDB默认用的是行级锁，也支持表级锁。<br>（只有读锁（共享锁）之间是兼容的，写锁（排它锁）和读锁、写锁和写锁之间是冲突不兼容的。）</p>
+</li>
+<li><p>数据库锁的分类  </p>
+<ul>
+<li>按锁的粒度划分，可分为表级锁、行级锁、页级锁</li>
+<li>按锁级别划分，可分为共享锁、排它锁</li>
+<li>按加锁方式划分，可分为自动锁（增删改时自动加的锁）、显式锁（查时，语句中自己加的锁）</li>
+<li>按操作划分，可分为DML锁，DDL锁（DML为数据操作时加的锁，DDL为表结构更改时加的锁）</li>
+<li>按使用方式划分，可分为乐观锁、悲观锁  </li>
+</ul>
+</li>
+<li><p>当前读和快照读<br>当前读表示增加了锁的增删改查语句。快照读则表示未加锁的数据库操作语句返回的结果。  </p>
+</li>
+<li><p>RC、RR级别下的InnoDB的非阻塞读如何实现<br>三个因子</p>
+<ul>
+<li>数据行里的<br>DB_TRX_ID（标识最近一次对本行数据做修改，无论是insert，update，事务的标识符，即最后一次修改本行数据的事务ID，delete在innoDB看来也是一次update操作，更新行中的一个特殊位，将行标识为deleted,也就是说数据行中除了这三列，还有一个被称为deleted的隐藏列）<br>DB_ROLL_PTR（回滚指针，指写入回滚段ROLLBACK SEGMENT的undo日志记录，如果一行记录被更新，则undolockrecalled包含从建该行记录被更新之前内容所必须的信息）<br>DB_ROW_ID（行号，包含一个随着新行插入而单调递增的行ID,当由innoDB自动产生具体索引时，具体索引会包括这个行id的值，否则这个行ID不会出现在任何索引中）字段</li>
+<li>undo日志：当我们对记录做了变更操作时，就会产生undo记录，undo记录中存储的是老版的数据，当一个旧的事务需要读取数据时，为了能读取到老版本的数据，需要顺着undo链找到满足其可见性的记录，undolog主要分为两种insertundolog,updateundolog,其中insertundolog表示事务对insert新记录产生的undolog,只在事务回滚时需要并且在事务提交后就可能会立即丢弃。updateundolog事务对记录进行delete或者update时产生的undolog，不仅在事务回滚时需要，快照读也需要所以不能删除，只有数据库所使用的快照中不涉及该日志记录对应的回滚日志才会被删除</li>
+<li>read view:主要用来做可见性判断的，即当我们做快照读select的时候会针对我们所查询的数据创建出一个read view来决定当前事务能看到的是哪个版本的数据，有可能是当前最新的数据，也有可能只允许你看undolog里面某个版本的数据，遵循可见性算法。主要是将要修改的数据的DB_TRX_ID取出来，与系统其他活跃ID做对比如果大于或者等于这些ID的话，就通过DB_ROLL_PTR指针去取出undolog上一层的DB_TRX_ID直到小于这些活跃事务的ID为止，这样就保证了我们获取的数据版本是是当前最稳定的版本</li>
+</ul>
+<p>每当我们start transaction的时候事务ID都会去递增，也就是说越新开启的事务这个ID就会越大由于生成是时机不同，造成了RC,RR两种事务隔离级别的可见性不同<br>在Repeatable read隔离级别下，session Strat transaction后的第一条快照读会创建一个快照即read view ,将当前活跃的其他事务记录起来，此后再调用快照读的时候还是用的是同一个read view<br>在 read committed级别下，事务中每条 select语句每次调用快照读的时候都会创建新的快照，这就是为什么我们在此隔离级别下能用快照读看到其他事务已提交的对表的增删改了，而在RR下如果首次使用快照读是在别的事务对数据进行增删改提交之前的，此后即便别的事务对数据做了增删改并提交，还是读不到数据变更的原因（首次select的时机很重要）<br>由于以上的三个因子才使得innoDB在RR或者RC级别下支持非阻塞读，而读取数据时的非阻塞就是所谓的MVCC(Multi-Version Concurrency Control多版本控制)，而InnoDB的非阻塞读机制实现的仿制版的MVCC,并没有实现MVCC的核心的多版本共存，undolog中的内容只是串行化的结果，记录了多个事务的过程，不属于多版本共存读不加锁，读写不冲突，在读多写少的应用中读写不冲突是非常重要的，极大的增加了系统的并发性能，快照读并非是幻读现象发生的根本，只是你如果先要提交数据变更的事务，打开read view时不论别的事务的变更是否已提交，在当前事务内再次调用快照读的时候还是读的可见性版本内的数据，有一种掩耳盗铃的意思在里面。而真正防止幻读发生的原因是事务对数据加了next-key锁。  </p>
+</li>
+<li><p>InnoDB可重复读级别下如何避免幻读<br>表象： 快照读（非阻塞读）中的伪MVCC<br>内在： next-key锁（行锁+gap锁）  </p>
+<ul>
+<li>行锁：是对单独行记录上的锁，</li>
+<li>gap锁：Gap是索引树中插入新记录的空隙，而gaplock间隙锁即锁定一个范围但不包括记录本身，gap锁的目的是为了防止事务的两次当前读出现幻读的情况gap在RC隔离级别或者更低的隔离级别下是没有的，这就是RC等隔离级别无法避免幻读的原因，而在RR以及serializable级别下默认都支持gap锁  </li>
+</ul>
+<p>gap锁会用在非唯一索引或者不走索引的当前读中</p>
+</li>
+<li><p>对主键索引或者唯一索引会用Gap锁吗？  </p>
+<ul>
+<li>如果where条件全部命中，则不会用Gap锁，只会加记录锁  </li>
+<li>如果where条件部分命中或者全不命中，则会加Gap锁</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>学习笔记·Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构中的排序</title>
+    <url>/2020/05/03/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%AD%E7%9A%84%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>对数据结构中提到的常见排序的个人理解。  </p>
+<a id="more"></a>
+<p><img src="https://i.loli.net/2020/05/03/SrMWPhCZqutXkOQ.png" alt="排序分类脑图.png">  </p>
+<h1 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h1><ol>
+<li><p>直接插入排序<br>认为第一个元素为有序数组，之后遍历到的每个元素都按照大小关系插入到前面提到的有序数组中，这样，这个有序数组中的元素就由一个增多，变为最后的结果了。<br>或，在一个有序数组中插入一个元素，方法是依次查找比较数组中的元素，然后在适当的位置插入元素。</p>
+</li>
+<li><p>折半插入排序<br>在数组有序的情况下，上述直接插入排序的第二种情况可以优化为折半插入排序，即，将要插入的数据每次都与数组中间的元素比较，比中间元素小的话就和前半段中间的比较，大的话就和后半段中间的元素比较，依此类推，直到找到合适的位置。  </p>
+</li>
+</ol>
+<h1 id="交换排序"><a href="#交换排序" class="headerlink" title="交换排序"></a>交换排序</h1><ol>
+<li><p>冒泡排序<br>每次比较相邻的两个元素，将较大的放在后面的位置上，这样一趟之后，最大的就在最后面，之后再进行第二次，依次执行之后，可以得到有序的数组。  </p>
+</li>
+<li><p>快速排序<br>和冒泡类似，但是是将一个元素“冒泡”到中间的位置。将最后一位设置为哨兵位。快速排序将两个指针分别指向头和尾（哨兵位的前一位），分别向中间移动指针，左指针移动到比哨兵位的值大的值时停止，右指针移动到比哨兵位的值小的时候停止，两指针在都不满足的情况下会一直移动直到重合。如果一次比较之后，两个指针没有重合，则交换两个指针所指的值，再接着移动，直到重合；当出现重合时，则将哨兵位的值和此时指针所指的值交换。</p>
+</li>
+</ol>
+<h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><ol>
+<li>简单选择排序<br>最开始设定有序序列为空，之后将后面的无序序列中最小的元素放置到前面序列的最后，这样依次执行，就得到了一个有序序列。  </li>
+</ol>
+<ol start="2">
+<li>堆排序<br>构造小根堆或者大根堆，将堆顶元素取出后，重复操作，即可得到有序集合。  </li>
+</ol>
+<p>待完善……</p>
+]]></content>
+      <tags>
+        <tag>学习笔记·数据结构</tag>
+      </tags>
+  </entry>
+</search>
