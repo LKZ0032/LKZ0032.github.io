@@ -64,7 +64,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">9.7k字</span>
+            <span class="post-count">11.6k字</span>
         </span>
     </span>
 
@@ -73,7 +73,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">35分钟</span>
+            <span class="post-count">42分钟</span>
         </span>
     </span>
 </div>
@@ -445,6 +445,111 @@
 <h2 id="自定义类加载器实现"><a href="#自定义类加载器实现" class="headerlink" title="自定义类加载器实现"></a>自定义类加载器实现</h2><p>以下代码中的 FileSystemClassLoader 是自定义类加载器，继承自 java.lang.ClassLoader，用于加载文件系统上的类。它首先根据类的全名在文件系统上查找类的字节代码文件（.class 文件），然后读取该文件内容，最后通过 defineClass() 方法来把这些字节代码转换成 java.lang.Class 类的实例。</p>
 <p>java.lang.ClassLoader 的 loadClass() 实现了双亲委派模型的逻辑，自定义类加载器一般不去重写它，但是需要重写 findClass() 方法。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileSystemClassLoader</span> <span class="keyword">extends</span> <span class="title">ClassLoader</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String rootDir;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FileSystemClassLoader</span><span class="params">(String rootDir)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.rootDir = rootDir;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> Class&lt;?&gt; findClass(String name) <span class="keyword">throws</span> ClassNotFoundException &#123;</span><br><span class="line">        <span class="keyword">byte</span>[] classData = getClassData(name);</span><br><span class="line">        <span class="keyword">if</span> (classData == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> ClassNotFoundException();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> defineClass(name, classData, <span class="number">0</span>, classData.length);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">byte</span>[] getClassData(String className) &#123;</span><br><span class="line">        String path = classNameToPath(className);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            InputStream ins = <span class="keyword">new</span> FileInputStream(path);</span><br><span class="line">            ByteArrayOutputStream baos = <span class="keyword">new</span> ByteArrayOutputStream();</span><br><span class="line">            <span class="keyword">int</span> bufferSize = <span class="number">4096</span>;</span><br><span class="line">            <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[bufferSize];</span><br><span class="line">            <span class="keyword">int</span> bytesNumRead;</span><br><span class="line">            <span class="keyword">while</span> ((bytesNumRead = ins.read(buffer)) != -<span class="number">1</span>) &#123;</span><br><span class="line">                baos.write(buffer, <span class="number">0</span>, bytesNumRead);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> baos.toByteArray();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">classNameToPath</span><span class="params">(String className)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> rootDir + File.separatorChar</span><br><span class="line">                + className.replace(<span class="string">'.'</span>, File.separatorChar) + <span class="string">".class"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Tips（jvm调优相关）"><a href="#Tips（jvm调优相关）" class="headerlink" title="Tips（jvm调优相关）"></a>Tips（<a href="https://www.cnblogs.com/Luouy/p/10337756.html" target="_blank" rel="noopener">jvm调优相关</a>）</h1><ul>
+<li><p>默认的,新生代 ( Young ) 与老年代 ( Old ) 的比例的值为 1:2</p>
+</li>
+<li><p>JVM优化方法  </p>
+<ul>
+<li>因为GC引发的问题  <ul>
+<li>堆的大小不改变的情况下可以尝试调整Survivor区的大小，这样可以避免因为对象大于50%，而将对象直接跳过Survivor区放如Old区中，从而使得Minor GC回收不了，需要调用开销大的Full GC来完成，使得性能下降。  </li>
+<li>减小堆，使得Full GC发生的时候，可以更快的完成；减小后不够用的话，可以使用集群的方式，将业务放在多个web容器中进行。  </li>
+<li>发生内存溢出时，注意元空间中的数据，有时候就是因为元空间中的数据占用了空间。或设置<code>-Xmx1024m -Xms1024m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=d:\dump</code>运行参数，在发生OOM时在D盘文件夹生成dump文件，或直接运行<code>jmap -dump:format=b,file=xxx.hprof &lt;pid&gt;</code>命令生成dump文件，文件的分析可以交给visualvm工具来完成。  </li>
+</ul>
+</li>
+<li>因为程序自身引发的问题  <ul>
+<li>如死循环等，可以通过jvisualvm工具查看  </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>实例  </p>
+<ul>
+<li><p>实例1：<br>  部分开发测试机器出现异常：java.lang.OutOfMemoryError: GC overhead limit exceeded，这个异常代表：GC为了释放很小的空间却耗费了太多的时间，其原因一般有两个：1，堆太小，2，有死循环或大对象；<br>  笔者首先排除了第2个原因，因为这个应用同时是在线上运行的，如果有问题，早就挂了。所以怀疑是这台机器中堆设置太小；<br>  使用ps -ef |grep “java”查看，发现：<br>  <img src="https://images0.cnblogs.com/blog/406312/201312/31180232-b35faf9a89dd48a184de58bc3a7e26ca.png" alt="JVM参数"></p>
+<p>  该应用的堆区设置只有768m，而机器内存有2g，机器上只跑这一个java应用，没有其他需要占用内存的地方。另外，这个应用比较大，需要占用的内存也比较多；<br>  笔者通过上面的情况判断，只需要改变堆中各区域的大小设置即可，于是改成下面的情况：<br>  <img src="https://images0.cnblogs.com/blog/406312/201312/31180253-523e7c956672437cb0203cae27232059.png" alt="JVM参数"></p>
+<p>  跟踪运行情况发现，相关异常没有再出现；</p>
+</li>
+<li><p>实例2：（<a href="http://www.360doc.com/content/13/0305/10/15643_269388816.shtml）" target="_blank" rel="noopener">http://www.360doc.com/content/13/0305/10/15643_269388816.shtml）</a><br>  一个服务系统，经常出现卡顿，分析原因，发现Full GC时间太长：<br>  jstat -gcutil:<br>  S0     S1    E     O       P        YGC YGCT FGC FGCT  GCT<br>  12.16 0.00 5.18 63.78 20.32  54   2.047 5     6.946  8.993<br>  分析上面的数据，发现Young GC执行了54次，耗时2.047秒，每次Young GC耗时37ms，在正常范围，而Full GC执行了5次，耗时6.946秒，每次平均1.389s，数据显示出来的问题是：Full GC耗时较长，分析该系统的是指发现，NewRatio=9，也就是说，新生代和老生代大小之比为1:9，这就是问题的原因：<br>  1，新生代太小，导致对象提前进入老年代，触发老年代发生Full GC；<br>  2，老年代较大，进行Full GC时耗时较大；<br>  优化的方法是调整NewRatio的值，调整到4，发现Full GC没有再发生，只有Young GC在执行。这就是把对象控制在新生代就清理掉，没有进入老年代（这种做法对一些应用是很有用的，但并不是对所有应用都要这么做）</p>
+</li>
+<li><p>实例3：<br>  一应用在性能测试过程中，发现内存占用率很高，Full GC频繁，使用sudo -u admin -H  jmap -dump:format=b,file=文件名.hprof pid 来dump内存，生成dump文件，并使用Eclipse下的mat差距进行分析，发现：<br>  <img src="https://images0.cnblogs.com/blog/406312/201312/31180203-01c1a6a38f35453c82b988da1458f2e0.png" alt="JVM参数"></p>
+<p>  从图中可以看出，这个线程存在问题，队列LinkedBlockingQueue所引用的大量对象并未释放，导致整个线程占用内存高达378m，此时通知开发人员进行代码优化，将相关对象释放掉即可。</p>
+</li>
+</ul>
+</li>
+<li><p>虚拟机工具(<a href="https://blog.csdn.net/m0_37609579/article/details/105293313" target="_blank" rel="noopener">具体描述</a>)  </p>
+<ul>
+<li>jps:类似于linux的ps命令,用于查看进程，常用于获取进程号.  </li>
+<li>jmap  </li>
+<li>……  </li>
+</ul>
+</li>
+<li><p>参数配置位置  </p>
+<ul>
+<li>解压版本的Tomcat, 通过startup.bat启动tomcat加载配置的，在tomcat 的bin 下catalina.bat 文件内添加；   </li>
+<li>Linux服务器Tomcat设置JVM，修改TOMCAT_HOME/bin/catalina.sh；  </li>
+<li>IDE中配置  </li>
+<li>jboss的在run.sh中设置，weblogic在setDomainEnv.sh中设置，websphere在jvm.options中设置。</li>
+</ul>
+</li>
+<li><p>典型JVM参数<br>java -Xmx3550m -Xms3550m -Xmn2g -Xss128k</p>
+</li>
+</ul>
+<p>-Xmx3550m：设置JVM最大可用内存为3550M。<br>-Xms3550m：设置JVM促使内存为3550m。此值可以设置与-Xmx相同，以避免每次垃圾回收完成后JVM重新分配内存。<br>-Xmn2g：设置年轻代大小为2G。整个堆大小=年轻代大小 + 年老代大小 + 持久代大小。持久代一般固定大小为64m，所以增大年轻代后，将会减小年老代大小。此值对系统性能影响较大，Sun官方推荐配置为整个堆的3/8。<br>-Xss128k：设置每个线程的堆栈大小。JDK5.0以后每个线程堆栈大小为1M，以前每个线程堆栈大小为256K。更具应用的线程所 需内存大小进行调整。在相同物理内存下，减小这个值能生成更多的线程。但是操作系统对一个进程内的线程数还是有限制的，不能无限生成，经验值在 3000~5000左右。<br>java -Xmx3550m -Xms3550m -Xss128k -XX:NewRatio=4 -XX:SurvivorRatio=4 -XX:MaxPermSize=16m -XX:MaxTenuringThreshold=0<br>-XX:NewRatio=4:设置年轻代（包括Eden和两个Survivor区）与年老代的比值（除去持久代）。设置为4，则年轻代与年老代所占比值为1：4，年轻代占整个堆栈的1/5<br>-XX:SurvivorRatio=4：设置年轻代中Eden区与Survivor区的大小比值。设置为4，则两个Survivor区与一个Eden区的比值为2:4，一个Survivor区占整个年轻代的1/6<br>-XX:MaxPermSize=16m:设置持久代大小为16m。<br>-XX:MaxTenuringThreshold=0：设置垃圾最大年龄。如果设置为0的话，则年轻代对象不经过Survivor区，直 接进入年老代。对于年老代比较多的应用，可以提高效率。如果将此值设置为一个较大值，则年轻代对象会在Survivor区进行多次复制，这样可以增加对象 再年轻代的存活时间，增加在年轻代即被回收的概论。  </p>
+<ul>
+<li><p>JVM参数汇总  </p>
+<ul>
+<li><p>堆设置  </p>
+</li>
+<li><p>Xms:初始堆大小  </p>
+</li>
+<li><p>Xmx:最大堆大小  </p>
+</li>
+<li><p>XX:NewSize=n:设置年轻代大小  </p>
+</li>
+<li><p>XX:NewRatio=n:设置年轻代和年老代的比值。如:为3，表示年轻代与年老代比值为1：3，年轻代占整个年轻代年老代和的1/4  </p>
+</li>
+<li><p>XX:SurvivorRatio=n:年轻代中Eden区与两个Survivor区的比值。注意Survivor区有两个。如：3，表示Eden：Survivor=3：2，一个Survivor区占整个年轻代的1/5  </p>
+</li>
+<li><p>XX:MaxPermSize=n:设置持久代大小  </p>
+</li>
+<li><p>收集器设置  </p>
+</li>
+<li><p>XX:+UseSerialGC:设置串行收集器  </p>
+</li>
+<li><p>XX:+UseParallelGC:设置并行收集器  </p>
+</li>
+<li><p>XX:+UseParalledlOldGC:设置并行年老代收集器  </p>
+</li>
+<li><p>XX:+UseConcMarkSweepGC:设置并发收集器  </p>
+</li>
+<li><p>垃圾回收统计信息  </p>
+</li>
+<li><p>XX:+PrintGC  </p>
+</li>
+<li><p>XX:+PrintGCDetails  </p>
+</li>
+<li><p>XX:+PrintGCTimeStamps  </p>
+</li>
+<li><p>Xloggc:filename  </p>
+</li>
+<li><p>并行收集器设置  </p>
+</li>
+<li><p>XX:ParallelGCThreads=n:设置并行收集器收集时使用的CPU数。并行收集线程数。  </p>
+</li>
+<li><p>XX:MaxGCPauseMillis=n:设置并行收集最大暂停时间  </p>
+</li>
+<li><p>XX:GCTimeRatio=n:设置垃圾回收时间占程序运行时间的百分比。公式为1/(1+n)  </p>
+</li>
+<li><p>并发收集器设置  </p>
+</li>
+<li><p>XX:+CMSIncrementalMode:设置为增量模式。适用于单CPU情况。  </p>
+</li>
+<li><p>XX:ParallelGCThreads=n:设置并发收集器年轻代收集方式为并行收集时，使用的CPU数。并行收集线程数。  </p>
+</li>
+</ul>
+</li>
+</ul>
+
       
       <!-- 打赏 -->
       
@@ -454,7 +559,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://lkz0032.github.io/2020/05/05/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/" data-id="ckcsi7w90000gv0ay1r5k6j8p"
+      <a data-url="https://lkz0032.github.io/2020/05/05/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/" data-id="ckf0ivdmf000g7cay3if52zy7"
         class="article-share-link">分享</a>
         
       
@@ -622,7 +727,7 @@
   <ul class="nav">
     <li class="nav-item">
       
-      <a class="nav-item-link nav-item-search"  title="Search">
+      <a class="nav-item-link nav-item-search"  title="搜索">
         <i class="ri-search-line"></i>
       </a>
       

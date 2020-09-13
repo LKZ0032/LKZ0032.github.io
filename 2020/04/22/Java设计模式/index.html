@@ -10,7 +10,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    Java设计模式 |  Blessing
+    初次理解设计模式 |  Blessing
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -44,7 +44,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Java设计模式
+  初次理解设计模式
 </h1>
   
 
@@ -64,7 +64,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">0字</span>
+            <span class="post-count">2.3k字</span>
         </span>
     </span>
 
@@ -73,7 +73,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1分钟</span>
+            <span class="post-count">7分钟</span>
         </span>
     </span>
 </div>
@@ -84,6 +84,8 @@
 
     
     
+    <div class="tocbot"></div>
+
 
 
 
@@ -97,7 +99,50 @@
       
 
       
-      
+      <h2 id="设计模式的基本要素"><a href="#设计模式的基本要素" class="headerlink" title="设计模式的基本要素"></a>设计模式的基本要素</h2><ul>
+<li>模式名称  </li>
+<li>问题  </li>
+<li>解决方案  </li>
+<li>效果  <a id="more"></a>
+<h2 id="OOP七大原则"><a href="#OOP七大原则" class="headerlink" title="OOP七大原则"></a>OOP七大原则</h2>面向对象的设计语言除了有三大特征之外，还有七大原则，分别为：  </li>
+<li>开闭原则： 对拓展开放，对修改关闭</li>
+<li>里氏替换原则： 继承必须保证超类所拥有的性质在子类中仍然成立</li>
+<li>依赖倒置原则： 要面向接口编程，不要面向现实</li>
+<li>单一职责原则： 控制类的粒度大小，将对象解耦，提高内聚</li>
+<li>接口隔离原则： 要用各个类建立他们需要的专用接口</li>
+<li>迪米特法则： 只与直接朋友交谈，不与“陌生人”通信</li>
+<li>合成复用原则： 尽量先使用组合或者内聚等关联关系来实现，其次才考虑使用继承来实现  </li>
+</ul>
+<h2 id="设计模式分类"><a href="#设计模式分类" class="headerlink" title="设计模式分类"></a>设计模式分类</h2><ul>
+<li>创造型模式：就是为了创建对象。</li>
+<li>结构型模式：就是如何设计代码结构更加合理。（类和对象之间的组合）</li>
+<li>行为型模式：关注的是对象间的通信。出发点是如何让对象可以更好的交换数据，保持松耦合。</li>
+</ul>
+<h2 id="创建型模式分析"><a href="#创建型模式分析" class="headerlink" title="创建型模式分析"></a>创建型模式分析</h2><h3 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h3><p>对象的创建直接在方法中new出来，这里涉及到多线程下的对象最后是否还是单例的问题，我们可以通过volatile和synchronized来进行序列化和加锁，以此来保证单例在多线程状态下的稳定，但是反射是可以破环上述方法的，自带安全机制，无法被反射机制破坏的是枚举类。</p>
+<h3 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h3><p>通过定义工厂接口，将每个对象的创建放进一个工厂中，这里的工厂是工厂接口的具体实现。在方法中，实例化一个工厂，通过工厂中的方法来实现新对象的创建。<br>（一般使用不满足里氏替换原则的简单工厂模式，但是当需要工厂模式满足里氏替换原则时，会增加代码量）  </p>
+<h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><p>将不同的对象放进不同的工厂来创建，通过实例化这个工厂，调用这个工厂的方法来获得相应的对象。工厂通过一个统一的接口来约束。</p>
+<h3 id="抽象工厂模式"><a href="#抽象工厂模式" class="headerlink" title="抽象工厂模式"></a>抽象工厂模式</h3><p>将工厂模式中的工厂进行抽象。工厂模式中每个对象都有一个工厂，这种方式会在最后产生大量的工厂。抽象工厂模式中，将同一族的产品的产生囊括到一个工厂中，这就减少了工厂的数量。工厂通过接口来约束，同一结构的对象通过同一个接口来约束。<br>工厂模式和简单工厂模式主要就是产生一个类，而抽象工厂可以用于一个产品族（一个类型的类）的产生，需要这一族中某个对象时，都只需要调用这一个工厂类就行了。</p>
+<h3 id="生成器模式（建造者模式）"><a href="#生成器模式（建造者模式）" class="headerlink" title="生成器模式（建造者模式）"></a>生成器模式（建造者模式）</h3><p>适用于有许多属性的对象的生成。这类对象常为POJO类，建造者类中的方法通过调用这些POJO类中的方法来完成类的“建造”。一类对象的建造者类的方法常常通过抽象最后抽象为一个抽象类，所有建造者类都需继承自这个抽象类。  </p>
+<h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><p>以一个已有的类作为原型来克隆产生新的对象，要使用clone方法，需要对象实现cloneable接口。cloneable接口中的clone方法为Object类自带的clone方法，调用了本地的C++方法，效率高，但为浅拷贝，即，在内存中都引用了同一个对象，当旧对象发生改变后，新对象也会发生改变。这种情况可以通过重写clone方法来实现。在方法中，对本对象的属性也调用clone方法即可完成深拷贝产生一个新的类实例，而不是引用同一个类。</p>
+<h2 id="结构型模式分析"><a href="#结构型模式分析" class="headerlink" title="结构型模式分析"></a>结构型模式分析</h2><h3 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h3><p>在系统更新中常常会出现老旧不兼容的情况，这时常用到适配器模式这种结构来处理。在不相关的两个类中间，增加一个适配器类，在这个类中，调用旧系统的功能，新系统的类通过适配器中的方法来实现调用老系统的功能。<br>其中，适配器类通过继承的方式拥有旧系统的功能时，称为类适配器；当使用组合（即，在适配器类中加入就方法对象的属性，并在适配器类的含参构造方法来实例化它）方式实现时，称为对象适配器，这一类适配器灵活度更高。  </p>
+<h3 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a>桥接模式</h3><p>当一个类为多层继承关系时（这里的继承者之间，没有亲密的关系，是可以解耦的），它往往没有遵循单一职责原则。此时可以考虑将继承转为组合关系。将其中的一层继承去掉，在另一层中将去掉的继承类作为属性写入类中。这样可以实现灵活的组合各种类，只要在类的实例化时，将想要的属性参数传递过去就行；如果在多继承的情况下，则需要创建、编写一个新的类。<br>（<strong><em>桥接模式和适配器模式都是将一个继承关系的类写进属性中变为组合关系，但是适配器模式是将还没有的关系变为有；而桥接模式是将已经有的关系拆开后用组合方式实现，这是两者的不同，一个适配器是没有关系创造联系，桥接模式是有联系的拆开后重新以组合的方式产生联系</em></strong>）</p>
+<h3 id="装饰器模式"><a href="#装饰器模式" class="headerlink" title="装饰器模式"></a>装饰器模式</h3><p>装饰器模式是将原有的类嵌入到一个新的类中，并将其功能进行扩展。这个结构模式和适配器模式的区别是，适配器不改变原有接口，装饰器模式的目的是想要将原有的类功能进行拓展。  </p>
+<h3 id="组合模式"><a href="#组合模式" class="headerlink" title="组合模式"></a>组合模式</h3><p><del>暂无</del>  </p>
+<h3 id="外观模式"><a href="#外观模式" class="headerlink" title="外观模式"></a>外观模式</h3><p>将复杂接口调用都在一个类中进行，隐藏具体的细节，用户需要功能时，只需调用这个在外的接口即可完成。  </p>
+<h3 id="享元模式"><a href="#享元模式" class="headerlink" title="享元模式"></a>享元模式</h3><p>这种模式的目的是减少相似对象的创建。通过享元工厂，将创建的对象保存在一个集合中，当需要一个新对象时，在工厂中调用即可，不需要创建新的对象。  </p>
+<h3 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h3><p>代理模式和装饰器模式很像，都是将一个对象嵌入到一个新的对象中，只是在新的对象中代理模式不扩展功能，只是在对象中将原有的功能进行更详细的扩展，其中的细节不对外展示。在代理模式中，这个嵌入的类不由外部传入，以此来实现真实的代理，用户甚至都不用将对象作为参数传入代理类中。  </p>
+<h2 id="行为型模式分析"><a href="#行为型模式分析" class="headerlink" title="行为型模式分析"></a>行为型模式分析</h2><h3 id="职责链模式"><a href="#职责链模式" class="headerlink" title="职责链模式"></a>职责链模式</h3><p>在职责链模式中，通过在对象中增加一个表示下一个对象的属性来实现将数据交给下一个对象的能力。以此实现职责的链式传递。这个对象无法处理时，将调用下一个对象的方法，并在下一个对象的方法中判断是否可以处理，以此类推。</p>
+<h3 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h3><p><del>暂无</del></p>
+<h3 id="解释器模式"><a href="#解释器模式" class="headerlink" title="解释器模式"></a>解释器模式</h3><p><del>暂无</del></p>
+<h3 id="迭代器模式"><a href="#迭代器模式" class="headerlink" title="迭代器模式"></a>迭代器模式</h3><p><del>暂无</del></p>
+<h3 id="中介者模式"><a href="#中介者模式" class="headerlink" title="中介者模式"></a>中介者模式</h3><p><del>暂无</del></p>
+<h3 id="备忘录模式"><a href="#备忘录模式" class="headerlink" title="备忘录模式"></a>备忘录模式</h3><p><del>暂无</del></p>
+<h3 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h3><p>解决的是对象一对多的关系。当一个对象和多个对象都有关系时，常使用此模式来使得对象间解耦。观察者统一实现一个抽象接口，这个接口会被被观察者在更新时调用。被观察者发生改变时，调用观察者的接口，以此来提醒观察者对象做出相应的更新。</p>
+<h3 id="状态模式"><a href="#状态模式" class="headerlink" title="状态模式"></a>状态模式</h3><p>在使用超过三层的if-else判断语句时，可以将这个判断条件拆分为状态模式，将判断条件作为一个属性加入到类中，并将不同的状态设计成不同的类。不同的情况将不同的状态类通过状态类作为参数传递，以此来实现不同状态的传递。</p>
+<h3 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h3><p>类似状态模式，但是策略模式关注的是某一个具体的执行过程，而状态模式关注的是某一个具体的状态，这个状态里可能有很多个执行过程。</p>
+<h3 id="模板模式"><a href="#模板模式" class="headerlink" title="模板模式"></a>模板模式</h3><p><del>暂无</del></p>
+<h3 id="访问者模式"><a href="#访问者模式" class="headerlink" title="访问者模式"></a>访问者模式</h3><p>暂且理解为不改变数据结构的条件下进行操作，将数据结构中的某些在实际情况下很复杂的操作进行封装，需要用到时进行调用即可。</p>
+
       
       <!-- 打赏 -->
       
@@ -107,10 +152,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://lkz0032.github.io/2020/04/22/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" data-id="ckcsi7w8s0004v0aycm0q1szb"
+      <a data-url="https://lkz0032.github.io/2020/04/22/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" data-id="ckf0ivdmb000b7cayf3ddfre5"
         class="article-share-link">分享</a>
         
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">学习笔记·设计模式</a></li></ul>
+
     </footer>
 
   </div>
@@ -273,7 +320,7 @@
   <ul class="nav">
     <li class="nav-item">
       
-      <a class="nav-item-link nav-item-search"  title="Search">
+      <a class="nav-item-link nav-item-search"  title="搜索">
         <i class="ri-search-line"></i>
       </a>
       

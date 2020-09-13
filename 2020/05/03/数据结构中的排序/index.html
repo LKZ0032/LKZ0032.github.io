@@ -64,7 +64,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">601字</span>
+            <span class="post-count">942字</span>
         </span>
     </span>
 
@@ -73,7 +73,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">2分钟</span>
+            <span class="post-count">3分钟</span>
         </span>
     </span>
 </div>
@@ -107,6 +107,8 @@
 </li>
 <li><p>折半插入排序<br>在数组有序的情况下，上述直接插入排序的第二种情况可以优化为折半插入排序，即，将要插入的数据每次都与数组中间的元素比较，比中间元素小的话就和前半段中间的比较，大的话就和后半段中间的元素比较，依此类推，直到找到合适的位置。  </p>
 </li>
+<li><p>希尔排序<br>又称缩小增量排序。将待排序表按照一个数值分组，在分组内进行直接插入排序，结束之后，缩小这个数值，重复上述操作，最后缩小到1之后，执行最后一遍，待排序表有序。</p>
+</li>
 </ol>
 <h1 id="交换排序"><a href="#交换排序" class="headerlink" title="交换排序"></a>交换排序</h1><ol>
 <li><p>冒泡排序<br>每次比较相邻的两个元素，将较大的放在后面的位置上，这样一趟之后，最大的就在最后面，之后再进行第二次，依次执行之后，可以得到有序的数组。  </p>
@@ -118,9 +120,11 @@
 <li>简单选择排序<br>最开始设定有序序列为空，之后将后面的无序序列中最小的元素放置到前面序列的最后，这样依次执行，就得到了一个有序序列。  </li>
 </ol>
 <ol start="2">
-<li>堆排序<br>构造小根堆或者大根堆，将堆顶元素取出后，重复操作，即可得到有序集合。  </li>
+<li>堆排序<br>构造小根堆或者大根堆，将堆顶元素取出后，重复操作形成小根堆或者大根堆，重复取出堆顶元素即可得到有序集合。  </li>
 </ol>
-<p>待完善……</p>
+<h1 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h1><p>“归并”的含义是将两个或两个以上的有序表组合成一个新的有序表。二路归并即，将待排序表两两一组分为长度为2或1的有序表，再将长度为2或1的表两两一组形成有序表（将B组的元素取出后和A组的比较后插入，多余的直接插入到A组的后面，这样即可完成两个有序表归并为一个有序表的操作），重复上述操作直至整个待排序表被归并为一个有序表。  </p>
+<h1 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h1><p>从数位的右（左）侧开始比较排序，最后比较到最高（低）位。以十进制举例，先比较个位，再比较十位。以此类推，最后排序到最高位后，可得到有序表。</p>
+<h1 id="外部排序"><a href="#外部排序" class="headerlink" title="外部排序"></a>外部排序</h1><p>从外存读入到内存排序后又写入到外存中的排序。之前讲述的排序都是只在内存中进行的。</p>
 
       
       <!-- 打赏 -->
@@ -131,7 +135,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://lkz0032.github.io/2020/05/03/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%AD%E7%9A%84%E6%8E%92%E5%BA%8F/" data-id="ckcsi7w9d000zv0ayf6ep3hod"
+      <a data-url="https://lkz0032.github.io/2020/05/03/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%AD%E7%9A%84%E6%8E%92%E5%BA%8F/" data-id="ckf0ivdmq000z7cay3n02hc3c"
         class="article-share-link">分享</a>
         
       
@@ -299,7 +303,7 @@
   <ul class="nav">
     <li class="nav-item">
       
-      <a class="nav-item-link nav-item-search"  title="Search">
+      <a class="nav-item-link nav-item-search"  title="搜索">
         <i class="ri-search-line"></i>
       </a>
       

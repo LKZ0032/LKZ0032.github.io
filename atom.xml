@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lkz0032.github.io/"/>
-  <updated>2020-05-31T08:01:22.000Z</updated>
+  <updated>2020-08-01T08:07:36.174Z</updated>
   <id>https://lkz0032.github.io/</id>
   
   <author>
@@ -15,6 +15,89 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java基础</title>
+    <link href="https://lkz0032.github.io/2020/08/01/Java%E5%9F%BA%E7%A1%80/"/>
+    <id>https://lkz0032.github.io/2020/08/01/Java%E5%9F%BA%E7%A1%80/</id>
+    <published>2020-08-01T08:05:26.000Z</published>
+    <updated>2020-08-01T08:07:36.174Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;本文转载自&lt;a href=&quot;https://cyc2018.github.io/CS-Notes/#/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub的开源项目&lt;/a&gt;，转载的目的是为了能够对文章中不懂的内容进行自由注解。&lt;br&gt;以下为文章内容： &lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="学习笔记·Java" scheme="https://lkz0032.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringBoot整合Druid数据源</title>
+    <link href="https://lkz0032.github.io/2020/07/31/SpringBoot%E6%95%B4%E5%90%88Druid%E6%95%B0%E6%8D%AE%E6%BA%90/"/>
+    <id>https://lkz0032.github.io/2020/07/31/SpringBoot%E6%95%B4%E5%90%88Druid%E6%95%B0%E6%8D%AE%E6%BA%90/</id>
+    <published>2020-07-31T06:14:55.000Z</published>
+    <updated>2020-07-31T12:25:40.410Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h3&gt;&lt;p&gt;Druid 是阿里巴巴开源平台上一个数据库连接池实现，结合了 C3P0、DBCP 等 DB 池的优点，同时加入了日志监控。后台监控自带了页面。  &lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="学习笔记·Java" scheme="https://lkz0032.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7Java/"/>
+    
+      <category term="学习笔记·SpringBoot" scheme="https://lkz0032.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7SpringBoot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringBoot整合Mybatis</title>
+    <link href="https://lkz0032.github.io/2020/07/31/SpringBoot%E6%95%B4%E5%90%88Mybatis/"/>
+    <id>https://lkz0032.github.io/2020/07/31/SpringBoot%E6%95%B4%E5%90%88Mybatis/</id>
+    <published>2020-07-31T05:57:50.000Z</published>
+    <updated>2020-07-31T06:19:32.151Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ol&gt;
+&lt;li&gt;导入 MyBatis 所需要的依赖
+    
+    </summary>
+    
+    
+    
+      <category term="学习笔记·Java" scheme="https://lkz0032.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7Java/"/>
+    
+      <category term="学习笔记·SpringBoot" scheme="https://lkz0032.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7SpringBoot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringBoot初探</title>
+    <link href="https://lkz0032.github.io/2020/07/28/SpringBoot%E5%88%9D%E6%8E%A2/"/>
+    <id>https://lkz0032.github.io/2020/07/28/SpringBoot%E5%88%9D%E6%8E%A2/</id>
+    <published>2020-07-28T09:49:20.000Z</published>
+    <updated>2020-08-01T06:00:22.512Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Spring-Boot-自动配置原理是什么？&quot;&gt;&lt;a href=&quot;#Spring-Boot-自动配置原理是什么？&quot; class=&quot;headerlink&quot; title=&quot;Spring Boot 自动配置原理是什么？&quot;&gt;&lt;/a&gt;Spring Boot 自动配置原理是什么？&lt;/h3&gt;&lt;p&gt;在spring-boot-autoconfigure-2.3.1.RELEASE.jar包下的META-INF文件夹里的spring.factories，有JavaEE需要的所有配置和解决方案。  &lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="学习笔记·Java" scheme="https://lkz0032.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7Java/"/>
+    
+      <category term="学习笔记·SpringBoot" scheme="https://lkz0032.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7SpringBoot/"/>
+    
+  </entry>
   
   <entry>
     <title>Maven梳理</title>
@@ -53,7 +136,7 @@
     <link href="https://lkz0032.github.io/2020/05/05/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     <id>https://lkz0032.github.io/2020/05/05/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/</id>
     <published>2020-05-05T12:47:15.000Z</published>
-    <updated>2020-05-31T07:58:50.000Z</updated>
+    <updated>2020-08-08T10:14:50.161Z</updated>
     
     <summary type="html">
     
@@ -72,7 +155,7 @@
     <link href="https://lkz0032.github.io/2020/05/03/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%AD%E7%9A%84%E6%8E%92%E5%BA%8F/"/>
     <id>https://lkz0032.github.io/2020/05/03/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%AD%E7%9A%84%E6%8E%92%E5%BA%8F/</id>
     <published>2020-05-03T13:30:09.000Z</published>
-    <updated>2020-05-04T05:11:10.000Z</updated>
+    <updated>2020-09-13T02:39:21.881Z</updated>
     
     <summary type="html">
     
@@ -125,17 +208,25 @@
   </entry>
   
   <entry>
-    <title>Java设计模式</title>
+    <title>初次理解设计模式</title>
     <link href="https://lkz0032.github.io/2020/04/22/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     <id>https://lkz0032.github.io/2020/04/22/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</id>
     <published>2020-04-22T13:14:51.000Z</published>
-    <updated>2020-04-22T13:14:52.000Z</updated>
+    <updated>2020-09-12T03:49:15.757Z</updated>
     
     <summary type="html">
+    
+      &lt;h2 id=&quot;设计模式的基本要素&quot;&gt;&lt;a href=&quot;#设计模式的基本要素&quot; class=&quot;headerlink&quot; title=&quot;设计模式的基本要素&quot;&gt;&lt;/a&gt;设计模式的基本要素&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;模式名称  &lt;/li&gt;
+&lt;li&gt;问题  &lt;/li&gt;
+&lt;li&gt;解决方案  &lt;/li&gt;
+&lt;li&gt;效果
     
     </summary>
     
     
+    
+      <category term="学习笔记·设计模式" scheme="https://lkz0032.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
@@ -295,7 +386,7 @@
     <link href="https://lkz0032.github.io/2020/02/18/Markdown%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E5%92%8C%E5%B7%A9%E5%9B%BA/"/>
     <id>https://lkz0032.github.io/2020/02/18/Markdown%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E5%92%8C%E5%B7%A9%E5%9B%BA/</id>
     <published>2020-02-18T04:12:26.000Z</published>
-    <updated>2020-04-07T04:57:16.000Z</updated>
+    <updated>2020-07-30T14:39:11.792Z</updated>
     
     <summary type="html">
     
@@ -306,62 +397,6 @@
     
     
       <category term="学习笔记·Markdown" scheme="https://lkz0032.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7Markdown/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于博客网站</title>
-    <link href="https://lkz0032.github.io/2020/02/18/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/"/>
-    <id>https://lkz0032.github.io/2020/02/18/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/</id>
-    <published>2020-02-18T03:59:23.000Z</published>
-    <updated>2020-04-07T05:30:04.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;关于这篇博客&quot;&gt;&lt;a href=&quot;#关于这篇博客&quot; class=&quot;headerlink&quot; title=&quot;关于这篇博客&quot;&gt;&lt;/a&gt;关于这篇博客&lt;/h1&gt;&lt;h2 id=&quot;博客的主要内容&quot;&gt;&lt;a href=&quot;#博客的主要内容&quot; class=&quot;headerlink&quot; title=&quot;博客的主要内容&quot;&gt;&lt;/a&gt;博客的主要内容&lt;/h2&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="所思所想" scheme="https://lkz0032.github.io/tags/%E6%89%80%E6%80%9D%E6%89%80%E6%83%B3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>new a blog article</title>
-    <link href="https://lkz0032.github.io/2020/02/12/new-a-blog-article/"/>
-    <id>https://lkz0032.github.io/2020/02/12/new-a-blog-article/</id>
-    <published>2020-02-12T05:11:39.000Z</published>
-    <updated>2020-04-07T04:55:08.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;创建一个文章的md文件&lt;br&gt;&lt;code&gt;hexo new &amp;quot;XXX&amp;quot;&lt;/code&gt;&lt;br&gt;格式如上，XXX部分为文章的名字&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="学习笔记·hexo" scheme="https://lkz0032.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://lkz0032.github.io/2019/12/31/hello-world/"/>
-    <id>https://lkz0032.github.io/2019/12/31/hello-world/</id>
-    <published>2019-12-31T12:23:39.000Z</published>
-    <updated>2020-07-18T15:24:31.044Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-    
-    </summary>
-    
-    
     
   </entry>
   

@@ -64,7 +64,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">854字</span>
+            <span class="post-count">73字</span>
         </span>
     </span>
 
@@ -73,7 +73,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">3分钟</span>
+            <span class="post-count">1分钟</span>
         </span>
     </span>
 </div>
@@ -114,60 +114,6 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-<hr>
-<p>藏起来的TodoList:  </p>
-<ol>
-<li>明清史等历史的了解（起因：金庸小说）  </li>
-<li>贝爷绳结种类的剪辑制作（起因：怎样将两节绳子不松脱的绑在一起）  </li>
-<li>金融知识的简单学习（起因：眉山剑客陈平）  </li>
-<li>自驾游（起因：航拍中国·福建）  </li>
-</ol>
-<h2 id="时间轴"><a href="#时间轴" class="headerlink" title="时间轴"></a>时间轴</h2><h3 id="2020年7月17日-21点46分"><a href="#2020年7月17日-21点46分" class="headerlink" title="2020年7月17日 21点46分"></a>2020年7月17日 21点46分</h3><ul>
-<li>DONE：  <ul>
-<li>finished learning VUE  </li>
-<li>install git and Node.js in the new computer</li>
-<li>uninstall idea version 2015 and change it into version 2020 </li>
-</ul>
-</li>
-<li>TODO:  <ul>
-<li>learning Java Web  </li>
-<li>fix CV and its online version  </li>
-<li>clone blog’s article and push it into github  </li>
-<li>learning course in baidunetdisk,spring boot and spring cloud  </li>
-</ul>
-</li>
-<li>NOTE:  <ul>
-<li>Vue  <ul>
-<li>main.js为入口文件，其中引入了App.vue  </li>
-<li>App.vue中为template，script和style的Vue结构  </li>
-<li>template中写需要引入的其它Vue模块；script中name属性相当于一个全局ID，可以不写，写了可以提供更好的调试信息（官方文档有）；style写此Vue的样式  </li>
-<li>点击跳转需要路由来实现，且template中的Vue模块引入变为<code>&lt;router-link to=&quot;&quot;&gt;&lt;/router-link&gt;</code>  </li>
-<li>之后在router文件夹下的index.js(这个文件名可使得路由文件可以被自动扫描)中配置路由，即可使得路由生效  </li>
-<li><code>&lt;router-view&gt;&lt;/router-view&gt;</code>可以使得路由页面在本页展示  </li>
-<li>在js文件中使用<code>import</code>引入需要使用的组件  </li>
-</ul>
-</li>
-<li>git  <ul>
-<li>生成密钥的时候，最好不要更改它的默认位置，不然连接查询时，会因为查询不到等问题报错。  </li>
-</ul>
-</li>
-<li>Node.js  <ul>
-<li>其中npm指令下载的模块，默认是下载到C盘的，这可能使得系统盘吃紧  </li>
-<li>使用  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">        npm config set prefix &quot;D:\\Program Files (x86)\\Node\\prefix&quot;</span><br><span class="line">        npm config set cache &quot;D:\\Program Files (x86)\\Node\\cache&quot;</span><br><span class="line">        &#96;&#96;&#96;  </span><br><span class="line">        可以更改默认的安装路径到其它盘  </span><br><span class="line">    - 此后会出现下载安装的模块无法在cmd命令中识别的情况，如使用vue时，&#96;vue init webpack projectName&#96;指令会出现vue不是内部指令的错误提示，解决办法为，将上述更改了位置的prefix文件夹路径加到&#96;Path&#96;环境变量下  </span><br><span class="line">- idea  </span><br><span class="line">    - 卸载前先导出配置，安装完成后导入配置  </span><br><span class="line">    - 修改默认配置目录的位置，默认为C盘，修改 &#123;IDEA目录&#125;&#x2F;bin&#x2F;idea.properties 文件，将其中的四项改为如下自己想要的位置即可</span><br></pre></td></tr></table></figure>
-  idea.config.path=D:/Java/JetBrains/.IntelliJIdea2018.3/config<br>  idea.system.path=D:/Java/JetBrains/.IntelliJIdea2018.3/system<br>  idea.plugins.path=${idea.config.path}/plugins<br>  idea.log.path=${idea.system.path}/log<br>```  </li>
-<li>安装完成后，2020版本会出现连接不到插件商店的情况，解决办法是将打开File—&gt;Setting—&gt;Appearance&amp;Behavior—&gt;System Settings—&gt;HTTP Proxy 进行配置，其中选择Auto-detect proxy settings，输入框中地址推荐用：<code>https://plugins.jetbrains.com</code>，如果不行也可以配置 <code>http://127.0.0.1:1080</code>  </li>
-<li>已安装的插件位置，默认为<code>C:\Users\Administrator\.IntelliJIdea2019.2\config\plugins</code>，找到更改后的config文件夹下的plugins即可  </li>
-<li>在idea中配置数据库连接时，有timezone相关错误时，注意将Advanced中的serverTimezone设置成中国时区，如<code>Asia/Shanghai</code>或者<code>Hongkong</code>  </li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="2020年7月18日-13点13分"><a href="#2020年7月18日-13点13分" class="headerlink" title="2020年7月18日 13点13分"></a>2020年7月18日 13点13分</h3><ul>
-<li><h2 id="DONE："><a href="#DONE：" class="headerlink" title="DONE：  "></a>DONE：  </h2></li>
-<li><h2 id="TODO："><a href="#TODO：" class="headerlink" title="TODO："></a>TODO：</h2></li>
-<li><h2 id="NOTE："><a href="#NOTE：" class="headerlink" title="NOTE："></a>NOTE：</h2></li>
-</ul>
 
       
       <!-- 打赏 -->
@@ -178,7 +124,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://lkz0032.github.io/2019/12/31/hello-world/" data-id="ckcsi7w91000iv0ay3zekcgmr"
+      <a data-url="https://lkz0032.github.io/2019/12/31/hello-world/" data-id="ckf0ivdml000p7cayh8yj8ka4"
         class="article-share-link">分享</a>
         
       
@@ -339,7 +285,7 @@
   <ul class="nav">
     <li class="nav-item">
       
-      <a class="nav-item-link nav-item-search"  title="Search">
+      <a class="nav-item-link nav-item-search"  title="搜索">
         <i class="ri-search-line"></i>
       </a>
       
