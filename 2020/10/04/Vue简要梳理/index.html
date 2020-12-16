@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="博客,代码,学习" />
+   
+  <meta name="description" content="祝福" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    Vue简要回顾 |  Blessing
+  </title>
+  <meta name="generator" content="hexo-theme-yilia-plus">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="Blessing" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content">
+      <section class="outer">
+  <article id="post-Vue简要梳理" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Vue简要回顾
+</h1>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/10/04/Vue%E7%AE%80%E8%A6%81%E6%A2%B3%E7%90%86/" class="article-date">
+  <time datetime="2020-10-04T12:11:42.000Z" itemprop="datePublished">2020-10-04</time>
+</a>
+      
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.8k字</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">7分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文主要内容为Vue的项目创建和基础语法，以及Vue页面间的数据交互。</p>
+<a id="more"></a>
+<h3 id="Vue基本语法"><a href="#Vue基本语法" class="headerlink" title="Vue基本语法"></a>Vue基本语法</h3><ul>
+<li><p><code>v-</code>开头为指令：  </p>
+<ul>
+<li><p>v-bind:我们可以使用v-bind来绑定元素属性，当元素属性值为model层data数据中的变量时，元素属性和Vue中的data数据就可以实现动态变化。  </p>
+</li>
+<li><p>v-if/v-else:在元素标签中间增加上述关键字，在之后用等号相连，并在等号后面双引号写入判断条件语句，当判断条件结果为true时，元素标签得以显示。  </p>
+</li>
+<li><p>v-for:后面同样跟等号，等号中为 “元素 in 元素集合” 的格式，元素集合为Vue实例中data中的变量集合。  </p>
+</li>
+<li><p>v-on:类似于将JavaScript中的操作关键字之前加上上述关键字，事件相关的函数在Vue实例的methods中定义。  </p>
+</li>
+<li><p>v-model:可以实现数据的双向绑定。当数据  </p>
+</li>
+<li></li>
+</ul>
+</li>
+<li><p>Vue中常用的七大属性  </p>
+<ul>
+<li>el属性<br>绑定需要解析为Vue语法的元素位置，如 el:”#app”。  </li>
+<li>data属性<br>页面需要用到的数据都放在这个地方。  </li>
+<li>template属性<br>模板属性中写自定义的标签名代表的HTML元素标签的组合。要使得自己定义的标签能够使用，需要先注册组件，即先完成<code>Vue.Component()</code>部分，再实例化Vue，即再完成<code>var vm=new Vue()</code>。</li>
+<li>methods属性<br>在这个属性中自定义函数并完成相应逻辑。</li>
+<li>render属性  </li>
+<li>computed属性<br>在这个属性中可以写入和methods中一样的函数逻辑，只是在div中调用时，计算属性中的值可以当作属性直接调用，而在函数中定义的方法需要作为方法调用。</li>
+<li>watch侦听属性  </li>
+</ul>
+</li>
+<li></li>
+</ul>
+<h3 id="创建vue项目步骤"><a href="#创建vue项目步骤" class="headerlink" title="创建vue项目步骤"></a>创建vue项目步骤</h3><ul>
+<li><p>确保本地安装了vue-cli，类似于要使用Maven管理项目时需要本地有Maven服务。vue-cli需要的环境：Node.js、git。  </p>
+</li>
+<li><p>创建一个基于webpack模板的vue应用程序：<code>vue init webpack hello-vue</code> (其中的hello-vue为项目名)(一路选择no，最后选择“自己运行npm install”)  </p>
+</li>
+<li><p>安装依赖， 我们需要安装vue-router、element-ui、sass-loader和node-sass四个插件：  </p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#进入工程目录</span><br><span class="line">cd hello-vue</span><br><span class="line">#安装vue-routern </span><br><span class="line">npm install vue-router --save-dev</span><br><span class="line">#安装element-ui</span><br><span class="line">npm i element-ui -S</span><br><span class="line">#安装依赖</span><br><span class="line">npm install</span><br><span class="line"># 安装SASS加载器</span><br><span class="line">cnpm install sass-loader node-sass --save-dev</span><br><span class="line">#启功测试</span><br><span class="line">npm run dev</span><br></pre></td></tr></table></figure></li>
+<li><p>完美运行，则项目创建成功。  </p>
+</li>
+<li><p>项目常用目录结构（src目录下）  </p>
+<ul>
+<li>assets：用于存放资源文件  </li>
+<li>components：用于存放Vue功能组件  </li>
+<li>views：用于存放Vue视图组件  </li>
+<li>router：用于存放vue-router配置  </li>
+</ul>
+</li>
+<li><p>先创建vue组件，之后在路由配置文件中使用import关键字导入，在routes属性中配置相关路由path和希望对应的组件component即可。  </p>
+</li>
+</ul>
+<h3 id="关于页面间的数据传输"><a href="#关于页面间的数据传输" class="headerlink" title="关于页面间的数据传输"></a>关于页面间的数据传输</h3><ul>
+<li><p>在url中传递  </p>
+<ul>
+<li><p>$route方式  </p>
+<ol>
+<li><p>修改route文件夹中index.js中的路由配置，在 path 属性中增加了 :id，:name 这样的占位符  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">path: <span class="string">'/main'</span>,</span><br><span class="line">    component: Main,</span><br><span class="line">        children: [</span><br><span class="line">            &#123;</span><br><span class="line">                path: <span class="string">'/user/profile/:id/:name'</span>,</span><br><span class="line">                name: <span class="string">'UserProfile'</span>,</span><br><span class="line">                component: UserProfile</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                path: <span class="string">'/user/list'</span>,</span><br><span class="line">                component: UserList</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>在写有路由信息的元素中，加入要传递的参数  </p>
+<ul>
+<li><p>此时我们将 to 改为了 :to，是为了将这一属性当成对象使用  </p>
+</li>
+<li><p>注意 router-link 中的 name 属性名称一定要和路由中的name 属性名称 匹配，因为这样 Vue 才能找到对应的路由路径；  </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--name:传组件名， params：传递参数， 需要对象： v-bind--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"&#123;name:'UserProfile',params:&#123;id:1,name:'LKZZZ'&#125;&#125;"</span>&gt;</span>个人信息<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>（关于params和query在router-link中的区别和如何接收传递的参数，详情见<a href="https://blog.csdn.net/qq_21980517/article/details/100075540" target="_blank" rel="noopener">一篇CSDN博客</a>）  </p>
+</li>
+</ul>
+</li>
+<li><p>在需要接收参数的组件中，接收参数<br>在组件中：  <code></code><br>在js里： <code>this.$route.params.color</code>  </p>
+</li>
+</ol>
+</li>
+<li><p>props 方式  </p>
+<ol>
+<li><p>修改route文件夹中index.js中的路由配置，主要增加了 props: true 属性  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">routes: [</span><br><span class="line">        &#123;</span><br><span class="line">        path: <span class="string">'/login'</span>,</span><br><span class="line">        component: Login</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">        path: <span class="string">'/main'</span>,</span><br><span class="line">        component: Main,</span><br><span class="line">        children: [</span><br><span class="line">            &#123;</span><br><span class="line">            path: <span class="string">'/user/profile/:id/:name'</span>,</span><br><span class="line">            name: <span class="string">'UserProfile'</span>,</span><br><span class="line">            component: UserProfile,</span><br><span class="line">            props: <span class="literal">true</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">            path: <span class="string">'/user/list'</span>,</span><br><span class="line">            component: UserList</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br></pre></td></tr></table></figure></li>
+<li><p>在写有路由信息的元素中，加入要传递的参数  </p>
+<ul>
+<li><p>此时我们将 to 改为了 :to，是为了将这一属性当成对象使用  </p>
+</li>
+<li><p>注意 router-link 中的 name 属性名称一定要和路由中的name 属性名称 匹配，因为这样 Vue 才能找到对应的路由路径；  </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--name:传组件名， params：传递参数， 需要对象： v-bind--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"&#123;name:'UserProfile',params:&#123;id:1,name:'LKZZZ'&#125;&#125;"</span>&gt;</span>个人信息<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>在需要接收参数的组件中，接收参数，方法为，在script中增加props属性    </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;个人信息&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">        &#123;&#123;id&#125;&#125;</span></span><br><span class="line"><span class="regexp">        &#123;&#123;name&#125;&#125;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">    export default &#123;</span></span><br><span class="line"><span class="regexp">        props: ['id','name'],</span></span><br><span class="line"><span class="regexp">        name: "UserProfile"</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>使用全局的data<br>新建一个js文件，并在需要用到其中数据的组件中import这个文件。  </p>
+</li>
+<li><p>使用缓存（这里介绍good-storage）<br>good-storage 是一个插件，需要安装<code>npm install good-storage</code>;<br>localStorage 临时缓存（主动清除缓存才会销毁）<br>sessionStorage 长期缓存（关闭浏览器自动销毁）  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> storage <span class="keyword">from</span> <span class="string">'good-storage'</span></span><br><span class="line"> </span><br><span class="line"> <span class="comment">// localStorage</span></span><br><span class="line"> storage.set(key,val) </span><br><span class="line"> </span><br><span class="line"> storage.get(key, def)</span><br><span class="line"> </span><br><span class="line"> <span class="comment">// sessionStorage</span></span><br><span class="line"> storage.session.set(key, val)</span><br><span class="line"> </span><br><span class="line"> storage.session.get(key, val)</span><br></pre></td></tr></table></figure>
+<p>常用API为  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>(key, val)</span><br><span class="line">// <span class="keyword">set</span> storage with key and val</span><br><span class="line"> </span><br><span class="line"><span class="keyword">get</span>(key, def)</span><br><span class="line">// <span class="keyword">get</span> storage with key, return def if not find</span><br><span class="line"> </span><br><span class="line">remove(key)</span><br><span class="line">// remove storage with key</span><br><span class="line"> </span><br><span class="line">has(key)</span><br><span class="line">// determine storage has the key</span><br><span class="line"> </span><br><span class="line">clear()</span><br><span class="line">// clear all storages</span><br><span class="line"> </span><br><span class="line">getAll()</span><br><span class="line">// <span class="keyword">get</span> all the storages</span><br><span class="line"> </span><br><span class="line">forEach(callback)</span><br><span class="line">// forEach the storages and call the callback function with each storage</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="异步请求"><a href="#异步请求" class="headerlink" title="异步请求"></a>异步请求</h3><ul>
+<li>Vue较早使用的异步请求工具为vue-resource，vue-resource是vue官方团队的人开发的，在vue2.0出来之后，开发vue-resource的人表示不再更新，放弃维护，并推荐使用axios</li>
+<li>向服务器发送请求需要安装Axios ，命令为<code>cnpm install --save vue-axios</code>  </li>
+<li>之后需要在main.js引用 Axios<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span></span><br><span class="line"><span class="keyword">import</span> VueAxios <span class="keyword">from</span> <span class="string">'vue-axios'</span></span><br><span class="line"></span><br><span class="line">Vue.use(VueAxios, axios)</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><ul>
+<li><p>钩子函数：类似于小程序中的onLoad、onShow等函数，在特定动作完成之前可以在钩子函数中进行预处理。  </p>
+</li>
+<li><p>路由模式有两种</p>
+<ul>
+<li>hash：路径带 # 符号，如 <a href="http://localhost/#/login" target="_blank" rel="noopener">http://localhost/#/login</a><br>默认为hash路由模式<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">routes: []</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+<li>history：路径不带 # 符号，如 <a href="http://localhost/login" target="_blank" rel="noopener">http://localhost/login</a><br>history路由模式<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">mode: <span class="string">'history'</span>,</span><br><span class="line">routes: []</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>实现404页面只需将所有未知的路由，即<code>path: &#39;*&#39;</code>的情况都跳转到我们设置的404页面即可  </p>
+</li>
+<li><p>在组件中的data要写成方法，其中的数据由return返回  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    name: <span class="string">"Main"</span>,</span><br><span class="line">    data()&#123;</span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        i:<span class="number">1</span>,</span><br><span class="line">        name: <span class="string">'lkzzz'</span></span><br><span class="line">      &#125;;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>使用时，直接由<code>this.数据名称</code>调用即可，如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-menu-item</span> <span class="attr">index</span>=<span class="string">"1-1"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--                &lt;router-link to="/user/profile"&gt;个人信息&lt;/router-link&gt;--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"&#123;name:'component',params:&#123;id: this.i ,name: name &#125; &#125;"</span>&gt;</span>个人信息<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">el-menu-item</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li></li>
+</ul>
+
+      
+      <!-- 打赏 -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://lkz0032.github.io/2020/10/04/Vue%E7%AE%80%E8%A6%81%E6%A2%B3%E7%90%86/" data-id="ckirahp32000ydkay04fj7egc"
+        class="article-share-link">分享</a>
+        
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7Vue/" rel="tag">学习笔记·Vue</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/2020/11/01/Linux%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2%E5%9B%9E%E9%A1%BE%E6%A2%B3%E7%90%86/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Linux服务部署回顾梳理
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/09/13/Java%E5%B9%B6%E5%8F%91/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Java并发</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: '',
+        app_id: '',
+        app_key: '',
+        path: window.location.pathname,
+        avatar: 'mp',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2019-2020
+        Kailun Zhu
+      </li>
+      <li>
+        
+          Powered by
+        
+        
+        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+        
+        <ul class="list-inline">
+  <li>PV:<span id="busuanzi_value_page_pv"></span></li>
+  <li>UV:<span id="busuanzi_value_site_uv"></span></li>
+</ul>
+        
+      </li>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+    <div class="to_top">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+      </div>
+    </main>
+      <aside class="sidebar">
+        <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="Blessing"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">目录</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+      </aside>
+      <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+      
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+    strings: ['A man','is only as good as','what he loves'],
+    startDelay: 0,
+    typeSpeed: 160,
+    loop: true,
+    backSpeed: 80,
+    showCursor: true
+    });
+  } catch (err) {
+  }
+  
+</script>
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer:'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+    onClick: (e) => {
+      $('.toc-link').removeClass('is-active-link');
+      $(`a[href=${e.target.hash}]`).addClass('is-active-link');
+      $(e.target.hash).scrollIntoView();
+      return false;
+    }
+  });
+</script>
+
+
+<script>
+  var ayerConfig = {
+    mathjax: false
+  }
+</script>
+
+
+<script src="/js/ayer.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+  </div>
+</body>
+
+</html>

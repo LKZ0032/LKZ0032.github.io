@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lkz0032.github.io/"/>
-  <updated>2020-08-01T08:07:36.174Z</updated>
+  <updated>2020-12-15T12:49:52.528Z</updated>
   <id>https://lkz0032.github.io/</id>
   
   <author>
@@ -17,15 +17,110 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Java I/O</title>
+    <link href="https://lkz0032.github.io/2020/11/03/Java-I-O/"/>
+    <id>https://lkz0032.github.io/2020/11/03/Java-I-O/</id>
+    <published>2020-11-03T02:44:34.000Z</published>
+    <updated>2020-12-15T12:49:52.528Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h3&gt;&lt;p&gt;本文转载自&lt;a href=&quot;https://cyc2018.github.io/CS-Notes/#/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub的开源项目&lt;/a&gt;，转载的目的是为了能够对文章中不懂的内容进行自由注解。&lt;br&gt;以下为文章内容： &lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="学习笔记·Java" scheme="https://lkz0032.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java容器</title>
+    <link href="https://lkz0032.github.io/2020/11/03/Java%E5%AE%B9%E5%99%A8/"/>
+    <id>https://lkz0032.github.io/2020/11/03/Java%E5%AE%B9%E5%99%A8/</id>
+    <published>2020-11-03T02:44:13.000Z</published>
+    <updated>2020-12-15T12:50:24.952Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h3&gt;&lt;p&gt;本文转载自&lt;a href=&quot;https://cyc2018.github.io/CS-Notes/#/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub的开源项目&lt;/a&gt;，转载的目的是为了能够对文章中不懂的内容进行自由注解。&lt;br&gt;以下为文章内容： &lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="学习笔记·Java" scheme="https://lkz0032.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux服务部署回顾梳理</title>
+    <link href="https://lkz0032.github.io/2020/11/01/Linux%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2%E5%9B%9E%E9%A1%BE%E6%A2%B3%E7%90%86/"/>
+    <id>https://lkz0032.github.io/2020/11/01/Linux%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2%E5%9B%9E%E9%A1%BE%E6%A2%B3%E7%90%86/</id>
+    <published>2020-11-01T07:39:54.000Z</published>
+    <updated>2020-12-15T11:23:46.094Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h3&gt;&lt;p&gt;本文内容关于Linux系统中服务的部署，其中Linux系统版本为CentOS，涉及的服务为后端开发常用环境，如：Tomcat、Maven等。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="学习笔记·Linux" scheme="https://lkz0032.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue简要回顾</title>
+    <link href="https://lkz0032.github.io/2020/10/04/Vue%E7%AE%80%E8%A6%81%E6%A2%B3%E7%90%86/"/>
+    <id>https://lkz0032.github.io/2020/10/04/Vue%E7%AE%80%E8%A6%81%E6%A2%B3%E7%90%86/</id>
+    <published>2020-10-04T12:11:42.000Z</published>
+    <updated>2020-12-15T11:23:33.091Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h3&gt;&lt;p&gt;本文主要内容为Vue的项目创建和基础语法，以及Vue页面间的数据交互。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="学习笔记·Vue" scheme="https://lkz0032.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java并发</title>
+    <link href="https://lkz0032.github.io/2020/09/13/Java%E5%B9%B6%E5%8F%91/"/>
+    <id>https://lkz0032.github.io/2020/09/13/Java%E5%B9%B6%E5%8F%91/</id>
+    <published>2020-09-13T10:43:17.000Z</published>
+    <updated>2020-12-16T09:48:02.746Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h3&gt;&lt;p&gt;本文转载自&lt;a href=&quot;https://cyc2018.github.io/CS-Notes/#/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub的开源项目&lt;/a&gt;，转载的目的是为了能够对文章中不懂的内容进行自由注解。&lt;br&gt;以下为文章内容： &lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="学习笔记·Java" scheme="https://lkz0032.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7Java/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Java基础</title>
     <link href="https://lkz0032.github.io/2020/08/01/Java%E5%9F%BA%E7%A1%80/"/>
     <id>https://lkz0032.github.io/2020/08/01/Java%E5%9F%BA%E7%A1%80/</id>
     <published>2020-08-01T08:05:26.000Z</published>
-    <updated>2020-08-01T08:07:36.174Z</updated>
+    <updated>2020-12-15T11:23:17.564Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;本文转载自&lt;a href=&quot;https://cyc2018.github.io/CS-Notes/#/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub的开源项目&lt;/a&gt;，转载的目的是为了能够对文章中不懂的内容进行自由注解。&lt;br&gt;以下为文章内容： &lt;/p&gt;
+      &lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h3&gt;&lt;p&gt;本文转载自&lt;a href=&quot;https://cyc2018.github.io/CS-Notes/#/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub的开源项目&lt;/a&gt;，转载的目的是为了能够对文章中不懂的内容进行自由注解。&lt;br&gt;以下为文章内容： &lt;/p&gt;
     
     </summary>
     
@@ -61,12 +156,11 @@
     <link href="https://lkz0032.github.io/2020/07/31/SpringBoot%E6%95%B4%E5%90%88Mybatis/"/>
     <id>https://lkz0032.github.io/2020/07/31/SpringBoot%E6%95%B4%E5%90%88Mybatis/</id>
     <published>2020-07-31T05:57:50.000Z</published>
-    <updated>2020-07-31T06:19:32.151Z</updated>
+    <updated>2020-12-16T09:56:22.280Z</updated>
     
     <summary type="html">
     
-      &lt;ol&gt;
-&lt;li&gt;导入 MyBatis 所需要的依赖
+      &lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h3&gt;&lt;p&gt;本文简述了SpringBoot整合Mybatis的主要步骤。  &lt;/p&gt;
     
     </summary>
     
@@ -83,11 +177,12 @@
     <link href="https://lkz0032.github.io/2020/07/28/SpringBoot%E5%88%9D%E6%8E%A2/"/>
     <id>https://lkz0032.github.io/2020/07/28/SpringBoot%E5%88%9D%E6%8E%A2/</id>
     <published>2020-07-28T09:49:20.000Z</published>
-    <updated>2020-08-01T06:00:22.512Z</updated>
+    <updated>2020-12-16T10:20:41.249Z</updated>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;Spring-Boot-自动配置原理是什么？&quot;&gt;&lt;a href=&quot;#Spring-Boot-自动配置原理是什么？&quot; class=&quot;headerlink&quot; title=&quot;Spring Boot 自动配置原理是什么？&quot;&gt;&lt;/a&gt;Spring Boot 自动配置原理是什么？&lt;/h3&gt;&lt;p&gt;在spring-boot-autoconfigure-2.3.1.RELEASE.jar包下的META-INF文件夹里的spring.factories，有JavaEE需要的所有配置和解决方案。  &lt;/p&gt;
+      &lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h3&gt;&lt;p&gt;本文主要整理了SpringBoot中常见的概念名词及其实现的原理。  &lt;/p&gt;
+&lt;h3 id=&quot;Spring-Boot-自动配置原理是什么？&quot;&gt;&lt;a href=&quot;#Spring-Boot-自动配置原理是什么？&quot; class=&quot;headerlink&quot; title=&quot;Spring Boot 自动配置原理是什么？&quot;&gt;&lt;/a&gt;Spring Boot 自动配置原理是什么？&lt;/h3&gt;&lt;p&gt;在spring-boot-autoconfigure-2.3.1.RELEASE.jar包下的META-INF文件夹里的spring.factories，有JavaEE需要的所有配置和解决方案。  &lt;/p&gt;
     
     </summary>
     
@@ -104,9 +199,11 @@
     <link href="https://lkz0032.github.io/2020/05/31/Maven%E6%A2%B3%E7%90%86/"/>
     <id>https://lkz0032.github.io/2020/05/31/Maven%E6%A2%B3%E7%90%86/</id>
     <published>2020-05-31T07:58:36.000Z</published>
-    <updated>2020-05-31T08:01:22.000Z</updated>
+    <updated>2020-12-16T10:02:16.766Z</updated>
     
     <summary type="html">
+    
+      &lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h3&gt;&lt;p&gt;Maven是一个项目管理工具，它包含了一个项目对象模型 (Project Object Model)，一组标准集合，一个项目生命周期(Project Lifecycle)，一个依赖管理系统(Dependency Management System)，和用来运行定义在生命周期阶段(phase)中插件(plugin)目标(goal)的逻辑。  &lt;/p&gt;
     
     </summary>
     
@@ -136,11 +233,11 @@
     <link href="https://lkz0032.github.io/2020/05/05/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     <id>https://lkz0032.github.io/2020/05/05/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/</id>
     <published>2020-05-05T12:47:15.000Z</published>
-    <updated>2020-08-08T10:14:50.161Z</updated>
+    <updated>2020-12-16T10:02:49.753Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;本文转载自&lt;a href=&quot;https://cyc2018.github.io/CS-Notes/#/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub的开源项目&lt;/a&gt;，转载的目的是为了能够对文章中不懂的内容进行自由注解。&lt;br&gt;以下为文章内容： &lt;/p&gt;
+      &lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h3&gt;&lt;p&gt;本文转载自&lt;a href=&quot;https://cyc2018.github.io/CS-Notes/#/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub的开源项目&lt;/a&gt;，转载的目的是为了能够对文章中不懂的内容进行自由注解。&lt;br&gt;以下为文章内容： &lt;/p&gt;
     
     </summary>
     
@@ -155,11 +252,11 @@
     <link href="https://lkz0032.github.io/2020/05/03/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%AD%E7%9A%84%E6%8E%92%E5%BA%8F/"/>
     <id>https://lkz0032.github.io/2020/05/03/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%AD%E7%9A%84%E6%8E%92%E5%BA%8F/</id>
     <published>2020-05-03T13:30:09.000Z</published>
-    <updated>2020-09-13T02:39:21.881Z</updated>
+    <updated>2020-12-16T10:03:05.994Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;对数据结构中提到的常见排序的个人理解。  &lt;/p&gt;
+      &lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h3&gt;&lt;p&gt;对数据结构中提到的常见排序的个人理解。  &lt;/p&gt;
     
     </summary>
     
@@ -174,11 +271,11 @@
     <link href="https://lkz0032.github.io/2020/04/23/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     <id>https://lkz0032.github.io/2020/04/23/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/</id>
     <published>2020-04-23T12:23:39.000Z</published>
-    <updated>2020-04-24T14:31:54.000Z</updated>
+    <updated>2020-12-16T10:04:39.901Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;慕课网付费教程中的微信小程序相关面试题及其解答的摘记。  &lt;/p&gt;
+      &lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h3&gt;&lt;p&gt;本文整理了部分微信小程序的相关面试题及其解答。  &lt;/p&gt;
     
     </summary>
     
@@ -193,11 +290,11 @@
     <link href="https://lkz0032.github.io/2020/04/23/ThinkPHP5%E6%A1%86%E6%9E%B6%E5%9B%9E%E9%A1%BE/"/>
     <id>https://lkz0032.github.io/2020/04/23/ThinkPHP5%E6%A1%86%E6%9E%B6%E5%9B%9E%E9%A1%BE/</id>
     <published>2020-04-23T05:10:32.000Z</published>
-    <updated>2020-04-23T06:12:50.000Z</updated>
+    <updated>2020-12-16T10:07:26.641Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;本文为回顾&lt;a href=&quot;https://www.kancloud.cn/manual/thinkphp5/118003&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《ThinkPHP5.0完全开发手册》&lt;/a&gt;时的摘记  &lt;/p&gt;
+      &lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h3&gt;&lt;p&gt;本文为回顾&lt;a href=&quot;https://www.kancloud.cn/manual/thinkphp5/118003&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《ThinkPHP5.0完全开发手册》&lt;/a&gt;时的摘记  &lt;/p&gt;
     
     </summary>
     
@@ -212,15 +309,11 @@
     <link href="https://lkz0032.github.io/2020/04/22/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     <id>https://lkz0032.github.io/2020/04/22/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</id>
     <published>2020-04-22T13:14:51.000Z</published>
-    <updated>2020-09-12T03:49:15.757Z</updated>
+    <updated>2020-12-16T10:43:22.809Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;设计模式的基本要素&quot;&gt;&lt;a href=&quot;#设计模式的基本要素&quot; class=&quot;headerlink&quot; title=&quot;设计模式的基本要素&quot;&gt;&lt;/a&gt;设计模式的基本要素&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;模式名称  &lt;/li&gt;
-&lt;li&gt;问题  &lt;/li&gt;
-&lt;li&gt;解决方案  &lt;/li&gt;
-&lt;li&gt;效果
+      &lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h3&gt;&lt;p&gt;本文整理了第一次接触设计模式时，对各个设计模式的理解。  &lt;/p&gt;
     
     </summary>
     
@@ -235,11 +328,11 @@
     <link href="https://lkz0032.github.io/2020/04/22/Java%E5%8F%8D%E5%B0%84/"/>
     <id>https://lkz0032.github.io/2020/04/22/Java%E5%8F%8D%E5%B0%84/</id>
     <published>2020-04-22T12:36:37.000Z</published>
-    <updated>2020-04-23T04:36:44.000Z</updated>
+    <updated>2020-12-16T10:34:28.969Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;本文摘记自慕课网付费教程《剑指Java面试-Offer直通车》6-4  &lt;/p&gt;
+      &lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h3&gt;&lt;p&gt;本文主要记录了Java反射相关函数的用法和实现的功能。  &lt;/p&gt;
     
     </summary>
     
@@ -254,11 +347,11 @@
     <link href="https://lkz0032.github.io/2020/04/21/Java%E6%B3%A8%E8%A7%A3%E5%85%A5%E9%97%A8/"/>
     <id>https://lkz0032.github.io/2020/04/21/Java%E6%B3%A8%E8%A7%A3%E5%85%A5%E9%97%A8/</id>
     <published>2020-04-21T05:31:42.000Z</published>
-    <updated>2020-04-23T04:36:32.000Z</updated>
+    <updated>2020-12-16T10:36:53.559Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;摘记学习慕课网中初级课——&lt;a href=&quot;https://www.imooc.com/video/8865/0&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《全面解析Java注解》&lt;/a&gt;中的知识点。  &lt;/p&gt;
+      &lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h3&gt;&lt;p&gt;本文记录了Java原生注解的相关知识点。  &lt;/p&gt;
     
     </summary>
     
@@ -273,11 +366,11 @@
     <link href="https://lkz0032.github.io/2020/04/20/%E5%88%9D%E8%AF%86Redis/"/>
     <id>https://lkz0032.github.io/2020/04/20/%E5%88%9D%E8%AF%86Redis/</id>
     <published>2020-04-20T11:53:45.000Z</published>
-    <updated>2020-04-20T12:22:06.000Z</updated>
+    <updated>2020-12-16T10:37:48.188Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;2020年四月末，在教程视频中，第一次简单了解了Redis，在此记录其间的部分知识点  &lt;/p&gt;
+      &lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h3&gt;&lt;p&gt;2020年四月末，在教程视频中，第一次简单了解了Redis，在此记录其间的部分知识点  &lt;/p&gt;
     
     </summary>
     
@@ -301,102 +394,6 @@
     
     
       <category term="学习笔记·操作系统" scheme="https://lkz0032.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>计算机网络相关知识点的回顾和学习</title>
-    <link href="https://lkz0032.github.io/2020/04/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9%E7%9A%84%E5%9B%9E%E9%A1%BE%E5%92%8C%E5%AD%A6%E4%B9%A0/"/>
-    <id>https://lkz0032.github.io/2020/04/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9%E7%9A%84%E5%9B%9E%E9%A1%BE%E5%92%8C%E5%AD%A6%E4%B9%A0/</id>
-    <published>2020-04-17T08:01:19.000Z</published>
-    <updated>2020-04-17T08:05:24.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;ol&gt;
-&lt;li&gt;七层网络模型
-    
-    </summary>
-    
-    
-    
-      <category term="学习笔记·计算机网络" scheme="https://lkz0032.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java语法基础中的特别之处</title>
-    <link href="https://lkz0032.github.io/2020/04/12/Java%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B8%AD%E7%9A%84%E7%89%B9%E5%88%AB%E4%B9%8B%E5%A4%84/"/>
-    <id>https://lkz0032.github.io/2020/04/12/Java%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B8%AD%E7%9A%84%E7%89%B9%E5%88%AB%E4%B9%8B%E5%A4%84/</id>
-    <published>2020-04-12T04:34:09.000Z</published>
-    <updated>2020-04-12T18:46:08.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h3&gt;&lt;p&gt;这是一篇对Java基础语法学习中，遇到的异难的地方进行的总结。&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="学习笔记·Java" scheme="https://lkz0032.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mysql数据库相关的学习及回顾</title>
-    <link href="https://lkz0032.github.io/2020/04/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%8F%8A%E5%9B%9E%E9%A1%BE/"/>
-    <id>https://lkz0032.github.io/2020/04/09/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%8F%8A%E5%9B%9E%E9%A1%BE/</id>
-    <published>2020-04-09T12:58:19.000Z</published>
-    <updated>2020-04-23T05:24:00.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;对大学课程《数据库原理与应用MySQL》的综合实验的回顾与总结，以及后续数据库学习中的知识点的摘记。  &lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="学习笔记·Mysql" scheme="https://lkz0032.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7Mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java开发学习路线</title>
-    <link href="https://lkz0032.github.io/2020/04/09/Java%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/"/>
-    <id>https://lkz0032.github.io/2020/04/09/Java%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</id>
-    <published>2020-04-09T03:38:23.000Z</published>
-    <updated>2020-04-21T04:01:46.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;思路整理参考B站UP主“程序羊”，文章地址为：&lt;a href=&quot;https://www.bilibili.com/read/cv4184856&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;上次是谁说搞不清学习路线来着？&lt;/a&gt;以及其它一些知乎回答。&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="所思所想" scheme="https://lkz0032.github.io/tags/%E6%89%80%E6%80%9D%E6%89%80%E6%83%B3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Markdown的学习总结和巩固</title>
-    <link href="https://lkz0032.github.io/2020/02/18/Markdown%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E5%92%8C%E5%B7%A9%E5%9B%BA/"/>
-    <id>https://lkz0032.github.io/2020/02/18/Markdown%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E5%92%8C%E5%B7%A9%E5%9B%BA/</id>
-    <published>2020-02-18T04:12:26.000Z</published>
-    <updated>2020-07-30T14:39:11.792Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h2&gt;&lt;p&gt;对markdown的个人认识：是一种语法格式，用这种语法写出的文件以.md后缀结尾。通过特定的环境的浏览，可以快速的识别并形成漂亮的格式，效率和美观都可以保证。（此hexo博客文章采用markdown格式书写。）（注：语法符号若没有实现效果时，往往在前后用空格将文字和符号隔开可以恢复效果）（本篇暂时收录平时会用到的格式方式，语法学习来自——&lt;a href=&quot;https://www.runoob.com/markdown/md-tutorial.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;菜鸟教程&lt;/a&gt;）&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="学习笔记·Markdown" scheme="https://lkz0032.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7Markdown/"/>
     
   </entry>
   

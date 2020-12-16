@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="博客,代码,学习" />
+   
+  <meta name="description" content="祝福" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    Linux服务部署回顾梳理 |  Blessing
+  </title>
+  <meta name="generator" content="hexo-theme-yilia-plus">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="Blessing" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content">
+      <section class="outer">
+  <article id="post-Linux服务部署回顾梳理" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Linux服务部署回顾梳理
+</h1>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/11/01/Linux%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2%E5%9B%9E%E9%A1%BE%E6%A2%B3%E7%90%86/" class="article-date">
+  <time datetime="2020-11-01T07:39:54.000Z" itemprop="datePublished">2020-11-01</time>
+</a>
+      
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">3.8k字</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">15分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文内容关于Linux系统中服务的部署，其中Linux系统版本为CentOS，涉及的服务为后端开发常用环境，如：Tomcat、Maven等。</p>
+<a id="more"></a>
+<h1 id="关于Linux"><a href="#关于Linux" class="headerlink" title="关于Linux"></a>关于Linux</h1><p>文件目录说明  <a href="https://www.jianshu.com/p/661c85ebca5e" target="_blank" rel="noopener">https://www.jianshu.com/p/661c85ebca5e</a></p>
+<ul>
+<li><p>su root<br>切换到管理员权限  </p>
+</li>
+<li><p>wget<br>wget命令用来从指定的URL下载文件。wget非常稳定，它在带宽很窄的情况下和不稳定网络中有很强的适应性，如果是由于网络的原因下载失败，wget会不断的尝试，直到整个文件下载完毕。如果是服务器打断下载过程，它会再次联到服务器上从停止的地方继续下载。这对从那些限定了链接时间的服务器上下载大文件非常有用。  </p>
+</li>
+<li><p>rpm  </p>
+<ul>
+<li><p>rpm -qa 查看系统安装软件  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep yum</span><br></pre></td></tr></table></figure>
+<p>其中yum为所需查找的软件的名称  </p>
+</li>
+<li><p>rpm -ql列出软件包安装的文件  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ql yum-langpacks</span><br></pre></td></tr></table></figure>
+<p>其中yum-langpacks为软件包的名称</p>
+</li>
+</ul>
+</li>
+<li><p>VirtualBox实现Windows本机连接里面的CentOS虚拟机的方法是将虚拟机的网卡由网络地址转换(NAT)模式改为桥接模式，这时，使用ifconfig命令查看虚拟机的ip地址，在Windows端使用ssh 用户名@ip地址即可连接到虚拟机  </p>
+</li>
+</ul>
+<h1 id="Java安装"><a href="#Java安装" class="headerlink" title="Java安装"></a>Java安装</h1><p>清理系统默认自带jdk<br>rpm -qa | grep jdk 查看已经自带的jdk，然后卸载<br>卸载命令为：sudo yum remove XXX(XXX为上一个命令查到的结果)</p>
+<ol>
+<li>从Java官网获取所需jdk版本的链接  </li>
+<li>使用wget命令下载  </li>
+<li>赋予权限：sudo chmod 777 jdk-7u80-linux-x64.rpm(如果清楚自己下载时使用的账号和使用时使用的账号的权限，则忽略这一步。第一个数字表示用户的权限，第二数字是用户组的权限，第三个数字是其他人的权限。)  </li>
+<li>安装<br>sudo rpm -ivh jdk-7u80-linux-x64.rpm  </li>
+<li>默认安装路径/usr/java<br>例如：/usr/java/jdk1.7.0_80  </li>
+<li>jdk配置环境变量<br>sudo vim /etc/profile<br>在最下面增加<br>export JAVA_HOME=/usr/java/jdk1.7.0_80<br>export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:<br>$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar  </li>
+</ol>
+<p>export PATH=$PATH:$JAVA_HOME/bin:</p>
+<p>(注：JAVA_HOME为您安装jdk的路径)<br>之后使配置生效 source /etc/profile<br>（会遇到dt.jar和tools.jar文件或目录不存在的情况）<br>可改为：<br>export JAVA_HOME=/usr/local/java/jdk1.8.0_144<br>export JRE_HOME=${JAVA_HOME}/jre<br>export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib<br>export PATH=${JAVA_HOME}/bin:$PATH  </p>
+<h1 id="Tomcat安装"><a href="#Tomcat安装" class="headerlink" title="Tomcat安装"></a>Tomcat安装</h1><ol>
+<li>获取到下载链接之后，使用wget下载，或者其它可以获取到安装包的方式（要注意安装包是否是完整的核心代码，还是部分；有一部分后面有src后缀，是源代码，不能运行）<br><a href="https://mirrors.bfsu.edu.cn/apache/tomcat/tomcat-8/v8.5.59/src/apache-tomcat-8.5.59-src.tar.gz" target="_blank" rel="noopener">https://mirrors.bfsu.edu.cn/apache/tomcat/tomcat-8/v8.5.59/src/apache-tomcat-8.5.59-src.tar.gz</a><br><a href="https://mirrors.bfsu.edu.cn/apache/tomcat/tomcat-7/v7.0.106/src/apache-tomcat-7.0.106-src.tar.gz" target="_blank" rel="noopener">https://mirrors.bfsu.edu.cn/apache/tomcat/tomcat-7/v7.0.106/src/apache-tomcat-7.0.106-src.tar.gz</a></li>
+<li>解压缩<br>tar -zxvf apache-tomcat-7.0.73.tar.gz  </li>
+<li>配置环境变量  <ul>
+<li>sudo vim /etc/profile  </li>
+<li>在文件最下方增加：export CARALINA_HOME=/developer/apache-tomcat-7.0.73(后面是tomcat的安装目录)  </li>
+<li>使配置生效：source /etc/profile  </li>
+</ul>
+</li>
+<li>配置UTF-8字符集  <ul>
+<li>进入tomcat安装的conf文件夹，编辑server.xml<br>如：${CATALINA_HOME}/conf/server.xml</li>
+<li>找到配置8080默认端口的位置，在xml节点末尾增加URIEncoding=”UTF-8”  </li>
+</ul>
+</li>
+<li>Tomcat验证  <ul>
+<li>进入系统解压缩后的tomcat目录  </li>
+<li>进入bin目录  </li>
+<li>执行./startup.sh，看是否运行成功（如果运行遇到提示“无法创建文件”的情况可以使用sudo chmod -R 777 /usr/tomcat/命令来使得文件夹下的所有文件的权限为777）  </li>
+<li>访问tomcat服务所在机器的8080端口<br>（这里要注意服务器是否开放了8080端口，如果没有，则需要开启）  </li>
+</ul>
+</li>
+</ol>
+<h1 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h1><ol>
+<li>下载相应的安装包，并确保电脑上已经安装了JDK  </li>
+<li>解压缩安装包，以tar.gz文件为例（这一步是否需要sudo根据具体情况决定）<br>tar -zxvf apache-maven-3.0.5-bin-tar.gz  </li>
+<li>配置环境变量  <ul>
+<li>sudo vim /etc/profile  </li>
+<li>在最下面添加export MAVEN_HOME=/developer/apache-maven-3.0.5（”=”后面的这个为apache解压缩后的路径）  </li>
+<li>export PATH=$PATH:$MAVEN_HOME/bin  </li>
+<li>source /etc/profile，使得配置文件生效  </li>
+</ul>
+</li>
+<li>执行mvn -version进行验证  </li>
+<li>Maven常用命令  <ul>
+<li>清除命令(清楚已经编译好的)：mvn clean  </li>
+<li>编译命令：mvn compile  </li>
+<li>打包命令：mvn package  </li>
+<li>跳过单元测试：mvn clean package -Dmaven.test.skip=true  </li>
+</ul>
+</li>
+</ol>
+<h1 id="vsftpd安装"><a href="#vsftpd安装" class="headerlink" title="vsftpd安装"></a>vsftpd安装</h1><ol>
+<li>安装，执行yum -y install vsftpd（-y表示安装步骤中的询问语句都将输入yes，也即后面不出现询问语句，直接按照yes步骤执行）<br>可根据rpm -qa | grep vsftpd的结果来检查是否已经安装vsftpd<br>（其默认配置文件在/etc/vsftpd/vsftpd.conf）  </li>
+<li>创建虚拟用户  <ul>
+<li>选择在根或者用户目录下创建ftp文件夹：mkdir ftpfile，如：/ftpfile  </li>
+<li>添加匿名用户：useradd ftpuser -d /ftpfile -s /sbin/nologin（-s 后面的值表示创建的用户没有登录本机器的权限）  </li>
+<li>修改ftpfile权限：chown -R ftpuser.ftpuser /ftpfile  </li>
+<li>重设ftpuser密码：passwd ftpuser  （123，可能会提示”无效的密码：密码少于8个字符”，”无效的密码：密码未通过字典检查-太简单或太有规律”等信息，可以用理会，直接重新输入相同密码即可成功，这里是重新输入123）</li>
+</ul>
+</li>
+<li>配置  <ul>
+<li>cd /etc/vsftpd  </li>
+<li>sudo vim chroot_list（此文件路径和名称在vsftpd.conf文件的chroot_list_file属性中配置）  </li>
+<li>把刚才新增的虚拟用户添加到此配置文件中，后续要引用  </li>
+<li>:wq保存退出  </li>
+<li>sudo vim /etc/selinux/config，修改为SELINUX=disabled  </li>
+<li>:wq保存退出  </li>
+<li>如果一会儿验证的时候碰到550拒绝访问的情况，可以执行sudo setsebool -P ftp_home_dir 1，然后重启Linux服务器，执行reboot命令  </li>
+<li>sudo vim /etc/vsftpd/vsftpd.conf  </li>
+<li>添加或更新配置（<a href="http://learning.happymmall.com/vsftpdconfig/vsftpd.conf.readme.html）（注：其中有个userlist_enable属性需要置为NO，表示系统中的用户也可以访问这个ftp）" target="_blank" rel="noopener">http://learning.happymmall.com/vsftpdconfig/vsftpd.conf.readme.html）（注：其中有个userlist_enable属性需要置为NO，表示系统中的用户也可以访问这个ftp）</a>  （注：vsftpd的配置文件/etc/vsftpd.conf把中”listen=YES”和”listen_ipv6=YES”是不能同时开启。 默认配置下”listen=YES”开启，”listen_ipv6=YES”被注释掉）</li>
+</ul>
+</li>
+<li>防火墙配置  <ul>
+<li>sudo vim /etc/sysconfig/iptables  </li>
+<li>将以上配置添加到防火墙配置中<br>-A INPUT -p TCP –dport 61001:62000 -j ACCEPT<br>-A OUTPUT -p TCP –sport 61001:62000 -j ACCEPT<br>-A INPUT -p TCP –dport 20 -j ACCEPT<br>-A OUTPUT -p TCP –sport 20 -j ACCEPT<br>-A INPUT -p TCP –dport 21 -j ACCEPT<br>-A OUTPUT -p TCP –sport 21 -j ACCEPT  </li>
+<li>保存退出后重启防火墙，执行命令sudo service iptables restart<br>（注：在centos7和8中没有iptables文件，事实上，RHEL 7和Fedora中防火墙由firewalld来管理，在这种方式下，需要使用以下命令来配置开放端口  </li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>sudo firewall-cmd –permanent –add-port=20-21/tcp  </li>
+<li>sudo firewall-cmd –permanent –add-port=61001-62000/tcp</li>
+<li>firewall-cmd –reload来重新加载防火墙规则）<br>（注：在此步骤中，还可使用<a href="https://blog.csdn.net/qiushisoftware/article/details/90691460中的方法来使用旧的防火墙管理方式）" target="_blank" rel="noopener">https://blog.csdn.net/qiushisoftware/article/details/90691460中的方法来使用旧的防火墙管理方式）</a>  </li>
+</ul>
+<ol start="5">
+<li>验证  <ul>
+<li>执行sudo service vsftpd restart  </li>
+<li>看到上步执行OK，则访问服务器ip，看是否可以访问  </li>
+<li><a href="ftp://ip，之后在弹出的输入框中输入用户名和密码">ftp://ip，之后在弹出的输入框中输入用户名和密码</a>  </li>
+<li>使用service vsftpd status可以查看ftp是否开启<br>（在cmd命令行中使用ftp ip命令时，输入用户名密码登录报错530 Login incorrect. Login failed.解决办法是<a href="https://blog.csdn.net/hahahaxiaoyu/article/details/100582853）" target="_blank" rel="noopener">https://blog.csdn.net/hahahaxiaoyu/article/details/100582853）</a></li>
+</ul>
+</li>
+<li>关于报错:  </li>
+</ol>
+<ul>
+<li>vsftpd：500 OOPS: vsftpd: refusing to run with writable root inside chroot ()错误的解决方法<ul>
+<li>从2.3.5之后，vsftpd增强了安全检查，如果用户被限定在了其主目录下，则该用户的主目录不能再具有写权限了！如果检查发现还有写权限，就会报该错误。<br>要修复这个错误，可以用命令chmod a-w /home/user去除用户主目录的写权限，注意把目录替换成你自己的。或者你可以在vsftpd的配置文件中增加下列两项中的一项：<br>allow_writeable_chroot=YES  </li>
+</ul>
+</li>
+<li>在Windows端用cmd命令连接ftp，使用dir命令查看文件会报<br>200 PORT command successful. Consider using PASV.<br>425 Failed to establish connection.<br>在资源管理器或浏览器中查看正常，可下载可上传。<br>出现这个的原因是Windows防火墙阻拦了应用向外的访问请求，只要将C:\Windows\System32\svchost.exe添加为允许就不会报错了。具体操作为<a href="https://blog.csdn.net/xiazichenxi/article/details/80092662" target="_blank" rel="noopener">https://blog.csdn.net/xiazichenxi/article/details/80092662</a></li>
+</ul>
+<h1 id="Nginx反向代理服务器的安装与配置"><a href="#Nginx反向代理服务器的安装与配置" class="headerlink" title="Nginx反向代理服务器的安装与配置"></a>Nginx反向代理服务器的安装与配置</h1><ol>
+<li>安装依赖  <ul>
+<li>安装gcc：yum install gcc(可以通过输入gcc -v查询版本信息，看系统是否已经安装)  </li>
+<li>安装pcre: yum install pcre-devel  </li>
+<li>安装zlib: yum install zlib zlib-devel  </li>
+<li>如需支持ssl，则需安装openssl：yum install openssl openssl-devel<br>(以上数步可使用以下综合命令：yum -y install gcc zlib zlib-devel pcre-devel openssl openssl-devel)  </li>
+</ul>
+</li>
+<li>下载源码包  <ul>
+<li>（<a href="http://www.nginx.org/）,或直接使用wget" target="_blank" rel="noopener">http://www.nginx.org/）,或直接使用wget</a> <a href="http://nginx.org/download/nginx-1.10.2.tar.gz" target="_blank" rel="noopener">http://nginx.org/download/nginx-1.10.2.tar.gz</a>   </li>
+<li>tar -zxvf nginx-1.10.2.tar.gz  </li>
+</ul>
+</li>
+<li>安装Nginx  <ul>
+<li>进入nginx目录之后执行./configure  <ul>
+<li>安装目录可以在解压时指定，增加参数 –prefix=/usr/nginx  </li>
+<li>如果不指定路径，可以通过whereis nginx进行查询  </li>
+<li>文件默认安装在/usr/local/nginx下  </li>
+</ul>
+</li>
+<li>继续执行make，接着继续执行make install（这一步骤中，可能出现报错，提示说将所有的警告都当作是错误，使得编译不通过，需要找到相应objs目录下的Makefile文件，将-Werror参数删除即可，删除之后直接make即可，执行./configure命令会使得改动复原；若报错未解决，则更换版本）  </li>
+</ul>
+</li>
+<li>增加防火墙访问权限（根据系统版本中防火墙的管理方式来进行实际操作）  <ul>
+<li>sudo vim /etc/sysconfig/iptables  </li>
+<li>-A INPUT -p tcp -m stata –state NEW -m tcp – dport 80 -j ACCEPT  </li>
+<li>保存退出之后重启防火墙，sudo service iptables restart  </li>
+</ul>
+</li>
+<li>Nginx虚拟域名配置及测试验证  <ul>
+<li>编辑：sudo vim /usr/local/nginx/conf/nginx.conf  <ul>
+<li>在http属性的大括号中增加include vhost/*.conf;  </li>
+</ul>
+</li>
+<li>在/usr/local/nginx/conf/目录新建vhost文件夹，即：/usr/local/nginx/conf/vhost  </li>
+<li>创建域名转发配置文件，如：admin.conf，因为include中标注了*.conf所以只要conf结尾即可，名字有辨识度即可  <ul>
+<li>例如：server { listen 80;<br>autoindex on;<br>server_name admin.happymmall.com;<br>#(这里的server_name中不用加http，直接接域名或者ip地址)<br>access_log /usr/local/nginx/logs/access.log combined; index index.html index.htm index.jsp index.php; #root /devsoft/apache-tomcat-7.0.73/webapps/mmall; #error_page 404 /404.html; if ( $query_string ~* “.<em>[;‘&lt;&gt;].</em>“ ){ return 404; } location = / { root /product/front/mmall_admin_fe/dist/view; index index.html; } location ~ .<em>.(html|htm)$ { root /product/front/mmall_admin_fe/dist/view; index index.html; } location / { proxy_pass <a href="http://127.0.0.1:8080/" target="_blank" rel="noopener">http://127.0.0.1:8080/</a>; add_header Access-Control-Allow-Origin ‘</em>‘; } }<br>（在vim中右键可以尝试粘贴）</li>
+</ul>
+</li>
+<li>启动（重启）验证（没有启动的情况下最好使用启动命令，使用重启命令可能会报文件找不到的错误）<br>  启动：${nginx}/sbin/nginx<br>  重启：${nginx}/sbin/nginx -s reload<br>  (注：${nginx}代表安装在系统中的路径，例如/usr/local/nginx)  </li>
+<li>访问验证<br>  使用默认80端口访问验证：<a href="http://localhost:80或http://127.0.0.1:80">http://localhost:80或http://127.0.0.1:80</a><br>(配置本地的域名转发需要先配置host，并且使host生效之后才可以，设置完成之后要重启浏览器)<br>（Nginx常用命令：  </li>
+<li>重启命令：安装路径下的/nginx/sbin/nginx -s reload  </li>
+<li>查看进程命令：ps -ef | grep nginx  </li>
+<li>平滑重启：kill -HUP [Nginx主进程号（即查看进程命令查到的PID）]）  </li>
+</ul>
+</li>
+</ol>
+<h1 id="MySQL安装"><a href="#MySQL安装" class="headerlink" title="MySQL安装"></a>MySQL安装</h1><ol>
+<li>安装：执行yum -y install mysql-server(可以使用rpm -qa | grep mysql-server命令来检查是否已经安装mysql-server)，其默认配置文件在/etc/my.cnf  </li>
+<li>字符集配置（不同的MySQL版本需要添加的语句是不同的）  <ul>
+<li>vim /etc/my.cnf  </li>
+<li>添加配置，在[mysqld]节点下添加：<br>  default-character-set=utf8<br>  character-set-server=utf8  </li>
+<li>:wq保存退出  </li>
+</ul>
+</li>
+<li>自启动配置  <ul>
+<li>执行chkconfig mysqld on  </li>
+<li>执行chkconfig –list mysqld查看（如果2-5位启用on状态即OK）<br>(在 Centos 6 以及之前的版本是使用 chkconfig 工具来管理系统的服务，使用 top 命令可以看到进程号为 1 的进程是 init，即 Sys V 。但在 Centos 7 里面已经默认不使用了，Centos 7 中 top 命令可以看到进程号为 1 的已经替换成了 systemd ，但为了和之前的版本兼容，作为过渡，Centos 7 中还可以使用。)<br>(centos7之后设置开机启动执行systemctl enable mysqld、systemctl daemon-reload，查看服务是否开机启动，执行systemctl list-unit-files<br>)</li>
+</ul>
+</li>
+<li>防火墙配置(开放3306端口)  <ul>
+<li>sudo vim /etc/sysconfig/iptables  </li>
+<li>-A INPUT -p tcp -m tcp –dport 3306 -j ACCEPT 将以上配置添加到防火墙配置中  </li>
+<li>:wq保存退出  </li>
+<li>sudo service iptables restart执行命令重启防火墙  </li>
+</ul>
+</li>
+<li>启动mysqld服务service mysqld start或/etc/rc.d/init.d/mysqld start  </li>
+<li>MySQL初始化环境配置<br> 因为还未设置密码，执行mysql -u root登录MySQL服务器  </li>
+<li>MySQL配置  <ul>
+<li>查看目前mysql的用户<br>  select user,host,password from mysql.user  </li>
+<li>修改root密码<br>  set password for root@localhost=password(‘youpassword’);<br>  set password for <a href="mailto:roiot@127.0.0.1">roiot@127.0.0.1</a>=password(‘yourpassword’);  </li>
+<li>exit退出mysql  </li>
+<li>重新登录mysql输入mysql -u root -p  </li>
+<li>输入密码登录成功  </li>
+</ul>
+</li>
+<li>删除匿名用户以提高安全性，执行以下sql  <ul>
+<li>查看是否有匿名用户：select user,host from mysql.user;   </li>
+<li>删除匿名用户：delete from mysql.user where user=’’;  </li>
+<li>再次查看：select user,host from mysql.user;  </li>
+<li>刷新，使以上操作生效：flush privileges;  </li>
+<li>插入mysql新用户：insert into mysql.user(Host,User,Password) values (“localhost”,”yourusername”,password(“yourpassword”));  </li>
+<li>使操作生效flush privileges;  </li>
+<li>创建新的database<br>  CREATE DATABASE <code>lkzzz</code> DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;  </li>
+<li>本地用户赋予所有权限<br>  grant all privileges on lkzzz.* to yourusername@localhost identified by ‘yourpassword’  </li>
+<li>给账户开通外网所有权限<br>  grant all privileges on lkzzz.* to ‘yourusername’@’%’ identified by ‘yourpassword’;<br>注：根据自己实际情况决定是否开什么权限<br>  grant select,insert,update on lkzzz.* to yourusername@’192.168.31.54’ identified by ‘yourpassword’;(代表只开通增改查给指定的账户，并也指定ip地址)  </li>
+<li>使操作生效flush privileges;</li>
+</ul>
+</li>
+<li>Linux常用命令  <ul>
+<li>启动：sudo service mysqld start  </li>
+<li>关闭：sudo service mysqld stop  </li>
+<li>重启：sudo service mysqld restart  </li>
+</ul>
+</li>
+</ol>
+<h1 id="git安装及其配置"><a href="#git安装及其配置" class="headerlink" title="git安装及其配置"></a>git安装及其配置</h1><ol>
+<li>略（之后补充）</li>
+</ol>
+<h1 id="Tips："><a href="#Tips：" class="headerlink" title="Tips："></a>Tips：</h1><h3 id="CentOS8端口开启及查询（以8080端口为例）："><a href="#CentOS8端口开启及查询（以8080端口为例）：" class="headerlink" title="CentOS8端口开启及查询（以8080端口为例）："></a>CentOS8端口开启及查询（以8080端口为例）：</h3><ol>
+<li>使用root用户，查看Linux系统开放的端口号firewall-cmd –zone=public –list-ports  </li>
+<li>增加8080端口：firewall-cmd –zone=public –add-port=8080/tcp –permanent<br>（–zone #作用域  </li>
+</ol>
+<p>–add-port=8080/tcp #添加端口，格式为：端口/通讯协议<br>–permanent #永久生效，没有此参数重启后失效）<br>3. 重新加载防火墙配置文件：firewall-cmd –reload<br>4. 查看8080端口是否开启：firewall-cmd –zone=public –query-port=8080/tcp<br>5. 步骤2成功则显示success，步骤4开启则显示yes  </p>
+<h3 id="Linux的ftp服务常用命令"><a href="#Linux的ftp服务常用命令" class="headerlink" title="Linux的ftp服务常用命令"></a>Linux的ftp服务常用命令</h3><ol>
+<li>启动：sudo service vsftpd start  </li>
+<li>关闭：sudo service vsftpd stop  </li>
+<li>重启：sudo service vsftpd restart  </li>
+</ol>
+<h3 id="vim下快速查找"><a href="#vim下快速查找" class="headerlink" title="vim下快速查找"></a>vim下快速查找</h3><ul>
+<li>在不可编写状态下输入”/“，后面接需要查找的字符即可  </li>
+</ul>
+<h3 id="Linux中防火墙的操作"><a href="#Linux中防火墙的操作" class="headerlink" title="Linux中防火墙的操作"></a>Linux中防火墙的操作</h3><ul>
+<li>Ubuntu  <ul>
+<li>查看防火墙状态：sudo ufw status  </li>
+<li>开启防火墙：sudo ufw enable  </li>
+<li>关闭防火墙：sudo ufw disable  </li>
+</ul>
+</li>
+<li>CentOS  <ul>
+<li>查看防火墙状态：systemctl status firewalld  </li>
+<li>开启防火墙：sudo service firewalld start  </li>
+<li>关闭防火墙：sudo service firewalld stop  </li>
+<li>重启防火墙：sudo service firewalld restart</li>
+</ul>
+</li>
+</ul>
+<h3 id="Linux修改host文件"><a href="#Linux修改host文件" class="headerlink" title="Linux修改host文件"></a>Linux修改host文件</h3><ol>
+<li>sudo vim /etc/hosts  </li>
+<li>添加好对应的域名及ip  </li>
+<li></li>
+</ol>
+
+      
+      <!-- 打赏 -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://lkz0032.github.io/2020/11/01/Linux%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2%E5%9B%9E%E9%A1%BE%E6%A2%B3%E7%90%86/" data-id="ckirahp2q000gdkay2w89c0mf"
+        class="article-share-link">分享</a>
+        
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7Linux/" rel="tag">学习笔记·Linux</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/2020/11/03/Java%E5%AE%B9%E5%99%A8/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Java容器
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/10/04/Vue%E7%AE%80%E8%A6%81%E6%A2%B3%E7%90%86/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Vue简要回顾</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: '',
+        app_id: '',
+        app_key: '',
+        path: window.location.pathname,
+        avatar: 'mp',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2019-2020
+        Kailun Zhu
+      </li>
+      <li>
+        
+          Powered by
+        
+        
+        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+        
+        <ul class="list-inline">
+  <li>PV:<span id="busuanzi_value_page_pv"></span></li>
+  <li>UV:<span id="busuanzi_value_site_uv"></span></li>
+</ul>
+        
+      </li>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+    <div class="to_top">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+      </div>
+    </main>
+      <aside class="sidebar">
+        <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="Blessing"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">目录</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+      </aside>
+      <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+      
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+    strings: ['A man','is only as good as','what he loves'],
+    startDelay: 0,
+    typeSpeed: 160,
+    loop: true,
+    backSpeed: 80,
+    showCursor: true
+    });
+  } catch (err) {
+  }
+  
+</script>
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer:'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+    onClick: (e) => {
+      $('.toc-link').removeClass('is-active-link');
+      $(`a[href=${e.target.hash}]`).addClass('is-active-link');
+      $(e.target.hash).scrollIntoView();
+      return false;
+    }
+  });
+</script>
+
+
+<script>
+  var ayerConfig = {
+    mathjax: false
+  }
+</script>
+
+
+<script src="/js/ayer.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+  </div>
+</body>
+
+</html>

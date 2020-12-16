@@ -64,7 +64,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">0字</span>
+            <span class="post-count">923字</span>
         </span>
     </span>
 
@@ -73,7 +73,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1分钟</span>
+            <span class="post-count">3分钟</span>
         </span>
     </span>
 </div>
@@ -84,6 +84,8 @@
 
     
     
+    <div class="tocbot"></div>
+
 
 
 
@@ -97,7 +99,47 @@
       
 
       
-      
+      <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>Maven是一个项目管理工具，它包含了一个项目对象模型 (Project Object Model)，一组标准集合，一个项目生命周期(Project Lifecycle)，一个依赖管理系统(Dependency Management System)，和用来运行定义在生命周期阶段(phase)中插件(plugin)目标(goal)的逻辑。  </p>
+<a id="more"></a>
+
+<h1 id="Maven有哪些优点和缺点"><a href="#Maven有哪些优点和缺点" class="headerlink" title="Maven有哪些优点和缺点"></a>Maven有哪些优点和缺点</h1><ul>
+<li>优点如下：  </li>
+</ul>
+<ol>
+<li>简化了项目依赖管理  </li>
+<li>易于上手，对于新手可能一个”mvn clean package”命令就可能满足他的工作  </li>
+<li>便于与持续集成工具（jenkins）整合  </li>
+<li>便于项目升级，无论是项目本身升级还是项目使用的依赖升级。  </li>
+<li>有助于多模块项目的开发，一个模块开发好后，发布到仓库，依赖该模块时可以直接从仓库更新，而不用自己去编译。  </li>
+<li>maven有很多插件，便于功能扩展，比如生产站点，自动发布版本等<br>缺点如下：  </li>
+<li>maven是一个庞大的构建系统，学习难度大  </li>
+<li>maven采用约定优于配置的策略（convention over configuration），虽然上手容易，但是一旦出了问题，难于调试。  </li>
+<li>当依赖很多时，m2eclipse 老是搞得Eclipse很卡。  </li>
+<li>中国的网络环境差，很多repository无法访问，比如google code， jboss 仓库无法访问等。  </li>
+</ol>
+<h1 id="核心功能"><a href="#核心功能" class="headerlink" title="核心功能"></a>核心功能</h1><ul>
+<li>依赖管理：Maven工程对jar包的管理过程。<br>一个复杂的项目将会包含很多依赖，也有可能包含依赖于其它构件的依赖。这是Maven最强大的特征之一，它支持了传递性依赖（transitive dependencies）。假如你的项目依赖于一个库，而这个库又依赖于五个或者十个其它的库（就像Spring或者Hibernate那样）。你不必找出所有这些依赖然后把它们写在你的pom.xml里，你只需要加上你直接依赖的那些库，Maven会隐式的把这些库间接依赖的库也加入到你的项目中。Maven也会处理这些依赖中的冲突，同时能让你自定义默认行为，或者排除一些特定的传递性依赖。  </li>
+<li>项目构建：<code>mvn tomcat:run</code>  </li>
+</ul>
+<h1 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a>仓库</h1><p>本地仓库、远程仓库（私服）、中央仓库<br>本地仓库默认为{user.home}.m2.repority，可以在配置文件中修改(在maven的文件目录下有个conf文件夹，里面的settings文件有个LocalRepository属性规定了仓库的位置)  </p>
+<h1 id="Maven项目标准目录结构"><a href="#Maven项目标准目录结构" class="headerlink" title="Maven项目标准目录结构"></a>Maven项目标准目录结构</h1><ul>
+<li>核心代码部分：<code>src/main/java</code>  </li>
+<li>配置文件部分：<code>src/main/resources</code>  </li>
+<li>测试代码部分：<code>src/test/java</code>  </li>
+<li>测试配置文件：<code>src/test/resources</code>  </li>
+<li>页面资源（包含js，css，图片资源等）：<code>src/main/webapp</code>  </li>
+</ul>
+<h1 id="Maven常用命令"><a href="#Maven常用命令" class="headerlink" title="Maven常用命令"></a>Maven常用命令</h1><ul>
+<li><code>clean</code>：删除项目中已经编译好的信息，删除<code>target</code>目录  </li>
+<li><code>compile</code>：Maven工程的编译命令，用于编译项目的源代码，将<code>src/main/java</code>下的文件编译成class文件输出到target目录下。  </li>
+<li><code>test</code>：使用合适的单元测试框架运行测试。  </li>
+<li><code>package</code>：将编译好的代码打包成可分发的格式，如JAR，WAR。  </li>
+<li><code>install</code>：安装包至本地仓库，以备本地的其它项目作为依赖使用。  </li>
+<li><code>deploy</code>：复制最终的包至远程仓库，共享给其它开发人员和项目（通常和一次正式的发布相关）。<br>每一个构建项目的命令都对应了maven底层一个插件。  </li>
+</ul>
+<h1 id="Maven坐标"><a href="#Maven坐标" class="headerlink" title="Maven坐标"></a>Maven坐标</h1><p>一般maven使用[<code>groupID</code>,<code>artifactId</code>,<code>version</code>，<code>packaging</code>]来表示一个项目的某个版本，有时还会使用classifier来表示项目的附属构建，常见的附属构建有javadoc和sources包。  </p>
+<h1 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h1><p>其他人的博客：<code>https://blog.csdn.net/happydecai/article/details/80492212</code>  </p>
+
       
       <!-- 打赏 -->
       
@@ -107,7 +149,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://lkz0032.github.io/2020/05/31/Maven%E6%A2%B3%E7%90%86/" data-id="ckf0ivdme000e7cay5rnwevg4"
+      <a data-url="https://lkz0032.github.io/2020/05/31/Maven%E6%A2%B3%E7%90%86/" data-id="ckirahp2u000ldkay5o2kcvcg"
         class="article-share-link">分享</a>
         
       
