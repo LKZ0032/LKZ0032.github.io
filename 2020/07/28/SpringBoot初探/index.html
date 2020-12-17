@@ -100,8 +100,8 @@
 
       
       <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文主要整理了SpringBoot中常见的概念名词及其实现的原理。  </p>
-<h3 id="Spring-Boot-自动配置原理是什么？"><a href="#Spring-Boot-自动配置原理是什么？" class="headerlink" title="Spring Boot 自动配置原理是什么？"></a>Spring Boot 自动配置原理是什么？</h3><p>在spring-boot-autoconfigure-2.3.1.RELEASE.jar包下的META-INF文件夹里的spring.factories，有JavaEE需要的所有配置和解决方案。  </p>
 <a id="more"></a>
+<h3 id="Spring-Boot-自动配置原理是什么？"><a href="#Spring-Boot-自动配置原理是什么？" class="headerlink" title="Spring Boot 自动配置原理是什么？"></a>Spring Boot 自动配置原理是什么？</h3><p>在spring-boot-autoconfigure-2.3.1.RELEASE.jar包下的META-INF文件夹里的spring.factories，有JavaEE需要的所有配置和解决方案。  </p>
 <p>springboot所有自动配置都是在启动的时候扫描加载的：spring.factories所有的自动配置类都在这里面，但是不一定生效，要判断条件是否成立，只要导入对应的start，就有了对应的启动器，我们的自动装配就会生效，然后就配置成功了。其中配置生效的原理是通过@ConditionalOnClass注解来判断某个类是否存在在程序中（其中可能含有很多类似的@ConditionalOnXXX注解来判断是否满足配置导入的前提条件），对应的启动器中的依赖中的类，导入到程序中之后，对应的扫描通过了，自动配置就生效，此时便配置成功了。  </p>
 <h3 id="Spring-Boot-的核心注解是哪个？它主要由哪几个注解组成的？"><a href="#Spring-Boot-的核心注解是哪个？它主要由哪几个注解组成的？" class="headerlink" title="Spring Boot 的核心注解是哪个？它主要由哪几个注解组成的？"></a>Spring Boot 的核心注解是哪个？它主要由哪几个注解组成的？</h3><p>启动类上面的注解是<code>@SpringBootApplication</code>，它也是 Spring Boot 的核心注解，主要组合包含了以下 3 个注解：  </p>
 <ul>
@@ -158,7 +158,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://lkz0032.github.io/2020/07/28/SpringBoot%E5%88%9D%E6%8E%A2/" data-id="ckirahp2x000qdkayax6cb1q5"
+      <a data-url="https://lkz0032.github.io/2020/07/28/SpringBoot%E5%88%9D%E6%8E%A2/" data-id="ckisnlfn0000ln4ay2a5h899p"
         class="article-share-link">分享</a>
         
       

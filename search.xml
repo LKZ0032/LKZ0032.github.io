@@ -253,32 +253,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Java反射</title>
-    <url>/2020/04/22/Java%E5%8F%8D%E5%B0%84/</url>
-    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文主要记录了Java反射相关函数的用法和实现的功能。  </p>
-<a id="more"></a>
-<ol>
-<li><p>谈谈反射<br>Java反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意方法和属性；这种动态获取信息以及动态调用对像方法的功能称为Java语言的反射机制。  </p>
-</li>
-<li><p>对象<br><code>Method</code>对象用来装类中的方法，<code>Field</code>用来装类中的属性。</p>
-</li>
-<li><p>常用的Java反射函数  </p>
-<ul>
-<li><code>GetDeclaredMethod()</code>方法：<br>可以获得所有访问类型的方法，但是不能获得继承的和实现接口的方法。若获取的方法为私有方法，则需要将返回的对象调用<code>setAccessible()</code>方法，将<code>true</code>作为参数传入才不会报错。形如：<code>getHello.setAccessible(true)</code>  </li>
-<li><code>getMethod()</code>方法：<br>只能调用public方法，但是可以调用对象的继承和实现的接口的方法。若获取的方法为私有方法，则需要将返回的对象调用setAccessible()方法，将true作为参数传入才不会报错。形如：getHello.setAccessible(true)    </li>
-<li><code>invoke(Object,Object)</code>方法：<br>通过让<code>Method</code>对象调用<code>invoke()</code>方法来传参调用方法，其中<code>invoke()</code>方法的第一个参数为含有此方法的对象的实例化，第二个参数为方法要传入的参数。  </li>
-</ul>
-</li>
-</ol>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
-<li>慕课网付费教程《剑指Java面试-Offer直通车》6-4  </li>
-</ul>
-]]></content>
-      <tags>
-        <tag>学习笔记·Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java基础</title>
     <url>/2020/08/01/Java%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文转载自<a href="https://cyc2018.github.io/CS-Notes/#/" target="_blank" rel="noopener">GitHub的开源项目</a>，转载的目的是为了能够对文章中不懂的内容进行自由注解。<br>以下为文章内容： </p>
@@ -787,58 +761,29 @@
       </tags>
   </entry>
   <entry>
-    <title>Java开发学习路线</title>
-    <url>/2020/04/09/Java%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</url>
-    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>思路整理参考B站UP主“程序羊”，文章地址为：<a href="https://www.bilibili.com/read/cv4184856" target="_blank" rel="noopener">上次是谁说搞不清学习路线来着？</a>以及其它一些知乎回答。</p>
-<a id="more"></a>  
-
-<h1 id="全局脑图"><a href="#全局脑图" class="headerlink" title="全局脑图"></a>全局脑图</h1><p><img src="https://i.loli.net/2020/04/09/34ty7FciTbOvds5.jpg" alt="Java开发学习路线 .jpg">  </p>
-<h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><ol>
-<li>语言本身<br>如下一些重点必须掌握：  <ul>
-<li>语法基础</li>
-<li>OO编程思想：类、对象、封装、继承、多态、接口  </li>
-<li>容器、异常、泛型、I/O、反射、注解  </li>
-<li><del>图形化界面，如 <code>swing</code> 的东西跳过不看</del></li>
-</ul>
+    <title>Java反射</title>
+    <url>/2020/04/22/Java%E5%8F%8D%E5%B0%84/</url>
+    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文主要记录了Java反射相关函数的用法和实现的功能。  </p>
+<a id="more"></a>
+<ol>
+<li><p>谈谈反射<br>Java反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意方法和属性；这种动态获取信息以及动态调用对像方法的功能称为Java语言的反射机制。  </p>
 </li>
-<li>数据结构和算法  <ul>
-<li>几大基础数据结构类型得烂熟于心，比如：字符串、链表、二叉树、栈、队列等等；基本的几大算法要了如指掌，比如查找、排序、动态规划等等。  </li>
-<li>练习方式：<a href="https://leetcode-cn.com/explore/" target="_blank" rel="noopener">leetcode</a>、<a href="https://www.nowcoder.com/index" target="_blank" rel="noopener">牛客网</a>  </li>
-</ul>
+<li><p>对象<br><code>Method</code>对象用来装类中的方法，<code>Field</code>用来装类中的属性。</p>
 </li>
-<li>TCP/IP协议栈  <ul>
-<li>TCP/IP协议可以说是当下互联网通信的基石，无论如何一定要对TCP/IP的协议栈了如指掌，包括：ARP协议、IP协议、ICMP协议、TCP和UDP协议、DNS协议、HTTP协议、HTTPS协议等等。</li>
-<li>对于Java来说，熟悉Netty开发是入门网络开发的捷径。</li>
-<li>爬虫是网络开发中另外一个极具魅力的点，但建议使用python而不是java去做。 </li>
-</ul>
-</li>
-<li>设计模式<br>倒不需要23种设计模式全部很熟悉，常见的几个，比如：单例模式、工厂模式、代理模式、策略模式、模板方法模式等几个熟练于心即可。</li>
-<li>数据库和SQL<br>数据库基本原理了解，SQL语句熟练书写。  </li>
-</ol>
-<h1 id="项目工具"><a href="#项目工具" class="headerlink" title="项目工具"></a>项目工具</h1><ol>
-<li>Linux系统基本命令会使用， Linux系统上常用的服务会部署  </li>
-<li>代码管理SVN或 Git 二选一，持续练习，熟练使用  </li>
-<li>基于 Maven或Gradle的Java项目管理二选一，熟练使用  </li>
-</ol>
-<h1 id="应用框架"><a href="#应用框架" class="headerlink" title="应用框架"></a>应用框架</h1><ol>
-<li>Spring全家桶<br>了解Spring、Mybatis等框架的基本原理 Spring Boot框架会熟练使用、掌握基本原理 SSM组合框架会上手搭建项目、开发业务、掌握基本原理  </li>
-<li>中间件技术<br><strong>消息队列</strong>，主流的如 RabbitMQ Kafka等<br><strong>RPC通信</strong> 框架，主流的如  gRPC Thrift Dubbo 等<br><strong>NoSQL数据库</strong> ：主流的如  Redis memcached ElasticSearch 等<br><strong>NIO网络通信</strong> 框架，主流的如  Netty 等<br>这些成熟的中间件框架在企业级产品里应用得广泛而深远，建议先是要会 熟练使用 ，要是能了解 底层原理 实现那就更加分了！</li>
-<li>分布式微服务 当下微服务盛行，是个公司都说自己在搞微服务，所以诸如  Spring Cloud 这样的微服务框架怎么能不学，要求也是先会使用，再尝试搞懂原理 </li>
-<li>虚拟化/容器化 虚拟化、容器化平台是未来发展的大趋势，很多规模化企业都在搭建各SaaS/PaaS/IaaS平台，在此过程中诞生的一系列关于该方面的技术在学有余力的情况下最好也涉猎一下，典型的比如：  Docker 容器、  kubernetes编排技术。  </li>
-</ol>
-<h1 id="源码-性能"><a href="#源码-性能" class="headerlink" title="源码/性能"></a>源码/性能</h1><p>在如今这个流量极其密集的互联网时代，关注到 源码和性能 层面的程序员才是顶级好码农，所以：   </p>
+<li><p>常用的Java反射函数  </p>
 <ul>
-<li>关注JDK源码和设计思想  </li>
-<li>关注Java并发编程原理和实践  </li>
-<li>关注JVM细节原理与调优  </li>
-<li>关注上述应用框架的核心思想和内部源码  </li>
-<li>关注数据库深度优化  </li>
-<li>等等…  </li>
+<li><code>GetDeclaredMethod()</code>方法：<br>可以获得所有访问类型的方法，但是不能获得继承的和实现接口的方法。若获取的方法为私有方法，则需要将返回的对象调用<code>setAccessible()</code>方法，将<code>true</code>作为参数传入才不会报错。形如：<code>getHello.setAccessible(true)</code>  </li>
+<li><code>getMethod()</code>方法：<br>只能调用public方法，但是可以调用对象的继承和实现的接口的方法。若获取的方法为私有方法，则需要将返回的对象调用setAccessible()方法，将true作为参数传入才不会报错。形如：getHello.setAccessible(true)    </li>
+<li><code>invoke(Object,Object)</code>方法：<br>通过让<code>Method</code>对象调用<code>invoke()</code>方法来传参调用方法，其中<code>invoke()</code>方法的第一个参数为含有此方法的对象的实例化，第二个参数为方法要传入的参数。  </li>
 </ul>
-<p>Java学习知识树【来源：<a href="https://www.nowcoder.com/tutorial/94/74ef45a524ad445399276e54c59d1eab" target="_blank" rel="noopener">牛客网Java面经</a>】<br><img src="https://i.loli.net/2020/04/17/opkLaPKzdxnwcT2.png" alt="Java学习知识树.png"></p>
+</li>
+</ol>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li>慕课网付费教程《剑指Java面试-Offer直通车》6-4  </li>
+</ul>
 ]]></content>
       <tags>
-        <tag>所思所想</tag>
+        <tag>学习笔记·Java</tag>
       </tags>
   </entry>
   <entry>
@@ -1250,6 +1195,187 @@
 ]]></content>
       <tags>
         <tag>学习笔记·Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java语法基础中的特别之处</title>
+    <url>/2020/04/12/Java%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B8%AD%E7%9A%84%E7%89%B9%E5%88%AB%E4%B9%8B%E5%A4%84/</url>
+    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>这是一篇对Java基础语法学习中，遇到的异难的地方进行的总结。</p>
+<a id="more"></a>
+<ul>
+<li>变量定义时，“”标识string类型，‘’标识char类型</li>
+</ul>
+<ul>
+<li>Java命名规范<ul>
+<li>项目名全部小写.</li>
+<li>包名全部小写.</li>
+<li>类名首字母大写,其余组成词首字母依次大写（单词首字母大写）.</li>
+<li>变量名,方法名首字母小写,如果名称由多个单词组成,除首字母外的每个单词的首字母都要大写（驼峰式命名规则）.</li>
+<li>常量名全部大写，每个单词用‘_’隔开.</li>
+<li>所有命名规则必须遵循以下规则 :<br>  名称只能由字母、数字、下划线、$符号组成.<br>  不能以数字开头.<br>  名称不能使用Java中的关键字.  </li>
+<li><a href="https://baijiahao.baidu.com/s?id=1654685815662722805&wfr=spider&for=pc" target="_blank" rel="noopener">其余具体命名细节</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>使用文档注释（文档注释以/<em>*开始，以</em>/结尾）时还可以使用 javadoc 标记，生成更详细的文档信息：</p>
+<pre><code>@author 标明开发该类模块的作者
+
+@version 标明该类模块的版本
+
+@see 参考转向，也就是相关主题
+
+@param 对方法中某参数的说明
+
+@return 对方法返回值的说明
+
+@exception 对方法可能抛出的异常进行说明</code></pre></li>
+</ul>
+<ul>
+<li>算数运算符++，在变量右边，则先赋值再自增，在变量左边，则先自增再赋值。–的规律以此类推。</li>
+</ul>
+<ul>
+<li>\uff1b  Java中出现中文字符，仔细检查。</li>
+</ul>
+<ul>
+<li>foreach方法遍历数组的写法for(元素类型 元素变量:遍历数组){}，如：<br>for ( int score:scores ) {<br>  System.out.println(score);<br>}</li>
+</ul>
+<ul>
+<li>算数运算时，double类型运算时，后面如果全为int类型，则运算结果会产生误差，需要使其后面的值中有一个为小数才可，如：<br>double avg=(i+j)/2.0;</li>
+</ul>
+<ul>
+<li>Java成员变量的默认值为0，局部变量没有默认值。</li>
+</ul>
+<ul>
+<li>Java中的包名命名规范为全小写字母</li>
+</ul>
+<ul>
+<li>Java中的访问修饰符总结<br><img src="https://i.loli.net/2020/04/12/LnbQKCzvVaXJpo1.png" alt="Java中的访问修饰符.png"></li>
+</ul>
+<ul>
+<li>如果对象属性和参数同名时，必须加this，否则相反。</li>
+</ul>
+<ul>
+<li>如果外部类和内部类具有相同的成员变量或方法，内部类默认访问自己的成员变量或方法，如果要访问外部类的成员变量，可以使用 this 关键字。方法如下：<br><img src="https://i.loli.net/2020/04/13/sIp1NoSV9MkRQtK.jpg" alt="内部类中用this调用外部类成员变量.jpg"></li>
+</ul>
+<ul>
+<li>Java中的继承是单继承（接口可以继承自多个父接口）的，子类不能访问父类中的private修饰符修饰的成员</li>
+</ul>
+<ul>
+<li>继承的初始化顺序：初始化父类再初始子类、先执行初始化对象中属性，再执行构造方法中的初始化</li>
+</ul>
+<ul>
+<li>final关键字修饰的变量（即常量）的赋值必须在变量声明时，或者在构造函数中。</li>
+</ul>
+<ul>
+<li>Super关键字：在对象的内部使用，可以代表父类对象</li>
+</ul>
+<ul>
+<li>接口定义：常量：接口中的属性（方法）是常量（抽象方法），即使定义时不添加[public] [static] [final]（[public] [abstract]）修饰符，系统也会自动加上；<br>注：接口的定义：    <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[修饰符] interface 接口名 [extends 父接口名列表]&#123;</span><br><span class="line">[public] [static] [final] 常量;</span><br><span class="line">[public] [abstract] 方法;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<ul>
+<li>抽象类和接口的区别：  <ul>
+<li>抽象类要被子类继承，接口要被类实现。</li>
+<li>接口只能做方法声明，抽象类中可以作方法声明，也可以做方法实现。</li>
+<li>接口里定义的变量只能是公共的静态的常量，抽象类中的变量是普通变量。</li>
+<li>接口是设计的结果，抽象类是重构的结果。</li>
+<li>抽象类和接口都是用来抽象具体对象的，但是接口的抽象级别最高。</li>
+<li>抽象类可以有具体的方法和属性，接口只能有抽象方法和不可变常量。</li>
+<li>抽象类主要用来抽象类别，接口主要用来抽象功能。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><blockquote>
+<p>Java异常处理try…catch执行完之后，还会继续执行之后的代码语句  </p>
+</blockquote>
+<ul>
+<li>finally语句在return语句执行之后return返回之前执行的。  </li>
+<li>finally块中的return语句会覆盖try块中的return返回。 </li>
+<li>try块里的return语句在异常的情况下不会被执行。   <blockquote>
+<p>总结：finally块的语句在try或catch中的return语句执行之后返回之前执行且finally里的修改语句可能影响也可能不影响try或catch中 return已经确定的返回值，若finally里也有return语句则覆盖try或catch中的return语句直接返回。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><ul>
+<li>泛型集合可以添加泛型指定类型的子类型的对象实例，即，泛型集合中不能添加泛型规定的类型及其子类型以外的对象，否则会报错。</li>
+<li>泛型集合中的限定类型不能使用基本数据类型。可以通过使用对应的包装类限定允许存入的基本数据类型如<code>int</code>类型使用<code>Integer</code>。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Collection.sort()方法对String类型进行排序时，按照数字0-9、大写字母A-Z、小写字母a-z的顺序来排序，即，数字最前，小写字母z最后</li>
+</ul>
+<ul>
+<li>Java集合框架结构（内容）<br><img src="https://i.loli.net/2020/04/13/Btxp8oGRg3FHsI4.png" alt="Java集合框架内容.png"></li>
+</ul>
+<ul>
+<li>容器：里面装有很多相同属性的对象。</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>学习笔记·Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初次理解设计模式</title>
+    <url>/2020/04/22/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文整理了第一次接触设计模式时，对各个设计模式的理解。  </p>
+<a id="more"></a>
+<h2 id="设计模式的基本要素"><a href="#设计模式的基本要素" class="headerlink" title="设计模式的基本要素"></a>设计模式的基本要素</h2><ul>
+<li>模式名称  </li>
+<li>问题  </li>
+<li>解决方案  </li>
+<li>效果  </li>
+</ul>
+<h2 id="OOP七大原则"><a href="#OOP七大原则" class="headerlink" title="OOP七大原则"></a>OOP七大原则</h2><p>面向对象的设计语言除了有三大特征之外，还有七大原则，分别为：  </p>
+<ul>
+<li>开闭原则： 对拓展开放，对修改关闭</li>
+<li>里氏替换原则： 继承必须保证超类所拥有的性质在子类中仍然成立</li>
+<li>依赖倒置原则： 要面向接口编程，不要面向现实</li>
+<li>单一职责原则： 控制类的粒度大小，将对象解耦，提高内聚</li>
+<li>接口隔离原则： 要用各个类建立他们需要的专用接口</li>
+<li>迪米特法则： 只与直接朋友交谈，不与“陌生人”通信</li>
+<li>合成复用原则： 尽量先使用组合或者内聚等关联关系来实现，其次才考虑使用继承来实现  </li>
+</ul>
+<h2 id="设计模式分类"><a href="#设计模式分类" class="headerlink" title="设计模式分类"></a>设计模式分类</h2><ul>
+<li>创造型模式：就是为了创建对象。</li>
+<li>结构型模式：就是如何设计代码结构更加合理。（类和对象之间的组合）</li>
+<li>行为型模式：关注的是对象间的通信。出发点是如何让对象可以更好的交换数据，保持松耦合。</li>
+</ul>
+<h2 id="创建型模式分析"><a href="#创建型模式分析" class="headerlink" title="创建型模式分析"></a>创建型模式分析</h2><h3 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h3><p>对象的创建直接在方法中new出来，这里涉及到多线程下的对象最后是否还是单例的问题，我们可以通过volatile和synchronized来进行序列化和加锁，以此来保证单例在多线程状态下的稳定，但是反射是可以破环上述方法的，自带安全机制，无法被反射机制破坏的是枚举类。</p>
+<h3 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h3><p>通过定义工厂接口，将每个对象的创建放进一个工厂中，这里的工厂是工厂接口的具体实现。在方法中，实例化一个工厂，通过工厂中的方法来实现新对象的创建。<br>（一般使用不满足里氏替换原则的简单工厂模式，但是当需要工厂模式满足里氏替换原则时，会增加代码量）  </p>
+<h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><p>将不同的对象放进不同的工厂来创建，通过实例化这个工厂，调用这个工厂的方法来获得相应的对象。工厂通过一个统一的接口来约束。</p>
+<h3 id="抽象工厂模式"><a href="#抽象工厂模式" class="headerlink" title="抽象工厂模式"></a>抽象工厂模式</h3><p>将工厂模式中的工厂进行抽象。工厂模式中每个对象都有一个工厂，这种方式会在最后产生大量的工厂。抽象工厂模式中，将同一族的产品的产生囊括到一个工厂中，这就减少了工厂的数量。工厂通过接口来约束，同一结构的对象通过同一个接口来约束。<br>工厂模式和简单工厂模式主要就是产生一个类，而抽象工厂可以用于一个产品族（一个类型的类）的产生，需要这一族中某个对象时，都只需要调用这一个工厂类就行了。</p>
+<h3 id="生成器模式（建造者模式）"><a href="#生成器模式（建造者模式）" class="headerlink" title="生成器模式（建造者模式）"></a>生成器模式（建造者模式）</h3><p>适用于有许多属性的对象的生成。这类对象常为POJO类，建造者类中的方法通过调用这些POJO类中的方法来完成类的“建造”。一类对象的建造者类的方法常常通过抽象最后抽象为一个抽象类，所有建造者类都需继承自这个抽象类。  </p>
+<h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><p>以一个已有的类作为原型来克隆产生新的对象，要使用clone方法，需要对象实现cloneable接口。cloneable接口中的clone方法为Object类自带的clone方法，调用了本地的C++方法，效率高，但为浅拷贝，即，在内存中都引用了同一个对象，当旧对象发生改变后，新对象也会发生改变。这种情况可以通过重写clone方法来实现。在方法中，对本对象的属性也调用clone方法即可完成深拷贝产生一个新的类实例，而不是引用同一个类。</p>
+<h2 id="结构型模式分析"><a href="#结构型模式分析" class="headerlink" title="结构型模式分析"></a>结构型模式分析</h2><h3 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h3><p>在系统更新中常常会出现老旧不兼容的情况，这时常用到适配器模式这种结构来处理。在不相关的两个类中间，增加一个适配器类，在这个类中，调用旧系统的功能，新系统的类通过适配器中的方法来实现调用老系统的功能。<br>其中，适配器类通过继承的方式拥有旧系统的功能时，称为类适配器；当使用组合（即，在适配器类中加入就方法对象的属性，并在适配器类的含参构造方法来实例化它）方式实现时，称为对象适配器，这一类适配器灵活度更高。  </p>
+<h3 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a>桥接模式</h3><p>当一个类为多层继承关系时（这里的继承者之间，没有亲密的关系，是可以解耦的），它往往没有遵循单一职责原则。此时可以考虑将继承转为组合关系。将其中的一层继承去掉，在另一层中将去掉的继承类作为属性写入类中。这样可以实现灵活的组合各种类，只要在类的实例化时，将想要的属性参数传递过去就行；如果在多继承的情况下，则需要创建、编写一个新的类。<br>（<strong><em>桥接模式和适配器模式都是将一个继承关系的类写进属性中变为组合关系，但是适配器模式是将还没有的关系变为有；而桥接模式是将已经有的关系拆开后用组合方式实现，这是两者的不同，一个适配器是没有关系创造联系，桥接模式是有联系的拆开后重新以组合的方式产生联系</em></strong>）</p>
+<h3 id="装饰器模式"><a href="#装饰器模式" class="headerlink" title="装饰器模式"></a>装饰器模式</h3><p>装饰器模式是将原有的类嵌入到一个新的类中，并将其功能进行扩展。这个结构模式和适配器模式的区别是，适配器不改变原有接口，装饰器模式的目的是想要将原有的类功能进行拓展。  </p>
+<h3 id="组合模式"><a href="#组合模式" class="headerlink" title="组合模式"></a>组合模式</h3><p><del>暂无</del>  </p>
+<h3 id="外观模式"><a href="#外观模式" class="headerlink" title="外观模式"></a>外观模式</h3><p>将复杂接口调用都在一个类中进行，隐藏具体的细节，用户需要功能时，只需调用这个在外的接口即可完成。  </p>
+<h3 id="享元模式"><a href="#享元模式" class="headerlink" title="享元模式"></a>享元模式</h3><p>这种模式的目的是减少相似对象的创建。通过享元工厂，将创建的对象保存在一个集合中，当需要一个新对象时，在工厂中调用即可，不需要创建新的对象。  </p>
+<h3 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h3><p>代理模式和装饰器模式很像，都是将一个对象嵌入到一个新的对象中，只是在新的对象中代理模式不扩展功能，只是在对象中将原有的功能进行更详细的扩展，其中的细节不对外展示。在代理模式中，这个嵌入的类不由外部传入，以此来实现真实的代理，用户甚至都不用将对象作为参数传入代理类中。  </p>
+<h2 id="行为型模式分析"><a href="#行为型模式分析" class="headerlink" title="行为型模式分析"></a>行为型模式分析</h2><h3 id="职责链模式"><a href="#职责链模式" class="headerlink" title="职责链模式"></a>职责链模式</h3><p>在职责链模式中，通过在对象中增加一个表示下一个对象的属性来实现将数据交给下一个对象的能力。以此实现职责的链式传递。这个对象无法处理时，将调用下一个对象的方法，并在下一个对象的方法中判断是否可以处理，以此类推。</p>
+<h3 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h3><p><del>暂无</del></p>
+<h3 id="解释器模式"><a href="#解释器模式" class="headerlink" title="解释器模式"></a>解释器模式</h3><p><del>暂无</del></p>
+<h3 id="迭代器模式"><a href="#迭代器模式" class="headerlink" title="迭代器模式"></a>迭代器模式</h3><p><del>暂无</del></p>
+<h3 id="中介者模式"><a href="#中介者模式" class="headerlink" title="中介者模式"></a>中介者模式</h3><p><del>暂无</del></p>
+<h3 id="备忘录模式"><a href="#备忘录模式" class="headerlink" title="备忘录模式"></a>备忘录模式</h3><p><del>暂无</del></p>
+<h3 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h3><p>解决的是对象一对多的关系。当一个对象和多个对象都有关系时，常使用此模式来使得对象间解耦。观察者统一实现一个抽象接口，这个接口会被被观察者在更新时调用。被观察者发生改变时，调用观察者的接口，以此来提醒观察者对象做出相应的更新。</p>
+<h3 id="状态模式"><a href="#状态模式" class="headerlink" title="状态模式"></a>状态模式</h3><p>在使用超过三层的if-else判断语句时，可以将这个判断条件拆分为状态模式，将判断条件作为一个属性加入到类中，并将不同的状态设计成不同的类。不同的情况将不同的状态类通过状态类作为参数传递，以此来实现不同状态的传递。</p>
+<h3 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h3><p>类似状态模式，但是策略模式关注的是某一个具体的执行过程，而状态模式关注的是某一个具体的状态，这个状态里可能有很多个执行过程。</p>
+<h3 id="模板模式"><a href="#模板模式" class="headerlink" title="模板模式"></a>模板模式</h3><p><del>暂无</del></p>
+<h3 id="访问者模式"><a href="#访问者模式" class="headerlink" title="访问者模式"></a>访问者模式</h3><p>暂且理解为不改变数据结构的条件下进行操作，将数据结构中的某些在实际情况下很复杂的操作进行封装，需要用到时进行调用即可。</p>
+]]></content>
+      <tags>
+        <tag>学习笔记·设计模式</tag>
       </tags>
   </entry>
   <entry>
@@ -1711,58 +1837,313 @@
       </tags>
   </entry>
   <entry>
-    <title>初次理解设计模式</title>
-    <url>/2020/04/22/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文整理了第一次接触设计模式时，对各个设计模式的理解。  </p>
-<a id="more"></a>
-<h2 id="设计模式的基本要素"><a href="#设计模式的基本要素" class="headerlink" title="设计模式的基本要素"></a>设计模式的基本要素</h2><ul>
-<li>模式名称  </li>
-<li>问题  </li>
-<li>解决方案  </li>
-<li>效果  </li>
+    <title>Java开发学习路线</title>
+    <url>/2020/04/09/Java%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</url>
+    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>思路整理参考B站UP主“程序羊”，文章地址为：<a href="https://www.bilibili.com/read/cv4184856" target="_blank" rel="noopener">上次是谁说搞不清学习路线来着？</a>以及其它一些知乎回答。</p>
+<a id="more"></a>  
+
+<h1 id="全局脑图"><a href="#全局脑图" class="headerlink" title="全局脑图"></a>全局脑图</h1><p><img src="https://i.loli.net/2020/04/09/34ty7FciTbOvds5.jpg" alt="Java开发学习路线 .jpg">  </p>
+<h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><ol>
+<li>语言本身<br>如下一些重点必须掌握：  <ul>
+<li>语法基础</li>
+<li>OO编程思想：类、对象、封装、继承、多态、接口  </li>
+<li>容器、异常、泛型、I/O、反射、注解  </li>
+<li><del>图形化界面，如 <code>swing</code> 的东西跳过不看</del></li>
 </ul>
-<h2 id="OOP七大原则"><a href="#OOP七大原则" class="headerlink" title="OOP七大原则"></a>OOP七大原则</h2><p>面向对象的设计语言除了有三大特征之外，还有七大原则，分别为：  </p>
+</li>
+<li>数据结构和算法  <ul>
+<li>几大基础数据结构类型得烂熟于心，比如：字符串、链表、二叉树、栈、队列等等；基本的几大算法要了如指掌，比如查找、排序、动态规划等等。  </li>
+<li>练习方式：<a href="https://leetcode-cn.com/explore/" target="_blank" rel="noopener">leetcode</a>、<a href="https://www.nowcoder.com/index" target="_blank" rel="noopener">牛客网</a>  </li>
+</ul>
+</li>
+<li>TCP/IP协议栈  <ul>
+<li>TCP/IP协议可以说是当下互联网通信的基石，无论如何一定要对TCP/IP的协议栈了如指掌，包括：ARP协议、IP协议、ICMP协议、TCP和UDP协议、DNS协议、HTTP协议、HTTPS协议等等。</li>
+<li>对于Java来说，熟悉Netty开发是入门网络开发的捷径。</li>
+<li>爬虫是网络开发中另外一个极具魅力的点，但建议使用python而不是java去做。 </li>
+</ul>
+</li>
+<li>设计模式<br>倒不需要23种设计模式全部很熟悉，常见的几个，比如：单例模式、工厂模式、代理模式、策略模式、模板方法模式等几个熟练于心即可。</li>
+<li>数据库和SQL<br>数据库基本原理了解，SQL语句熟练书写。  </li>
+</ol>
+<h1 id="项目工具"><a href="#项目工具" class="headerlink" title="项目工具"></a>项目工具</h1><ol>
+<li>Linux系统基本命令会使用， Linux系统上常用的服务会部署  </li>
+<li>代码管理SVN或 Git 二选一，持续练习，熟练使用  </li>
+<li>基于 Maven或Gradle的Java项目管理二选一，熟练使用  </li>
+</ol>
+<h1 id="应用框架"><a href="#应用框架" class="headerlink" title="应用框架"></a>应用框架</h1><ol>
+<li>Spring全家桶<br>了解Spring、Mybatis等框架的基本原理 Spring Boot框架会熟练使用、掌握基本原理 SSM组合框架会上手搭建项目、开发业务、掌握基本原理  </li>
+<li>中间件技术<br><strong>消息队列</strong>，主流的如 RabbitMQ Kafka等<br><strong>RPC通信</strong> 框架，主流的如  gRPC Thrift Dubbo 等<br><strong>NoSQL数据库</strong> ：主流的如  Redis memcached ElasticSearch 等<br><strong>NIO网络通信</strong> 框架，主流的如  Netty 等<br>这些成熟的中间件框架在企业级产品里应用得广泛而深远，建议先是要会 熟练使用 ，要是能了解 底层原理 实现那就更加分了！</li>
+<li>分布式微服务 当下微服务盛行，是个公司都说自己在搞微服务，所以诸如  Spring Cloud 这样的微服务框架怎么能不学，要求也是先会使用，再尝试搞懂原理 </li>
+<li>虚拟化/容器化 虚拟化、容器化平台是未来发展的大趋势，很多规模化企业都在搭建各SaaS/PaaS/IaaS平台，在此过程中诞生的一系列关于该方面的技术在学有余力的情况下最好也涉猎一下，典型的比如：  Docker 容器、  kubernetes编排技术。  </li>
+</ol>
+<h1 id="源码-性能"><a href="#源码-性能" class="headerlink" title="源码/性能"></a>源码/性能</h1><p>在如今这个流量极其密集的互联网时代，关注到 源码和性能 层面的程序员才是顶级好码农，所以：   </p>
 <ul>
-<li>开闭原则： 对拓展开放，对修改关闭</li>
-<li>里氏替换原则： 继承必须保证超类所拥有的性质在子类中仍然成立</li>
-<li>依赖倒置原则： 要面向接口编程，不要面向现实</li>
-<li>单一职责原则： 控制类的粒度大小，将对象解耦，提高内聚</li>
-<li>接口隔离原则： 要用各个类建立他们需要的专用接口</li>
-<li>迪米特法则： 只与直接朋友交谈，不与“陌生人”通信</li>
-<li>合成复用原则： 尽量先使用组合或者内聚等关联关系来实现，其次才考虑使用继承来实现  </li>
+<li>关注JDK源码和设计思想  </li>
+<li>关注Java并发编程原理和实践  </li>
+<li>关注JVM细节原理与调优  </li>
+<li>关注上述应用框架的核心思想和内部源码  </li>
+<li>关注数据库深度优化  </li>
+<li>等等…  </li>
 </ul>
-<h2 id="设计模式分类"><a href="#设计模式分类" class="headerlink" title="设计模式分类"></a>设计模式分类</h2><ul>
-<li>创造型模式：就是为了创建对象。</li>
-<li>结构型模式：就是如何设计代码结构更加合理。（类和对象之间的组合）</li>
-<li>行为型模式：关注的是对象间的通信。出发点是如何让对象可以更好的交换数据，保持松耦合。</li>
-</ul>
-<h2 id="创建型模式分析"><a href="#创建型模式分析" class="headerlink" title="创建型模式分析"></a>创建型模式分析</h2><h3 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h3><p>对象的创建直接在方法中new出来，这里涉及到多线程下的对象最后是否还是单例的问题，我们可以通过volatile和synchronized来进行序列化和加锁，以此来保证单例在多线程状态下的稳定，但是反射是可以破环上述方法的，自带安全机制，无法被反射机制破坏的是枚举类。</p>
-<h3 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h3><p>通过定义工厂接口，将每个对象的创建放进一个工厂中，这里的工厂是工厂接口的具体实现。在方法中，实例化一个工厂，通过工厂中的方法来实现新对象的创建。<br>（一般使用不满足里氏替换原则的简单工厂模式，但是当需要工厂模式满足里氏替换原则时，会增加代码量）  </p>
-<h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><p>将不同的对象放进不同的工厂来创建，通过实例化这个工厂，调用这个工厂的方法来获得相应的对象。工厂通过一个统一的接口来约束。</p>
-<h3 id="抽象工厂模式"><a href="#抽象工厂模式" class="headerlink" title="抽象工厂模式"></a>抽象工厂模式</h3><p>将工厂模式中的工厂进行抽象。工厂模式中每个对象都有一个工厂，这种方式会在最后产生大量的工厂。抽象工厂模式中，将同一族的产品的产生囊括到一个工厂中，这就减少了工厂的数量。工厂通过接口来约束，同一结构的对象通过同一个接口来约束。<br>工厂模式和简单工厂模式主要就是产生一个类，而抽象工厂可以用于一个产品族（一个类型的类）的产生，需要这一族中某个对象时，都只需要调用这一个工厂类就行了。</p>
-<h3 id="生成器模式（建造者模式）"><a href="#生成器模式（建造者模式）" class="headerlink" title="生成器模式（建造者模式）"></a>生成器模式（建造者模式）</h3><p>适用于有许多属性的对象的生成。这类对象常为POJO类，建造者类中的方法通过调用这些POJO类中的方法来完成类的“建造”。一类对象的建造者类的方法常常通过抽象最后抽象为一个抽象类，所有建造者类都需继承自这个抽象类。  </p>
-<h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><p>以一个已有的类作为原型来克隆产生新的对象，要使用clone方法，需要对象实现cloneable接口。cloneable接口中的clone方法为Object类自带的clone方法，调用了本地的C++方法，效率高，但为浅拷贝，即，在内存中都引用了同一个对象，当旧对象发生改变后，新对象也会发生改变。这种情况可以通过重写clone方法来实现。在方法中，对本对象的属性也调用clone方法即可完成深拷贝产生一个新的类实例，而不是引用同一个类。</p>
-<h2 id="结构型模式分析"><a href="#结构型模式分析" class="headerlink" title="结构型模式分析"></a>结构型模式分析</h2><h3 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h3><p>在系统更新中常常会出现老旧不兼容的情况，这时常用到适配器模式这种结构来处理。在不相关的两个类中间，增加一个适配器类，在这个类中，调用旧系统的功能，新系统的类通过适配器中的方法来实现调用老系统的功能。<br>其中，适配器类通过继承的方式拥有旧系统的功能时，称为类适配器；当使用组合（即，在适配器类中加入就方法对象的属性，并在适配器类的含参构造方法来实例化它）方式实现时，称为对象适配器，这一类适配器灵活度更高。  </p>
-<h3 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a>桥接模式</h3><p>当一个类为多层继承关系时（这里的继承者之间，没有亲密的关系，是可以解耦的），它往往没有遵循单一职责原则。此时可以考虑将继承转为组合关系。将其中的一层继承去掉，在另一层中将去掉的继承类作为属性写入类中。这样可以实现灵活的组合各种类，只要在类的实例化时，将想要的属性参数传递过去就行；如果在多继承的情况下，则需要创建、编写一个新的类。<br>（<strong><em>桥接模式和适配器模式都是将一个继承关系的类写进属性中变为组合关系，但是适配器模式是将还没有的关系变为有；而桥接模式是将已经有的关系拆开后用组合方式实现，这是两者的不同，一个适配器是没有关系创造联系，桥接模式是有联系的拆开后重新以组合的方式产生联系</em></strong>）</p>
-<h3 id="装饰器模式"><a href="#装饰器模式" class="headerlink" title="装饰器模式"></a>装饰器模式</h3><p>装饰器模式是将原有的类嵌入到一个新的类中，并将其功能进行扩展。这个结构模式和适配器模式的区别是，适配器不改变原有接口，装饰器模式的目的是想要将原有的类功能进行拓展。  </p>
-<h3 id="组合模式"><a href="#组合模式" class="headerlink" title="组合模式"></a>组合模式</h3><p><del>暂无</del>  </p>
-<h3 id="外观模式"><a href="#外观模式" class="headerlink" title="外观模式"></a>外观模式</h3><p>将复杂接口调用都在一个类中进行，隐藏具体的细节，用户需要功能时，只需调用这个在外的接口即可完成。  </p>
-<h3 id="享元模式"><a href="#享元模式" class="headerlink" title="享元模式"></a>享元模式</h3><p>这种模式的目的是减少相似对象的创建。通过享元工厂，将创建的对象保存在一个集合中，当需要一个新对象时，在工厂中调用即可，不需要创建新的对象。  </p>
-<h3 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h3><p>代理模式和装饰器模式很像，都是将一个对象嵌入到一个新的对象中，只是在新的对象中代理模式不扩展功能，只是在对象中将原有的功能进行更详细的扩展，其中的细节不对外展示。在代理模式中，这个嵌入的类不由外部传入，以此来实现真实的代理，用户甚至都不用将对象作为参数传入代理类中。  </p>
-<h2 id="行为型模式分析"><a href="#行为型模式分析" class="headerlink" title="行为型模式分析"></a>行为型模式分析</h2><h3 id="职责链模式"><a href="#职责链模式" class="headerlink" title="职责链模式"></a>职责链模式</h3><p>在职责链模式中，通过在对象中增加一个表示下一个对象的属性来实现将数据交给下一个对象的能力。以此实现职责的链式传递。这个对象无法处理时，将调用下一个对象的方法，并在下一个对象的方法中判断是否可以处理，以此类推。</p>
-<h3 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h3><p><del>暂无</del></p>
-<h3 id="解释器模式"><a href="#解释器模式" class="headerlink" title="解释器模式"></a>解释器模式</h3><p><del>暂无</del></p>
-<h3 id="迭代器模式"><a href="#迭代器模式" class="headerlink" title="迭代器模式"></a>迭代器模式</h3><p><del>暂无</del></p>
-<h3 id="中介者模式"><a href="#中介者模式" class="headerlink" title="中介者模式"></a>中介者模式</h3><p><del>暂无</del></p>
-<h3 id="备忘录模式"><a href="#备忘录模式" class="headerlink" title="备忘录模式"></a>备忘录模式</h3><p><del>暂无</del></p>
-<h3 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h3><p>解决的是对象一对多的关系。当一个对象和多个对象都有关系时，常使用此模式来使得对象间解耦。观察者统一实现一个抽象接口，这个接口会被被观察者在更新时调用。被观察者发生改变时，调用观察者的接口，以此来提醒观察者对象做出相应的更新。</p>
-<h3 id="状态模式"><a href="#状态模式" class="headerlink" title="状态模式"></a>状态模式</h3><p>在使用超过三层的if-else判断语句时，可以将这个判断条件拆分为状态模式，将判断条件作为一个属性加入到类中，并将不同的状态设计成不同的类。不同的情况将不同的状态类通过状态类作为参数传递，以此来实现不同状态的传递。</p>
-<h3 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h3><p>类似状态模式，但是策略模式关注的是某一个具体的执行过程，而状态模式关注的是某一个具体的状态，这个状态里可能有很多个执行过程。</p>
-<h3 id="模板模式"><a href="#模板模式" class="headerlink" title="模板模式"></a>模板模式</h3><p><del>暂无</del></p>
-<h3 id="访问者模式"><a href="#访问者模式" class="headerlink" title="访问者模式"></a>访问者模式</h3><p>暂且理解为不改变数据结构的条件下进行操作，将数据结构中的某些在实际情况下很复杂的操作进行封装，需要用到时进行调用即可。</p>
+<p>Java学习知识树【来源：<a href="https://www.nowcoder.com/tutorial/94/74ef45a524ad445399276e54c59d1eab" target="_blank" rel="noopener">牛客网Java面经</a>】<br><img src="https://i.loli.net/2020/04/17/opkLaPKzdxnwcT2.png" alt="Java学习知识树.png"></p>
 ]]></content>
       <tags>
-        <tag>学习笔记·设计模式</tag>
+        <tag>所思所想</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PHP语法回顾</title>
+    <url>/2020/05/07/PHP%E8%AF%AD%E6%B3%95%E5%9B%9E%E9%A1%BE/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>SpringBoot初探</title>
+    <url>/2020/07/28/SpringBoot%E5%88%9D%E6%8E%A2/</url>
+    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文主要整理了SpringBoot中常见的概念名词及其实现的原理。  </p>
+<a id="more"></a>
+<h3 id="Spring-Boot-自动配置原理是什么？"><a href="#Spring-Boot-自动配置原理是什么？" class="headerlink" title="Spring Boot 自动配置原理是什么？"></a>Spring Boot 自动配置原理是什么？</h3><p>在spring-boot-autoconfigure-2.3.1.RELEASE.jar包下的META-INF文件夹里的spring.factories，有JavaEE需要的所有配置和解决方案。  </p>
+<p>springboot所有自动配置都是在启动的时候扫描加载的：spring.factories所有的自动配置类都在这里面，但是不一定生效，要判断条件是否成立，只要导入对应的start，就有了对应的启动器，我们的自动装配就会生效，然后就配置成功了。其中配置生效的原理是通过@ConditionalOnClass注解来判断某个类是否存在在程序中（其中可能含有很多类似的@ConditionalOnXXX注解来判断是否满足配置导入的前提条件），对应的启动器中的依赖中的类，导入到程序中之后，对应的扫描通过了，自动配置就生效，此时便配置成功了。  </p>
+<h3 id="Spring-Boot-的核心注解是哪个？它主要由哪几个注解组成的？"><a href="#Spring-Boot-的核心注解是哪个？它主要由哪几个注解组成的？" class="headerlink" title="Spring Boot 的核心注解是哪个？它主要由哪几个注解组成的？"></a>Spring Boot 的核心注解是哪个？它主要由哪几个注解组成的？</h3><p>启动类上面的注解是<code>@SpringBootApplication</code>，它也是 Spring Boot 的核心注解，主要组合包含了以下 3 个注解：  </p>
+<ul>
+<li><code>@SpringBootConfiguration</code>：组合了 @Configuration 注解，实现配置文件的功能。  </li>
+<li><code>@EnableAutoConfiguration</code>：打开自动配置的功能，也可以关闭某个自动配置的选项，如关闭数据源自动配置功能：<br>@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class })。  <ul>
+<li>@AutoConfigurationPackage  <ul>
+<li>@Import(AutoConfigurationPackages.Registrar.class)自动配置包注册  </li>
+</ul>
+</li>
+<li>@Import(AutoConfigurationImportSelector.class)  <ul>
+<li>AutoConfigurationImportSelector中定义了要扫描的类需要<code>EnableAutoConfiguration</code>注解，<code>SpringBootApplication</code>注解底层即有此注解；以及需要加载的配置在spring-boot-autoconfigure-2.3.1.RELEASE.jar包下的META-INF文件夹里的spring.factories中  </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>@ComponentScan</code>：Spring组件扫描。扫描当前主启动类同级的包。  </li>
+</ul>
+<h3 id="Spring-Boot-有哪几种读取配置的方式？"><a href="#Spring-Boot-有哪几种读取配置的方式？" class="headerlink" title="Spring Boot 有哪几种读取配置的方式？"></a>Spring Boot 有哪几种读取配置的方式？</h3><ul>
+<li><code>@ConfigurationProperties(prefix = &quot;info&quot;)</code>注解，这种方式需要配置文件中的名字和类中的属性名相同；  </li>
+<li><code>@PropertySource(value = { &quot;config/db-config.properties&quot; })</code>加上<code>@Value(&quot;$(name)&quot;)</code>，可以取到配置文件中相对应的值；<br>其中，<code>@ConfigurationProperties</code>的方式较好，因为它支持</li>
+<li>批量注入配置文件中的属性，而使用<code>@Value</code>的方式需要一个个的配置  </li>
+<li>松散绑定，即，在类中使用驼峰命名，在配置类中使用<code>-</code>隔开的方式也能被识别  </li>
+<li>JSR303数据校验  </li>
+<li>复杂类型封装  </li>
+</ul>
+<h3 id="你如何理解-Spring-Boot-配置加载顺序？"><a href="#你如何理解-Spring-Boot-配置加载顺序？" class="headerlink" title="你如何理解 Spring Boot 配置加载顺序？"></a>你如何理解 Spring Boot 配置加载顺序？</h3><p>springboot 启动会扫描以下位置的application.properties或者application.yml文件作为Spring boot的默认配置文件：  </p>
+<ul>
+<li>优先级1：项目路径下的config文件夹配置文件  </li>
+<li>优先级2：项目路径下配置文件  </li>
+<li>优先级3：资源路径下的config文件夹配置文件  </li>
+<li>优先级4：资源路径下配置文件  </li>
+</ul>
+<p>优先级由高到底，高优先级的配置会覆盖低优先级的配置；</p>
+<h3 id="Spring-Boot-如何定义多套不同环境配置？"><a href="#Spring-Boot-如何定义多套不同环境配置？" class="headerlink" title="Spring Boot 如何定义多套不同环境配置？"></a>Spring Boot 如何定义多套不同环境配置？</h3><ul>
+<li>多配置文件时：<br>我们在主配置文件编写的时候，文件名可以是 <code>application-{profile}.properties/yml</code>, 用来指定多个环境版本；<br>例如：<br><code>application-test.properties</code>代表测试环境配置<br><code>application-dev.properties</code>代表开发环境配置<br>但是Springboot并不会直接启动这些配置文件，它默认使用<code>application.properties</code>主配置文件；<br>我们需要通过一个配置来选择需要激活的环境：    <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">    #比如在配置文件中指定使用dev环境，我们可以通过设置不同的端口号进行测试；</span><br><span class="line">    #我们启动SpringBoot，就可以看到已经切换到dev下的配置了；</span><br><span class="line">    spring.profiles.active=dev</span><br><span class="line">    ```  </span><br><span class="line"></span><br><span class="line">* 使用yaml文件作为配置文件时，可以使用同一个文件实现多环境：  </span><br><span class="line">```yml</span><br><span class="line">server:</span><br><span class="line">  port: 8081</span><br><span class="line">#选择要激活那个环境块</span><br><span class="line">spring:</span><br><span class="line">  profiles:</span><br><span class="line">    active: prod</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">server:</span><br><span class="line">  port: 8083</span><br><span class="line">spring:</span><br><span class="line">  profiles: dev #配置环境的名称</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">server:</span><br><span class="line">  port: 8084</span><br><span class="line">spring:</span><br><span class="line">  profiles: prod  #配置环境的名称</span><br></pre></td></tr></table></figure>
+注意：如果yml和properties同时都配置了端口，并且没有激活其他环境 ， 默认会使用properties配置文件的！  </li>
+</ul>
+<h3 id="如何自定义配置"><a href="#如何自定义配置" class="headerlink" title="如何自定义配置"></a>如何自定义配置</h3><p>xxxAutoConfiguration中带有相应的配置的默认值，其中的底层将xxxProperties和配置文件绑定，我们在配置文件中可以对xxxProperties配置类中的属性进行覆写，即可完成自定义的配置。  </p>
+<h3 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h3><ol>
+<li>用maven构建 项目时，resources 目录就是默认的classpath；  </li>
+<li>通过debug=true可以让控制台打印自动配置报告，这样我们就可以很方便的知道哪些自动配置类生效；  </li>
+<li>静态资源目录为resource下的public、static和resource，其中resource下的优先级高于static，public优先级最低；同时，也可通过spring.mvc.static-path-pattern来指定静态资源的目录，一般不指定；  </li>
+<li>首页的设置，只要在public、static和resource文件夹下创建一个名为<code>index.html</code>的文件即可被自动识别并访问；  </li>
+<li>template文件夹下的文件需要通过controller才能访问，且需要引入模板引擎；  </li>
+<li></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>学习笔记·Java</tag>
+        <tag>学习笔记·SpringBoot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown的学习总结和巩固</title>
+    <url>/2020/02/18/Markdown%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E5%92%8C%E5%B7%A9%E5%9B%BA/</url>
+    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>对markdown的个人认识：是一种语法格式，用这种语法写出的文件以.md后缀结尾。通过特定的环境的浏览，可以快速的识别并形成漂亮的格式，效率和美观都可以保证。（此hexo博客文章采用markdown格式书写。）（注：语法符号若没有实现效果时，往往在前后用空格将文字和符号隔开可以恢复效果）（本篇暂时收录平时会用到的格式方式，语法学习来自——<a href="https://www.runoob.com/markdown/md-tutorial.html" target="_blank" rel="noopener">菜鸟教程</a>）</p>
+<a id="more"></a>
+<h1 id="标题的写法"><a href="#标题的写法" class="headerlink" title="标题的写法"></a>标题的写法</h1><ul>
+<li><p>一、二级标题写法可以为</p>
+<ul>
+<li><code>一级标题</code><br><code>===========（一个即可）</code><br><code>二级标题</code><br><code>------------（一个即可）</code><br>显示效果为：<blockquote>
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题  "></a>一级标题  </h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2></blockquote>
+</li>
+<li>或<br><code># 一级标题</code><br><code>## 二级标题</code><br>显示效果为：<blockquote>
+<h1 id="一级标题-1"><a href="#一级标题-1" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题-1"><a href="#二级标题-1" class="headerlink" title="二级标题"></a>二级标题</h2></blockquote>
+</li>
+</ul>
+</li>
+<li><p>随后的标题级别只能用 <code>#</code>来标识，几个 <code>#</code>代表是几级标题（最多六个 <code>#</code>）</p>
+</li>
+</ul>
+<h1 id="段落和换行"><a href="#段落和换行" class="headerlink" title="段落和换行"></a>段落和换行</h1><ul>
+<li>行末或段末可以使用两个空格加上回车来实现换行</li>
+<li>在空行直接回车可以实现空一行，且只有第一个回车有效<br>（注：行内文字间空格只有第一个有效，要实现多个空格，可以使用HTML标记中的空格标记如 <code>&amp;nbsp</code>）</li>
+</ul>
+<h1 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h1><ul>
+<li>字体可实现斜体和粗体<ul>
+<li>斜体的写法有两种：<code>*斜体*</code> 或者 <code>_斜体_</code></li>
+<li>粗体的写法有两种：<code>**粗体**</code> 或者 <code>__粗体__</code></li>
+</ul>
+</li>
+<li>斜体可加粗，写法为： <code>***加粗斜体***</code> 或者 <code>___加粗斜体___</code>  </li>
+</ul>
+<h1 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h1><ul>
+<li>当行内只有三个以上的 <code>*</code> 、<code>_</code> 或者 <code>-</code> 时（可以有空格），可以实现分隔线效果，写法如下：<br><code>---</code><br><code>***</code><br><code>- - -</code><br><code>* * *</code><br><code>___</code><br>效果为：<blockquote>
+<p>分隔线</p>
+<hr>
+<p>分隔线</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h1><ul>
+<li>文字上添加删除线样式的方法是在两端分别加上两个 <code>~</code>，如：<br><code>~~删除线~~</code><br>效果为：<blockquote>
+<p><del>1删除线11111</del></p>
+</blockquote>
+</li>
+</ul>
+<h1 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h1><ul>
+<li>下划线用HTML的 <code>&lt;u&gt;</code> 标签来实现，如：<br><code>&lt;u&gt;下划线&lt;/u&gt;</code><br>效果为：  <blockquote>
+<p><u>下划线</u></p>
+</blockquote>
+</li>
+</ul>
+<h1 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h1><ul>
+<li>脚注是对文本的补充说明，写法为：<code>[^要注明的文本]</code><br>效果为：  <blockquote>
+<p>创建脚注格式类似这样[^RUNOOB]。<br>[^RUNOOB]: 菜鸟教程 – 学的不仅是技术，更是梦想！！！</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><ul>
+<li>无序列表使用星号 <code>*</code>、加号 <code>+</code> 或是减号 <code>-</code>作为列表标记，如：<br><code>*无序列表</code><br><code>+无序列表</code><br><code>-无序列表</code><br>效果为：  <blockquote>
+<ul>
+<li>无序列表</li>
+</ul>
+<ul>
+<li>无序列表</li>
+</ul>
+<ul>
+<li>无序列表</li>
+</ul>
+</blockquote>
+</li>
+<li>有序列表使用数字并加上 . 号来表示，如：<br><code>1. 第一项</code><br><code>2. 第二项</code><br><code>3. 第三项</code><br>效果为：<blockquote>
+<ol>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h1 id="列表嵌套"><a href="#列表嵌套" class="headerlink" title="列表嵌套"></a>列表嵌套</h1><ul>
+<li>列表嵌套只需在子列表中的选项添加四个空格（或一个tab）即可，写法如下：    <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 第一项：</span><br><span class="line">    - 第一项嵌套的第一个元素</span><br><span class="line">    - 第一项嵌套的第二个元素</span><br><span class="line">2. 第二项：</span><br><span class="line">    - 第二项嵌套的第一个元素</span><br><span class="line">    - 第二项嵌套的第二个元素</span><br></pre></td></tr></table></figure>
+  效果为：<blockquote>
+<ol>
+<li>第一项：<ul>
+<li>第一项嵌套的第一个元素</li>
+<li>第一项嵌套的第二个元素</li>
+</ul>
+</li>
+<li>第二项：<ul>
+<li>第二项嵌套的第一个元素</li>
+<li>第二项嵌套的第二个元素</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h1 id="区块"><a href="#区块" class="headerlink" title="区块"></a>区块</h1><ul>
+<li>区块引用是在段落开头使用 <code>&gt;</code> 符号 ，然后后面紧跟一个空格符号（不跟，在vscode中也可识别，当前版本为1.42.1），另外区块是可以嵌套的，一个 <code>&gt;</code> 符号是最外层，两个 <code>&gt;</code> 符号是第一层嵌套，以此类推：如： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; 最外层</span><br><span class="line">&gt; &gt; 第一层嵌套</span><br><span class="line">&gt; &gt; &gt; 第二层嵌套</span><br></pre></td></tr></table></figure>
+ 效果为：  <blockquote>
+<p>最外层11</p>
+<blockquote>
+<p>第一层嵌套</p>
+<blockquote>
+<p>第二层嵌套</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<p>另，区块中可以插入列表，列表中可以插入区块（若文字与内层嵌套的区块未空有一行，则认为，此行文字还在区块中）</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><ul>
+<li>如果是段落上的一个函数或片段的代码可以用反引号(`)把它包起来，<br>你也可以用 ``` 包裹一段代码，并指定一种语言，不同语言的标注可以参考<code>https://blog.csdn.net/qq_35451572/article/details/85125737</code>（也可以不指定）：  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#96;&#96;&#96;javascript  </span><br><span class="line">$(document).ready(function () &#123;  </span><br><span class="line">    alert(&#39;RUNOOB&#39;);  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">效果如下：  </span><br><span class="line">&#96;&#96;&#96;javascript</span><br><span class="line">$(document).ready(function () &#123;</span><br><span class="line">    alert(&#39;RUNOOB&#39;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+<li>支持的语言类型为：<code>1c, abnf, accesslog, actionscript, ada, apache, applescript, arduino, armasm, asciidoc, aspectj, autohotkey, autoit, avrasm, awk, axapta, bash, basic, bnf, brainfuck, cal, capnproto, ceylon, clean, clojure, clojure-repl, cmake, coffeescript, coq, cos, cpp, crmsh, crystal, cs, csp, css, d, dart, delphi, diff, django, dns, dockerfile, dos, dsconfig, dts, dust, ebnf, elixir, elm, erb, erlang, erlang-repl, excel, fix, flix, fortran, fsharp, gams, gauss, gcode, gherkin, glsl, go, golo, gradle, groovy, haml, handlebars, haskell, haxe, hsp, htmlbars, http, hy, inform7, ini, irpf90, java, javascript, json, julia, kotlin, lasso, ldif, leaf, less, lisp, livecodeserver, livescript, llvm, lsl, lua, makefile, markdown, mathematica, matlab, maxima, mel, mercury, mipsasm, mizar, mojolicious, monkey, moonscript, n1ql, nginx, nimrod, nix, nsis, objectivec, ocaml, openscad, oxygene, parser3, perl, pf, php, pony, powershell, processing, profile, prolog, protobuf, puppet, purebasic, python, q, qml, r, rib, roboconf, rsl, ruby, ruleslanguage, rust, scala, scheme, scilab, scss, smali, smalltalk, sml, sqf, sql, stan, stata, step21, stylus, subunit, swift, taggerscript, tap, tcl, tex, thrift, tp, twig, typescript, vala, vbnet, vbscript, vbscript-html, verilog, vhdl, vim, x86asm, xl, xml, xquery, yaml, zephir</code></li>
+</ul>
+<p>作者：oopp8<br>链接：<a href="https://www.jianshu.com/p/c2b75ff24c33" target="_blank" rel="noopener">https://www.jianshu.com/p/c2b75ff24c33</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><ul>
+<li><p>链接使用方法如下<br><code>[链接名称](链接地址)</code><br>（此方法类似HTML中的a标签，不显示具体的链接地址）<br>或者<br><code>&lt;链接地址&gt;</code><br>（此方法直接显示可跳转的链接的内容）</p>
+</li>
+<li><p>高级链接<br>链接也可以用变量来代替，文档末尾附带变量地址，如：</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">这个链接用 1 作为网址变量 [Google][1]</span><br><span class="line">这个链接用 runoob 作为网址变量 [Runoob][runoob]</span><br><span class="line">然后在文档的结尾为变量赋值（网址）</span><br><span class="line"></span><br><span class="line">[1]: http:&#x2F;&#x2F;www.google.com&#x2F;</span><br><span class="line">[runoob]: http:&#x2F;&#x2F;www.runoob.com&#x2F;</span><br></pre></td></tr></table></figure>
+<p>  效果为：<br>  这个链接用 1 作为网址变量 [Google][1]<br>  这个链接用 runoob 作为网址变量 [Runoob][runoob]<br>  然后在文档的结尾为变量赋值（网址）</p>
+<p>  [1]: <a href="http://www.google.com/" target="_blank" rel="noopener">http://www.google.com/</a><br>  [runoob]: <a href="http://www.runoob.com/" target="_blank" rel="noopener">http://www.runoob.com/</a></p>
+</li>
+</ul>
+<h1 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h1><ul>
+<li>Markdown 图片语法格式如下：  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![alt 属性文本](图片地址)</span><br><span class="line">或</span><br><span class="line">![alt 属性文本](图片地址 &quot;可选标题&quot;)</span><br></pre></td></tr></table></figure>
+  开头一个感叹号 <code>!</code>，接着一个方括号，里面放上图片的替代文字，接着一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上选择性的，’title’ 属性的文字（当鼠标移动到图片上时，会显示的文字为title中的值）。<br>  写法如：<br>  <code>![示例图片](https://i.loli.net/2020/02/12/yOigcUF4CS1MN8v.jpg &quot;示例图片&quot;)</code><br>  <img src="https://i.loli.net/2020/02/12/yOigcUF4CS1MN8v.jpg" alt="示例图片" title="示例图片"><br>  当然，你也可以像网址那样对图片网址使用变量（这里不会直接显示图片，当点击链接之后，会在新的页面中显示出来）。<br>  Markdown 还没有办法指定图片的高度与宽度，如果你需要的话，你可以使用普通的 <code>&lt;img&gt;</code> 标签。  </li>
+</ul>
+<h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h1><ul>
+<li><p>Markdown 制作表格使用 <code>|</code> 来分隔不同的单元格，使用 <code>-</code> 来分隔表头和其他行。</p>
+<p>  语法格式如下：</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">|  表头   | 表头  |</span><br><span class="line">|  ----  | ----  |</span><br><span class="line">| 单元格  | 单元格 |</span><br><span class="line">| 单元格  | 单元格 |</span><br></pre></td></tr></table></figure>
+<p>  效果为：</p>
+<table>
+<thead>
+<tr>
+<th>表头</th>
+<th>表头</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+<tr>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>对齐方式</p>
+<p>我们可以设置表格的对齐方式：</p>
+<p><code>-:</code> 设置内容和标题栏居右对齐。<br><code>:-</code> 设置内容和标题栏居左对齐。<br><code>:-:</code> 设置内容和标题栏居中对齐。<br>实例如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">| 左对齐 | 右对齐 | 居中对齐 |</span><br><span class="line">| :-----| ----: | :----: |</span><br><span class="line">| 单元格 | 单元格 | 单元格 |</span><br><span class="line">| 单元格 | 单元格 | 单元格 |</span><br></pre></td></tr></table></figure>
+<p>效果为：  </p>
+<table>
+<thead>
+<tr>
+<th align="left">左对齐左对齐</th>
+<th align="right">右对齐右对齐</th>
+<th align="center">居中对齐居中对齐</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">单元格</td>
+<td align="right">单元格</td>
+<td align="center">单元格</td>
+</tr>
+<tr>
+<td align="left">单元格</td>
+<td align="right">单元格</td>
+<td align="center">单元格</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="转义"><a href="#转义" class="headerlink" title="转义"></a>转义</h1><ul>
+<li>Markdown 使用了很多特殊符号来表示特定的意义，如果需要显示特定的符号则需要使用转义字符，Markdown 使用反斜杠转义特殊字符。<br>  示例为：  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">**文本加粗** </span><br><span class="line">\*\* 正常显示星号 \*\*</span><br></pre></td></tr></table></figure>
+  显示效果为：<br>  <strong>文本加粗</strong><br>  ** 正常显示星号 **</li>
+</ul>
+<h1 id="页面内锚点跳转"><a href="#页面内锚点跳转" class="headerlink" title="页面内锚点跳转"></a>页面内锚点跳转</h1><ul>
+<li>跳转链接的语法为 <code>[目录1](#jump1)</code>，锚点的语法为 <code>&lt;span id=&quot;jump1&quot;&gt;1. 目录1&lt;/span&gt;</code>，实际书写例子如下：    <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># 标题</span></span><br><span class="line"></span><br><span class="line">----</span><br><span class="line"><span class="section">## 目录</span></span><br><span class="line"><span class="bullet">1. </span>[<span class="string">目录1</span>](<span class="link">#jump1</span>)</span><br><span class="line"><span class="bullet">2. </span>[<span class="string">目录2</span>](<span class="link">#jump2</span>)</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"><span class="section">### &lt;span id="jump1"&gt;1. 目录1&lt;/span&gt;</span></span><br><span class="line">---</span><br><span class="line"><span class="section">### &lt;span id="jump2"&gt;2. 目录2&lt;/span&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>学习笔记·Markdown</tag>
       </tags>
   </entry>
   <entry>
@@ -2032,129 +2413,64 @@
       </tags>
   </entry>
   <entry>
-    <title>Java语法基础中的特别之处</title>
-    <url>/2020/04/12/Java%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B8%AD%E7%9A%84%E7%89%B9%E5%88%AB%E4%B9%8B%E5%A4%84/</url>
-    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>这是一篇对Java基础语法学习中，遇到的异难的地方进行的总结。</p>
-<a id="more"></a>
-<ul>
-<li>变量定义时，“”标识string类型，‘’标识char类型</li>
-</ul>
-<ul>
-<li>Java命名规范<ul>
-<li>项目名全部小写.</li>
-<li>包名全部小写.</li>
-<li>类名首字母大写,其余组成词首字母依次大写（单词首字母大写）.</li>
-<li>变量名,方法名首字母小写,如果名称由多个单词组成,除首字母外的每个单词的首字母都要大写（驼峰式命名规则）.</li>
-<li>常量名全部大写，每个单词用‘_’隔开.</li>
-<li>所有命名规则必须遵循以下规则 :<br>  名称只能由字母、数字、下划线、$符号组成.<br>  不能以数字开头.<br>  名称不能使用Java中的关键字.  </li>
-<li><a href="https://baijiahao.baidu.com/s?id=1654685815662722805&wfr=spider&for=pc" target="_blank" rel="noopener">其余具体命名细节</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>使用文档注释（文档注释以/<em>*开始，以</em>/结尾）时还可以使用 javadoc 标记，生成更详细的文档信息：</p>
-<pre><code>@author 标明开发该类模块的作者
+    <title>SpringBoot整合Druid数据源</title>
+    <url>/2020/07/31/SpringBoot%E6%95%B4%E5%90%88Druid%E6%95%B0%E6%8D%AE%E6%BA%90/</url>
+    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>Druid 是阿里巴巴开源平台上一个数据库连接池实现，结合了 C3P0、DBCP 等 DB 池的优点，同时加入了日志监控。后台监控自带了页面。  </p>
+<a id="more"></a>  
 
-@version 标明该类模块的版本
-
-@see 参考转向，也就是相关主题
-
-@param 对方法中某参数的说明
-
-@return 对方法返回值的说明
-
-@exception 对方法可能抛出的异常进行说明</code></pre></li>
-</ul>
-<ul>
-<li>算数运算符++，在变量右边，则先赋值再自增，在变量左边，则先自增再赋值。–的规律以此类推。</li>
-</ul>
-<ul>
-<li>\uff1b  Java中出现中文字符，仔细检查。</li>
-</ul>
-<ul>
-<li>foreach方法遍历数组的写法for(元素类型 元素变量:遍历数组){}，如：<br>for ( int score:scores ) {<br>  System.out.println(score);<br>}</li>
-</ul>
-<ul>
-<li>算数运算时，double类型运算时，后面如果全为int类型，则运算结果会产生误差，需要使其后面的值中有一个为小数才可，如：<br>double avg=(i+j)/2.0;</li>
-</ul>
-<ul>
-<li>Java成员变量的默认值为0，局部变量没有默认值。</li>
-</ul>
-<ul>
-<li>Java中的包名命名规范为全小写字母</li>
-</ul>
-<ul>
-<li>Java中的访问修饰符总结<br><img src="https://i.loli.net/2020/04/12/LnbQKCzvVaXJpo1.png" alt="Java中的访问修饰符.png"></li>
-</ul>
-<ul>
-<li>如果对象属性和参数同名时，必须加this，否则相反。</li>
-</ul>
-<ul>
-<li>如果外部类和内部类具有相同的成员变量或方法，内部类默认访问自己的成员变量或方法，如果要访问外部类的成员变量，可以使用 this 关键字。方法如下：<br><img src="https://i.loli.net/2020/04/13/sIp1NoSV9MkRQtK.jpg" alt="内部类中用this调用外部类成员变量.jpg"></li>
-</ul>
-<ul>
-<li>Java中的继承是单继承（接口可以继承自多个父接口）的，子类不能访问父类中的private修饰符修饰的成员</li>
-</ul>
-<ul>
-<li>继承的初始化顺序：初始化父类再初始子类、先执行初始化对象中属性，再执行构造方法中的初始化</li>
-</ul>
-<ul>
-<li>final关键字修饰的变量（即常量）的赋值必须在变量声明时，或者在构造函数中。</li>
-</ul>
-<ul>
-<li>Super关键字：在对象的内部使用，可以代表父类对象</li>
-</ul>
-<ul>
-<li>接口定义：常量：接口中的属性（方法）是常量（抽象方法），即使定义时不添加[public] [static] [final]（[public] [abstract]）修饰符，系统也会自动加上；<br>注：接口的定义：    <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[修饰符] interface 接口名 [extends 父接口名列表]&#123;</span><br><span class="line">[public] [static] [final] 常量;</span><br><span class="line">[public] [abstract] 方法;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-<ul>
-<li>抽象类和接口的区别：  <ul>
-<li>抽象类要被子类继承，接口要被类实现。</li>
-<li>接口只能做方法声明，抽象类中可以作方法声明，也可以做方法实现。</li>
-<li>接口里定义的变量只能是公共的静态的常量，抽象类中的变量是普通变量。</li>
-<li>接口是设计的结果，抽象类是重构的结果。</li>
-<li>抽象类和接口都是用来抽象具体对象的，但是接口的抽象级别最高。</li>
-<li>抽象类可以有具体的方法和属性，接口只能有抽象方法和不可变常量。</li>
-<li>抽象类主要用来抽象类别，接口主要用来抽象功能。</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><blockquote>
-<p>Java异常处理try…catch执行完之后，还会继续执行之后的代码语句  </p>
-</blockquote>
-<ul>
-<li>finally语句在return语句执行之后return返回之前执行的。  </li>
-<li>finally块中的return语句会覆盖try块中的return返回。 </li>
-<li>try块里的return语句在异常的情况下不会被执行。   <blockquote>
-<p>总结：finally块的语句在try或catch中的return语句执行之后返回之前执行且finally里的修改语句可能影响也可能不影响try或catch中 return已经确定的返回值，若finally里也有return语句则覆盖try或catch中的return语句直接返回。</p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><ul>
-<li>泛型集合可以添加泛型指定类型的子类型的对象实例，即，泛型集合中不能添加泛型规定的类型及其子类型以外的对象，否则会报错。</li>
-<li>泛型集合中的限定类型不能使用基本数据类型。可以通过使用对应的包装类限定允许存入的基本数据类型如<code>int</code>类型使用<code>Integer</code>。</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>Collection.sort()方法对String类型进行排序时，按照数字0-9、大写字母A-Z、小写字母a-z的顺序来排序，即，数字最前，小写字母z最后</li>
-</ul>
-<ul>
-<li>Java集合框架结构（内容）<br><img src="https://i.loli.net/2020/04/13/Btxp8oGRg3FHsI4.png" alt="Java集合框架内容.png"></li>
-</ul>
-<ul>
-<li>容器：里面装有很多相同属性的对象。</li>
-</ul>
+<ol>
+<li>添加上 Druid 数据源依赖<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/com.alibaba/druid --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>druid<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.21<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>切换数据源；之前已经说过 Spring Boot 2.0 以上默认使用 com.zaxxer.hikari.HikariDataSource 数据源，但可以 通过 spring.datasource.type 指定数据源<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="number">123456</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/springboot?serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=utf-8</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">com.alibaba.druid.pool.DruidDataSource</span> <span class="comment"># 自定义数据源</span></span><br><span class="line"><span class="string">```</span>  </span><br><span class="line"><span class="number">3</span><span class="string">.</span> <span class="string">现在需要程序员自己为</span> <span class="string">DruidDataSource</span> <span class="string">绑定全局配置文件中的参数，再添加到容器中，而不再使用</span> <span class="string">Spring</span> <span class="string">Boot</span> <span class="string">的自动生成了；我们需要自己添加</span> <span class="string">DruidDataSource</span> <span class="string">组件到容器中，并绑定属性</span>  </span><br><span class="line"><span class="string">```java</span></span><br><span class="line"><span class="string">package</span> <span class="string">com.kuang.config;</span></span><br><span class="line"></span><br><span class="line"><span class="string">import</span> <span class="string">com.alibaba.druid.pool.DruidDataSource;</span></span><br><span class="line"><span class="string">import</span> <span class="string">org.springframework.boot.context.properties.ConfigurationProperties;</span></span><br><span class="line"><span class="string">import</span> <span class="string">org.springframework.context.annotation.Bean;</span></span><br><span class="line"><span class="string">import</span> <span class="string">org.springframework.context.annotation.Configuration;</span></span><br><span class="line"></span><br><span class="line"><span class="string">import</span> <span class="string">javax.sql.DataSource;</span></span><br><span class="line"></span><br><span class="line"><span class="string">@Configuration</span></span><br><span class="line"><span class="string">public</span> <span class="string">class</span> <span class="string">DruidConfig</span> <span class="string">&#123;</span></span><br><span class="line"></span><br><span class="line">    <span class="string">/*</span></span><br><span class="line">       <span class="string">将自定义的</span> <span class="string">Druid数据源添加到容器中，不再让</span> <span class="string">Spring</span> <span class="string">Boot</span> <span class="string">自动创建</span></span><br><span class="line">       <span class="string">绑定全局配置文件中的</span> <span class="string">druid</span> <span class="string">数据源属性到</span> <span class="string">com.alibaba.druid.pool.DruidDataSource从而让它们生效</span></span><br><span class="line">       <span class="string">@ConfigurationProperties(prefix</span> <span class="string">=</span> <span class="string">"spring.datasource"</span><span class="string">)：作用就是将</span> <span class="string">全局配置文件中</span></span><br><span class="line">       <span class="string">前缀为</span> <span class="string">spring.datasource的属性值注入到</span> <span class="string">com.alibaba.druid.pool.DruidDataSource</span> <span class="string">的同名参数中</span></span><br><span class="line">     <span class="string">*/</span></span><br><span class="line">    <span class="string">@ConfigurationProperties(prefix</span> <span class="string">=</span> <span class="string">"spring.datasource"</span><span class="string">)</span></span><br><span class="line">    <span class="string">@Bean</span></span><br><span class="line">    <span class="string">public</span> <span class="string">DataSource</span> <span class="string">druidDataSource()</span> <span class="string">&#123;</span></span><br><span class="line">        <span class="string">return</span> <span class="string">new</span> <span class="string">DruidDataSource();</span></span><br><span class="line">    <span class="string">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure></li>
+<li>配置Druid数据源监控的配置（可视化界面的配置）<br>Druid 数据源具有监控的功能，并提供了一个 web 界面方便用户查看，类似安装 路由器 时，人家也提供了一个默认的 web 页面。  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//配置 Druid 监控管理后台的Servlet；</span></span><br><span class="line"><span class="comment">//内置 Servlet 容器时没有web.xml文件，所以使用 Spring Boot 的注册 Servlet 方式</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> ServletRegistrationBean <span class="title">statViewServlet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ServletRegistrationBean bean = <span class="keyword">new</span> ServletRegistrationBean(<span class="keyword">new</span> StatViewServlet(), <span class="string">"/druid/*"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 这些参数可以在 com.alibaba.druid.support.http.StatViewServlet </span></span><br><span class="line">    <span class="comment">// 的父类 com.alibaba.druid.support.http.ResourceServlet 中找到</span></span><br><span class="line">    Map&lt;String, String&gt; initParams = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    initParams.put(<span class="string">"loginUsername"</span>, <span class="string">"admin"</span>); <span class="comment">//后台管理界面的登录账号</span></span><br><span class="line">    initParams.put(<span class="string">"loginPassword"</span>, <span class="string">"123456"</span>); <span class="comment">//后台管理界面的登录密码</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//后台允许谁可以访问</span></span><br><span class="line">    <span class="comment">//initParams.put("allow", "localhost")：表示只有本机可以访问</span></span><br><span class="line">    <span class="comment">//initParams.put("allow", "")：为空或者为null时，表示允许所有访问</span></span><br><span class="line">    initParams.put(<span class="string">"allow"</span>, <span class="string">""</span>);</span><br><span class="line">    <span class="comment">//deny：Druid 后台拒绝谁访问</span></span><br><span class="line">    <span class="comment">//initParams.put("kuangshen", "192.168.1.20");表示禁止此ip访问</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置初始化参数</span></span><br><span class="line">    bean.setInitParameters(initParams);</span><br><span class="line">    <span class="keyword">return</span> bean;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
 ]]></content>
       <tags>
         <tag>学习笔记·Java</tag>
+        <tag>学习笔记·SpringBoot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于博客网站</title>
+    <url>/2020/02/18/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/</url>
+    <content><![CDATA[<h1 id="关于这篇博客"><a href="#关于这篇博客" class="headerlink" title="关于这篇博客"></a>关于这篇博客</h1><h2 id="博客的主要内容"><a href="#博客的主要内容" class="headerlink" title="博客的主要内容"></a>博客的主要内容</h2><a id="more"></a>
+<ul>
+<li>学习笔记<ul>
+<li>平时学习到的技术知识的总结</li>
+<li>学校课程的笔记</li>
+</ul>
+</li>
+<li>所思所想<ul>
+<li>对学习路线的梳理</li>
+<li>对博客相关的整理</li>
+<li>对一些平时所见结合知识点发表的见解</li>
+</ul>
+</li>
+<li>（待增加……）</li>
+</ul>
+<h2 id="博客的目的"><a href="#博客的目的" class="headerlink" title="博客的目的"></a>博客的目的</h2><ul>
+<li>为了能够在遇到相同问题时，快速的找到相应的解决办法，并加深印象</li>
+<li>为了能够使自己对自己的技术能力、技术学习周期和时限有一个更直观的认识</li>
+<li>(待完善……)</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>所思所想</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringBoot整合Mybatis</title>
+    <url>/2020/07/31/SpringBoot%E6%95%B4%E5%90%88Mybatis/</url>
+    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文简述了SpringBoot整合Mybatis的主要步骤。  </p>
+<a id="more"></a>
+<ol>
+<li>导入 MyBatis 所需要的依赖  <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis.spring.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.1.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">2. 配置数据库连接信息(此配置为引入Druid数据源之后的数据源配置)  </span><br><span class="line">```yaml</span><br><span class="line">spring:</span><br><span class="line">  datasource:</span><br><span class="line">    username: root</span><br><span class="line">    password: 123456</span><br><span class="line">    #?serverTimezone=UTC解决时区的报错</span><br><span class="line">    url: jdbc:mysql://localhost:3306/springboot?serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=utf-8</span><br><span class="line">    driver-class-name: com.mysql.cj.jdbc.Driver</span><br><span class="line">    type: com.alibaba.druid.pool.DruidDataSource</span><br><span class="line"></span><br><span class="line">    #Spring Boot 默认是不注入这些属性值的，需要自己绑定</span><br><span class="line">    #druid 数据源专有配置</span><br><span class="line">    initialSize: 5</span><br><span class="line">    minIdle: 5</span><br><span class="line">    maxActive: 20</span><br><span class="line">    maxWait: 60000</span><br><span class="line">    timeBetweenEvictionRunsMillis: 60000</span><br><span class="line">    minEvictableIdleTimeMillis: 300000</span><br><span class="line">    validationQuery: SELECT 1 FROM DUAL</span><br><span class="line">    testWhileIdle: true</span><br><span class="line">    testOnBorrow: false</span><br><span class="line">    testOnReturn: false</span><br><span class="line">    poolPreparedStatements: true</span><br><span class="line"></span><br><span class="line">    #配置监控统计拦截的filters，stat:监控统计、log4j：日志记录、wall：防御sql注入</span><br><span class="line">    #如果允许时报错  java.lang.ClassNotFoundException: org.apache.log4j.Priority</span><br><span class="line">    #则导入 log4j 依赖即可，Maven 地址：https://mvnrepository.com/artifact/log4j/log4j</span><br><span class="line">    filters: stat,wall,log4j</span><br><span class="line">    maxPoolPreparedStatementPerConnectionSize: 20</span><br><span class="line">    useGlobalDataSourceStat: true</span><br><span class="line">    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500</span><br></pre></td></tr></table></figure></li>
+<li>测试数据库是否连接成功！  </li>
+<li>接下来的操作和Spring中的一样，即，创建实体类和对应的映射文件，在service和controller中调用，完成业务</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>学习笔记·Java</tag>
+        <tag>学习笔记·SpringBoot</tag>
       </tags>
   </entry>
   <entry>
@@ -2203,277 +2519,6 @@
 ]]></content>
       <tags>
         <tag>学习笔记·Maven</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Markdown的学习总结和巩固</title>
-    <url>/2020/02/18/Markdown%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E5%92%8C%E5%B7%A9%E5%9B%BA/</url>
-    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>对markdown的个人认识：是一种语法格式，用这种语法写出的文件以.md后缀结尾。通过特定的环境的浏览，可以快速的识别并形成漂亮的格式，效率和美观都可以保证。（此hexo博客文章采用markdown格式书写。）（注：语法符号若没有实现效果时，往往在前后用空格将文字和符号隔开可以恢复效果）（本篇暂时收录平时会用到的格式方式，语法学习来自——<a href="https://www.runoob.com/markdown/md-tutorial.html" target="_blank" rel="noopener">菜鸟教程</a>）</p>
-<a id="more"></a>
-<h1 id="标题的写法"><a href="#标题的写法" class="headerlink" title="标题的写法"></a>标题的写法</h1><ul>
-<li><p>一、二级标题写法可以为</p>
-<ul>
-<li><code>一级标题</code><br><code>===========（一个即可）</code><br><code>二级标题</code><br><code>------------（一个即可）</code><br>显示效果为：<blockquote>
-<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题  "></a>一级标题  </h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2></blockquote>
-</li>
-<li>或<br><code># 一级标题</code><br><code>## 二级标题</code><br>显示效果为：<blockquote>
-<h1 id="一级标题-1"><a href="#一级标题-1" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题-1"><a href="#二级标题-1" class="headerlink" title="二级标题"></a>二级标题</h2></blockquote>
-</li>
-</ul>
-</li>
-<li><p>随后的标题级别只能用 <code>#</code>来标识，几个 <code>#</code>代表是几级标题（最多六个 <code>#</code>）</p>
-</li>
-</ul>
-<h1 id="段落和换行"><a href="#段落和换行" class="headerlink" title="段落和换行"></a>段落和换行</h1><ul>
-<li>行末或段末可以使用两个空格加上回车来实现换行</li>
-<li>在空行直接回车可以实现空一行，且只有第一个回车有效<br>（注：行内文字间空格只有第一个有效，要实现多个空格，可以使用HTML标记中的空格标记如 <code>&amp;nbsp</code>）</li>
-</ul>
-<h1 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h1><ul>
-<li>字体可实现斜体和粗体<ul>
-<li>斜体的写法有两种：<code>*斜体*</code> 或者 <code>_斜体_</code></li>
-<li>粗体的写法有两种：<code>**粗体**</code> 或者 <code>__粗体__</code></li>
-</ul>
-</li>
-<li>斜体可加粗，写法为： <code>***加粗斜体***</code> 或者 <code>___加粗斜体___</code>  </li>
-</ul>
-<h1 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h1><ul>
-<li>当行内只有三个以上的 <code>*</code> 、<code>_</code> 或者 <code>-</code> 时（可以有空格），可以实现分隔线效果，写法如下：<br><code>---</code><br><code>***</code><br><code>- - -</code><br><code>* * *</code><br><code>___</code><br>效果为：<blockquote>
-<p>分隔线</p>
-<hr>
-<p>分隔线</p>
-</blockquote>
-</li>
-</ul>
-<h1 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h1><ul>
-<li>文字上添加删除线样式的方法是在两端分别加上两个 <code>~</code>，如：<br><code>~~删除线~~</code><br>效果为：<blockquote>
-<p><del>1删除线11111</del></p>
-</blockquote>
-</li>
-</ul>
-<h1 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h1><ul>
-<li>下划线用HTML的 <code>&lt;u&gt;</code> 标签来实现，如：<br><code>&lt;u&gt;下划线&lt;/u&gt;</code><br>效果为：  <blockquote>
-<p><u>下划线</u></p>
-</blockquote>
-</li>
-</ul>
-<h1 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h1><ul>
-<li>脚注是对文本的补充说明，写法为：<code>[^要注明的文本]</code><br>效果为：  <blockquote>
-<p>创建脚注格式类似这样[^RUNOOB]。<br>[^RUNOOB]: 菜鸟教程 – 学的不仅是技术，更是梦想！！！</p>
-</blockquote>
-</li>
-</ul>
-<h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><ul>
-<li>无序列表使用星号 <code>*</code>、加号 <code>+</code> 或是减号 <code>-</code>作为列表标记，如：<br><code>*无序列表</code><br><code>+无序列表</code><br><code>-无序列表</code><br>效果为：  <blockquote>
-<ul>
-<li>无序列表</li>
-</ul>
-<ul>
-<li>无序列表</li>
-</ul>
-<ul>
-<li>无序列表</li>
-</ul>
-</blockquote>
-</li>
-<li>有序列表使用数字并加上 . 号来表示，如：<br><code>1. 第一项</code><br><code>2. 第二项</code><br><code>3. 第三项</code><br>效果为：<blockquote>
-<ol>
-<li>第一项</li>
-<li>第二项</li>
-<li>第三项</li>
-</ol>
-</blockquote>
-</li>
-</ul>
-<h1 id="列表嵌套"><a href="#列表嵌套" class="headerlink" title="列表嵌套"></a>列表嵌套</h1><ul>
-<li>列表嵌套只需在子列表中的选项添加四个空格（或一个tab）即可，写法如下：    <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 第一项：</span><br><span class="line">    - 第一项嵌套的第一个元素</span><br><span class="line">    - 第一项嵌套的第二个元素</span><br><span class="line">2. 第二项：</span><br><span class="line">    - 第二项嵌套的第一个元素</span><br><span class="line">    - 第二项嵌套的第二个元素</span><br></pre></td></tr></table></figure>
-  效果为：<blockquote>
-<ol>
-<li>第一项：<ul>
-<li>第一项嵌套的第一个元素</li>
-<li>第一项嵌套的第二个元素</li>
-</ul>
-</li>
-<li>第二项：<ul>
-<li>第二项嵌套的第一个元素</li>
-<li>第二项嵌套的第二个元素</li>
-</ul>
-</li>
-</ol>
-</blockquote>
-</li>
-</ul>
-<h1 id="区块"><a href="#区块" class="headerlink" title="区块"></a>区块</h1><ul>
-<li>区块引用是在段落开头使用 <code>&gt;</code> 符号 ，然后后面紧跟一个空格符号（不跟，在vscode中也可识别，当前版本为1.42.1），另外区块是可以嵌套的，一个 <code>&gt;</code> 符号是最外层，两个 <code>&gt;</code> 符号是第一层嵌套，以此类推：如： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; 最外层</span><br><span class="line">&gt; &gt; 第一层嵌套</span><br><span class="line">&gt; &gt; &gt; 第二层嵌套</span><br></pre></td></tr></table></figure>
- 效果为：  <blockquote>
-<p>最外层11</p>
-<blockquote>
-<p>第一层嵌套</p>
-<blockquote>
-<p>第二层嵌套</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-</ul>
-<p>另，区块中可以插入列表，列表中可以插入区块（若文字与内层嵌套的区块未空有一行，则认为，此行文字还在区块中）</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><ul>
-<li>如果是段落上的一个函数或片段的代码可以用反引号(`)把它包起来，<br>你也可以用 ``` 包裹一段代码，并指定一种语言，不同语言的标注可以参考<code>https://blog.csdn.net/qq_35451572/article/details/85125737</code>（也可以不指定）：  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#96;&#96;&#96;javascript  </span><br><span class="line">$(document).ready(function () &#123;  </span><br><span class="line">    alert(&#39;RUNOOB&#39;);  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">效果如下：  </span><br><span class="line">&#96;&#96;&#96;javascript</span><br><span class="line">$(document).ready(function () &#123;</span><br><span class="line">    alert(&#39;RUNOOB&#39;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
-<li>支持的语言类型为：<code>1c, abnf, accesslog, actionscript, ada, apache, applescript, arduino, armasm, asciidoc, aspectj, autohotkey, autoit, avrasm, awk, axapta, bash, basic, bnf, brainfuck, cal, capnproto, ceylon, clean, clojure, clojure-repl, cmake, coffeescript, coq, cos, cpp, crmsh, crystal, cs, csp, css, d, dart, delphi, diff, django, dns, dockerfile, dos, dsconfig, dts, dust, ebnf, elixir, elm, erb, erlang, erlang-repl, excel, fix, flix, fortran, fsharp, gams, gauss, gcode, gherkin, glsl, go, golo, gradle, groovy, haml, handlebars, haskell, haxe, hsp, htmlbars, http, hy, inform7, ini, irpf90, java, javascript, json, julia, kotlin, lasso, ldif, leaf, less, lisp, livecodeserver, livescript, llvm, lsl, lua, makefile, markdown, mathematica, matlab, maxima, mel, mercury, mipsasm, mizar, mojolicious, monkey, moonscript, n1ql, nginx, nimrod, nix, nsis, objectivec, ocaml, openscad, oxygene, parser3, perl, pf, php, pony, powershell, processing, profile, prolog, protobuf, puppet, purebasic, python, q, qml, r, rib, roboconf, rsl, ruby, ruleslanguage, rust, scala, scheme, scilab, scss, smali, smalltalk, sml, sqf, sql, stan, stata, step21, stylus, subunit, swift, taggerscript, tap, tcl, tex, thrift, tp, twig, typescript, vala, vbnet, vbscript, vbscript-html, verilog, vhdl, vim, x86asm, xl, xml, xquery, yaml, zephir</code></li>
-</ul>
-<p>作者：oopp8<br>链接：<a href="https://www.jianshu.com/p/c2b75ff24c33" target="_blank" rel="noopener">https://www.jianshu.com/p/c2b75ff24c33</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-<h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><ul>
-<li><p>链接使用方法如下<br><code>[链接名称](链接地址)</code><br>（此方法类似HTML中的a标签，不显示具体的链接地址）<br>或者<br><code>&lt;链接地址&gt;</code><br>（此方法直接显示可跳转的链接的内容）</p>
-</li>
-<li><p>高级链接<br>链接也可以用变量来代替，文档末尾附带变量地址，如：</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">这个链接用 1 作为网址变量 [Google][1]</span><br><span class="line">这个链接用 runoob 作为网址变量 [Runoob][runoob]</span><br><span class="line">然后在文档的结尾为变量赋值（网址）</span><br><span class="line"></span><br><span class="line">[1]: http:&#x2F;&#x2F;www.google.com&#x2F;</span><br><span class="line">[runoob]: http:&#x2F;&#x2F;www.runoob.com&#x2F;</span><br></pre></td></tr></table></figure>
-<p>  效果为：<br>  这个链接用 1 作为网址变量 [Google][1]<br>  这个链接用 runoob 作为网址变量 [Runoob][runoob]<br>  然后在文档的结尾为变量赋值（网址）</p>
-<p>  [1]: <a href="http://www.google.com/" target="_blank" rel="noopener">http://www.google.com/</a><br>  [runoob]: <a href="http://www.runoob.com/" target="_blank" rel="noopener">http://www.runoob.com/</a></p>
-</li>
-</ul>
-<h1 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h1><ul>
-<li>Markdown 图片语法格式如下：  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![alt 属性文本](图片地址)</span><br><span class="line">或</span><br><span class="line">![alt 属性文本](图片地址 &quot;可选标题&quot;)</span><br></pre></td></tr></table></figure>
-  开头一个感叹号 <code>!</code>，接着一个方括号，里面放上图片的替代文字，接着一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上选择性的，’title’ 属性的文字（当鼠标移动到图片上时，会显示的文字为title中的值）。<br>  写法如：<br>  <code>![示例图片](https://i.loli.net/2020/02/12/yOigcUF4CS1MN8v.jpg &quot;示例图片&quot;)</code><br>  <img src="https://i.loli.net/2020/02/12/yOigcUF4CS1MN8v.jpg" alt="示例图片" title="示例图片"><br>  当然，你也可以像网址那样对图片网址使用变量（这里不会直接显示图片，当点击链接之后，会在新的页面中显示出来）。<br>  Markdown 还没有办法指定图片的高度与宽度，如果你需要的话，你可以使用普通的 <code>&lt;img&gt;</code> 标签。  </li>
-</ul>
-<h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h1><ul>
-<li><p>Markdown 制作表格使用 <code>|</code> 来分隔不同的单元格，使用 <code>-</code> 来分隔表头和其他行。</p>
-<p>  语法格式如下：</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">|  表头   | 表头  |</span><br><span class="line">|  ----  | ----  |</span><br><span class="line">| 单元格  | 单元格 |</span><br><span class="line">| 单元格  | 单元格 |</span><br></pre></td></tr></table></figure>
-<p>  效果为：</p>
-<table>
-<thead>
-<tr>
-<th>表头</th>
-<th>表头</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>单元格</td>
-<td>单元格</td>
-</tr>
-<tr>
-<td>单元格</td>
-<td>单元格</td>
-</tr>
-</tbody></table>
-<ul>
-<li><p>对齐方式</p>
-<p>我们可以设置表格的对齐方式：</p>
-<p><code>-:</code> 设置内容和标题栏居右对齐。<br><code>:-</code> 设置内容和标题栏居左对齐。<br><code>:-:</code> 设置内容和标题栏居中对齐。<br>实例如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">| 左对齐 | 右对齐 | 居中对齐 |</span><br><span class="line">| :-----| ----: | :----: |</span><br><span class="line">| 单元格 | 单元格 | 单元格 |</span><br><span class="line">| 单元格 | 单元格 | 单元格 |</span><br></pre></td></tr></table></figure>
-<p>效果为：  </p>
-<table>
-<thead>
-<tr>
-<th align="left">左对齐左对齐</th>
-<th align="right">右对齐右对齐</th>
-<th align="center">居中对齐居中对齐</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">单元格</td>
-<td align="right">单元格</td>
-<td align="center">单元格</td>
-</tr>
-<tr>
-<td align="left">单元格</td>
-<td align="right">单元格</td>
-<td align="center">单元格</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="转义"><a href="#转义" class="headerlink" title="转义"></a>转义</h1><ul>
-<li>Markdown 使用了很多特殊符号来表示特定的意义，如果需要显示特定的符号则需要使用转义字符，Markdown 使用反斜杠转义特殊字符。<br>  示例为：  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">**文本加粗** </span><br><span class="line">\*\* 正常显示星号 \*\*</span><br></pre></td></tr></table></figure>
-  显示效果为：<br>  <strong>文本加粗</strong><br>  ** 正常显示星号 **</li>
-</ul>
-<h1 id="页面内锚点跳转"><a href="#页面内锚点跳转" class="headerlink" title="页面内锚点跳转"></a>页面内锚点跳转</h1><ul>
-<li>跳转链接的语法为 <code>[目录1](#jump1)</code>，锚点的语法为 <code>&lt;span id=&quot;jump1&quot;&gt;1. 目录1&lt;/span&gt;</code>，实际书写例子如下：    <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># 标题</span></span><br><span class="line"></span><br><span class="line">----</span><br><span class="line"><span class="section">## 目录</span></span><br><span class="line"><span class="bullet">1. </span>[<span class="string">目录1</span>](<span class="link">#jump1</span>)</span><br><span class="line"><span class="bullet">2. </span>[<span class="string">目录2</span>](<span class="link">#jump2</span>)</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"><span class="section">### &lt;span id="jump1"&gt;1. 目录1&lt;/span&gt;</span></span><br><span class="line">---</span><br><span class="line"><span class="section">### &lt;span id="jump2"&gt;2. 目录2&lt;/span&gt;</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>学习笔记·Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SpringBoot初探</title>
-    <url>/2020/07/28/SpringBoot%E5%88%9D%E6%8E%A2/</url>
-    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文主要整理了SpringBoot中常见的概念名词及其实现的原理。  </p>
-<h3 id="Spring-Boot-自动配置原理是什么？"><a href="#Spring-Boot-自动配置原理是什么？" class="headerlink" title="Spring Boot 自动配置原理是什么？"></a>Spring Boot 自动配置原理是什么？</h3><p>在spring-boot-autoconfigure-2.3.1.RELEASE.jar包下的META-INF文件夹里的spring.factories，有JavaEE需要的所有配置和解决方案。  </p>
-<a id="more"></a>
-<p>springboot所有自动配置都是在启动的时候扫描加载的：spring.factories所有的自动配置类都在这里面，但是不一定生效，要判断条件是否成立，只要导入对应的start，就有了对应的启动器，我们的自动装配就会生效，然后就配置成功了。其中配置生效的原理是通过@ConditionalOnClass注解来判断某个类是否存在在程序中（其中可能含有很多类似的@ConditionalOnXXX注解来判断是否满足配置导入的前提条件），对应的启动器中的依赖中的类，导入到程序中之后，对应的扫描通过了，自动配置就生效，此时便配置成功了。  </p>
-<h3 id="Spring-Boot-的核心注解是哪个？它主要由哪几个注解组成的？"><a href="#Spring-Boot-的核心注解是哪个？它主要由哪几个注解组成的？" class="headerlink" title="Spring Boot 的核心注解是哪个？它主要由哪几个注解组成的？"></a>Spring Boot 的核心注解是哪个？它主要由哪几个注解组成的？</h3><p>启动类上面的注解是<code>@SpringBootApplication</code>，它也是 Spring Boot 的核心注解，主要组合包含了以下 3 个注解：  </p>
-<ul>
-<li><code>@SpringBootConfiguration</code>：组合了 @Configuration 注解，实现配置文件的功能。  </li>
-<li><code>@EnableAutoConfiguration</code>：打开自动配置的功能，也可以关闭某个自动配置的选项，如关闭数据源自动配置功能：<br>@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class })。  <ul>
-<li>@AutoConfigurationPackage  <ul>
-<li>@Import(AutoConfigurationPackages.Registrar.class)自动配置包注册  </li>
-</ul>
-</li>
-<li>@Import(AutoConfigurationImportSelector.class)  <ul>
-<li>AutoConfigurationImportSelector中定义了要扫描的类需要<code>EnableAutoConfiguration</code>注解，<code>SpringBootApplication</code>注解底层即有此注解；以及需要加载的配置在spring-boot-autoconfigure-2.3.1.RELEASE.jar包下的META-INF文件夹里的spring.factories中  </li>
-</ul>
-</li>
-</ul>
-</li>
-<li><code>@ComponentScan</code>：Spring组件扫描。扫描当前主启动类同级的包。  </li>
-</ul>
-<h3 id="Spring-Boot-有哪几种读取配置的方式？"><a href="#Spring-Boot-有哪几种读取配置的方式？" class="headerlink" title="Spring Boot 有哪几种读取配置的方式？"></a>Spring Boot 有哪几种读取配置的方式？</h3><ul>
-<li><code>@ConfigurationProperties(prefix = &quot;info&quot;)</code>注解，这种方式需要配置文件中的名字和类中的属性名相同；  </li>
-<li><code>@PropertySource(value = { &quot;config/db-config.properties&quot; })</code>加上<code>@Value(&quot;$(name)&quot;)</code>，可以取到配置文件中相对应的值；<br>其中，<code>@ConfigurationProperties</code>的方式较好，因为它支持</li>
-<li>批量注入配置文件中的属性，而使用<code>@Value</code>的方式需要一个个的配置  </li>
-<li>松散绑定，即，在类中使用驼峰命名，在配置类中使用<code>-</code>隔开的方式也能被识别  </li>
-<li>JSR303数据校验  </li>
-<li>复杂类型封装  </li>
-</ul>
-<h3 id="你如何理解-Spring-Boot-配置加载顺序？"><a href="#你如何理解-Spring-Boot-配置加载顺序？" class="headerlink" title="你如何理解 Spring Boot 配置加载顺序？"></a>你如何理解 Spring Boot 配置加载顺序？</h3><p>springboot 启动会扫描以下位置的application.properties或者application.yml文件作为Spring boot的默认配置文件：  </p>
-<ul>
-<li>优先级1：项目路径下的config文件夹配置文件  </li>
-<li>优先级2：项目路径下配置文件  </li>
-<li>优先级3：资源路径下的config文件夹配置文件  </li>
-<li>优先级4：资源路径下配置文件  </li>
-</ul>
-<p>优先级由高到底，高优先级的配置会覆盖低优先级的配置；</p>
-<h3 id="Spring-Boot-如何定义多套不同环境配置？"><a href="#Spring-Boot-如何定义多套不同环境配置？" class="headerlink" title="Spring Boot 如何定义多套不同环境配置？"></a>Spring Boot 如何定义多套不同环境配置？</h3><ul>
-<li>多配置文件时：<br>我们在主配置文件编写的时候，文件名可以是 <code>application-{profile}.properties/yml</code>, 用来指定多个环境版本；<br>例如：<br><code>application-test.properties</code>代表测试环境配置<br><code>application-dev.properties</code>代表开发环境配置<br>但是Springboot并不会直接启动这些配置文件，它默认使用<code>application.properties</code>主配置文件；<br>我们需要通过一个配置来选择需要激活的环境：    <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">    #比如在配置文件中指定使用dev环境，我们可以通过设置不同的端口号进行测试；</span><br><span class="line">    #我们启动SpringBoot，就可以看到已经切换到dev下的配置了；</span><br><span class="line">    spring.profiles.active=dev</span><br><span class="line">    ```  </span><br><span class="line"></span><br><span class="line">* 使用yaml文件作为配置文件时，可以使用同一个文件实现多环境：  </span><br><span class="line">```yml</span><br><span class="line">server:</span><br><span class="line">  port: 8081</span><br><span class="line">#选择要激活那个环境块</span><br><span class="line">spring:</span><br><span class="line">  profiles:</span><br><span class="line">    active: prod</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">server:</span><br><span class="line">  port: 8083</span><br><span class="line">spring:</span><br><span class="line">  profiles: dev #配置环境的名称</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">server:</span><br><span class="line">  port: 8084</span><br><span class="line">spring:</span><br><span class="line">  profiles: prod  #配置环境的名称</span><br></pre></td></tr></table></figure>
-注意：如果yml和properties同时都配置了端口，并且没有激活其他环境 ， 默认会使用properties配置文件的！  </li>
-</ul>
-<h3 id="如何自定义配置"><a href="#如何自定义配置" class="headerlink" title="如何自定义配置"></a>如何自定义配置</h3><p>xxxAutoConfiguration中带有相应的配置的默认值，其中的底层将xxxProperties和配置文件绑定，我们在配置文件中可以对xxxProperties配置类中的属性进行覆写，即可完成自定义的配置。  </p>
-<h3 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h3><ol>
-<li>用maven构建 项目时，resources 目录就是默认的classpath；  </li>
-<li>通过debug=true可以让控制台打印自动配置报告，这样我们就可以很方便的知道哪些自动配置类生效；  </li>
-<li>静态资源目录为resource下的public、static和resource，其中resource下的优先级高于static，public优先级最低；同时，也可通过spring.mvc.static-path-pattern来指定静态资源的目录，一般不指定；  </li>
-<li>首页的设置，只要在public、static和resource文件夹下创建一个名为<code>index.html</code>的文件即可被自动识别并访问；  </li>
-<li>template文件夹下的文件需要通过controller才能访问，且需要引入模板引擎；  </li>
-<li></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>学习笔记·Java</tag>
-        <tag>学习笔记·SpringBoot</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PHP语法回顾</title>
-    <url>/2020/05/07/PHP%E8%AF%AD%E6%B3%95%E5%9B%9E%E9%A1%BE/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>SpringBoot整合Mybatis</title>
-    <url>/2020/07/31/SpringBoot%E6%95%B4%E5%90%88Mybatis/</url>
-    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文简述了SpringBoot整合Mybatis的主要步骤。  </p>
-<a id="more"></a>
-<ol>
-<li>导入 MyBatis 所需要的依赖  <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis.spring.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.1.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">2. 配置数据库连接信息(此配置为引入Druid数据源之后的数据源配置)  </span><br><span class="line">```yaml</span><br><span class="line">spring:</span><br><span class="line">  datasource:</span><br><span class="line">    username: root</span><br><span class="line">    password: 123456</span><br><span class="line">    #?serverTimezone=UTC解决时区的报错</span><br><span class="line">    url: jdbc:mysql://localhost:3306/springboot?serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=utf-8</span><br><span class="line">    driver-class-name: com.mysql.cj.jdbc.Driver</span><br><span class="line">    type: com.alibaba.druid.pool.DruidDataSource</span><br><span class="line"></span><br><span class="line">    #Spring Boot 默认是不注入这些属性值的，需要自己绑定</span><br><span class="line">    #druid 数据源专有配置</span><br><span class="line">    initialSize: 5</span><br><span class="line">    minIdle: 5</span><br><span class="line">    maxActive: 20</span><br><span class="line">    maxWait: 60000</span><br><span class="line">    timeBetweenEvictionRunsMillis: 60000</span><br><span class="line">    minEvictableIdleTimeMillis: 300000</span><br><span class="line">    validationQuery: SELECT 1 FROM DUAL</span><br><span class="line">    testWhileIdle: true</span><br><span class="line">    testOnBorrow: false</span><br><span class="line">    testOnReturn: false</span><br><span class="line">    poolPreparedStatements: true</span><br><span class="line"></span><br><span class="line">    #配置监控统计拦截的filters，stat:监控统计、log4j：日志记录、wall：防御sql注入</span><br><span class="line">    #如果允许时报错  java.lang.ClassNotFoundException: org.apache.log4j.Priority</span><br><span class="line">    #则导入 log4j 依赖即可，Maven 地址：https://mvnrepository.com/artifact/log4j/log4j</span><br><span class="line">    filters: stat,wall,log4j</span><br><span class="line">    maxPoolPreparedStatementPerConnectionSize: 20</span><br><span class="line">    useGlobalDataSourceStat: true</span><br><span class="line">    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500</span><br></pre></td></tr></table></figure></li>
-<li>测试数据库是否连接成功！  </li>
-<li>接下来的操作和Spring中的一样，即，创建实体类和对应的映射文件，在service和controller中调用，完成业务</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>学习笔记·Java</tag>
-        <tag>学习笔记·SpringBoot</tag>
       </tags>
   </entry>
   <entry>
@@ -2577,6 +2622,26 @@ Route::any(<span class="string">'new/:id'</span>,<span class="string">'News/read
       <tags>
         <tag>学习笔记·PHP</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2019/12/31/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<a id="more"></a>
+
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>Vue简要回顾</title>
@@ -2712,6 +2777,14 @@ Route::any(<span class="string">'new/:id'</span>,<span class="string">'News/read
       </tags>
   </entry>
   <entry>
+    <title>操作系统相关知识点的回顾和学习</title>
+    <url>/2020/04/17/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9%E7%9A%84%E5%9B%9E%E9%A1%BE%E5%92%8C%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>学习笔记·操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>微信小程序项目的常见面试题</title>
     <url>/2020/04/23/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
     <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文整理了部分微信小程序的相关面试题及其解答。  </p>
@@ -2770,112 +2843,6 @@ Route::any(<span class="string">'new/:id'</span>,<span class="string">'News/read
       </tags>
   </entry>
   <entry>
-    <title>SpringBoot整合Druid数据源</title>
-    <url>/2020/07/31/SpringBoot%E6%95%B4%E5%90%88Druid%E6%95%B0%E6%8D%AE%E6%BA%90/</url>
-    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>Druid 是阿里巴巴开源平台上一个数据库连接池实现，结合了 C3P0、DBCP 等 DB 池的优点，同时加入了日志监控。后台监控自带了页面。  </p>
-<a id="more"></a>  
-
-<ol>
-<li>添加上 Druid 数据源依赖<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/com.alibaba/druid --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>druid<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.21<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li>切换数据源；之前已经说过 Spring Boot 2.0 以上默认使用 com.zaxxer.hikari.HikariDataSource 数据源，但可以 通过 spring.datasource.type 指定数据源<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="number">123456</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/springboot?serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=utf-8</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">com.alibaba.druid.pool.DruidDataSource</span> <span class="comment"># 自定义数据源</span></span><br><span class="line"><span class="string">```</span>  </span><br><span class="line"><span class="number">3</span><span class="string">.</span> <span class="string">现在需要程序员自己为</span> <span class="string">DruidDataSource</span> <span class="string">绑定全局配置文件中的参数，再添加到容器中，而不再使用</span> <span class="string">Spring</span> <span class="string">Boot</span> <span class="string">的自动生成了；我们需要自己添加</span> <span class="string">DruidDataSource</span> <span class="string">组件到容器中，并绑定属性</span>  </span><br><span class="line"><span class="string">```java</span></span><br><span class="line"><span class="string">package</span> <span class="string">com.kuang.config;</span></span><br><span class="line"></span><br><span class="line"><span class="string">import</span> <span class="string">com.alibaba.druid.pool.DruidDataSource;</span></span><br><span class="line"><span class="string">import</span> <span class="string">org.springframework.boot.context.properties.ConfigurationProperties;</span></span><br><span class="line"><span class="string">import</span> <span class="string">org.springframework.context.annotation.Bean;</span></span><br><span class="line"><span class="string">import</span> <span class="string">org.springframework.context.annotation.Configuration;</span></span><br><span class="line"></span><br><span class="line"><span class="string">import</span> <span class="string">javax.sql.DataSource;</span></span><br><span class="line"></span><br><span class="line"><span class="string">@Configuration</span></span><br><span class="line"><span class="string">public</span> <span class="string">class</span> <span class="string">DruidConfig</span> <span class="string">&#123;</span></span><br><span class="line"></span><br><span class="line">    <span class="string">/*</span></span><br><span class="line">       <span class="string">将自定义的</span> <span class="string">Druid数据源添加到容器中，不再让</span> <span class="string">Spring</span> <span class="string">Boot</span> <span class="string">自动创建</span></span><br><span class="line">       <span class="string">绑定全局配置文件中的</span> <span class="string">druid</span> <span class="string">数据源属性到</span> <span class="string">com.alibaba.druid.pool.DruidDataSource从而让它们生效</span></span><br><span class="line">       <span class="string">@ConfigurationProperties(prefix</span> <span class="string">=</span> <span class="string">"spring.datasource"</span><span class="string">)：作用就是将</span> <span class="string">全局配置文件中</span></span><br><span class="line">       <span class="string">前缀为</span> <span class="string">spring.datasource的属性值注入到</span> <span class="string">com.alibaba.druid.pool.DruidDataSource</span> <span class="string">的同名参数中</span></span><br><span class="line">     <span class="string">*/</span></span><br><span class="line">    <span class="string">@ConfigurationProperties(prefix</span> <span class="string">=</span> <span class="string">"spring.datasource"</span><span class="string">)</span></span><br><span class="line">    <span class="string">@Bean</span></span><br><span class="line">    <span class="string">public</span> <span class="string">DataSource</span> <span class="string">druidDataSource()</span> <span class="string">&#123;</span></span><br><span class="line">        <span class="string">return</span> <span class="string">new</span> <span class="string">DruidDataSource();</span></span><br><span class="line">    <span class="string">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure></li>
-<li>配置Druid数据源监控的配置（可视化界面的配置）<br>Druid 数据源具有监控的功能，并提供了一个 web 界面方便用户查看，类似安装 路由器 时，人家也提供了一个默认的 web 页面。  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//配置 Druid 监控管理后台的Servlet；</span></span><br><span class="line"><span class="comment">//内置 Servlet 容器时没有web.xml文件，所以使用 Spring Boot 的注册 Servlet 方式</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> ServletRegistrationBean <span class="title">statViewServlet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ServletRegistrationBean bean = <span class="keyword">new</span> ServletRegistrationBean(<span class="keyword">new</span> StatViewServlet(), <span class="string">"/druid/*"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 这些参数可以在 com.alibaba.druid.support.http.StatViewServlet </span></span><br><span class="line">    <span class="comment">// 的父类 com.alibaba.druid.support.http.ResourceServlet 中找到</span></span><br><span class="line">    Map&lt;String, String&gt; initParams = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    initParams.put(<span class="string">"loginUsername"</span>, <span class="string">"admin"</span>); <span class="comment">//后台管理界面的登录账号</span></span><br><span class="line">    initParams.put(<span class="string">"loginPassword"</span>, <span class="string">"123456"</span>); <span class="comment">//后台管理界面的登录密码</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//后台允许谁可以访问</span></span><br><span class="line">    <span class="comment">//initParams.put("allow", "localhost")：表示只有本机可以访问</span></span><br><span class="line">    <span class="comment">//initParams.put("allow", "")：为空或者为null时，表示允许所有访问</span></span><br><span class="line">    initParams.put(<span class="string">"allow"</span>, <span class="string">""</span>);</span><br><span class="line">    <span class="comment">//deny：Druid 后台拒绝谁访问</span></span><br><span class="line">    <span class="comment">//initParams.put("kuangshen", "192.168.1.20");表示禁止此ip访问</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置初始化参数</span></span><br><span class="line">    bean.setInitParameters(initParams);</span><br><span class="line">    <span class="keyword">return</span> bean;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>学习笔记·Java</tag>
-        <tag>学习笔记·SpringBoot</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于博客网站</title>
-    <url>/2020/02/18/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/</url>
-    <content><![CDATA[<h1 id="关于这篇博客"><a href="#关于这篇博客" class="headerlink" title="关于这篇博客"></a>关于这篇博客</h1><h2 id="博客的主要内容"><a href="#博客的主要内容" class="headerlink" title="博客的主要内容"></a>博客的主要内容</h2><a id="more"></a>
-<ul>
-<li>学习笔记<ul>
-<li>平时学习到的技术知识的总结</li>
-<li>学校课程的笔记</li>
-</ul>
-</li>
-<li>所思所想<ul>
-<li>对学习路线的梳理</li>
-<li>对博客相关的整理</li>
-<li>对一些平时所见结合知识点发表的见解</li>
-</ul>
-</li>
-<li>（待增加……）</li>
-</ul>
-<h2 id="博客的目的"><a href="#博客的目的" class="headerlink" title="博客的目的"></a>博客的目的</h2><ul>
-<li>为了能够在遇到相同问题时，快速的找到相应的解决办法，并加深印象</li>
-<li>为了能够使自己对自己的技术能力、技术学习周期和时限有一个更直观的认识</li>
-<li>(待完善……)</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>所思所想</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>初识Redis</title>
-    <url>/2020/04/20/%E5%88%9D%E8%AF%86Redis/</url>
-    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>2020年四月末，在教程视频中，第一次简单了解了Redis，在此记录其间的部分知识点  </p>
-<a id="more"></a>  
-<ol>
-<li><p>说说你用过的Redis的数据类型<br>供用户使用的数据类型  </p>
-<ul>
-<li><p>String：最基本的数据类型，二进制安全  </p>
-</li>
-<li><p>Hash：String元素组成的字典，适合用于存储对象  </p>
-</li>
-<li><p>List：列表，按照String元素插入顺序排序  </p>
-</li>
-<li><p>Set：String元素组成的无序集合，通过哈希表实现，不允许重复  </p>
-</li>
-<li><p>Sorted Set：通过分数来为集合中的成员进行从小到大的排序</p>
-</li>
-<li><p>用于计数的HyperLogLog，用于支持存储地理位置信息的Geo </p>
-<p>（记前五个）  </p>
-</li>
-</ul>
-</li>
-<li><p>如何解决SETNX长期有效的问题<br>EXPIRE key seconds<br>设置key的生存时间，当key过期时（即生存时间为0），会被自动删除  </p>
-</li>
-<li><p>如何通过Redis实现分布式锁<br>SET key value [EX seconds] [PX milliseconds] [NX|XX]  </p>
-<ul>
-<li>EX second：设置键的过期时间为second秒  </li>
-<li>PX millisecond：设置键的过期时间为millisecond毫秒  </li>
-<li>NX：只在键不存在时，才对键进行设置操作  </li>
-<li>XX：只在键已经存在时，才对键进行设置操作  </li>
-<li>SET操作完成时，返回OK，否则返回nil  </li>
-</ul>
-</li>
-<li><p>大量的key同时过期的注意事项<br>集中过期，由于清除大量的key很耗时，会出现短暂的卡顿现象<br>解决方案：在设置key的过期时间的时候，给每个key加上随机值  </p>
-</li>
-<li><p>pub/sub的缺点<br>消息的发布是无状态的，无法保证可达。  </p>
-</li>
-<li><p>自动化触发RDB持久化的方式  </p>
-<ul>
-<li>根据redis.conf配置里的SAVE m n 定时触发（用的是BGSAVE）  </li>
-<li>主从复制时，主节点自动触发  </li>
-<li>执行Debug Reload  </li>
-<li>执行Shutdown且没有开启AOF持久化  </li>
-</ul>
-</li>
-<li></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>学习笔记·Redis</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>操作系统相关知识点的回顾和学习</title>
-    <url>/2020/04/17/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9%E7%9A%84%E5%9B%9E%E9%A1%BE%E5%92%8C%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>学习笔记·操作系统</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>new a blog article</title>
     <url>/2020/02/12/new-a-blog-article/</url>
     <content><![CDATA[<ol>
@@ -2899,40 +2866,6 @@ Route::any(<span class="string">'new/:id'</span>,<span class="string">'News/read
 ]]></content>
       <tags>
         <tag>学习笔记·hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据结构中的排序</title>
-    <url>/2020/05/03/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%AD%E7%9A%84%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>对数据结构中提到的常见排序的个人理解。  </p>
-<a id="more"></a>
-<p><img src="https://i.loli.net/2020/05/03/SrMWPhCZqutXkOQ.png" alt="排序分类脑图.png">  </p>
-<h1 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h1><ol>
-<li><p>直接插入排序<br>认为第一个元素为有序数组，之后遍历到的每个元素都按照大小关系插入到前面提到的有序数组中，这样，这个有序数组中的元素就由一个增多，变为最后的结果了。<br>或，在一个有序数组中插入一个元素，方法是依次查找比较数组中的元素，然后在适当的位置插入元素。</p>
-</li>
-<li><p>折半插入排序<br>在数组有序的情况下，上述直接插入排序的第二种情况可以优化为折半插入排序，即，将要插入的数据每次都与数组中间的元素比较，比中间元素小的话就和前半段中间的比较，大的话就和后半段中间的元素比较，依此类推，直到找到合适的位置。  </p>
-</li>
-<li><p>希尔排序<br>又称缩小增量排序。将待排序表按照一个数值分组，在分组内进行直接插入排序，结束之后，缩小这个数值，重复上述操作，最后缩小到1之后，执行最后一遍，待排序表有序。</p>
-</li>
-</ol>
-<h1 id="交换排序"><a href="#交换排序" class="headerlink" title="交换排序"></a>交换排序</h1><ol>
-<li><p>冒泡排序<br>每次比较相邻的两个元素，将较大的放在后面的位置上，这样一趟之后，最大的就在最后面，之后再进行第二次，依次执行之后，可以得到有序的数组。  </p>
-</li>
-<li><p>快速排序<br>和冒泡类似，但是是将一个元素“冒泡”到中间的位置。将最后一位设置为哨兵位。快速排序将两个指针分别指向头和尾（哨兵位的前一位），分别向中间移动指针，左指针移动到比哨兵位的值大的值时停止，右指针移动到比哨兵位的值小的时候停止，两指针在都不满足的情况下会一直移动直到重合。如果一次比较之后，两个指针没有重合，则交换两个指针所指的值，再接着移动，直到重合；当出现重合时，则将哨兵位的值和此时指针所指的值交换。</p>
-</li>
-</ol>
-<h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><ol>
-<li>简单选择排序<br>最开始设定有序序列为空，之后将后面的无序序列中最小的元素放置到前面序列的最后，这样依次执行，就得到了一个有序序列。  </li>
-</ol>
-<ol start="2">
-<li>堆排序<br>构造小根堆或者大根堆，将堆顶元素取出后，重复操作形成小根堆或者大根堆，重复取出堆顶元素即可得到有序集合。  </li>
-</ol>
-<h1 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h1><p>“归并”的含义是将两个或两个以上的有序表组合成一个新的有序表。二路归并即，将待排序表两两一组分为长度为2或1的有序表，再将长度为2或1的表两两一组形成有序表（将B组的元素取出后和A组的比较后插入，多余的直接插入到A组的后面，这样即可完成两个有序表归并为一个有序表的操作），重复上述操作直至整个待排序表被归并为一个有序表。  </p>
-<h1 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h1><p>从数位的右（左）侧开始比较排序，最后比较到最高（低）位。以十进制举例，先比较个位，再比较十位。以此类推，最后排序到最高位后，可得到有序表。</p>
-<h1 id="外部排序"><a href="#外部排序" class="headerlink" title="外部排序"></a>外部排序</h1><p>从外存读入到内存排序后又写入到外存中的排序。之前讲述的排序都是只在内存中进行的。</p>
-]]></content>
-      <tags>
-        <tag>学习笔记·数据结构</tag>
       </tags>
   </entry>
   <entry>
@@ -3038,6 +2971,93 @@ Route::any(<span class="string">'new/:id'</span>,<span class="string">'News/read
       </tags>
   </entry>
   <entry>
+    <title>数据结构中的排序</title>
+    <url>/2020/05/03/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%AD%E7%9A%84%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>对数据结构中提到的常见排序的个人理解。  </p>
+<a id="more"></a>
+<p><img src="https://i.loli.net/2020/05/03/SrMWPhCZqutXkOQ.png" alt="排序分类脑图.png">  </p>
+<h1 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h1><ol>
+<li><p>直接插入排序<br>认为第一个元素为有序数组，之后遍历到的每个元素都按照大小关系插入到前面提到的有序数组中，这样，这个有序数组中的元素就由一个增多，变为最后的结果了。<br>或，在一个有序数组中插入一个元素，方法是依次查找比较数组中的元素，然后在适当的位置插入元素。</p>
+</li>
+<li><p>折半插入排序<br>在数组有序的情况下，上述直接插入排序的第二种情况可以优化为折半插入排序，即，将要插入的数据每次都与数组中间的元素比较，比中间元素小的话就和前半段中间的比较，大的话就和后半段中间的元素比较，依此类推，直到找到合适的位置。  </p>
+</li>
+<li><p>希尔排序<br>又称缩小增量排序。将待排序表按照一个数值分组，在分组内进行直接插入排序，结束之后，缩小这个数值，重复上述操作，最后缩小到1之后，执行最后一遍，待排序表有序。</p>
+</li>
+</ol>
+<h1 id="交换排序"><a href="#交换排序" class="headerlink" title="交换排序"></a>交换排序</h1><ol>
+<li><p>冒泡排序<br>每次比较相邻的两个元素，将较大的放在后面的位置上，这样一趟之后，最大的就在最后面，之后再进行第二次，依次执行之后，可以得到有序的数组。  </p>
+</li>
+<li><p>快速排序<br>和冒泡类似，但是是将一个元素“冒泡”到中间的位置。将最后一位设置为哨兵位。快速排序将两个指针分别指向头和尾（哨兵位的前一位），分别向中间移动指针，左指针移动到比哨兵位的值大的值时停止，右指针移动到比哨兵位的值小的时候停止，两指针在都不满足的情况下会一直移动直到重合。如果一次比较之后，两个指针没有重合，则交换两个指针所指的值，再接着移动，直到重合；当出现重合时，则将哨兵位的值和此时指针所指的值交换。</p>
+</li>
+</ol>
+<h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><ol>
+<li>简单选择排序<br>最开始设定有序序列为空，之后将后面的无序序列中最小的元素放置到前面序列的最后，这样依次执行，就得到了一个有序序列。  </li>
+</ol>
+<ol start="2">
+<li>堆排序<br>构造小根堆或者大根堆，将堆顶元素取出后，重复操作形成小根堆或者大根堆，重复取出堆顶元素即可得到有序集合。  </li>
+</ol>
+<h1 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h1><p>“归并”的含义是将两个或两个以上的有序表组合成一个新的有序表。二路归并即，将待排序表两两一组分为长度为2或1的有序表，再将长度为2或1的表两两一组形成有序表（将B组的元素取出后和A组的比较后插入，多余的直接插入到A组的后面，这样即可完成两个有序表归并为一个有序表的操作），重复上述操作直至整个待排序表被归并为一个有序表。  </p>
+<h1 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h1><p>从数位的右（左）侧开始比较排序，最后比较到最高（低）位。以十进制举例，先比较个位，再比较十位。以此类推，最后排序到最高位后，可得到有序表。</p>
+<h1 id="外部排序"><a href="#外部排序" class="headerlink" title="外部排序"></a>外部排序</h1><p>从外存读入到内存排序后又写入到外存中的排序。之前讲述的排序都是只在内存中进行的。</p>
+]]></content>
+      <tags>
+        <tag>学习笔记·数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初识Redis</title>
+    <url>/2020/04/20/%E5%88%9D%E8%AF%86Redis/</url>
+    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>2020年四月末，在教程视频中，第一次简单了解了Redis，在此记录其间的部分知识点  </p>
+<a id="more"></a>  
+<ol>
+<li><p>说说你用过的Redis的数据类型<br>供用户使用的数据类型  </p>
+<ul>
+<li><p>String：最基本的数据类型，二进制安全  </p>
+</li>
+<li><p>Hash：String元素组成的字典，适合用于存储对象  </p>
+</li>
+<li><p>List：列表，按照String元素插入顺序排序  </p>
+</li>
+<li><p>Set：String元素组成的无序集合，通过哈希表实现，不允许重复  </p>
+</li>
+<li><p>Sorted Set：通过分数来为集合中的成员进行从小到大的排序</p>
+</li>
+<li><p>用于计数的HyperLogLog，用于支持存储地理位置信息的Geo </p>
+<p>（记前五个）  </p>
+</li>
+</ul>
+</li>
+<li><p>如何解决SETNX长期有效的问题<br>EXPIRE key seconds<br>设置key的生存时间，当key过期时（即生存时间为0），会被自动删除  </p>
+</li>
+<li><p>如何通过Redis实现分布式锁<br>SET key value [EX seconds] [PX milliseconds] [NX|XX]  </p>
+<ul>
+<li>EX second：设置键的过期时间为second秒  </li>
+<li>PX millisecond：设置键的过期时间为millisecond毫秒  </li>
+<li>NX：只在键不存在时，才对键进行设置操作  </li>
+<li>XX：只在键已经存在时，才对键进行设置操作  </li>
+<li>SET操作完成时，返回OK，否则返回nil  </li>
+</ul>
+</li>
+<li><p>大量的key同时过期的注意事项<br>集中过期，由于清除大量的key很耗时，会出现短暂的卡顿现象<br>解决方案：在设置key的过期时间的时候，给每个key加上随机值  </p>
+</li>
+<li><p>pub/sub的缺点<br>消息的发布是无状态的，无法保证可达。  </p>
+</li>
+<li><p>自动化触发RDB持久化的方式  </p>
+<ul>
+<li>根据redis.conf配置里的SAVE m n 定时触发（用的是BGSAVE）  </li>
+<li>主从复制时，主节点自动触发  </li>
+<li>执行Debug Reload  </li>
+<li>执行Shutdown且没有开启AOF持久化  </li>
+</ul>
+</li>
+<li></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>学习笔记·Redis</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>计算机网络相关知识点的回顾和学习</title>
     <url>/2020/04/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9%E7%9A%84%E5%9B%9E%E9%A1%BE%E5%92%8C%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文主要整理了计算机网络相关的知识点以及面试常见问题。  </p>
@@ -3054,26 +3074,6 @@ Route::any(<span class="string">'new/:id'</span>,<span class="string">'News/read
       <tags>
         <tag>学习笔记·计算机网络</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2019/12/31/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<a id="more"></a>
-
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>Java并发</title>

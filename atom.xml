@@ -177,12 +177,11 @@
     <link href="https://lkz0032.github.io/2020/07/28/SpringBoot%E5%88%9D%E6%8E%A2/"/>
     <id>https://lkz0032.github.io/2020/07/28/SpringBoot%E5%88%9D%E6%8E%A2/</id>
     <published>2020-07-28T09:49:20.000Z</published>
-    <updated>2020-12-16T10:20:41.249Z</updated>
+    <updated>2020-12-17T09:40:24.755Z</updated>
     
     <summary type="html">
     
       &lt;h3 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h3&gt;&lt;p&gt;本文主要整理了SpringBoot中常见的概念名词及其实现的原理。  &lt;/p&gt;
-&lt;h3 id=&quot;Spring-Boot-自动配置原理是什么？&quot;&gt;&lt;a href=&quot;#Spring-Boot-自动配置原理是什么？&quot; class=&quot;headerlink&quot; title=&quot;Spring Boot 自动配置原理是什么？&quot;&gt;&lt;/a&gt;Spring Boot 自动配置原理是什么？&lt;/h3&gt;&lt;p&gt;在spring-boot-autoconfigure-2.3.1.RELEASE.jar包下的META-INF文件夹里的spring.factories，有JavaEE需要的所有配置和解决方案。  &lt;/p&gt;
     
     </summary>
     
