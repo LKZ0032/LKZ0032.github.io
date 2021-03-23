@@ -64,7 +64,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">6.6k字</span>
+            <span class="post-count">6.9k字</span>
         </span>
     </span>
 
@@ -73,7 +73,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">29分钟</span>
+            <span class="post-count">31分钟</span>
         </span>
     </span>
 </div>
@@ -152,7 +152,7 @@
 <h3 id="3-Queue"><a href="#3-Queue" class="headerlink" title="3. Queue"></a>3. Queue</h3><ul>
 <li><p>LinkedList：可以用它来实现双向队列。</p>
 </li>
-<li><p>PriorityQueue：基于堆结构实现，可以用它来实现优先队列。</p>
+<li><p>PriorityQueue：基于堆结构实现，可以用它来实现优先队列。<br><strong><em>（Set,List,Queue是一种宏观表现形式，分别为集合、列表、队列。它们的实现类拥有不同的类型，也有相应不同的功能。）</em></strong></p>
 </li>
 </ul>
 <h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/image-20191208224757855.png"/> </div><br>
@@ -169,11 +169,13 @@
 </ul>
 <h1 id="二、容器中的设计模式"><a href="#二、容器中的设计模式" class="headerlink" title="二、容器中的设计模式"></a>二、容器中的设计模式</h1><h2 id="迭代器模式"><a href="#迭代器模式" class="headerlink" title="迭代器模式"></a>迭代器模式</h2><div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/image-20191208225301973.png"/> </div><br>
 
+<p><strong><em>（在集合遍历或按序读取时，对于集合中不同的对象常常会用到不同的方法，但是遍历时候的大顺序是不会变的，将这个过程抽象提取出来形成一个迭代器（如Collection对象中实现的iterator方法，其中有许多遍历操作的实现）来供调用，这就是迭代器模式。）</em></strong></p>
 <p>Collection 继承了 Iterable 接口，其中的 iterator() 方法能够产生一个 Iterator 对象，通过这个对象就可以迭代遍历 Collection 中的元素。</p>
 <p>从 JDK 1.5 之后可以使用 foreach 方法来遍历实现了 Iterable 接口的聚合对象。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">list.add(<span class="string">"a"</span>);</span><br><span class="line">list.add(<span class="string">"b"</span>);</span><br><span class="line"><span class="keyword">for</span> (String item : list) &#123;</span><br><span class="line">    System.out.println(item);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h2><p>java.util.Arrays#asList() 可以把数组类型转换为 List 类型。</p>
+<h2 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h2><p><strong><em>（在系统更新中常常会出现老旧不兼容的情况，这时常用到适配器模式这种结构来处理。在不相关的两个类中间，增加一个适配器类，在这个类中，调用旧系统的功能，新系统的类通过适配器中的方法来实现调用老系统的功能。<br>其中，适配器类通过继承的方式拥有旧系统的功能时，称为类适配器；当使用组合（即，在适配器类中加入旧方法对象的属性，并在适配器类的含参构造方法来实例化它）方式实现时，称为对象适配器，这一类适配器灵活度更高。）</em></strong>  </p>
+<p>java.util.Arrays#asList() 可以把数组类型转换为 List 类型。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SafeVarargs</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">List&lt;T&gt; <span class="title">asList</span><span class="params">(T... a)</span></span></span><br></pre></td></tr></table></figure>
 
 <p>应该注意的是 asList() 的参数为泛型的变长参数，不能使用基本类型数组作为参数，只能使用相应的包装类型数组。</p>
@@ -208,7 +210,8 @@
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">writeObject</span><span class="params">(java.io.ObjectOutputStream s)</span></span></span><br><span class="line"><span class="function">    <span class="keyword">throws</span> java.io.IOException</span>&#123;</span><br><span class="line">    <span class="comment">// Write out element count, and any hidden stuff</span></span><br><span class="line">    <span class="keyword">int</span> expectedModCount = modCount;</span><br><span class="line">    s.defaultWriteObject();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Write out size as capacity for behavioural compatibility with clone()</span></span><br><span class="line">    s.writeInt(size);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Write out all elements in the proper order.</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;size; i++) &#123;</span><br><span class="line">        s.writeObject(elementData[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (modCount != expectedModCount) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ConcurrentModificationException();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>序列化时需要使用 ObjectOutputStream 的 writeObject() 将对象转换为字节流并输出。而 writeObject() 方法在传入的对象存在 writeObject() 的时候会去反射调用该对象的 writeObject() 来实现序列化。反序列化使用的是 ObjectInputStream 的 readObject() 方法，原理类似。</p>
+<p>序列化时需要使用 ObjectOutputStream 的 writeObject() 将对象转换为字节流并输出。而 writeObject() 方法在传入的对象存在 writeObject() 的时候会去反射调用该对象的 writeObject() 来实现序列化。反序列化使用的是 ObjectInputStream 的 readObject() 方法，原理类似。  </p>
+<p><strong><em>（Java序列化是指把Java对象转换为字节序列的过程；而Java反序列化是指把字节序列恢复为Java对象的过程。）</em></strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ArrayList list = <span class="keyword">new</span> ArrayList();</span><br><span class="line">ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(<span class="keyword">new</span> FileOutputStream(file));</span><br><span class="line">oos.writeObject(list);</span><br></pre></td></tr></table></figure>
 
 <h3 id="5-Fail-Fast"><a href="#5-Fail-Fast" class="headerlink" title="5. Fail-Fast"></a>5. Fail-Fast</h3><p>modCount 用来记录 ArrayList 结构发生变化的次数。结构发生变化是指添加或者删除至少一个元素的所有操作，或者是调整内部数组的大小，仅仅只是设置元素的值不算结构发生变化。</p>
@@ -406,7 +409,7 @@
 <h2 id="LinkedHashMap"><a href="#LinkedHashMap" class="headerlink" title="LinkedHashMap"></a>LinkedHashMap</h2><h3 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构"></a>存储结构</h3><p>继承自 HashMap，因此具有和 HashMap 一样的快速查找特性。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkedHashMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">HashMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>内部维护了一个双向链表，用来维护插入顺序或者 LRU 顺序。</p>
+<p>内部维护了一个双向链表，用来维护插入顺序或者 LRU（最近最少使用） 顺序。  </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * The head (eldest) of the doubly linked list.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">transient</span> LinkedHashMap.Entry&lt;K,V&gt; head;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * The tail (youngest) of the doubly linked list.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">transient</span> LinkedHashMap.Entry&lt;K,V&gt; tail;</span><br></pre></td></tr></table></figure>
 
 <p>accessOrder 决定了顺序，默认为 false，此时维护的是插入顺序。</p>
@@ -475,7 +478,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://lkz0032.github.io/2020/11/03/Java%E5%AE%B9%E5%99%A8/" data-id="ckisnlfmq0005n4aycz2md1si"
+      <a data-url="https://lkz0032.github.io/2020/11/03/Java%E5%AE%B9%E5%99%A8/" data-id="ckmlcr7zi0006xoay41qndac7"
         class="article-share-link">分享</a>
         
       
@@ -574,7 +577,7 @@
     <ul class="list-inline">
       <li>
         &copy;
-        2019-2020
+        2019-2021
         Kailun Zhu
       </li>
       <li>

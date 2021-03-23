@@ -73,7 +73,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">38分钟</span>
+            <span class="post-count">39分钟</span>
         </span>
     </span>
 </div>
@@ -184,6 +184,7 @@
 <p><a href="https://stackoverflow.com/questions/2971315/string-stringbuffer-and-stringbuilder" target="_blank" rel="noopener">StackOverflow : String, StringBuffer, and StringBuilder</a></p>
 <h2 id="String-Pool"><a href="#String-Pool" class="headerlink" title="String Pool"></a>String Pool</h2><p>字符串常量池（String Pool）保存着所有字符串字面量（literal strings），这些字面量在编译时期就确定。不仅如此，还可以使用 String 的 intern() 方法在运行过程将字符串添加到 String Pool 中。</p>
 <p>当一个字符串调用 intern() 方法时，如果 String Pool 中已经存在一个字符串和该字符串值相等（使用 equals() 方法进行确定），那么就会返回 String Pool 中字符串的引用；否则，就会在 String Pool 中添加一个新的字符串，并返回这个新字符串的引用。</p>
+<p>(<em>intern()方法为String类中的方法；equals()默认实现是判断内存地址</em>)</p>
 <p>下面示例中，s1 和 s2 采用 new String() 的方式新建了两个不同字符串，而 s3 和 s4 是通过 s1.intern() 方法取得同一个字符串引用。intern() 首先把 s1 引用的字符串放到 String Pool 中，然后返回这个字符串引用。因此 s3 和 s4 引用的是同一个字符串。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">String s1 = <span class="keyword">new</span> String(<span class="string">"aaa"</span>);</span><br><span class="line">String s2 = <span class="keyword">new</span> String(<span class="string">"aaa"</span>);</span><br><span class="line">System.out.println(s1 == s2);           <span class="comment">// false</span></span><br><span class="line">String s3 = s1.intern();</span><br><span class="line">String s4 = s1.intern();</span><br><span class="line">System.out.println(s3 == s4);           <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 
@@ -207,6 +208,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line">Constant pool:</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">   #2 = Class              #18            // java/lang/String</span><br><span class="line">   #3 = String             #19            // abc</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">  #18 = Utf8               java/lang/String</span><br><span class="line">  #19 = Utf8               abc</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(java.lang.String[])</span></span>;</span><br><span class="line">    descriptor: ([Ljava/lang/String;)V</span><br><span class="line">    flags: ACC_PUBLIC, ACC_STATIC</span><br><span class="line">    Code:</span><br><span class="line">      stack=<span class="number">3</span>, locals=<span class="number">2</span>, args_size=<span class="number">1</span></span><br><span class="line">         0: new           #2                  // class java/lang/String</span><br><span class="line">         <span class="number">3</span>: dup</span><br><span class="line">         4: ldc           #3                  // String abc</span><br><span class="line">         6: invokespecial #4                  // Method java/lang/String."&lt;init&gt;":(Ljava/lang/String;)V</span><br><span class="line">         <span class="number">9</span>: astore_1</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
 
 <p>在 Constant Pool 中，#19 存储这字符串字面量 “abc”，#3 是 String Pool 的字符串对象，它指向 #19 这个字符串字面量。在 main 方法中，0: 行使用 new #2 在堆中创建一个字符串对象，并且使用 ldc #3 将 String Pool 中的字符串对象作为 String 构造函数的参数。</p>
+<p>(<em>Constant Pool为常量池</em>)</p>
 <p>以下是 String 构造函数的源码，可以看到，在将一个字符串对象作为另一个字符串对象的构造函数参数时，并不会完全复制 value 数组内容，而是都会指向同一个 value 数组。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">String</span><span class="params">(String original)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.value = original.value;</span><br><span class="line">    <span class="keyword">this</span>.hash = original.hash;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -255,9 +257,9 @@
 
 <p><strong>2. 方法</strong>  </p>
 <p>声明方法不能被子类重写。</p>
-<p>private 方法隐式地被指定为 final，如果在子类中定义的方法和基类中的一个 private 方法签名相同，此时子类的方法不是重写基类方法，而是在子类中定义了一个新的方法。</p>
+<p>private 方法隐式地被指定为 final，如果在子类中定义的方法和基类中的一个 private 方法签名相同，此时子类的方法不是重写基类方法，而是在子类中定义了一个新的方法。<br>(<em>重写是子类对父类的<strong>允许访问</strong>的方法的实现过程进行重新编写, 返回值和形参都不能改变。</em>)</p>
 <p><strong>3. 类</strong>  </p>
-<p>声明类不允许被继承。</p>
+<p>声明类不允许被继承。(<em>即，final修饰的类不允许被继承</em>)</p>
 <h2 id="static"><a href="#static" class="headerlink" title="static"></a>static</h2><p><strong>1. 静态变量</strong>  </p>
 <ul>
 <li>静态变量：又称为类变量，也就是说这个变量属于类的，类所有的实例都共享静态变量，可以直接通过类名来访问它。静态变量在内存中只存在一份。</li>
@@ -269,7 +271,7 @@
 <p>静态方法在类加载的时候就存在了，它不依赖于任何实例。所以静态方法必须有实现，也就是说它不能是抽象方法。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">func1</span><span class="params">()</span></span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// public abstract static void func2();  // Illegal combination of modifiers: 'abstract' and 'static'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>只能访问所属类的静态字段和静态方法，方法中不能有 this 和 super 关键字，因此这两个关键字与具体对象关联。</p>
+<p>只能访问所属类的静态字段和静态方法，方法中不能有 this 和 super 关键字，因为这两个关键字与具体对象关联。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> y;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">func1</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a = x;</span><br><span class="line">        <span class="comment">// int b = y;  // Non-static field 'y' cannot be referenced from a static context</span></span><br><span class="line">        <span class="comment">// int b = this.y;     // 'A.this' cannot be referenced from a static context</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><strong>3. 静态语句块</strong>  </p>
@@ -609,7 +611,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://lkz0032.github.io/2020/08/01/Java%E5%9F%BA%E7%A1%80/" data-id="ckisnlfmk0002n4ay8o2a3arh"
+      <a data-url="https://lkz0032.github.io/2020/08/01/Java%E5%9F%BA%E7%A1%80/" data-id="ckmlcr7zf0004xoay7y6wf77e"
         class="article-share-link">分享</a>
         
       
@@ -708,7 +710,7 @@
     <ul class="list-inline">
       <li>
         &copy;
-        2019-2020
+        2019-2021
         Kailun Zhu
       </li>
       <li>

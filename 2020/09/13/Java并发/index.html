@@ -64,7 +64,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">14.1k字</span>
+            <span class="post-count">14.5k字</span>
         </span>
     </span>
 
@@ -73,7 +73,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">56分钟</span>
+            <span class="post-count">58分钟</span>
         </span>
     </span>
 </div>
@@ -320,8 +320,8 @@
 <p>公平锁是指多个线程在等待同一个锁时，必须按照申请锁的时间顺序来依次获得锁。</p>
 <p>synchronized 中的锁是非公平的，ReentrantLock 默认情况下也是非公平的，但是也可以是公平的。</p>
 <p><strong>5. 锁绑定多个条件</strong>  </p>
-<p>一个 ReentrantLock 可以同时绑定多个 Condition 对象。</p>
-<h2 id="使用选择"><a href="#使用选择" class="headerlink" title="使用选择"></a>使用选择</h2><p>除非需要使用 ReentrantLock 的高级功能，否则优先使用 synchronized。这是因为 synchronized 是 JVM 实现的一种锁机制，JVM 原生地支持它，而 ReentrantLock 不是所有的 JDK 版本都支持。并且使用 synchronized 不用担心没有释放锁而导致死锁问题，因为 JVM 会确保锁的释放。</p>
+<p>一个 ReentrantLock 可以同时绑定多个 Condition 对象。<br><em>（注：Condition是Java提供了来实现等待/通知的类，Condition类还提供比wait/notify更丰富的功能，Condition对象是由lock对象所创建的。但是同一个锁可以创建多个Condition的对象，即创建多个对象监视器。这样的好处就是可以指定唤醒线程。notify唤醒的线程是随机唤醒一个。Condition对象有signal()和signalAll()方法）</em>  </p>
+<h2 id="使用选择"><a href="#使用选择" class="headerlink" title="使用选择"></a>使用选择</h2><p>除非需要使用 ReentrantLock 的高级功能，否则优先使用 synchronized。这是因为 synchronized 是 JVM 实现的一种锁机制，JVM 原生地支持它，而 ReentrantLock 不是所有的 JDK 版本都支持。并且使用 synchronized 不用担心没有释放锁而导致死锁问题，因为 JVM 会确保锁的释放。<br><em>（ReentrantLock 的高级功能：<br>1、等待可中断：等待可中断是指当持有锁的线程长期不释放锁，那么正在等待的线程可以选择放弃等待，转而处理其它事情。可中断的特性对于处理执行时间非常长的同步块有很好的帮助。<br>2、公平锁：公平锁是指多个线程在等待同一个锁时，必须按照申请锁的时间顺序来获得锁，可以理解为操作系统中的先来先服务。synchrnized是非公平锁，任何一个等待锁的线程都有可能获得锁，ReentrantLock默认情况下也是非公平的，但是可以通过构造函数来设定使用公平锁。<br>3、锁可以绑定多个条件：锁可以绑定多个条件是指ReentrantLock可以绑定多个Condition对象，而在synchronized中，锁对象的wait()、notify()、notifyAll()方法可以实现一个隐含的条件，如果要和多个条件进行关联时，就不得不多添加锁，而ReentrantLock则无需这样做，只需要多次调用newCondition()方法就可以实现。）</em></p>
 <h1 id="五、线程之间的协作"><a href="#五、线程之间的协作" class="headerlink" title="五、线程之间的协作"></a>五、线程之间的协作</h1><p>当多个线程可以一起工作去解决某个问题时，如果某些部分必须在其它部分之前完成，那么就需要对线程进行协调。</p>
 <h2 id="join"><a href="#join" class="headerlink" title="join()"></a>join()</h2><p>在线程中调用另一个线程的 join() 方法，会将当前线程挂起，而不是忙等待，直到目标线程结束。</p>
 <p>对于以下代码，虽然 b 线程先启动，但是因为在 b 线程中调用了 a 线程的 join() 方法，b 线程会等待 a 线程结束才继续执行，因此最后能够保证 a 线程的输出先于 b 线程的输出。</p>
@@ -800,7 +800,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://lkz0032.github.io/2020/09/13/Java%E5%B9%B6%E5%8F%91/" data-id="ckisnlfo10022n4ay0quzh4w7"
+      <a data-url="https://lkz0032.github.io/2020/09/13/Java%E5%B9%B6%E5%8F%91/" data-id="ckmlcr80w002bxoayh3kzh5xf"
         class="article-share-link">分享</a>
         
       
@@ -899,7 +899,7 @@
     <ul class="list-inline">
       <li>
         &copy;
-        2019-2020
+        2019-2021
         Kailun Zhu
       </li>
       <li>

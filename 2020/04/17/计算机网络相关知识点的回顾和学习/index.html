@@ -64,7 +64,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">46字</span>
+            <span class="post-count">2.3k字</span>
         </span>
     </span>
 
@@ -73,7 +73,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1分钟</span>
+            <span class="post-count">8分钟</span>
         </span>
     </span>
 </div>
@@ -102,13 +102,224 @@
       <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文主要整理了计算机网络相关的知识点以及面试常见问题。  </p>
 <a id="more"></a>
 <ol>
-<li><p>七层网络模型  </p>
-</li>
+<li>七层网络模型（OSI开放式互联参考模型、网络分层）  </li>
+</ol>
+<ul>
+<li>网络层<br>控制子网的运行，如逻辑编址、分组传输、路由选择  </li>
+<li>数据链路层<br>物理寻址、同时将原始比特流转变为逻辑传输线路  </li>
+<li>物理层<br>机械、 电子、定时接口通信信道上的原始比特流传输<br><img src="https://i.loli.net/2020/12/19/vq8oiZbJCuNeOQ7.png" alt="网络分层模型" title="网络分层模型"></li>
+</ul>
+<ol start="2">
 <li><p>滑动窗口问题  </p>
 </li>
 <li><p>TCP/IP协议：  </p>
 </li>
+<li><p>TCP四次挥手  </p>
+</li>
+<li><p>HTTP状态码  </p>
+<ul>
+<li>状态码类别描述  <ul>
+<li>1xx：服务器收到请求，需要请求者继续执行操作  </li>
+<li>2xx：成功，操作被成功接收并处理  </li>
+<li>3xx：重定向，需要进一步的操作以完成请求  </li>
+<li>4xx：请求错误，请求包含语法错误或无法完成请求  </li>
+<li>5xx：服务器错误，服务器在处理请求时发生错误  </li>
+</ul>
+</li>
+<li>常见状态码  <ul>
+<li>200 OK：客户端请求成功  </li>
+<li>301 Moved Permanently (永久重定向)：请求的URL已经移走。Response中应该包含一个Location URL，说明资源现在所处的位置    </li>
+<li>302 Move Temporarily (临时重定向)  </li>
+<li>400 Bad Request：客户端请求有语法错误，不能被服务器所理解  </li>
+<li>401 Unaythorized：请求未经授权，这个状态码必须和WWW-Authenticate报头域一起使用  </li>
+<li>403 Forbidden：服务端禁止访问该资源    </li>
+<li>404 Not Found：请求资源不存在，输入了错误的URL  </li>
+<li>408 Request Timeout  </li>
+<li>500 Internal Server Error：服务器发生了不可预期的错误  </li>
+<li>502 Bad Gateway  </li>
+<li>503 Service Unavailable：服务器当前不能处理客户端的请求，一段时间后可能恢复正常  </li>
+<li>504 Gateway Timeout  </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>HTTP Request的几种类型  </p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>描述</th>
+<th>幂等性</th>
+<th>安全性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>POST</td>
+<td>向指定资源提交数据进行处理请求（例如提交表单或上传文件）</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>向指定资源位置上传其最新内容</td>
+<td>是</td>
+<td>否</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>请求服务器删除所标识的资源</td>
+<td>是</td>
+<td>否</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>向特定的资源发出请求</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>OPTIONS</td>
+<td>返回服务器针对特定资源所支持的HTTP请求方法</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>HEAD</td>
+<td>向服务器索要与GET请求相一致的响应，不过响应体不会被返回</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>TRACE</td>
+<td>回显服务器收到的请求，主要用于测试或诊断</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>CONNECT</td>
+<td>HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>注：幂等性：指该方法多次调用最终资源状态是一样的。 安全性：指访问资源的时候资源本身不会发生改变。</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+<li><p>HTTP 1.0、HTTP1.1、HTTP2.0  </p>
+</li>
 </ol>
+<ul>
+<li>HTTP 1.0中，客户端的每次请求都要建立一次单独的连接，在处理完本次请求后，就自动释放连接。  </li>
+<li>HTTP 1.1中，支持长连接和流水线请求处理，在一个TCP连接上可以传送多个HTTP请求和响应，若干个请求串行化单线程处理。  </li>
+<li>HTTP2.0中，基于二进制解析，可多路复用，多个请求可同时在一个连接上并行处理。  </li>
+</ul>
+<ol start="8">
+<li><p>HTTP的传输流程  </p>
+<ul>
+<li>地址解析：地址解析通过域名系统DNS解析服务器域名从而获得主机的IP地址。  </li>
+<li>封装Http数据包：解析协议名，主机名，端口号，对象路径并结合本机自己的信息封装成一个Http请求数据包。  </li>
+<li>封装TCP包：将Http请求数据包进一步封装成TCP数据包  </li>
+<li>建立TCP连接：基于TCP的三次握手机制建立TCP连接。  </li>
+<li>客户端发送请求：在建立连接后，客户端发送一个请求给服务器  </li>
+<li>服务器响应：服务器在收到请求后，结合业务逻辑对数据进行处理，然后向客户端返回相应的响应信息。在响应信息中包含状态行，协议版本号，成功或错误的代码，消息体等内容。  </li>
+<li>服务器关闭TCP连接：服务器在向浏览器发送请求响应数据后关闭TCP连接。但如果浏览器或者服务器在消息头中加入了Connection:keep-alive，则TCP连接在请求响应数据发送后仍保持连接状态。在下次请求中浏览器还可以使用相同的连接发送请求。  </li>
+</ul>
+</li>
+<li><p>DNS域名解析过程  </p>
+<ul>
+<li>浏览器先检查自身缓存中有没有被解析过的这个域名对应的ip地址，如果有，解析结束。  </li>
+<li>如果浏览器缓存中没有，浏览器会检查操作系统中有没有对应的已解析的结果。操作系统也有一个域名解析的过程。在windows中有一个hosts文件，可以在里面设置一个域名对应的ip地址。  </li>
+<li>如果仍然没有，主机可向本地服务器进行递归查询。  </li>
+<li>本地服务器采用迭代查询，向一个根域名服务器进行查询  </li>
+<li>根域名服务器告诉本地域名服务器，下次应该查询的顶级域名服务器ip地址  </li>
+<li>本地服务器向顶级域名服务器进行查询  </li>
+<li>顶级域名服务器告诉本地服务器，下次应该查询的权限服务器ip地址  </li>
+<li>本地服务器向权限服务器进行查询  </li>
+<li>权限服务器告诉本地服务器所查询的主机的ip地址  </li>
+<li>本地服务器最后把查询结果告诉主机。  </li>
+</ul>
+</li>
+<li><p>ARP解析过程  </p>
+<ul>
+<li>网络层封装IP数据包，数据链路层封装报文  </li>
+<li>首先会查询自己的ARP表，查看目的IP到目的MAC的映射，如果有就进行封装，如果没有进行下一步。  </li>
+<li>ARP会产生ARP Request去解析目的MAC，此时源MAC为数据发起者的MAC，目的地址MAC为FFFF:FFFF:FFFF（全为1，代表所有MAC）  </li>
+<li>ARP Requqst到达本网段中的所有设备上，因为目的MAC全为1，所以所有设备都可以拆掉封装，解析ARP数据包中需要解析的目的IP  </li>
+<li>目的IP不正确的设备直接忽略这个ARP请求，目的IP正确的设备，会产生ARP Reply去回应这个ARP Request，这时，源MAC为解析设备的MAC,目的MAC为ARP解析发起者的MAC  </li>
+<li>解析发起者在收到ARP Reply后，将目的IP和目的MAC的对应关系添加到自己的ARP表中  </li>
+<li>封装数据链路层(数据帧)，进行数据传输  </li>
+</ul>
+</li>
+<li><p>Forward与Redirect  </p>
+<ul>
+<li>直接转发（Forward）：也称转发，浏览器发出请求，服务器把响应内容读取过来，然后再把这些内容发给浏览器。地址栏显示原来的URL。  </li>
+<li>间接转发（Redirect）：也称重定向，浏览器发出请求，服务器端在响应第一次请求的时候，让浏览器向另一个地址发出请求，然后得到响应。地址栏显示新的URL。  </li>
+</ul>
+</li>
+<li><p>Cookie与Session  </p>
+<ul>
+<li>Cookie：为了辨别用户身份而储存在客户端的数据。服务器在Http响应头中添加Set-Cookie信息，浏览器收到响应后会根据头中的字段保存Cookie，下一次访问时在请求头中附带Cookie内容，供服务器根据Cookie值进行后续处理。  </li>
+<li>Session：为了保存用户信息而储存在服务端的数据。当客户端第一次访问时，服务器会计算出一个sessionID，创建一个对应的Session对象并存储；然后将sessionID保存至浏览器Cookie，下一次访问时服务器根据sessionID来匹配Session，Session中可以存一些键值对。  </li>
+<li>Cookie最典型的应用是：①判断用户是否登陆过网站，以便下次登录时能够直接登录。②购物车信息处理。  </li>
+</ul>
+</li>
+<li><p>访问一个网页全过程  </p>
+<ul>
+<li>输入URL；  </li>
+<li>DNS将域名解析成IP地址；  </li>
+<li>建立TCP连接；  </li>
+<li>OSPF（内部网关协议）决定经过哪些路由器，ARP（地址解析协议）负责求下一个节点地址；  </li>
+<li>发送HTTP请求；  </li>
+<li>得到响应，展现HTML界面。  </li>
+</ul>
+</li>
+<li><p>使用Socket通信的几个关键函数  </p>
+<ul>
+<li>初始化socket：int socket(int domain, int type, int protocol);<ul>
+<li>domain ：指定通信协议族。  </li>
+<li>type：指定socket类型。  </li>
+<li>protocol ：协议类型。  </li>
+<li>返回值：成功返回非负整数。  </li>
+</ul>
+</li>
+<li>绑定端口：int bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen);  <ul>
+<li>sockfd：socket函数返回的套接字。  </li>
+<li>addr：要绑定的地址。  </li>
+<li>addrlen：地址长度。  </li>
+<li>返回值：成功返回0，失败返回-1。  </li>
+</ul>
+</li>
+<li>监听端口：int listen(int sockfd, int backlog);  <ul>
+<li>sockfd：socket函数返回的套接字。  </li>
+<li>backlog：已完成三次握手的最大连接个数。  </li>
+<li>返回值：成功返回0，失败返回-1。  </li>
+</ul>
+</li>
+<li>响应连接请求：int accept(int sockfd, struct sockaddr *addr, socklen_t *addrlen);  <ul>
+<li>sockfd：服务器套接字。  </li>
+<li>addr：将返回对等方的套接字地址。  </li>
+<li>addrlen：返回对等方的套接字地址长度。  </li>
+<li>返回值：成功返回非负整数，失败返回-1。  </li>
+</ul>
+</li>
+<li>建立连接：int connect(int sockfd, const struct sockaddr *addr, socklen_t addrlen);  <ul>
+<li>sockfd：未连接套接字。  </li>
+<li>addr：要连接的套接字地址。  </li>
+<li>addrlen：第二个参数addr长度。  </li>
+<li>返回值：成功返回0，失败返回-1。  </li>
+</ul>
+</li>
+</ul>
+</li>
+<li></li>
+</ol>
+<h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><ul>
+<li>参考资料<br><a href="https://blog.csdn.net/qq_43752469/article/details/108836490" target="_blank" rel="noopener">https://blog.csdn.net/qq_43752469/article/details/108836490</a><br><a href="https://www.cnblogs.com/echola/p/11094695.html" target="_blank" rel="noopener">https://www.cnblogs.com/echola/p/11094695.html</a></li>
+</ul>
 
       
       <!-- 打赏 -->
@@ -119,7 +330,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://lkz0032.github.io/2020/04/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9%E7%9A%84%E5%9B%9E%E9%A1%BE%E5%92%8C%E5%AD%A6%E4%B9%A0/" data-id="ckisnlfnq001mn4ay0xozfvgf"
+      <a data-url="https://lkz0032.github.io/2020/04/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9%E7%9A%84%E5%9B%9E%E9%A1%BE%E5%92%8C%E5%AD%A6%E4%B9%A0/" data-id="ckmlcr80j001pxoay9rfi6pnz"
         class="article-share-link">分享</a>
         
       
@@ -137,7 +348,7 @@
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            操作系统相关知识点的回顾和学习
+            操作系统相关知识点回顾
           
         </div>
       </a>
@@ -218,7 +429,7 @@
     <ul class="list-inline">
       <li>
         &copy;
-        2019-2020
+        2019-2021
         Kailun Zhu
       </li>
       <li>

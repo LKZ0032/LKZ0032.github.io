@@ -64,7 +64,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">0字</span>
+            <span class="post-count">1.1k字</span>
         </span>
     </span>
 
@@ -73,7 +73,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1分钟</span>
+            <span class="post-count">4分钟</span>
         </span>
     </span>
 </div>
@@ -84,6 +84,8 @@
 
     
     
+    <div class="tocbot"></div>
+
 
 
 
@@ -97,7 +99,80 @@
       
 
       
-      
+      <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文主要整理了PHP的基本语法及其中变量、输出等语句的写法。  </p>
+<a id="more"></a>
+
+<h1 id="基本的-PHP-语法"><a href="#基本的-PHP-语法" class="headerlink" title="基本的 PHP 语法"></a>基本的 PHP 语法</h1><ul>
+<li>PHP 脚本可以放在文档中的任何位置。PHP 脚本以 <?php 开始，以 ?> 结束：  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// PHP 代码</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+PHP 中的每个代码行都必须以分号结束。分号是一种分隔符，用于把指令集区分开来。  </li>
+<li>关于PHP中的注释：  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 这是 PHP 单行注释</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">这是</span></span><br><span class="line"><span class="comment">PHP 多行</span></span><br><span class="line"><span class="comment">注释</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="PHP变量"><a href="#PHP变量" class="headerlink" title="PHP变量"></a>PHP变量</h1><ul>
+<li>PHP 变量规则：  <ul>
+<li>变量以 $ 符号开始，后面跟着变量的名称  </li>
+<li>变量名必须以字母或者下划线字符开始  </li>
+<li>变量名只能包含字母数字字符以及下划线（A-z、0-9 和 _ ）  </li>
+<li>变量名不能包含空格  </li>
+<li>变量名是区分大小写的（$y 和 $Y 是两个不同的变量）  </li>
+</ul>
+</li>
+</ul>
+<p>注：PHP 语句和 PHP 变量都是区分大小写的。  </p>
+<ul>
+<li>创建（声明）PHP 变量<br>PHP 没有声明变量的命令。变量在您第一次赋值给它的时候被创建：  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$txt=<span class="string">"Hello world!"</span>;</span><br><span class="line">$x=<span class="number">5</span>;</span><br><span class="line">$y=<span class="number">10.5</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>PHP 是一门弱类型语言,在上面的实例中，我们注意到，不必向 PHP 声明该变量的数据类型。PHP 会根据变量的值，自动把变量转换为正确的数据类型。在强类型的编程语言中，我们必须在使用变量前先声明（定义）变量的类型和名称。  </p>
+<ul>
+<li>在所有函数外部定义的变量，拥有全局作用域。除了函数外，全局变量可以被脚本中的任何部分访问，要在一个函数中访问一个全局变量，需要使用 global 关键字。<br>在 PHP 函数内部声明的变量是局部变量，仅能在函数内部访问：  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$x=<span class="number">5</span>; <span class="comment">// 全局变量</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myTest</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    $y=<span class="number">10</span>; <span class="comment">// 局部变量</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;p&gt;测试函数内变量:&lt;p&gt;"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"变量 x 为: $x"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"变量 y 为: $y"</span>;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">myTest();</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;p&gt;测试函数外变量:&lt;p&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"变量 x 为: $x"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"变量 y 为: $y"</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="PHP-5-echo-和-print-语句"><a href="#PHP-5-echo-和-print-语句" class="headerlink" title="PHP 5 echo 和 print 语句"></a>PHP 5 echo 和 print 语句</h1><ul>
+<li>echo 和 print 区别:  <ul>
+<li>echo - 可以输出一个或多个字符串  </li>
+<li>print - 只允许输出一个字符串，返回值总为 1  </li>
+</ul>
+</li>
+</ul>
+<p>注：echo 输出的速度比 print 快， echo 没有返回值，print有返回值1。  </p>
+<ul>
+<li>echo 是一个语言结构，使用的时候可以不用加括号，也可以加上括号： echo 或 echo()。  <ul>
+<li>显示字符串  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;h2&gt;PHP 很有趣!&lt;/h2&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"Hello world!&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"我要学 PHP!&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"这是一个"</span>, <span class="string">"字符串，"</span>, <span class="string">"使用了"</span>, <span class="string">"多个"</span>, <span class="string">"参数。"</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>显示变量  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$txt1=<span class="string">"学习 PHP"</span>;</span><br><span class="line">$txt2=<span class="string">"RUNOOB.COM"</span>;</span><br><span class="line">$cars=<span class="keyword">array</span>(<span class="string">"Volvo"</span>,<span class="string">"BMW"</span>,<span class="string">"Toyota"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> $txt1;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"在 $txt2 学习 PHP "</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"我车的品牌是 &#123;$cars[0]&#125;"</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>print 同样是一个语言结构，可以使用括号，也可以不使用括号： print 或 print()。  <ul>
+<li>显示字符串  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"&lt;h2&gt;PHP 很有趣!&lt;/h2&gt;"</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"Hello world!&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"我要学习 PHP!"</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>显示变量  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$txt1=<span class="string">"学习 PHP"</span>;</span><br><span class="line">$txt2=<span class="string">"RUNOOB.COM"</span>;</span><br><span class="line">$cars=<span class="keyword">array</span>(<span class="string">"Volvo"</span>,<span class="string">"BMW"</span>,<span class="string">"Toyota"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> $txt1;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"在 $txt2 学习 PHP "</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"我车的品牌是 &#123;$cars[0]&#125;"</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="PHP函数"><a href="#PHP函数" class="headerlink" title="PHP函数"></a>PHP函数</h1><ul>
+<li><p>PHP 函数准则：  </p>
+<ul>
+<li>函数的名称应该提示出它的功能  </li>
+<li>函数名称以字母或下划线开头（不能以数字开头）  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">functionName</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 要执行的代码</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>PHP 添加参数<br>为了给函数添加更多的功能，我们可以添加参数，参数类似变量。参数就在函数名称后面的一个括号内指定。  </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">writeName</span><span class="params">($fname)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> $fname . <span class="string">" Refsnes.&lt;br&gt;"</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">echo</span> <span class="string">"My name is "</span>;</span><br><span class="line">writeName(<span class="string">"Kai Jim"</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"My sister's name is "</span>;</span><br><span class="line">writeName(<span class="string">"Hege"</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"My brother's name is "</span>;</span><br><span class="line">writeName(<span class="string">"Stale"</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>PHP函数返回值<br>如需让函数返回一个值，请使用 return 语句。  </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span><span class="params">($x,$y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    $total=$x+$y;</span><br><span class="line">    <span class="keyword">return</span> $total;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">echo</span> <span class="string">"1 + 16 = "</span> . add(<span class="number">1</span>,<span class="number">16</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="PHP字符串变量"><a href="#PHP字符串变量" class="headerlink" title="PHP字符串变量"></a>PHP字符串变量</h1><ul>
+<li>在 PHP 中，只有一个字符串运算符。并置运算符 (.) 用于把两个字符串值连接起来。  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$txt1=<span class="string">"Hello world!"</span>;</span><br><span class="line">$txt2=<span class="string">"What a nice day!"</span>;</span><br><span class="line"><span class="keyword">echo</span> $txt1 . <span class="string">" "</span> . $txt2;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+
       
       <!-- 打赏 -->
       
@@ -107,10 +182,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://lkz0032.github.io/2020/05/07/PHP%E8%AF%AD%E6%B3%95%E5%9B%9E%E9%A1%BE/" data-id="ckisnlfmy000jn4ay3mg0de3b"
+      <a data-url="https://lkz0032.github.io/2020/05/07/PHP%E8%AF%AD%E6%B3%95%E5%9B%9E%E9%A1%BE/" data-id="ckmlcr7zw000txoay12z11ph6"
         class="article-share-link">分享</a>
         
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%C2%B7PHP/" rel="tag">学习笔记·PHP</a></li></ul>
+
     </footer>
 
   </div>
@@ -204,7 +281,7 @@
     <ul class="list-inline">
       <li>
         &copy;
-        2019-2020
+        2019-2021
         Kailun Zhu
       </li>
       <li>

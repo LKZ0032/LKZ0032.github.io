@@ -253,6 +253,32 @@
       </tags>
   </entry>
   <entry>
+    <title>Java反射</title>
+    <url>/2020/04/22/Java%E5%8F%8D%E5%B0%84/</url>
+    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文主要记录了Java反射相关函数的用法和实现的功能。  </p>
+<a id="more"></a>
+<ol>
+<li><p>谈谈反射<br>Java反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意方法和属性；这种动态获取信息以及动态调用对像方法的功能称为Java语言的反射机制。  </p>
+</li>
+<li><p>对象<br><code>Method</code>对象用来装类中的方法，<code>Field</code>用来装类中的属性。</p>
+</li>
+<li><p>常用的Java反射函数  </p>
+<ul>
+<li><code>GetDeclaredMethod()</code>方法：<br>可以获得所有访问类型的方法，但是不能获得继承的和实现接口的方法。若获取的方法为私有方法，则需要将返回的对象调用<code>setAccessible()</code>方法，将<code>true</code>作为参数传入才不会报错。形如：<code>getHello.setAccessible(true)</code>  </li>
+<li><code>getMethod()</code>方法：<br>只能调用public方法，但是可以调用对象的继承和实现的接口的方法。若获取的方法为私有方法，则需要将返回的对象调用setAccessible()方法，将true作为参数传入才不会报错。形如：getHello.setAccessible(true)    </li>
+<li><code>invoke(Object,Object)</code>方法：<br>通过让<code>Method</code>对象调用<code>invoke()</code>方法来传参调用方法，其中<code>invoke()</code>方法的第一个参数为含有此方法的对象的实例化，第二个参数为方法要传入的参数。  </li>
+</ul>
+</li>
+</ol>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li>慕课网付费教程《剑指Java面试-Offer直通车》6-4  </li>
+</ul>
+]]></content>
+      <tags>
+        <tag>学习笔记·Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java基础</title>
     <url>/2020/08/01/Java%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文转载自<a href="https://cyc2018.github.io/CS-Notes/#/" target="_blank" rel="noopener">GitHub的开源项目</a>，转载的目的是为了能够对文章中不懂的内容进行自由注解。<br>以下为文章内容： </p>
@@ -340,6 +366,7 @@
 <p><a href="https://stackoverflow.com/questions/2971315/string-stringbuffer-and-stringbuilder" target="_blank" rel="noopener">StackOverflow : String, StringBuffer, and StringBuilder</a></p>
 <h2 id="String-Pool"><a href="#String-Pool" class="headerlink" title="String Pool"></a>String Pool</h2><p>字符串常量池（String Pool）保存着所有字符串字面量（literal strings），这些字面量在编译时期就确定。不仅如此，还可以使用 String 的 intern() 方法在运行过程将字符串添加到 String Pool 中。</p>
 <p>当一个字符串调用 intern() 方法时，如果 String Pool 中已经存在一个字符串和该字符串值相等（使用 equals() 方法进行确定），那么就会返回 String Pool 中字符串的引用；否则，就会在 String Pool 中添加一个新的字符串，并返回这个新字符串的引用。</p>
+<p>(<em>intern()方法为String类中的方法；equals()默认实现是判断内存地址</em>)</p>
 <p>下面示例中，s1 和 s2 采用 new String() 的方式新建了两个不同字符串，而 s3 和 s4 是通过 s1.intern() 方法取得同一个字符串引用。intern() 首先把 s1 引用的字符串放到 String Pool 中，然后返回这个字符串引用。因此 s3 和 s4 引用的是同一个字符串。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String s1 = <span class="keyword">new</span> String(<span class="string">"aaa"</span>);</span><br><span class="line">String s2 = <span class="keyword">new</span> String(<span class="string">"aaa"</span>);</span><br><span class="line">System.out.println(s1 == s2);           <span class="comment">// false</span></span><br><span class="line">String s3 = s1.intern();</span><br><span class="line">String s4 = s1.intern();</span><br><span class="line">System.out.println(s3 == s4);           <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 
@@ -363,6 +390,7 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line">Constant pool:</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">   #2 = Class              #18            // java/lang/String</span><br><span class="line">   #3 = String             #19            // abc</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">  #18 = Utf8               java/lang/String</span><br><span class="line">  #19 = Utf8               abc</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(java.lang.String[])</span></span>;</span><br><span class="line">    descriptor: ([Ljava/lang/String;)V</span><br><span class="line">    flags: ACC_PUBLIC, ACC_STATIC</span><br><span class="line">    Code:</span><br><span class="line">      stack=<span class="number">3</span>, locals=<span class="number">2</span>, args_size=<span class="number">1</span></span><br><span class="line">         0: new           #2                  // class java/lang/String</span><br><span class="line">         <span class="number">3</span>: dup</span><br><span class="line">         4: ldc           #3                  // String abc</span><br><span class="line">         6: invokespecial #4                  // Method java/lang/String."&lt;init&gt;":(Ljava/lang/String;)V</span><br><span class="line">         <span class="number">9</span>: astore_1</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
 
 <p>在 Constant Pool 中，#19 存储这字符串字面量 “abc”，#3 是 String Pool 的字符串对象，它指向 #19 这个字符串字面量。在 main 方法中，0: 行使用 new #2 在堆中创建一个字符串对象，并且使用 ldc #3 将 String Pool 中的字符串对象作为 String 构造函数的参数。</p>
+<p>(<em>Constant Pool为常量池</em>)</p>
 <p>以下是 String 构造函数的源码，可以看到，在将一个字符串对象作为另一个字符串对象的构造函数参数时，并不会完全复制 value 数组内容，而是都会指向同一个 value 数组。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">String</span><span class="params">(String original)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.value = original.value;</span><br><span class="line">    <span class="keyword">this</span>.hash = original.hash;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -411,9 +439,9 @@
 
 <p><strong>2. 方法</strong>  </p>
 <p>声明方法不能被子类重写。</p>
-<p>private 方法隐式地被指定为 final，如果在子类中定义的方法和基类中的一个 private 方法签名相同，此时子类的方法不是重写基类方法，而是在子类中定义了一个新的方法。</p>
+<p>private 方法隐式地被指定为 final，如果在子类中定义的方法和基类中的一个 private 方法签名相同，此时子类的方法不是重写基类方法，而是在子类中定义了一个新的方法。<br>(<em>重写是子类对父类的<strong>允许访问</strong>的方法的实现过程进行重新编写, 返回值和形参都不能改变。</em>)</p>
 <p><strong>3. 类</strong>  </p>
-<p>声明类不允许被继承。</p>
+<p>声明类不允许被继承。(<em>即，final修饰的类不允许被继承</em>)</p>
 <h2 id="static"><a href="#static" class="headerlink" title="static"></a>static</h2><p><strong>1. 静态变量</strong>  </p>
 <ul>
 <li>静态变量：又称为类变量，也就是说这个变量属于类的，类所有的实例都共享静态变量，可以直接通过类名来访问它。静态变量在内存中只存在一份。</li>
@@ -425,7 +453,7 @@
 <p>静态方法在类加载的时候就存在了，它不依赖于任何实例。所以静态方法必须有实现，也就是说它不能是抽象方法。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">func1</span><span class="params">()</span></span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// public abstract static void func2();  // Illegal combination of modifiers: 'abstract' and 'static'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>只能访问所属类的静态字段和静态方法，方法中不能有 this 和 super 关键字，因此这两个关键字与具体对象关联。</p>
+<p>只能访问所属类的静态字段和静态方法，方法中不能有 this 和 super 关键字，因为这两个关键字与具体对象关联。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> y;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">func1</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a = x;</span><br><span class="line">        <span class="comment">// int b = y;  // Non-static field 'y' cannot be referenced from a static context</span></span><br><span class="line">        <span class="comment">// int b = this.y;     // 'A.this' cannot be referenced from a static context</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><strong>3. 静态语句块</strong>  </p>
@@ -761,29 +789,58 @@
       </tags>
   </entry>
   <entry>
-    <title>Java反射</title>
-    <url>/2020/04/22/Java%E5%8F%8D%E5%B0%84/</url>
-    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文主要记录了Java反射相关函数的用法和实现的功能。  </p>
-<a id="more"></a>
-<ol>
-<li><p>谈谈反射<br>Java反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意方法和属性；这种动态获取信息以及动态调用对像方法的功能称为Java语言的反射机制。  </p>
-</li>
-<li><p>对象<br><code>Method</code>对象用来装类中的方法，<code>Field</code>用来装类中的属性。</p>
-</li>
-<li><p>常用的Java反射函数  </p>
-<ul>
-<li><code>GetDeclaredMethod()</code>方法：<br>可以获得所有访问类型的方法，但是不能获得继承的和实现接口的方法。若获取的方法为私有方法，则需要将返回的对象调用<code>setAccessible()</code>方法，将<code>true</code>作为参数传入才不会报错。形如：<code>getHello.setAccessible(true)</code>  </li>
-<li><code>getMethod()</code>方法：<br>只能调用public方法，但是可以调用对象的继承和实现的接口的方法。若获取的方法为私有方法，则需要将返回的对象调用setAccessible()方法，将true作为参数传入才不会报错。形如：getHello.setAccessible(true)    </li>
-<li><code>invoke(Object,Object)</code>方法：<br>通过让<code>Method</code>对象调用<code>invoke()</code>方法来传参调用方法，其中<code>invoke()</code>方法的第一个参数为含有此方法的对象的实例化，第二个参数为方法要传入的参数。  </li>
+    <title>Java开发学习路线</title>
+    <url>/2020/04/09/Java%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</url>
+    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>思路整理参考B站UP主“程序羊”，文章地址为：<a href="https://www.bilibili.com/read/cv4184856" target="_blank" rel="noopener">上次是谁说搞不清学习路线来着？</a>以及其它一些知乎回答。</p>
+<a id="more"></a>  
+
+<h1 id="全局脑图"><a href="#全局脑图" class="headerlink" title="全局脑图"></a>全局脑图</h1><p><img src="https://i.loli.net/2020/04/09/34ty7FciTbOvds5.jpg" alt="Java开发学习路线 .jpg">  </p>
+<h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><ol>
+<li>语言本身<br>如下一些重点必须掌握：  <ul>
+<li>语法基础</li>
+<li>OO编程思想：类、对象、封装、继承、多态、接口  </li>
+<li>容器、异常、泛型、I/O、反射、注解  </li>
+<li><del>图形化界面，如 <code>swing</code> 的东西跳过不看</del></li>
 </ul>
 </li>
+<li>数据结构和算法  <ul>
+<li>几大基础数据结构类型得烂熟于心，比如：字符串、链表、二叉树、栈、队列等等；基本的几大算法要了如指掌，比如查找、排序、动态规划等等。  </li>
+<li>练习方式：<a href="https://leetcode-cn.com/explore/" target="_blank" rel="noopener">leetcode</a>、<a href="https://www.nowcoder.com/index" target="_blank" rel="noopener">牛客网</a>  </li>
+</ul>
+</li>
+<li>TCP/IP协议栈  <ul>
+<li>TCP/IP协议可以说是当下互联网通信的基石，无论如何一定要对TCP/IP的协议栈了如指掌，包括：ARP协议、IP协议、ICMP协议、TCP和UDP协议、DNS协议、HTTP协议、HTTPS协议等等。</li>
+<li>对于Java来说，熟悉Netty开发是入门网络开发的捷径。</li>
+<li>爬虫是网络开发中另外一个极具魅力的点，但建议使用python而不是java去做。 </li>
+</ul>
+</li>
+<li>设计模式<br>倒不需要23种设计模式全部很熟悉，常见的几个，比如：单例模式、工厂模式、代理模式、策略模式、模板方法模式等几个熟练于心即可。</li>
+<li>数据库和SQL<br>数据库基本原理了解，SQL语句熟练书写。  </li>
 </ol>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
-<li>慕课网付费教程《剑指Java面试-Offer直通车》6-4  </li>
+<h1 id="项目工具"><a href="#项目工具" class="headerlink" title="项目工具"></a>项目工具</h1><ol>
+<li>Linux系统基本命令会使用， Linux系统上常用的服务会部署  </li>
+<li>代码管理SVN或 Git 二选一，持续练习，熟练使用  </li>
+<li>基于 Maven或Gradle的Java项目管理二选一，熟练使用  </li>
+</ol>
+<h1 id="应用框架"><a href="#应用框架" class="headerlink" title="应用框架"></a>应用框架</h1><ol>
+<li>Spring全家桶<br>了解Spring、Mybatis等框架的基本原理 Spring Boot框架会熟练使用、掌握基本原理 SSM组合框架会上手搭建项目、开发业务、掌握基本原理  </li>
+<li>中间件技术<br><strong>消息队列</strong>，主流的如 RabbitMQ Kafka等<br><strong>RPC通信</strong> 框架，主流的如  gRPC Thrift Dubbo 等<br><strong>NoSQL数据库</strong> ：主流的如  Redis memcached ElasticSearch 等<br><strong>NIO网络通信</strong> 框架，主流的如  Netty 等<br>这些成熟的中间件框架在企业级产品里应用得广泛而深远，建议先是要会 熟练使用 ，要是能了解 底层原理 实现那就更加分了！</li>
+<li>分布式微服务 当下微服务盛行，是个公司都说自己在搞微服务，所以诸如  Spring Cloud 这样的微服务框架怎么能不学，要求也是先会使用，再尝试搞懂原理 </li>
+<li>虚拟化/容器化 虚拟化、容器化平台是未来发展的大趋势，很多规模化企业都在搭建各SaaS/PaaS/IaaS平台，在此过程中诞生的一系列关于该方面的技术在学有余力的情况下最好也涉猎一下，典型的比如：  Docker 容器、  kubernetes编排技术。  </li>
+</ol>
+<h1 id="源码-性能"><a href="#源码-性能" class="headerlink" title="源码/性能"></a>源码/性能</h1><p>在如今这个流量极其密集的互联网时代，关注到 源码和性能 层面的程序员才是顶级好码农，所以：   </p>
+<ul>
+<li>关注JDK源码和设计思想  </li>
+<li>关注Java并发编程原理和实践  </li>
+<li>关注JVM细节原理与调优  </li>
+<li>关注上述应用框架的核心思想和内部源码  </li>
+<li>关注数据库深度优化  </li>
+<li>等等…  </li>
 </ul>
+<p>Java学习知识树【来源：<a href="https://www.nowcoder.com/tutorial/94/74ef45a524ad445399276e54c59d1eab" target="_blank" rel="noopener">牛客网Java面经</a>】<br><img src="https://i.loli.net/2020/04/17/opkLaPKzdxnwcT2.png" alt="Java学习知识树.png"></p>
 ]]></content>
       <tags>
-        <tag>学习笔记·Java</tag>
+        <tag>所思所想</tag>
       </tags>
   </entry>
   <entry>
@@ -842,7 +899,7 @@
 <h3 id="3-Queue"><a href="#3-Queue" class="headerlink" title="3. Queue"></a>3. Queue</h3><ul>
 <li><p>LinkedList：可以用它来实现双向队列。</p>
 </li>
-<li><p>PriorityQueue：基于堆结构实现，可以用它来实现优先队列。</p>
+<li><p>PriorityQueue：基于堆结构实现，可以用它来实现优先队列。<br><strong><em>（Set,List,Queue是一种宏观表现形式，分别为集合、列表、队列。它们的实现类拥有不同的类型，也有相应不同的功能。）</em></strong></p>
 </li>
 </ul>
 <h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/image-20191208224757855.png"/> </div><br>
@@ -859,11 +916,13 @@
 </ul>
 <h1 id="二、容器中的设计模式"><a href="#二、容器中的设计模式" class="headerlink" title="二、容器中的设计模式"></a>二、容器中的设计模式</h1><h2 id="迭代器模式"><a href="#迭代器模式" class="headerlink" title="迭代器模式"></a>迭代器模式</h2><div align="center"> <img src="https://cs-notes-1256109796.cos.ap-guangzhou.myqcloud.com/image-20191208225301973.png"/> </div><br>
 
+<p><strong><em>（在集合遍历或按序读取时，对于集合中不同的对象常常会用到不同的方法，但是遍历时候的大顺序是不会变的，将这个过程抽象提取出来形成一个迭代器（如Collection对象中实现的iterator方法，其中有许多遍历操作的实现）来供调用，这就是迭代器模式。）</em></strong></p>
 <p>Collection 继承了 Iterable 接口，其中的 iterator() 方法能够产生一个 Iterator 对象，通过这个对象就可以迭代遍历 Collection 中的元素。</p>
 <p>从 JDK 1.5 之后可以使用 foreach 方法来遍历实现了 Iterable 接口的聚合对象。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">list.add(<span class="string">"a"</span>);</span><br><span class="line">list.add(<span class="string">"b"</span>);</span><br><span class="line"><span class="keyword">for</span> (String item : list) &#123;</span><br><span class="line">    System.out.println(item);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h2><p>java.util.Arrays#asList() 可以把数组类型转换为 List 类型。</p>
+<h2 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h2><p><strong><em>（在系统更新中常常会出现老旧不兼容的情况，这时常用到适配器模式这种结构来处理。在不相关的两个类中间，增加一个适配器类，在这个类中，调用旧系统的功能，新系统的类通过适配器中的方法来实现调用老系统的功能。<br>其中，适配器类通过继承的方式拥有旧系统的功能时，称为类适配器；当使用组合（即，在适配器类中加入旧方法对象的属性，并在适配器类的含参构造方法来实例化它）方式实现时，称为对象适配器，这一类适配器灵活度更高。）</em></strong>  </p>
+<p>java.util.Arrays#asList() 可以把数组类型转换为 List 类型。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SafeVarargs</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">List&lt;T&gt; <span class="title">asList</span><span class="params">(T... a)</span></span></span><br></pre></td></tr></table></figure>
 
 <p>应该注意的是 asList() 的参数为泛型的变长参数，不能使用基本类型数组作为参数，只能使用相应的包装类型数组。</p>
@@ -898,7 +957,8 @@
 
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">writeObject</span><span class="params">(java.io.ObjectOutputStream s)</span></span></span><br><span class="line"><span class="function">    <span class="keyword">throws</span> java.io.IOException</span>&#123;</span><br><span class="line">    <span class="comment">// Write out element count, and any hidden stuff</span></span><br><span class="line">    <span class="keyword">int</span> expectedModCount = modCount;</span><br><span class="line">    s.defaultWriteObject();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Write out size as capacity for behavioural compatibility with clone()</span></span><br><span class="line">    s.writeInt(size);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Write out all elements in the proper order.</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;size; i++) &#123;</span><br><span class="line">        s.writeObject(elementData[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (modCount != expectedModCount) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ConcurrentModificationException();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>序列化时需要使用 ObjectOutputStream 的 writeObject() 将对象转换为字节流并输出。而 writeObject() 方法在传入的对象存在 writeObject() 的时候会去反射调用该对象的 writeObject() 来实现序列化。反序列化使用的是 ObjectInputStream 的 readObject() 方法，原理类似。</p>
+<p>序列化时需要使用 ObjectOutputStream 的 writeObject() 将对象转换为字节流并输出。而 writeObject() 方法在传入的对象存在 writeObject() 的时候会去反射调用该对象的 writeObject() 来实现序列化。反序列化使用的是 ObjectInputStream 的 readObject() 方法，原理类似。  </p>
+<p><strong><em>（Java序列化是指把Java对象转换为字节序列的过程；而Java反序列化是指把字节序列恢复为Java对象的过程。）</em></strong></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ArrayList list = <span class="keyword">new</span> ArrayList();</span><br><span class="line">ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(<span class="keyword">new</span> FileOutputStream(file));</span><br><span class="line">oos.writeObject(list);</span><br></pre></td></tr></table></figure>
 
 <h3 id="5-Fail-Fast"><a href="#5-Fail-Fast" class="headerlink" title="5. Fail-Fast"></a>5. Fail-Fast</h3><p>modCount 用来记录 ArrayList 结构发生变化的次数。结构发生变化是指添加或者删除至少一个元素的所有操作，或者是调整内部数组的大小，仅仅只是设置元素的值不算结构发生变化。</p>
@@ -1096,7 +1156,7 @@
 <h2 id="LinkedHashMap"><a href="#LinkedHashMap" class="headerlink" title="LinkedHashMap"></a>LinkedHashMap</h2><h3 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构"></a>存储结构</h3><p>继承自 HashMap，因此具有和 HashMap 一样的快速查找特性。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkedHashMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">HashMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>内部维护了一个双向链表，用来维护插入顺序或者 LRU 顺序。</p>
+<p>内部维护了一个双向链表，用来维护插入顺序或者 LRU（最近最少使用） 顺序。  </p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * The head (eldest) of the doubly linked list.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">transient</span> LinkedHashMap.Entry&lt;K,V&gt; head;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * The tail (youngest) of the doubly linked list.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">transient</span> LinkedHashMap.Entry&lt;K,V&gt; tail;</span><br></pre></td></tr></table></figure>
 
 <p>accessOrder 决定了顺序，默认为 false，此时维护的是插入顺序。</p>
@@ -1191,6 +1251,42 @@
 <p>……看至4-1，以后继续更新本文。（2020-4-22）</p>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
 <li>慕课网初级课——<a href="https://www.imooc.com/video/8865/0" target="_blank" rel="noopener">《全面解析Java注解》</a>。  </li>
+</ul>
+]]></content>
+      <tags>
+        <tag>学习笔记·Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java网络编程</title>
+    <url>/2020/12/22/Java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</url>
+    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文整理了Java中关于网络编程部分的知识点，并列举了一个socket聊天室的示例。  </p>
+<a id="more"></a>
+
+<h1 id="Socket和ServerSocket的简单介绍"><a href="#Socket和ServerSocket的简单介绍" class="headerlink" title="Socket和ServerSocket的简单介绍"></a>Socket和ServerSocket的简单介绍</h1><h2 id="Socket类"><a href="#Socket类" class="headerlink" title="Socket类"></a>Socket类</h2><p>socket可以使一个应用从网络中读取和写入数据，不同计算机上的两个应用可以通过连接发送和接受字节流，当发送消息时，你需要知道对方的ip和端口，在java中，socket指的是java.net.Socket类。在java.net.Socket中，可以看到socket有多种构造函数。<br><img src="https://img-blog.csdn.net/20151217223244553" alt="socket类中的构造函数" title="socket类"><br>以public Socket(String host, int port)为例，host为远程机器名称或ip地址，port为端口号。若连接本地的Server，其端口号为8080，可以写成如下格式<br><code>new Socket(“localhost”, 8080)</code><br>一旦成功创建一个Socket类的实例，可以用它来发送和接收字节流，发送时调用getOutputStream方法获取一个java.io.OutputStream对象，接收远程对象发送来的信息可以调用getInputStream方法来返回一个java.io.InputStream对象。  </p>
+<h2 id="ServerSocket类"><a href="#ServerSocket类" class="headerlink" title="ServerSocket类"></a>ServerSocket类</h2><p>Socket类代表一个客户端套接字，即任何时候连接到一个远程服务器应用时构建所需的socket。现在，要实现一个服务器应用，需要不同的做法。服务器需随时待命，因为不知道客户端什么时候会发来请求，此时，我们需要使用ServerSocket，对应的是java.net.ServerSocket类。<br>ServerSocket与Socket不同，ServerSocket是等待客户端的请求，一旦获得一个连接请求，就创建一个Socket示例来与客户端进行通信。<br>ServerSocket的构造函数也有多种重载形式：<br><img src="https://img-blog.csdn.net/20151217224727410" alt="ServerSocket类中的构造函数" title="ServerSocket类"><br>ServerSocket 有一个不带参数的默认构造方法。通过该方法创建的 ServerSocket 不与任何端口绑定，接下来还需要通过 bind()方法与特定端口绑定。这个默认构造方法的用途是，允许服务器在绑定到特定端口之前，先设置ServerSocket 的一些选项。因为一旦服务器与特定端口绑定，有些选项就不能再改变了。例如：  </p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ServerSocket serverSocket=<span class="keyword">new</span> ServerSocket();</span><br><span class="line">serverSocket.setReuseAddress(<span class="keyword">true</span>); <span class="comment">//设置 ServerSocket 的选项</span></span><br><span class="line">serverSocket.bind(<span class="keyword">new</span> InetSocketAddress(<span class="number">8080</span>)); <span class="comment">//与 8080 端口绑定</span></span><br></pre></td></tr></table></figure>
+<p>如果把以上程序改成  </p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ServerSocket serverSocket=<span class="keyword">new</span> ServerSocket(<span class="number">8080</span>);</span><br><span class="line">serverSocket.setReuseAddress(<span class="keyword">true</span>); <span class="comment">//设置 ServerSocket 的选项</span></span><br></pre></td></tr></table></figure>
+<p>则会看到<code>serverSocket.setReuseAddress(true)</code>方法就不起任何作用了，这时就需要用到无参数的构造函数了。  </p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ServerSocket serverSocket = <span class="keyword">new</span> ServerSocket(port,<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+<p>此构造函数可以设置队列长度。这里把连接请求队列的长度设为 3。这意味着当队列中有了 3 个连接请求时，如果 Client 再请求连接，就会被 Server拒绝，因为服务器队列已经满了。我们使用的 serverSocket.accept()方法就是从队列中取出连接请求。  </p>
+<h2 id="客户端和服务端"><a href="#客户端和服务端" class="headerlink" title="客户端和服务端"></a>客户端和服务端</h2><p>使用Socket类可以构建客户端程序，ServerSocket类可以构建服务端程序。  </p>
+<ul>
+<li>客户端向服务器发送请求可分为以下步骤：  <ul>
+<li>创建一个Socket实例  </li>
+<li>利用I/O流与服务器进行通信  </li>
+<li>关闭socket  </li>
+</ul>
+</li>
+<li>服务器接收客户端请求步骤：  <ul>
+<li>创建一个ServerSocket实例，监听客户端发来的请求。  </li>
+<li>与客户端获取连接后，创建一个Socket实例，利用I/O流与客户端进行通信，完毕后关闭Socket。  </li>
+</ul>
+</li>
+</ul>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1><h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><ul>
+<li>参考资料<br><a href="https://blog.csdn.net/qq_41517936/article/details/81015711" target="_blank" rel="noopener">https://blog.csdn.net/qq_41517936/article/details/81015711</a><br><a href="https://www.jianshu.com/p/665994c2e784" target="_blank" rel="noopener">https://www.jianshu.com/p/665994c2e784</a>  </li>
 </ul>
 ]]></content>
       <tags>
@@ -1355,7 +1451,7 @@
 <h3 id="抽象工厂模式"><a href="#抽象工厂模式" class="headerlink" title="抽象工厂模式"></a>抽象工厂模式</h3><p>将工厂模式中的工厂进行抽象。工厂模式中每个对象都有一个工厂，这种方式会在最后产生大量的工厂。抽象工厂模式中，将同一族的产品的产生囊括到一个工厂中，这就减少了工厂的数量。工厂通过接口来约束，同一结构的对象通过同一个接口来约束。<br>工厂模式和简单工厂模式主要就是产生一个类，而抽象工厂可以用于一个产品族（一个类型的类）的产生，需要这一族中某个对象时，都只需要调用这一个工厂类就行了。</p>
 <h3 id="生成器模式（建造者模式）"><a href="#生成器模式（建造者模式）" class="headerlink" title="生成器模式（建造者模式）"></a>生成器模式（建造者模式）</h3><p>适用于有许多属性的对象的生成。这类对象常为POJO类，建造者类中的方法通过调用这些POJO类中的方法来完成类的“建造”。一类对象的建造者类的方法常常通过抽象最后抽象为一个抽象类，所有建造者类都需继承自这个抽象类。  </p>
 <h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><p>以一个已有的类作为原型来克隆产生新的对象，要使用clone方法，需要对象实现cloneable接口。cloneable接口中的clone方法为Object类自带的clone方法，调用了本地的C++方法，效率高，但为浅拷贝，即，在内存中都引用了同一个对象，当旧对象发生改变后，新对象也会发生改变。这种情况可以通过重写clone方法来实现。在方法中，对本对象的属性也调用clone方法即可完成深拷贝产生一个新的类实例，而不是引用同一个类。</p>
-<h2 id="结构型模式分析"><a href="#结构型模式分析" class="headerlink" title="结构型模式分析"></a>结构型模式分析</h2><h3 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h3><p>在系统更新中常常会出现老旧不兼容的情况，这时常用到适配器模式这种结构来处理。在不相关的两个类中间，增加一个适配器类，在这个类中，调用旧系统的功能，新系统的类通过适配器中的方法来实现调用老系统的功能。<br>其中，适配器类通过继承的方式拥有旧系统的功能时，称为类适配器；当使用组合（即，在适配器类中加入就方法对象的属性，并在适配器类的含参构造方法来实例化它）方式实现时，称为对象适配器，这一类适配器灵活度更高。  </p>
+<h2 id="结构型模式分析"><a href="#结构型模式分析" class="headerlink" title="结构型模式分析"></a>结构型模式分析</h2><h3 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h3><p>在系统更新中常常会出现老旧不兼容的情况，这时常用到适配器模式这种结构来处理。在不相关的两个类中间，增加一个适配器类，在这个类中，调用旧系统的功能，新系统的类通过适配器中的方法来实现调用老系统的功能。<br>其中，适配器类通过继承的方式拥有旧系统的功能时，称为类适配器；当使用组合（即，在适配器类中加入旧方法对象的属性，并在适配器类的含参构造方法来实例化它）方式实现时，称为对象适配器，这一类适配器灵活度更高。  </p>
 <h3 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a>桥接模式</h3><p>当一个类为多层继承关系时（这里的继承者之间，没有亲密的关系，是可以解耦的），它往往没有遵循单一职责原则。此时可以考虑将继承转为组合关系。将其中的一层继承去掉，在另一层中将去掉的继承类作为属性写入类中。这样可以实现灵活的组合各种类，只要在类的实例化时，将想要的属性参数传递过去就行；如果在多继承的情况下，则需要创建、编写一个新的类。<br>（<strong><em>桥接模式和适配器模式都是将一个继承关系的类写进属性中变为组合关系，但是适配器模式是将还没有的关系变为有；而桥接模式是将已经有的关系拆开后用组合方式实现，这是两者的不同，一个适配器是没有关系创造联系，桥接模式是有联系的拆开后重新以组合的方式产生联系</em></strong>）</p>
 <h3 id="装饰器模式"><a href="#装饰器模式" class="headerlink" title="装饰器模式"></a>装饰器模式</h3><p>装饰器模式是将原有的类嵌入到一个新的类中，并将其功能进行扩展。这个结构模式和适配器模式的区别是，适配器不改变原有接口，装饰器模式的目的是想要将原有的类功能进行拓展。  </p>
 <h3 id="组合模式"><a href="#组合模式" class="headerlink" title="组合模式"></a>组合模式</h3><p><del>暂无</del>  </p>
@@ -1365,7 +1461,7 @@
 <h2 id="行为型模式分析"><a href="#行为型模式分析" class="headerlink" title="行为型模式分析"></a>行为型模式分析</h2><h3 id="职责链模式"><a href="#职责链模式" class="headerlink" title="职责链模式"></a>职责链模式</h3><p>在职责链模式中，通过在对象中增加一个表示下一个对象的属性来实现将数据交给下一个对象的能力。以此实现职责的链式传递。这个对象无法处理时，将调用下一个对象的方法，并在下一个对象的方法中判断是否可以处理，以此类推。</p>
 <h3 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h3><p><del>暂无</del></p>
 <h3 id="解释器模式"><a href="#解释器模式" class="headerlink" title="解释器模式"></a>解释器模式</h3><p><del>暂无</del></p>
-<h3 id="迭代器模式"><a href="#迭代器模式" class="headerlink" title="迭代器模式"></a>迭代器模式</h3><p><del>暂无</del></p>
+<h3 id="迭代器模式"><a href="#迭代器模式" class="headerlink" title="迭代器模式"></a>迭代器模式</h3><p>在集合遍历或按序读取时，对于集合中不同的对象常常会用到不同的方法，但是遍历时候的大顺序是不会变的，将这个过程抽象提取出来形成一个迭代器来供调用，这就是迭代器模式。</p>
 <h3 id="中介者模式"><a href="#中介者模式" class="headerlink" title="中介者模式"></a>中介者模式</h3><p><del>暂无</del></p>
 <h3 id="备忘录模式"><a href="#备忘录模式" class="headerlink" title="备忘录模式"></a>备忘录模式</h3><p><del>暂无</del></p>
 <h3 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h3><p>解决的是对象一对多的关系。当一个对象和多个对象都有关系时，常使用此模式来使得对象间解耦。观察者统一实现一个抽象接口，这个接口会被被观察者在更新时调用。被观察者发生改变时，调用观察者的接口，以此来提醒观察者对象做出相应的更新。</p>
@@ -1658,7 +1754,7 @@
  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> value = <span class="number">123</span>;</span><br></pre></td></tr></table></figure></li>
 <li><p>解析<br>将常量池的符号引用替换为直接引用的过程。<br>其中解析过程在某些情况下可以在初始化阶段之后再开始，这是为了支持 Java 的动态绑定。</p>
 </li>
-<li><p>初始化<br> 初始化阶段才真正开始执行类中定义的 Java 程序代码。初始化阶段是虚拟机执行类构造器 <clinit>() 方法的过程。在准备阶段，类变量已经赋过一次系统要求的初始值，而在初始化阶段，根据程序员通过程序制定的主观计划去初始化类变量和其它资源。<br> <clinit>() 是由编译器自动收集类中所有类变量的赋值动作和静态语句块中的语句合并产生的，编译器收集的顺序由语句在源文件中出现的顺序决定。特别注意的是，静态语句块只能访问到定义在它之前的类变量，定义在它之后的类变量只能赋值，不能访问。例如以下代码：</p>
+<li><p>初始化<br> 初始化阶段才真正开始执行类中定义的 Java 程序代码。初始化阶段是虚拟机执行类构造器 <code>&lt;clinit&gt;</code>() 方法的过程。在准备阶段，类变量已经赋过一次系统要求的初始值，而在初始化阶段，根据程序员通过程序制定的主观计划去初始化类变量和其它资源。<br> <code>&lt;clinit&gt;</code>() 是由编译器自动收集类中所有类变量的赋值动作和静态语句块中的语句合并产生的，编译器收集的顺序由语句在源文件中出现的顺序决定。特别注意的是，静态语句块只能访问到定义在它之前的类变量，定义在它之后的类变量只能赋值，不能访问。例如以下代码：</p>
  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        i = <span class="number">0</span>;                <span class="comment">// 给变量赋值可以正常编译通过</span></span><br><span class="line">        System.out.print(i);  <span class="comment">// 这句编译器会提示“非法向前引用”</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p> 由于父类的 <clinit>() 方法先执行，也就意味着父类中定义的静态语句块的执行要优先于子类。例如以下代码：</p>
  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Parent</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> A = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        A = <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Sub</span> <span class="keyword">extends</span> <span class="title">Parent</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> B = A;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    System.out.println(Sub.B);  <span class="comment">// 2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1834,316 +1930,6 @@
 ]]></content>
       <tags>
         <tag>学习笔记·Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java开发学习路线</title>
-    <url>/2020/04/09/Java%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</url>
-    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>思路整理参考B站UP主“程序羊”，文章地址为：<a href="https://www.bilibili.com/read/cv4184856" target="_blank" rel="noopener">上次是谁说搞不清学习路线来着？</a>以及其它一些知乎回答。</p>
-<a id="more"></a>  
-
-<h1 id="全局脑图"><a href="#全局脑图" class="headerlink" title="全局脑图"></a>全局脑图</h1><p><img src="https://i.loli.net/2020/04/09/34ty7FciTbOvds5.jpg" alt="Java开发学习路线 .jpg">  </p>
-<h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><ol>
-<li>语言本身<br>如下一些重点必须掌握：  <ul>
-<li>语法基础</li>
-<li>OO编程思想：类、对象、封装、继承、多态、接口  </li>
-<li>容器、异常、泛型、I/O、反射、注解  </li>
-<li><del>图形化界面，如 <code>swing</code> 的东西跳过不看</del></li>
-</ul>
-</li>
-<li>数据结构和算法  <ul>
-<li>几大基础数据结构类型得烂熟于心，比如：字符串、链表、二叉树、栈、队列等等；基本的几大算法要了如指掌，比如查找、排序、动态规划等等。  </li>
-<li>练习方式：<a href="https://leetcode-cn.com/explore/" target="_blank" rel="noopener">leetcode</a>、<a href="https://www.nowcoder.com/index" target="_blank" rel="noopener">牛客网</a>  </li>
-</ul>
-</li>
-<li>TCP/IP协议栈  <ul>
-<li>TCP/IP协议可以说是当下互联网通信的基石，无论如何一定要对TCP/IP的协议栈了如指掌，包括：ARP协议、IP协议、ICMP协议、TCP和UDP协议、DNS协议、HTTP协议、HTTPS协议等等。</li>
-<li>对于Java来说，熟悉Netty开发是入门网络开发的捷径。</li>
-<li>爬虫是网络开发中另外一个极具魅力的点，但建议使用python而不是java去做。 </li>
-</ul>
-</li>
-<li>设计模式<br>倒不需要23种设计模式全部很熟悉，常见的几个，比如：单例模式、工厂模式、代理模式、策略模式、模板方法模式等几个熟练于心即可。</li>
-<li>数据库和SQL<br>数据库基本原理了解，SQL语句熟练书写。  </li>
-</ol>
-<h1 id="项目工具"><a href="#项目工具" class="headerlink" title="项目工具"></a>项目工具</h1><ol>
-<li>Linux系统基本命令会使用， Linux系统上常用的服务会部署  </li>
-<li>代码管理SVN或 Git 二选一，持续练习，熟练使用  </li>
-<li>基于 Maven或Gradle的Java项目管理二选一，熟练使用  </li>
-</ol>
-<h1 id="应用框架"><a href="#应用框架" class="headerlink" title="应用框架"></a>应用框架</h1><ol>
-<li>Spring全家桶<br>了解Spring、Mybatis等框架的基本原理 Spring Boot框架会熟练使用、掌握基本原理 SSM组合框架会上手搭建项目、开发业务、掌握基本原理  </li>
-<li>中间件技术<br><strong>消息队列</strong>，主流的如 RabbitMQ Kafka等<br><strong>RPC通信</strong> 框架，主流的如  gRPC Thrift Dubbo 等<br><strong>NoSQL数据库</strong> ：主流的如  Redis memcached ElasticSearch 等<br><strong>NIO网络通信</strong> 框架，主流的如  Netty 等<br>这些成熟的中间件框架在企业级产品里应用得广泛而深远，建议先是要会 熟练使用 ，要是能了解 底层原理 实现那就更加分了！</li>
-<li>分布式微服务 当下微服务盛行，是个公司都说自己在搞微服务，所以诸如  Spring Cloud 这样的微服务框架怎么能不学，要求也是先会使用，再尝试搞懂原理 </li>
-<li>虚拟化/容器化 虚拟化、容器化平台是未来发展的大趋势，很多规模化企业都在搭建各SaaS/PaaS/IaaS平台，在此过程中诞生的一系列关于该方面的技术在学有余力的情况下最好也涉猎一下，典型的比如：  Docker 容器、  kubernetes编排技术。  </li>
-</ol>
-<h1 id="源码-性能"><a href="#源码-性能" class="headerlink" title="源码/性能"></a>源码/性能</h1><p>在如今这个流量极其密集的互联网时代，关注到 源码和性能 层面的程序员才是顶级好码农，所以：   </p>
-<ul>
-<li>关注JDK源码和设计思想  </li>
-<li>关注Java并发编程原理和实践  </li>
-<li>关注JVM细节原理与调优  </li>
-<li>关注上述应用框架的核心思想和内部源码  </li>
-<li>关注数据库深度优化  </li>
-<li>等等…  </li>
-</ul>
-<p>Java学习知识树【来源：<a href="https://www.nowcoder.com/tutorial/94/74ef45a524ad445399276e54c59d1eab" target="_blank" rel="noopener">牛客网Java面经</a>】<br><img src="https://i.loli.net/2020/04/17/opkLaPKzdxnwcT2.png" alt="Java学习知识树.png"></p>
-]]></content>
-      <tags>
-        <tag>所思所想</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PHP语法回顾</title>
-    <url>/2020/05/07/PHP%E8%AF%AD%E6%B3%95%E5%9B%9E%E9%A1%BE/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>SpringBoot初探</title>
-    <url>/2020/07/28/SpringBoot%E5%88%9D%E6%8E%A2/</url>
-    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文主要整理了SpringBoot中常见的概念名词及其实现的原理。  </p>
-<a id="more"></a>
-<h3 id="Spring-Boot-自动配置原理是什么？"><a href="#Spring-Boot-自动配置原理是什么？" class="headerlink" title="Spring Boot 自动配置原理是什么？"></a>Spring Boot 自动配置原理是什么？</h3><p>在spring-boot-autoconfigure-2.3.1.RELEASE.jar包下的META-INF文件夹里的spring.factories，有JavaEE需要的所有配置和解决方案。  </p>
-<p>springboot所有自动配置都是在启动的时候扫描加载的：spring.factories所有的自动配置类都在这里面，但是不一定生效，要判断条件是否成立，只要导入对应的start，就有了对应的启动器，我们的自动装配就会生效，然后就配置成功了。其中配置生效的原理是通过@ConditionalOnClass注解来判断某个类是否存在在程序中（其中可能含有很多类似的@ConditionalOnXXX注解来判断是否满足配置导入的前提条件），对应的启动器中的依赖中的类，导入到程序中之后，对应的扫描通过了，自动配置就生效，此时便配置成功了。  </p>
-<h3 id="Spring-Boot-的核心注解是哪个？它主要由哪几个注解组成的？"><a href="#Spring-Boot-的核心注解是哪个？它主要由哪几个注解组成的？" class="headerlink" title="Spring Boot 的核心注解是哪个？它主要由哪几个注解组成的？"></a>Spring Boot 的核心注解是哪个？它主要由哪几个注解组成的？</h3><p>启动类上面的注解是<code>@SpringBootApplication</code>，它也是 Spring Boot 的核心注解，主要组合包含了以下 3 个注解：  </p>
-<ul>
-<li><code>@SpringBootConfiguration</code>：组合了 @Configuration 注解，实现配置文件的功能。  </li>
-<li><code>@EnableAutoConfiguration</code>：打开自动配置的功能，也可以关闭某个自动配置的选项，如关闭数据源自动配置功能：<br>@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class })。  <ul>
-<li>@AutoConfigurationPackage  <ul>
-<li>@Import(AutoConfigurationPackages.Registrar.class)自动配置包注册  </li>
-</ul>
-</li>
-<li>@Import(AutoConfigurationImportSelector.class)  <ul>
-<li>AutoConfigurationImportSelector中定义了要扫描的类需要<code>EnableAutoConfiguration</code>注解，<code>SpringBootApplication</code>注解底层即有此注解；以及需要加载的配置在spring-boot-autoconfigure-2.3.1.RELEASE.jar包下的META-INF文件夹里的spring.factories中  </li>
-</ul>
-</li>
-</ul>
-</li>
-<li><code>@ComponentScan</code>：Spring组件扫描。扫描当前主启动类同级的包。  </li>
-</ul>
-<h3 id="Spring-Boot-有哪几种读取配置的方式？"><a href="#Spring-Boot-有哪几种读取配置的方式？" class="headerlink" title="Spring Boot 有哪几种读取配置的方式？"></a>Spring Boot 有哪几种读取配置的方式？</h3><ul>
-<li><code>@ConfigurationProperties(prefix = &quot;info&quot;)</code>注解，这种方式需要配置文件中的名字和类中的属性名相同；  </li>
-<li><code>@PropertySource(value = { &quot;config/db-config.properties&quot; })</code>加上<code>@Value(&quot;$(name)&quot;)</code>，可以取到配置文件中相对应的值；<br>其中，<code>@ConfigurationProperties</code>的方式较好，因为它支持</li>
-<li>批量注入配置文件中的属性，而使用<code>@Value</code>的方式需要一个个的配置  </li>
-<li>松散绑定，即，在类中使用驼峰命名，在配置类中使用<code>-</code>隔开的方式也能被识别  </li>
-<li>JSR303数据校验  </li>
-<li>复杂类型封装  </li>
-</ul>
-<h3 id="你如何理解-Spring-Boot-配置加载顺序？"><a href="#你如何理解-Spring-Boot-配置加载顺序？" class="headerlink" title="你如何理解 Spring Boot 配置加载顺序？"></a>你如何理解 Spring Boot 配置加载顺序？</h3><p>springboot 启动会扫描以下位置的application.properties或者application.yml文件作为Spring boot的默认配置文件：  </p>
-<ul>
-<li>优先级1：项目路径下的config文件夹配置文件  </li>
-<li>优先级2：项目路径下配置文件  </li>
-<li>优先级3：资源路径下的config文件夹配置文件  </li>
-<li>优先级4：资源路径下配置文件  </li>
-</ul>
-<p>优先级由高到底，高优先级的配置会覆盖低优先级的配置；</p>
-<h3 id="Spring-Boot-如何定义多套不同环境配置？"><a href="#Spring-Boot-如何定义多套不同环境配置？" class="headerlink" title="Spring Boot 如何定义多套不同环境配置？"></a>Spring Boot 如何定义多套不同环境配置？</h3><ul>
-<li>多配置文件时：<br>我们在主配置文件编写的时候，文件名可以是 <code>application-{profile}.properties/yml</code>, 用来指定多个环境版本；<br>例如：<br><code>application-test.properties</code>代表测试环境配置<br><code>application-dev.properties</code>代表开发环境配置<br>但是Springboot并不会直接启动这些配置文件，它默认使用<code>application.properties</code>主配置文件；<br>我们需要通过一个配置来选择需要激活的环境：    <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">    #比如在配置文件中指定使用dev环境，我们可以通过设置不同的端口号进行测试；</span><br><span class="line">    #我们启动SpringBoot，就可以看到已经切换到dev下的配置了；</span><br><span class="line">    spring.profiles.active=dev</span><br><span class="line">    ```  </span><br><span class="line"></span><br><span class="line">* 使用yaml文件作为配置文件时，可以使用同一个文件实现多环境：  </span><br><span class="line">```yml</span><br><span class="line">server:</span><br><span class="line">  port: 8081</span><br><span class="line">#选择要激活那个环境块</span><br><span class="line">spring:</span><br><span class="line">  profiles:</span><br><span class="line">    active: prod</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">server:</span><br><span class="line">  port: 8083</span><br><span class="line">spring:</span><br><span class="line">  profiles: dev #配置环境的名称</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">server:</span><br><span class="line">  port: 8084</span><br><span class="line">spring:</span><br><span class="line">  profiles: prod  #配置环境的名称</span><br></pre></td></tr></table></figure>
-注意：如果yml和properties同时都配置了端口，并且没有激活其他环境 ， 默认会使用properties配置文件的！  </li>
-</ul>
-<h3 id="如何自定义配置"><a href="#如何自定义配置" class="headerlink" title="如何自定义配置"></a>如何自定义配置</h3><p>xxxAutoConfiguration中带有相应的配置的默认值，其中的底层将xxxProperties和配置文件绑定，我们在配置文件中可以对xxxProperties配置类中的属性进行覆写，即可完成自定义的配置。  </p>
-<h3 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h3><ol>
-<li>用maven构建 项目时，resources 目录就是默认的classpath；  </li>
-<li>通过debug=true可以让控制台打印自动配置报告，这样我们就可以很方便的知道哪些自动配置类生效；  </li>
-<li>静态资源目录为resource下的public、static和resource，其中resource下的优先级高于static，public优先级最低；同时，也可通过spring.mvc.static-path-pattern来指定静态资源的目录，一般不指定；  </li>
-<li>首页的设置，只要在public、static和resource文件夹下创建一个名为<code>index.html</code>的文件即可被自动识别并访问；  </li>
-<li>template文件夹下的文件需要通过controller才能访问，且需要引入模板引擎；  </li>
-<li></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>学习笔记·Java</tag>
-        <tag>学习笔记·SpringBoot</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Markdown的学习总结和巩固</title>
-    <url>/2020/02/18/Markdown%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E5%92%8C%E5%B7%A9%E5%9B%BA/</url>
-    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>对markdown的个人认识：是一种语法格式，用这种语法写出的文件以.md后缀结尾。通过特定的环境的浏览，可以快速的识别并形成漂亮的格式，效率和美观都可以保证。（此hexo博客文章采用markdown格式书写。）（注：语法符号若没有实现效果时，往往在前后用空格将文字和符号隔开可以恢复效果）（本篇暂时收录平时会用到的格式方式，语法学习来自——<a href="https://www.runoob.com/markdown/md-tutorial.html" target="_blank" rel="noopener">菜鸟教程</a>）</p>
-<a id="more"></a>
-<h1 id="标题的写法"><a href="#标题的写法" class="headerlink" title="标题的写法"></a>标题的写法</h1><ul>
-<li><p>一、二级标题写法可以为</p>
-<ul>
-<li><code>一级标题</code><br><code>===========（一个即可）</code><br><code>二级标题</code><br><code>------------（一个即可）</code><br>显示效果为：<blockquote>
-<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题  "></a>一级标题  </h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2></blockquote>
-</li>
-<li>或<br><code># 一级标题</code><br><code>## 二级标题</code><br>显示效果为：<blockquote>
-<h1 id="一级标题-1"><a href="#一级标题-1" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题-1"><a href="#二级标题-1" class="headerlink" title="二级标题"></a>二级标题</h2></blockquote>
-</li>
-</ul>
-</li>
-<li><p>随后的标题级别只能用 <code>#</code>来标识，几个 <code>#</code>代表是几级标题（最多六个 <code>#</code>）</p>
-</li>
-</ul>
-<h1 id="段落和换行"><a href="#段落和换行" class="headerlink" title="段落和换行"></a>段落和换行</h1><ul>
-<li>行末或段末可以使用两个空格加上回车来实现换行</li>
-<li>在空行直接回车可以实现空一行，且只有第一个回车有效<br>（注：行内文字间空格只有第一个有效，要实现多个空格，可以使用HTML标记中的空格标记如 <code>&amp;nbsp</code>）</li>
-</ul>
-<h1 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h1><ul>
-<li>字体可实现斜体和粗体<ul>
-<li>斜体的写法有两种：<code>*斜体*</code> 或者 <code>_斜体_</code></li>
-<li>粗体的写法有两种：<code>**粗体**</code> 或者 <code>__粗体__</code></li>
-</ul>
-</li>
-<li>斜体可加粗，写法为： <code>***加粗斜体***</code> 或者 <code>___加粗斜体___</code>  </li>
-</ul>
-<h1 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h1><ul>
-<li>当行内只有三个以上的 <code>*</code> 、<code>_</code> 或者 <code>-</code> 时（可以有空格），可以实现分隔线效果，写法如下：<br><code>---</code><br><code>***</code><br><code>- - -</code><br><code>* * *</code><br><code>___</code><br>效果为：<blockquote>
-<p>分隔线</p>
-<hr>
-<p>分隔线</p>
-</blockquote>
-</li>
-</ul>
-<h1 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h1><ul>
-<li>文字上添加删除线样式的方法是在两端分别加上两个 <code>~</code>，如：<br><code>~~删除线~~</code><br>效果为：<blockquote>
-<p><del>1删除线11111</del></p>
-</blockquote>
-</li>
-</ul>
-<h1 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h1><ul>
-<li>下划线用HTML的 <code>&lt;u&gt;</code> 标签来实现，如：<br><code>&lt;u&gt;下划线&lt;/u&gt;</code><br>效果为：  <blockquote>
-<p><u>下划线</u></p>
-</blockquote>
-</li>
-</ul>
-<h1 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h1><ul>
-<li>脚注是对文本的补充说明，写法为：<code>[^要注明的文本]</code><br>效果为：  <blockquote>
-<p>创建脚注格式类似这样[^RUNOOB]。<br>[^RUNOOB]: 菜鸟教程 – 学的不仅是技术，更是梦想！！！</p>
-</blockquote>
-</li>
-</ul>
-<h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><ul>
-<li>无序列表使用星号 <code>*</code>、加号 <code>+</code> 或是减号 <code>-</code>作为列表标记，如：<br><code>*无序列表</code><br><code>+无序列表</code><br><code>-无序列表</code><br>效果为：  <blockquote>
-<ul>
-<li>无序列表</li>
-</ul>
-<ul>
-<li>无序列表</li>
-</ul>
-<ul>
-<li>无序列表</li>
-</ul>
-</blockquote>
-</li>
-<li>有序列表使用数字并加上 . 号来表示，如：<br><code>1. 第一项</code><br><code>2. 第二项</code><br><code>3. 第三项</code><br>效果为：<blockquote>
-<ol>
-<li>第一项</li>
-<li>第二项</li>
-<li>第三项</li>
-</ol>
-</blockquote>
-</li>
-</ul>
-<h1 id="列表嵌套"><a href="#列表嵌套" class="headerlink" title="列表嵌套"></a>列表嵌套</h1><ul>
-<li>列表嵌套只需在子列表中的选项添加四个空格（或一个tab）即可，写法如下：    <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 第一项：</span><br><span class="line">    - 第一项嵌套的第一个元素</span><br><span class="line">    - 第一项嵌套的第二个元素</span><br><span class="line">2. 第二项：</span><br><span class="line">    - 第二项嵌套的第一个元素</span><br><span class="line">    - 第二项嵌套的第二个元素</span><br></pre></td></tr></table></figure>
-  效果为：<blockquote>
-<ol>
-<li>第一项：<ul>
-<li>第一项嵌套的第一个元素</li>
-<li>第一项嵌套的第二个元素</li>
-</ul>
-</li>
-<li>第二项：<ul>
-<li>第二项嵌套的第一个元素</li>
-<li>第二项嵌套的第二个元素</li>
-</ul>
-</li>
-</ol>
-</blockquote>
-</li>
-</ul>
-<h1 id="区块"><a href="#区块" class="headerlink" title="区块"></a>区块</h1><ul>
-<li>区块引用是在段落开头使用 <code>&gt;</code> 符号 ，然后后面紧跟一个空格符号（不跟，在vscode中也可识别，当前版本为1.42.1），另外区块是可以嵌套的，一个 <code>&gt;</code> 符号是最外层，两个 <code>&gt;</code> 符号是第一层嵌套，以此类推：如： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; 最外层</span><br><span class="line">&gt; &gt; 第一层嵌套</span><br><span class="line">&gt; &gt; &gt; 第二层嵌套</span><br></pre></td></tr></table></figure>
- 效果为：  <blockquote>
-<p>最外层11</p>
-<blockquote>
-<p>第一层嵌套</p>
-<blockquote>
-<p>第二层嵌套</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-</ul>
-<p>另，区块中可以插入列表，列表中可以插入区块（若文字与内层嵌套的区块未空有一行，则认为，此行文字还在区块中）</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><ul>
-<li>如果是段落上的一个函数或片段的代码可以用反引号(`)把它包起来，<br>你也可以用 ``` 包裹一段代码，并指定一种语言，不同语言的标注可以参考<code>https://blog.csdn.net/qq_35451572/article/details/85125737</code>（也可以不指定）：  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#96;&#96;&#96;javascript  </span><br><span class="line">$(document).ready(function () &#123;  </span><br><span class="line">    alert(&#39;RUNOOB&#39;);  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">效果如下：  </span><br><span class="line">&#96;&#96;&#96;javascript</span><br><span class="line">$(document).ready(function () &#123;</span><br><span class="line">    alert(&#39;RUNOOB&#39;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
-<li>支持的语言类型为：<code>1c, abnf, accesslog, actionscript, ada, apache, applescript, arduino, armasm, asciidoc, aspectj, autohotkey, autoit, avrasm, awk, axapta, bash, basic, bnf, brainfuck, cal, capnproto, ceylon, clean, clojure, clojure-repl, cmake, coffeescript, coq, cos, cpp, crmsh, crystal, cs, csp, css, d, dart, delphi, diff, django, dns, dockerfile, dos, dsconfig, dts, dust, ebnf, elixir, elm, erb, erlang, erlang-repl, excel, fix, flix, fortran, fsharp, gams, gauss, gcode, gherkin, glsl, go, golo, gradle, groovy, haml, handlebars, haskell, haxe, hsp, htmlbars, http, hy, inform7, ini, irpf90, java, javascript, json, julia, kotlin, lasso, ldif, leaf, less, lisp, livecodeserver, livescript, llvm, lsl, lua, makefile, markdown, mathematica, matlab, maxima, mel, mercury, mipsasm, mizar, mojolicious, monkey, moonscript, n1ql, nginx, nimrod, nix, nsis, objectivec, ocaml, openscad, oxygene, parser3, perl, pf, php, pony, powershell, processing, profile, prolog, protobuf, puppet, purebasic, python, q, qml, r, rib, roboconf, rsl, ruby, ruleslanguage, rust, scala, scheme, scilab, scss, smali, smalltalk, sml, sqf, sql, stan, stata, step21, stylus, subunit, swift, taggerscript, tap, tcl, tex, thrift, tp, twig, typescript, vala, vbnet, vbscript, vbscript-html, verilog, vhdl, vim, x86asm, xl, xml, xquery, yaml, zephir</code></li>
-</ul>
-<p>作者：oopp8<br>链接：<a href="https://www.jianshu.com/p/c2b75ff24c33" target="_blank" rel="noopener">https://www.jianshu.com/p/c2b75ff24c33</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-<h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><ul>
-<li><p>链接使用方法如下<br><code>[链接名称](链接地址)</code><br>（此方法类似HTML中的a标签，不显示具体的链接地址）<br>或者<br><code>&lt;链接地址&gt;</code><br>（此方法直接显示可跳转的链接的内容）</p>
-</li>
-<li><p>高级链接<br>链接也可以用变量来代替，文档末尾附带变量地址，如：</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">这个链接用 1 作为网址变量 [Google][1]</span><br><span class="line">这个链接用 runoob 作为网址变量 [Runoob][runoob]</span><br><span class="line">然后在文档的结尾为变量赋值（网址）</span><br><span class="line"></span><br><span class="line">[1]: http:&#x2F;&#x2F;www.google.com&#x2F;</span><br><span class="line">[runoob]: http:&#x2F;&#x2F;www.runoob.com&#x2F;</span><br></pre></td></tr></table></figure>
-<p>  效果为：<br>  这个链接用 1 作为网址变量 [Google][1]<br>  这个链接用 runoob 作为网址变量 [Runoob][runoob]<br>  然后在文档的结尾为变量赋值（网址）</p>
-<p>  [1]: <a href="http://www.google.com/" target="_blank" rel="noopener">http://www.google.com/</a><br>  [runoob]: <a href="http://www.runoob.com/" target="_blank" rel="noopener">http://www.runoob.com/</a></p>
-</li>
-</ul>
-<h1 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h1><ul>
-<li>Markdown 图片语法格式如下：  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![alt 属性文本](图片地址)</span><br><span class="line">或</span><br><span class="line">![alt 属性文本](图片地址 &quot;可选标题&quot;)</span><br></pre></td></tr></table></figure>
-  开头一个感叹号 <code>!</code>，接着一个方括号，里面放上图片的替代文字，接着一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上选择性的，’title’ 属性的文字（当鼠标移动到图片上时，会显示的文字为title中的值）。<br>  写法如：<br>  <code>![示例图片](https://i.loli.net/2020/02/12/yOigcUF4CS1MN8v.jpg &quot;示例图片&quot;)</code><br>  <img src="https://i.loli.net/2020/02/12/yOigcUF4CS1MN8v.jpg" alt="示例图片" title="示例图片"><br>  当然，你也可以像网址那样对图片网址使用变量（这里不会直接显示图片，当点击链接之后，会在新的页面中显示出来）。<br>  Markdown 还没有办法指定图片的高度与宽度，如果你需要的话，你可以使用普通的 <code>&lt;img&gt;</code> 标签。  </li>
-</ul>
-<h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h1><ul>
-<li><p>Markdown 制作表格使用 <code>|</code> 来分隔不同的单元格，使用 <code>-</code> 来分隔表头和其他行。</p>
-<p>  语法格式如下：</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">|  表头   | 表头  |</span><br><span class="line">|  ----  | ----  |</span><br><span class="line">| 单元格  | 单元格 |</span><br><span class="line">| 单元格  | 单元格 |</span><br></pre></td></tr></table></figure>
-<p>  效果为：</p>
-<table>
-<thead>
-<tr>
-<th>表头</th>
-<th>表头</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>单元格</td>
-<td>单元格</td>
-</tr>
-<tr>
-<td>单元格</td>
-<td>单元格</td>
-</tr>
-</tbody></table>
-<ul>
-<li><p>对齐方式</p>
-<p>我们可以设置表格的对齐方式：</p>
-<p><code>-:</code> 设置内容和标题栏居右对齐。<br><code>:-</code> 设置内容和标题栏居左对齐。<br><code>:-:</code> 设置内容和标题栏居中对齐。<br>实例如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">| 左对齐 | 右对齐 | 居中对齐 |</span><br><span class="line">| :-----| ----: | :----: |</span><br><span class="line">| 单元格 | 单元格 | 单元格 |</span><br><span class="line">| 单元格 | 单元格 | 单元格 |</span><br></pre></td></tr></table></figure>
-<p>效果为：  </p>
-<table>
-<thead>
-<tr>
-<th align="left">左对齐左对齐</th>
-<th align="right">右对齐右对齐</th>
-<th align="center">居中对齐居中对齐</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">单元格</td>
-<td align="right">单元格</td>
-<td align="center">单元格</td>
-</tr>
-<tr>
-<td align="left">单元格</td>
-<td align="right">单元格</td>
-<td align="center">单元格</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="转义"><a href="#转义" class="headerlink" title="转义"></a>转义</h1><ul>
-<li>Markdown 使用了很多特殊符号来表示特定的意义，如果需要显示特定的符号则需要使用转义字符，Markdown 使用反斜杠转义特殊字符。<br>  示例为：  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">**文本加粗** </span><br><span class="line">\*\* 正常显示星号 \*\*</span><br></pre></td></tr></table></figure>
-  显示效果为：<br>  <strong>文本加粗</strong><br>  ** 正常显示星号 **</li>
-</ul>
-<h1 id="页面内锚点跳转"><a href="#页面内锚点跳转" class="headerlink" title="页面内锚点跳转"></a>页面内锚点跳转</h1><ul>
-<li>跳转链接的语法为 <code>[目录1](#jump1)</code>，锚点的语法为 <code>&lt;span id=&quot;jump1&quot;&gt;1. 目录1&lt;/span&gt;</code>，实际书写例子如下：    <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># 标题</span></span><br><span class="line"></span><br><span class="line">----</span><br><span class="line"><span class="section">## 目录</span></span><br><span class="line"><span class="bullet">1. </span>[<span class="string">目录1</span>](<span class="link">#jump1</span>)</span><br><span class="line"><span class="bullet">2. </span>[<span class="string">目录2</span>](<span class="link">#jump2</span>)</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"><span class="section">### &lt;span id="jump1"&gt;1. 目录1&lt;/span&gt;</span></span><br><span class="line">---</span><br><span class="line"><span class="section">### &lt;span id="jump2"&gt;2. 目录2&lt;/span&gt;</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>学习笔记·Markdown</tag>
       </tags>
   </entry>
   <entry>
@@ -2413,64 +2199,195 @@
       </tags>
   </entry>
   <entry>
-    <title>SpringBoot整合Druid数据源</title>
-    <url>/2020/07/31/SpringBoot%E6%95%B4%E5%90%88Druid%E6%95%B0%E6%8D%AE%E6%BA%90/</url>
-    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>Druid 是阿里巴巴开源平台上一个数据库连接池实现，结合了 C3P0、DBCP 等 DB 池的优点，同时加入了日志监控。后台监控自带了页面。  </p>
-<a id="more"></a>  
-
-<ol>
-<li>添加上 Druid 数据源依赖<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/com.alibaba/druid --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>druid<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.21<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li>切换数据源；之前已经说过 Spring Boot 2.0 以上默认使用 com.zaxxer.hikari.HikariDataSource 数据源，但可以 通过 spring.datasource.type 指定数据源<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="number">123456</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/springboot?serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=utf-8</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">com.alibaba.druid.pool.DruidDataSource</span> <span class="comment"># 自定义数据源</span></span><br><span class="line"><span class="string">```</span>  </span><br><span class="line"><span class="number">3</span><span class="string">.</span> <span class="string">现在需要程序员自己为</span> <span class="string">DruidDataSource</span> <span class="string">绑定全局配置文件中的参数，再添加到容器中，而不再使用</span> <span class="string">Spring</span> <span class="string">Boot</span> <span class="string">的自动生成了；我们需要自己添加</span> <span class="string">DruidDataSource</span> <span class="string">组件到容器中，并绑定属性</span>  </span><br><span class="line"><span class="string">```java</span></span><br><span class="line"><span class="string">package</span> <span class="string">com.kuang.config;</span></span><br><span class="line"></span><br><span class="line"><span class="string">import</span> <span class="string">com.alibaba.druid.pool.DruidDataSource;</span></span><br><span class="line"><span class="string">import</span> <span class="string">org.springframework.boot.context.properties.ConfigurationProperties;</span></span><br><span class="line"><span class="string">import</span> <span class="string">org.springframework.context.annotation.Bean;</span></span><br><span class="line"><span class="string">import</span> <span class="string">org.springframework.context.annotation.Configuration;</span></span><br><span class="line"></span><br><span class="line"><span class="string">import</span> <span class="string">javax.sql.DataSource;</span></span><br><span class="line"></span><br><span class="line"><span class="string">@Configuration</span></span><br><span class="line"><span class="string">public</span> <span class="string">class</span> <span class="string">DruidConfig</span> <span class="string">&#123;</span></span><br><span class="line"></span><br><span class="line">    <span class="string">/*</span></span><br><span class="line">       <span class="string">将自定义的</span> <span class="string">Druid数据源添加到容器中，不再让</span> <span class="string">Spring</span> <span class="string">Boot</span> <span class="string">自动创建</span></span><br><span class="line">       <span class="string">绑定全局配置文件中的</span> <span class="string">druid</span> <span class="string">数据源属性到</span> <span class="string">com.alibaba.druid.pool.DruidDataSource从而让它们生效</span></span><br><span class="line">       <span class="string">@ConfigurationProperties(prefix</span> <span class="string">=</span> <span class="string">"spring.datasource"</span><span class="string">)：作用就是将</span> <span class="string">全局配置文件中</span></span><br><span class="line">       <span class="string">前缀为</span> <span class="string">spring.datasource的属性值注入到</span> <span class="string">com.alibaba.druid.pool.DruidDataSource</span> <span class="string">的同名参数中</span></span><br><span class="line">     <span class="string">*/</span></span><br><span class="line">    <span class="string">@ConfigurationProperties(prefix</span> <span class="string">=</span> <span class="string">"spring.datasource"</span><span class="string">)</span></span><br><span class="line">    <span class="string">@Bean</span></span><br><span class="line">    <span class="string">public</span> <span class="string">DataSource</span> <span class="string">druidDataSource()</span> <span class="string">&#123;</span></span><br><span class="line">        <span class="string">return</span> <span class="string">new</span> <span class="string">DruidDataSource();</span></span><br><span class="line">    <span class="string">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure></li>
-<li>配置Druid数据源监控的配置（可视化界面的配置）<br>Druid 数据源具有监控的功能，并提供了一个 web 界面方便用户查看，类似安装 路由器 时，人家也提供了一个默认的 web 页面。  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//配置 Druid 监控管理后台的Servlet；</span></span><br><span class="line"><span class="comment">//内置 Servlet 容器时没有web.xml文件，所以使用 Spring Boot 的注册 Servlet 方式</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> ServletRegistrationBean <span class="title">statViewServlet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ServletRegistrationBean bean = <span class="keyword">new</span> ServletRegistrationBean(<span class="keyword">new</span> StatViewServlet(), <span class="string">"/druid/*"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 这些参数可以在 com.alibaba.druid.support.http.StatViewServlet </span></span><br><span class="line">    <span class="comment">// 的父类 com.alibaba.druid.support.http.ResourceServlet 中找到</span></span><br><span class="line">    Map&lt;String, String&gt; initParams = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    initParams.put(<span class="string">"loginUsername"</span>, <span class="string">"admin"</span>); <span class="comment">//后台管理界面的登录账号</span></span><br><span class="line">    initParams.put(<span class="string">"loginPassword"</span>, <span class="string">"123456"</span>); <span class="comment">//后台管理界面的登录密码</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//后台允许谁可以访问</span></span><br><span class="line">    <span class="comment">//initParams.put("allow", "localhost")：表示只有本机可以访问</span></span><br><span class="line">    <span class="comment">//initParams.put("allow", "")：为空或者为null时，表示允许所有访问</span></span><br><span class="line">    initParams.put(<span class="string">"allow"</span>, <span class="string">""</span>);</span><br><span class="line">    <span class="comment">//deny：Druid 后台拒绝谁访问</span></span><br><span class="line">    <span class="comment">//initParams.put("kuangshen", "192.168.1.20");表示禁止此ip访问</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置初始化参数</span></span><br><span class="line">    bean.setInitParameters(initParams);</span><br><span class="line">    <span class="keyword">return</span> bean;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>学习笔记·Java</tag>
-        <tag>学习笔记·SpringBoot</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于博客网站</title>
-    <url>/2020/02/18/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/</url>
-    <content><![CDATA[<h1 id="关于这篇博客"><a href="#关于这篇博客" class="headerlink" title="关于这篇博客"></a>关于这篇博客</h1><h2 id="博客的主要内容"><a href="#博客的主要内容" class="headerlink" title="博客的主要内容"></a>博客的主要内容</h2><a id="more"></a>
-<ul>
-<li>学习笔记<ul>
-<li>平时学习到的技术知识的总结</li>
-<li>学校课程的笔记</li>
-</ul>
-</li>
-<li>所思所想<ul>
-<li>对学习路线的梳理</li>
-<li>对博客相关的整理</li>
-<li>对一些平时所见结合知识点发表的见解</li>
-</ul>
-</li>
-<li>（待增加……）</li>
-</ul>
-<h2 id="博客的目的"><a href="#博客的目的" class="headerlink" title="博客的目的"></a>博客的目的</h2><ul>
-<li>为了能够在遇到相同问题时，快速的找到相应的解决办法，并加深印象</li>
-<li>为了能够使自己对自己的技术能力、技术学习周期和时限有一个更直观的认识</li>
-<li>(待完善……)</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>所思所想</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SpringBoot整合Mybatis</title>
-    <url>/2020/07/31/SpringBoot%E6%95%B4%E5%90%88Mybatis/</url>
-    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文简述了SpringBoot整合Mybatis的主要步骤。  </p>
+    <title>Markdown的学习总结和巩固</title>
+    <url>/2020/02/18/Markdown%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E5%92%8C%E5%B7%A9%E5%9B%BA/</url>
+    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>对markdown的个人认识：是一种语法格式，用这种语法写出的文件以.md后缀结尾。通过特定的环境的浏览，可以快速的识别并形成漂亮的格式，效率和美观都可以保证。（此hexo博客文章采用markdown格式书写。）（注：语法符号若没有实现效果时，往往在前后用空格将文字和符号隔开可以恢复效果）（本篇暂时收录平时会用到的格式方式，语法学习来自——<a href="https://www.runoob.com/markdown/md-tutorial.html" target="_blank" rel="noopener">菜鸟教程</a>）</p>
 <a id="more"></a>
+<h1 id="标题的写法"><a href="#标题的写法" class="headerlink" title="标题的写法"></a>标题的写法</h1><ul>
+<li><p>一、二级标题写法可以为</p>
+<ul>
+<li><code>一级标题</code><br><code>===========（一个即可）</code><br><code>二级标题</code><br><code>------------（一个即可）</code><br>显示效果为：<blockquote>
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题  "></a>一级标题  </h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2></blockquote>
+</li>
+<li>或<br><code># 一级标题</code><br><code>## 二级标题</code><br>显示效果为：<blockquote>
+<h1 id="一级标题-1"><a href="#一级标题-1" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题-1"><a href="#二级标题-1" class="headerlink" title="二级标题"></a>二级标题</h2></blockquote>
+</li>
+</ul>
+</li>
+<li><p>随后的标题级别只能用 <code>#</code>来标识，几个 <code>#</code>代表是几级标题（最多六个 <code>#</code>）</p>
+</li>
+</ul>
+<h1 id="段落和换行"><a href="#段落和换行" class="headerlink" title="段落和换行"></a>段落和换行</h1><ul>
+<li>行末或段末可以使用两个空格加上回车来实现换行</li>
+<li>在空行直接回车可以实现空一行，且只有第一个回车有效<br>（注：行内文字间空格只有第一个有效，要实现多个空格，可以使用HTML标记中的空格标记如 <code>&amp;nbsp</code>）</li>
+</ul>
+<h1 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h1><ul>
+<li>字体可实现斜体和粗体<ul>
+<li>斜体的写法有两种：<code>*斜体*</code> 或者 <code>_斜体_</code></li>
+<li>粗体的写法有两种：<code>**粗体**</code> 或者 <code>__粗体__</code></li>
+</ul>
+</li>
+<li>斜体可加粗，写法为： <code>***加粗斜体***</code> 或者 <code>___加粗斜体___</code>  </li>
+</ul>
+<h1 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h1><ul>
+<li>当行内只有三个以上的 <code>*</code> 、<code>_</code> 或者 <code>-</code> 时（可以有空格），可以实现分隔线效果，写法如下：<br><code>---</code><br><code>***</code><br><code>- - -</code><br><code>* * *</code><br><code>___</code><br>效果为：<blockquote>
+<p>分隔线</p>
+<hr>
+<p>分隔线</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h1><ul>
+<li>文字上添加删除线样式的方法是在两端分别加上两个 <code>~</code>，如：<br><code>~~删除线~~</code><br>效果为：<blockquote>
+<p><del>1删除线11111</del></p>
+</blockquote>
+</li>
+</ul>
+<h1 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h1><ul>
+<li>下划线用HTML的 <code>&lt;u&gt;</code> 标签来实现，如：<br><code>&lt;u&gt;下划线&lt;/u&gt;</code><br>效果为：  <blockquote>
+<p><u>下划线</u></p>
+</blockquote>
+</li>
+</ul>
+<h1 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h1><ul>
+<li>脚注是对文本的补充说明，写法为：<code>[^要注明的文本]</code><br>效果为：  <blockquote>
+<p>创建脚注格式类似这样[^RUNOOB]。<br>[^RUNOOB]: 菜鸟教程 – 学的不仅是技术，更是梦想！！！</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><ul>
+<li>无序列表使用星号 <code>*</code>、加号 <code>+</code> 或是减号 <code>-</code>作为列表标记，如：<br><code>*无序列表</code><br><code>+无序列表</code><br><code>-无序列表</code><br>效果为：  <blockquote>
+<ul>
+<li>无序列表</li>
+</ul>
+<ul>
+<li>无序列表</li>
+</ul>
+<ul>
+<li>无序列表</li>
+</ul>
+</blockquote>
+</li>
+<li>有序列表使用数字并加上 . 号来表示，如：<br><code>1. 第一项</code><br><code>2. 第二项</code><br><code>3. 第三项</code><br>效果为：<blockquote>
 <ol>
-<li>导入 MyBatis 所需要的依赖  <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis.spring.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.1.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">2. 配置数据库连接信息(此配置为引入Druid数据源之后的数据源配置)  </span><br><span class="line">```yaml</span><br><span class="line">spring:</span><br><span class="line">  datasource:</span><br><span class="line">    username: root</span><br><span class="line">    password: 123456</span><br><span class="line">    #?serverTimezone=UTC解决时区的报错</span><br><span class="line">    url: jdbc:mysql://localhost:3306/springboot?serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=utf-8</span><br><span class="line">    driver-class-name: com.mysql.cj.jdbc.Driver</span><br><span class="line">    type: com.alibaba.druid.pool.DruidDataSource</span><br><span class="line"></span><br><span class="line">    #Spring Boot 默认是不注入这些属性值的，需要自己绑定</span><br><span class="line">    #druid 数据源专有配置</span><br><span class="line">    initialSize: 5</span><br><span class="line">    minIdle: 5</span><br><span class="line">    maxActive: 20</span><br><span class="line">    maxWait: 60000</span><br><span class="line">    timeBetweenEvictionRunsMillis: 60000</span><br><span class="line">    minEvictableIdleTimeMillis: 300000</span><br><span class="line">    validationQuery: SELECT 1 FROM DUAL</span><br><span class="line">    testWhileIdle: true</span><br><span class="line">    testOnBorrow: false</span><br><span class="line">    testOnReturn: false</span><br><span class="line">    poolPreparedStatements: true</span><br><span class="line"></span><br><span class="line">    #配置监控统计拦截的filters，stat:监控统计、log4j：日志记录、wall：防御sql注入</span><br><span class="line">    #如果允许时报错  java.lang.ClassNotFoundException: org.apache.log4j.Priority</span><br><span class="line">    #则导入 log4j 依赖即可，Maven 地址：https://mvnrepository.com/artifact/log4j/log4j</span><br><span class="line">    filters: stat,wall,log4j</span><br><span class="line">    maxPoolPreparedStatementPerConnectionSize: 20</span><br><span class="line">    useGlobalDataSourceStat: true</span><br><span class="line">    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500</span><br></pre></td></tr></table></figure></li>
-<li>测试数据库是否连接成功！  </li>
-<li>接下来的操作和Spring中的一样，即，创建实体类和对应的映射文件，在service和controller中调用，完成业务</li>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
 </ol>
+</blockquote>
+</li>
+</ul>
+<h1 id="列表嵌套"><a href="#列表嵌套" class="headerlink" title="列表嵌套"></a>列表嵌套</h1><ul>
+<li>列表嵌套只需在子列表中的选项添加四个空格（或一个tab）即可，写法如下：    <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 第一项：</span><br><span class="line">    - 第一项嵌套的第一个元素</span><br><span class="line">    - 第一项嵌套的第二个元素</span><br><span class="line">2. 第二项：</span><br><span class="line">    - 第二项嵌套的第一个元素</span><br><span class="line">    - 第二项嵌套的第二个元素</span><br></pre></td></tr></table></figure>
+  效果为：<blockquote>
+<ol>
+<li>第一项：<ul>
+<li>第一项嵌套的第一个元素</li>
+<li>第一项嵌套的第二个元素</li>
+</ul>
+</li>
+<li>第二项：<ul>
+<li>第二项嵌套的第一个元素</li>
+<li>第二项嵌套的第二个元素</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h1 id="区块"><a href="#区块" class="headerlink" title="区块"></a>区块</h1><ul>
+<li>区块引用是在段落开头使用 <code>&gt;</code> 符号 ，然后后面紧跟一个空格符号（不跟，在vscode中也可识别，当前版本为1.42.1），另外区块是可以嵌套的，一个 <code>&gt;</code> 符号是最外层，两个 <code>&gt;</code> 符号是第一层嵌套，以此类推：如： <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; 最外层</span><br><span class="line">&gt; &gt; 第一层嵌套</span><br><span class="line">&gt; &gt; &gt; 第二层嵌套</span><br></pre></td></tr></table></figure>
+ 效果为：  <blockquote>
+<p>最外层11</p>
+<blockquote>
+<p>第一层嵌套</p>
+<blockquote>
+<p>第二层嵌套</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<p>另，区块中可以插入列表，列表中可以插入区块（若文字与内层嵌套的区块未空有一行，则认为，此行文字还在区块中）</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><ul>
+<li>如果是段落上的一个函数或片段的代码可以用反引号(`)把它包起来，<br>你也可以用 ``` 包裹一段代码，并指定一种语言，不同语言的标注可以参考<code>https://blog.csdn.net/qq_35451572/article/details/85125737</code>（也可以不指定）：  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#96;&#96;&#96;javascript  </span><br><span class="line">$(document).ready(function () &#123;  </span><br><span class="line">    alert(&#39;RUNOOB&#39;);  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">效果如下：  </span><br><span class="line">&#96;&#96;&#96;javascript</span><br><span class="line">$(document).ready(function () &#123;</span><br><span class="line">    alert(&#39;RUNOOB&#39;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+<li>支持的语言类型为：<code>1c, abnf, accesslog, actionscript, ada, apache, applescript, arduino, armasm, asciidoc, aspectj, autohotkey, autoit, avrasm, awk, axapta, bash, basic, bnf, brainfuck, cal, capnproto, ceylon, clean, clojure, clojure-repl, cmake, coffeescript, coq, cos, cpp, crmsh, crystal, cs, csp, css, d, dart, delphi, diff, django, dns, dockerfile, dos, dsconfig, dts, dust, ebnf, elixir, elm, erb, erlang, erlang-repl, excel, fix, flix, fortran, fsharp, gams, gauss, gcode, gherkin, glsl, go, golo, gradle, groovy, haml, handlebars, haskell, haxe, hsp, htmlbars, http, hy, inform7, ini, irpf90, java, javascript, json, julia, kotlin, lasso, ldif, leaf, less, lisp, livecodeserver, livescript, llvm, lsl, lua, makefile, markdown, mathematica, matlab, maxima, mel, mercury, mipsasm, mizar, mojolicious, monkey, moonscript, n1ql, nginx, nimrod, nix, nsis, objectivec, ocaml, openscad, oxygene, parser3, perl, pf, php, pony, powershell, processing, profile, prolog, protobuf, puppet, purebasic, python, q, qml, r, rib, roboconf, rsl, ruby, ruleslanguage, rust, scala, scheme, scilab, scss, smali, smalltalk, sml, sqf, sql, stan, stata, step21, stylus, subunit, swift, taggerscript, tap, tcl, tex, thrift, tp, twig, typescript, vala, vbnet, vbscript, vbscript-html, verilog, vhdl, vim, x86asm, xl, xml, xquery, yaml, zephir</code></li>
+</ul>
+<p>作者：oopp8<br>链接：<a href="https://www.jianshu.com/p/c2b75ff24c33" target="_blank" rel="noopener">https://www.jianshu.com/p/c2b75ff24c33</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><ul>
+<li><p>链接使用方法如下<br><code>[链接名称](链接地址)</code><br>（此方法类似HTML中的a标签，不显示具体的链接地址）<br>或者<br><code>&lt;链接地址&gt;</code><br>（此方法直接显示可跳转的链接的内容）</p>
+</li>
+<li><p>高级链接<br>链接也可以用变量来代替，文档末尾附带变量地址，如：</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">这个链接用 1 作为网址变量 [Google][1]</span><br><span class="line">这个链接用 runoob 作为网址变量 [Runoob][runoob]</span><br><span class="line">然后在文档的结尾为变量赋值（网址）</span><br><span class="line"></span><br><span class="line">[1]: http:&#x2F;&#x2F;www.google.com&#x2F;</span><br><span class="line">[runoob]: http:&#x2F;&#x2F;www.runoob.com&#x2F;</span><br></pre></td></tr></table></figure>
+<p>  效果为：<br>  这个链接用 1 作为网址变量 [Google][1]<br>  这个链接用 runoob 作为网址变量 [Runoob][runoob]<br>  然后在文档的结尾为变量赋值（网址）</p>
+<p>  [1]: <a href="http://www.google.com/" target="_blank" rel="noopener">http://www.google.com/</a><br>  [runoob]: <a href="http://www.runoob.com/" target="_blank" rel="noopener">http://www.runoob.com/</a></p>
+</li>
+</ul>
+<h1 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h1><ul>
+<li>Markdown 图片语法格式如下：  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![alt 属性文本](图片地址)</span><br><span class="line">或</span><br><span class="line">![alt 属性文本](图片地址 &quot;可选标题&quot;)</span><br></pre></td></tr></table></figure>
+  开头一个感叹号 <code>!</code>，接着一个方括号，里面放上图片的替代文字，接着一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上选择性的，’title’ 属性的文字（当鼠标移动到图片上时，会显示的文字为title中的值）。<br>  写法如：<br>  <code>![示例图片](https://i.loli.net/2020/02/12/yOigcUF4CS1MN8v.jpg &quot;示例图片&quot;)</code><br>  <img src="https://i.loli.net/2020/02/12/yOigcUF4CS1MN8v.jpg" alt="示例图片" title="示例图片"><br>  当然，你也可以像网址那样对图片网址使用变量（这里不会直接显示图片，当点击链接之后，会在新的页面中显示出来）。<br>  Markdown 还没有办法指定图片的高度与宽度，如果你需要的话，你可以使用普通的 <code>&lt;img&gt;</code> 标签。  </li>
+</ul>
+<h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h1><ul>
+<li><p>Markdown 制作表格使用 <code>|</code> 来分隔不同的单元格，使用 <code>-</code> 来分隔表头和其他行（效果不显示时，可以尝试将表格整体tab一个位置；或者检查表格的表头和表格内的内容部分所处的框架结构是否一致，是否有不对称的地方）。</p>
+<p>  语法格式如下：</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">|  表头   | 表头  |</span><br><span class="line">|  ----  | ----  |</span><br><span class="line">| 单元格  | 单元格 |</span><br><span class="line">| 单元格  | 单元格 |</span><br></pre></td></tr></table></figure>
+<p>  效果为：</p>
+<table>
+<thead>
+<tr>
+<th>表头</th>
+<th>表头</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+<tr>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>对齐方式</p>
+<p>我们可以设置表格的对齐方式：</p>
+<p><code>-:</code> 设置内容和标题栏居右对齐。<br><code>:-</code> 设置内容和标题栏居左对齐。<br><code>:-:</code> 设置内容和标题栏居中对齐。<br>实例如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">| 左对齐 | 右对齐 | 居中对齐 |</span><br><span class="line">| :-----| ----: | :----: |</span><br><span class="line">| 单元格 | 单元格 | 单元格 |</span><br><span class="line">| 单元格 | 单元格 | 单元格 |</span><br></pre></td></tr></table></figure>
+<p>效果为：  </p>
+<table>
+<thead>
+<tr>
+<th align="left">左对齐左对齐</th>
+<th align="right">右对齐右对齐</th>
+<th align="center">居中对齐居中对齐</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">单元格</td>
+<td align="right">单元格</td>
+<td align="center">单元格</td>
+</tr>
+<tr>
+<td align="left">单元格</td>
+<td align="right">单元格</td>
+<td align="center">单元格</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="转义"><a href="#转义" class="headerlink" title="转义"></a>转义</h1><ul>
+<li>Markdown 使用了很多特殊符号来表示特定的意义，如果需要显示特定的符号则需要使用转义字符，Markdown 使用反斜杠转义特殊字符。<br>  示例为：  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">**文本加粗** </span><br><span class="line">\*\* 正常显示星号 \*\*</span><br></pre></td></tr></table></figure>
+  显示效果为：<br>  <strong>文本加粗</strong><br>  ** 正常显示星号 **</li>
+</ul>
+<h1 id="页面内锚点跳转"><a href="#页面内锚点跳转" class="headerlink" title="页面内锚点跳转"></a>页面内锚点跳转</h1><ul>
+<li>跳转链接的语法为 <code>[目录1](#jump1)</code>，锚点的语法为 <code>&lt;span id=&quot;jump1&quot;&gt;1. 目录1&lt;/span&gt;</code>，实际书写例子如下：    <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># 标题</span></span><br><span class="line"></span><br><span class="line">----</span><br><span class="line"><span class="section">## 目录</span></span><br><span class="line"><span class="bullet">1. </span>[<span class="string">目录1</span>](<span class="link">#jump1</span>)</span><br><span class="line"><span class="bullet">2. </span>[<span class="string">目录2</span>](<span class="link">#jump2</span>)</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"><span class="section">### &lt;span id="jump1"&gt;1. 目录1&lt;/span&gt;</span></span><br><span class="line">---</span><br><span class="line"><span class="section">### &lt;span id="jump2"&gt;2. 目录2&lt;/span&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
 ]]></content>
       <tags>
-        <tag>学习笔记·Java</tag>
-        <tag>学习笔记·SpringBoot</tag>
+        <tag>学习笔记·Markdown</tag>
       </tags>
   </entry>
   <entry>
@@ -2519,6 +2436,162 @@
 ]]></content>
       <tags>
         <tag>学习笔记·Maven</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PHP语法回顾</title>
+    <url>/2020/05/07/PHP%E8%AF%AD%E6%B3%95%E5%9B%9E%E9%A1%BE/</url>
+    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文主要整理了PHP的基本语法及其中变量、输出等语句的写法。  </p>
+<a id="more"></a>
+
+<h1 id="基本的-PHP-语法"><a href="#基本的-PHP-语法" class="headerlink" title="基本的 PHP 语法"></a>基本的 PHP 语法</h1><ul>
+<li>PHP 脚本可以放在文档中的任何位置。PHP 脚本以 <?php 开始，以 ?> 结束：  <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// PHP 代码</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+PHP 中的每个代码行都必须以分号结束。分号是一种分隔符，用于把指令集区分开来。  </li>
+<li>关于PHP中的注释：  <figure class="highlight php"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 这是 PHP 单行注释</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">这是</span></span><br><span class="line"><span class="comment">PHP 多行</span></span><br><span class="line"><span class="comment">注释</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="PHP变量"><a href="#PHP变量" class="headerlink" title="PHP变量"></a>PHP变量</h1><ul>
+<li>PHP 变量规则：  <ul>
+<li>变量以 $ 符号开始，后面跟着变量的名称  </li>
+<li>变量名必须以字母或者下划线字符开始  </li>
+<li>变量名只能包含字母数字字符以及下划线（A-z、0-9 和 _ ）  </li>
+<li>变量名不能包含空格  </li>
+<li>变量名是区分大小写的（$y 和 $Y 是两个不同的变量）  </li>
+</ul>
+</li>
+</ul>
+<p>注：PHP 语句和 PHP 变量都是区分大小写的。  </p>
+<ul>
+<li>创建（声明）PHP 变量<br>PHP 没有声明变量的命令。变量在您第一次赋值给它的时候被创建：  <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$txt=<span class="string">"Hello world!"</span>;</span><br><span class="line">$x=<span class="number">5</span>;</span><br><span class="line">$y=<span class="number">10.5</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>PHP 是一门弱类型语言,在上面的实例中，我们注意到，不必向 PHP 声明该变量的数据类型。PHP 会根据变量的值，自动把变量转换为正确的数据类型。在强类型的编程语言中，我们必须在使用变量前先声明（定义）变量的类型和名称。  </p>
+<ul>
+<li>在所有函数外部定义的变量，拥有全局作用域。除了函数外，全局变量可以被脚本中的任何部分访问，要在一个函数中访问一个全局变量，需要使用 global 关键字。<br>在 PHP 函数内部声明的变量是局部变量，仅能在函数内部访问：  <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$x=<span class="number">5</span>; <span class="comment">// 全局变量</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myTest</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    $y=<span class="number">10</span>; <span class="comment">// 局部变量</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;p&gt;测试函数内变量:&lt;p&gt;"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"变量 x 为: $x"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"变量 y 为: $y"</span>;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">myTest();</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;p&gt;测试函数外变量:&lt;p&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"变量 x 为: $x"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"变量 y 为: $y"</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="PHP-5-echo-和-print-语句"><a href="#PHP-5-echo-和-print-语句" class="headerlink" title="PHP 5 echo 和 print 语句"></a>PHP 5 echo 和 print 语句</h1><ul>
+<li>echo 和 print 区别:  <ul>
+<li>echo - 可以输出一个或多个字符串  </li>
+<li>print - 只允许输出一个字符串，返回值总为 1  </li>
+</ul>
+</li>
+</ul>
+<p>注：echo 输出的速度比 print 快， echo 没有返回值，print有返回值1。  </p>
+<ul>
+<li>echo 是一个语言结构，使用的时候可以不用加括号，也可以加上括号： echo 或 echo()。  <ul>
+<li>显示字符串  <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;h2&gt;PHP 很有趣!&lt;/h2&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"Hello world!&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"我要学 PHP!&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"这是一个"</span>, <span class="string">"字符串，"</span>, <span class="string">"使用了"</span>, <span class="string">"多个"</span>, <span class="string">"参数。"</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>显示变量  <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$txt1=<span class="string">"学习 PHP"</span>;</span><br><span class="line">$txt2=<span class="string">"RUNOOB.COM"</span>;</span><br><span class="line">$cars=<span class="keyword">array</span>(<span class="string">"Volvo"</span>,<span class="string">"BMW"</span>,<span class="string">"Toyota"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> $txt1;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"在 $txt2 学习 PHP "</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"我车的品牌是 &#123;$cars[0]&#125;"</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>print 同样是一个语言结构，可以使用括号，也可以不使用括号： print 或 print()。  <ul>
+<li>显示字符串  <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"&lt;h2&gt;PHP 很有趣!&lt;/h2&gt;"</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"Hello world!&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"我要学习 PHP!"</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>显示变量  <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$txt1=<span class="string">"学习 PHP"</span>;</span><br><span class="line">$txt2=<span class="string">"RUNOOB.COM"</span>;</span><br><span class="line">$cars=<span class="keyword">array</span>(<span class="string">"Volvo"</span>,<span class="string">"BMW"</span>,<span class="string">"Toyota"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> $txt1;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"在 $txt2 学习 PHP "</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">"我车的品牌是 &#123;$cars[0]&#125;"</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="PHP函数"><a href="#PHP函数" class="headerlink" title="PHP函数"></a>PHP函数</h1><ul>
+<li><p>PHP 函数准则：  </p>
+<ul>
+<li>函数的名称应该提示出它的功能  </li>
+<li>函数名称以字母或下划线开头（不能以数字开头）  <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">functionName</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 要执行的代码</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>PHP 添加参数<br>为了给函数添加更多的功能，我们可以添加参数，参数类似变量。参数就在函数名称后面的一个括号内指定。  </p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">writeName</span><span class="params">($fname)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> $fname . <span class="string">" Refsnes.&lt;br&gt;"</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">echo</span> <span class="string">"My name is "</span>;</span><br><span class="line">writeName(<span class="string">"Kai Jim"</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"My sister's name is "</span>;</span><br><span class="line">writeName(<span class="string">"Hege"</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"My brother's name is "</span>;</span><br><span class="line">writeName(<span class="string">"Stale"</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>PHP函数返回值<br>如需让函数返回一个值，请使用 return 语句。  </p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span><span class="params">($x,$y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    $total=$x+$y;</span><br><span class="line">    <span class="keyword">return</span> $total;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">echo</span> <span class="string">"1 + 16 = "</span> . add(<span class="number">1</span>,<span class="number">16</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="PHP字符串变量"><a href="#PHP字符串变量" class="headerlink" title="PHP字符串变量"></a>PHP字符串变量</h1><ul>
+<li>在 PHP 中，只有一个字符串运算符。并置运算符 (.) 用于把两个字符串值连接起来。  <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$txt1=<span class="string">"Hello world!"</span>;</span><br><span class="line">$txt2=<span class="string">"What a nice day!"</span>;</span><br><span class="line"><span class="keyword">echo</span> $txt1 . <span class="string">" "</span> . $txt2;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>学习笔记·PHP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringBoot初探</title>
+    <url>/2020/07/28/SpringBoot%E5%88%9D%E6%8E%A2/</url>
+    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文主要整理了SpringBoot中常见的概念名词及其实现的原理。  </p>
+<a id="more"></a>
+<h3 id="Spring-Boot-自动配置原理是什么？"><a href="#Spring-Boot-自动配置原理是什么？" class="headerlink" title="Spring Boot 自动配置原理是什么？"></a>Spring Boot 自动配置原理是什么？</h3><p>在spring-boot-autoconfigure-2.3.1.RELEASE.jar包下的META-INF文件夹里的spring.factories，有JavaEE需要的所有配置和解决方案。  </p>
+<p>springboot所有自动配置都是在启动的时候扫描加载的：spring.factories所有的自动配置类都在这里面，但是不一定生效，要判断条件是否成立，只要导入对应的start，就有了对应的启动器，我们的自动装配就会生效，然后就配置成功了。其中配置生效的原理是通过@ConditionalOnClass注解来判断某个类是否存在在程序中（其中可能含有很多类似的@ConditionalOnXXX注解来判断是否满足配置导入的前提条件），对应的启动器中的依赖中的类，导入到程序中之后，对应的扫描通过了，自动配置就生效，此时便配置成功了。  </p>
+<h3 id="Spring-Boot-的核心注解是哪个？它主要由哪几个注解组成的？"><a href="#Spring-Boot-的核心注解是哪个？它主要由哪几个注解组成的？" class="headerlink" title="Spring Boot 的核心注解是哪个？它主要由哪几个注解组成的？"></a>Spring Boot 的核心注解是哪个？它主要由哪几个注解组成的？</h3><p>启动类上面的注解是<code>@SpringBootApplication</code>，它也是 Spring Boot 的核心注解，主要组合包含了以下 3 个注解：  </p>
+<ul>
+<li><code>@SpringBootConfiguration</code>：组合了 @Configuration 注解，实现配置文件的功能。  </li>
+<li><code>@EnableAutoConfiguration</code>：打开自动配置的功能，也可以关闭某个自动配置的选项，如关闭数据源自动配置功能：<br>@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class })。  <ul>
+<li>@AutoConfigurationPackage  <ul>
+<li>@Import(AutoConfigurationPackages.Registrar.class)自动配置包注册  </li>
+</ul>
+</li>
+<li>@Import(AutoConfigurationImportSelector.class)  <ul>
+<li>AutoConfigurationImportSelector中定义了要扫描的类需要<code>EnableAutoConfiguration</code>注解，<code>SpringBootApplication</code>注解底层即有此注解；以及需要加载的配置在spring-boot-autoconfigure-2.3.1.RELEASE.jar包下的META-INF文件夹里的spring.factories中  </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>@ComponentScan</code>：Spring组件扫描。扫描当前主启动类同级的包。  </li>
+</ul>
+<h3 id="Spring-Boot-有哪几种读取配置的方式？"><a href="#Spring-Boot-有哪几种读取配置的方式？" class="headerlink" title="Spring Boot 有哪几种读取配置的方式？"></a>Spring Boot 有哪几种读取配置的方式？</h3><ul>
+<li><code>@ConfigurationProperties(prefix = &quot;info&quot;)</code>注解，这种方式需要配置文件中的名字和类中的属性名相同；  </li>
+<li><code>@PropertySource(value = { &quot;config/db-config.properties&quot; })</code>加上<code>@Value(&quot;$(name)&quot;)</code>，可以取到配置文件中相对应的值；<br>其中，<code>@ConfigurationProperties</code>的方式较好，因为它支持</li>
+<li>批量注入配置文件中的属性，而使用<code>@Value</code>的方式需要一个个的配置  </li>
+<li>松散绑定，即，在类中使用驼峰命名，在配置类中使用<code>-</code>隔开的方式也能被识别  </li>
+<li>JSR303数据校验  </li>
+<li>复杂类型封装  </li>
+</ul>
+<h3 id="你如何理解-Spring-Boot-配置加载顺序？"><a href="#你如何理解-Spring-Boot-配置加载顺序？" class="headerlink" title="你如何理解 Spring Boot 配置加载顺序？"></a>你如何理解 Spring Boot 配置加载顺序？</h3><p>springboot 启动会扫描以下位置的application.properties或者application.yml文件作为Spring boot的默认配置文件：  </p>
+<ul>
+<li>优先级1：项目路径下的config文件夹配置文件  </li>
+<li>优先级2：项目路径下配置文件  </li>
+<li>优先级3：资源路径下的config文件夹配置文件  </li>
+<li>优先级4：资源路径下配置文件  </li>
+</ul>
+<p>优先级由高到底，高优先级的配置会覆盖低优先级的配置；</p>
+<h3 id="Spring-Boot-如何定义多套不同环境配置？"><a href="#Spring-Boot-如何定义多套不同环境配置？" class="headerlink" title="Spring Boot 如何定义多套不同环境配置？"></a>Spring Boot 如何定义多套不同环境配置？</h3><ul>
+<li>多配置文件时：<br>我们在主配置文件编写的时候，文件名可以是 <code>application-{profile}.properties/yml</code>, 用来指定多个环境版本；<br>例如：<br><code>application-test.properties</code>代表测试环境配置<br><code>application-dev.properties</code>代表开发环境配置<br>但是Springboot并不会直接启动这些配置文件，它默认使用<code>application.properties</code>主配置文件；<br>我们需要通过一个配置来选择需要激活的环境：    <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">    #比如在配置文件中指定使用dev环境，我们可以通过设置不同的端口号进行测试；</span><br><span class="line">    #我们启动SpringBoot，就可以看到已经切换到dev下的配置了；</span><br><span class="line">    spring.profiles.active=dev</span><br><span class="line">    ```  </span><br><span class="line"></span><br><span class="line">* 使用yaml文件作为配置文件时，可以使用同一个文件实现多环境：  </span><br><span class="line">```yml</span><br><span class="line">server:</span><br><span class="line">  port: 8081</span><br><span class="line">#选择要激活那个环境块</span><br><span class="line">spring:</span><br><span class="line">  profiles:</span><br><span class="line">    active: prod</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">server:</span><br><span class="line">  port: 8083</span><br><span class="line">spring:</span><br><span class="line">  profiles: dev #配置环境的名称</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">server:</span><br><span class="line">  port: 8084</span><br><span class="line">spring:</span><br><span class="line">  profiles: prod  #配置环境的名称</span><br></pre></td></tr></table></figure>
+注意：如果yml和properties同时都配置了端口，并且没有激活其他环境 ， 默认会使用properties配置文件的！  </li>
+</ul>
+<h3 id="如何自定义配置"><a href="#如何自定义配置" class="headerlink" title="如何自定义配置"></a>如何自定义配置</h3><p>xxxAutoConfiguration中带有相应的配置的默认值，其中的底层将xxxProperties和配置文件绑定，我们在配置文件中可以对xxxProperties配置类中的属性进行覆写，即可完成自定义的配置。  </p>
+<h3 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h3><ol>
+<li>用maven构建 项目时，resources 目录就是默认的classpath；  </li>
+<li>通过debug=true可以让控制台打印自动配置报告，这样我们就可以很方便的知道哪些自动配置类生效；  </li>
+<li>静态资源目录为resource下的public、static和resource，其中resource下的优先级高于static，public优先级最低；同时，也可通过spring.mvc.static-path-pattern来指定静态资源的目录，一般不指定；  </li>
+<li>首页的设置，只要在public、static和resource文件夹下创建一个名为<code>index.html</code>的文件即可被自动识别并访问；  </li>
+<li>template文件夹下的文件需要通过controller才能访问，且需要引入模板引擎；  </li>
+<li></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>学习笔记·Java</tag>
+        <tag>学习笔记·SpringBoot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringBoot整合Druid数据源</title>
+    <url>/2020/07/31/SpringBoot%E6%95%B4%E5%90%88Druid%E6%95%B0%E6%8D%AE%E6%BA%90/</url>
+    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>Druid 是阿里巴巴开源平台上一个数据库连接池实现，结合了 C3P0、DBCP 等 DB 池的优点，同时加入了日志监控。后台监控自带了页面。  </p>
+<a id="more"></a>  
+
+<ol>
+<li>添加上 Druid 数据源依赖<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/com.alibaba/druid --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>druid<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.21<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>切换数据源；之前已经说过 Spring Boot 2.0 以上默认使用 com.zaxxer.hikari.HikariDataSource 数据源，但可以 通过 spring.datasource.type 指定数据源<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="number">123456</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/springboot?serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=utf-8</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">com.alibaba.druid.pool.DruidDataSource</span> <span class="comment"># 自定义数据源</span></span><br><span class="line"><span class="string">```</span>  </span><br><span class="line"><span class="number">3</span><span class="string">.</span> <span class="string">现在需要程序员自己为</span> <span class="string">DruidDataSource</span> <span class="string">绑定全局配置文件中的参数，再添加到容器中，而不再使用</span> <span class="string">Spring</span> <span class="string">Boot</span> <span class="string">的自动生成了；我们需要自己添加</span> <span class="string">DruidDataSource</span> <span class="string">组件到容器中，并绑定属性</span>  </span><br><span class="line"><span class="string">```java</span></span><br><span class="line"><span class="string">package</span> <span class="string">com.kuang.config;</span></span><br><span class="line"></span><br><span class="line"><span class="string">import</span> <span class="string">com.alibaba.druid.pool.DruidDataSource;</span></span><br><span class="line"><span class="string">import</span> <span class="string">org.springframework.boot.context.properties.ConfigurationProperties;</span></span><br><span class="line"><span class="string">import</span> <span class="string">org.springframework.context.annotation.Bean;</span></span><br><span class="line"><span class="string">import</span> <span class="string">org.springframework.context.annotation.Configuration;</span></span><br><span class="line"></span><br><span class="line"><span class="string">import</span> <span class="string">javax.sql.DataSource;</span></span><br><span class="line"></span><br><span class="line"><span class="string">@Configuration</span></span><br><span class="line"><span class="string">public</span> <span class="string">class</span> <span class="string">DruidConfig</span> <span class="string">&#123;</span></span><br><span class="line"></span><br><span class="line">    <span class="string">/*</span></span><br><span class="line">       <span class="string">将自定义的</span> <span class="string">Druid数据源添加到容器中，不再让</span> <span class="string">Spring</span> <span class="string">Boot</span> <span class="string">自动创建</span></span><br><span class="line">       <span class="string">绑定全局配置文件中的</span> <span class="string">druid</span> <span class="string">数据源属性到</span> <span class="string">com.alibaba.druid.pool.DruidDataSource从而让它们生效</span></span><br><span class="line">       <span class="string">@ConfigurationProperties(prefix</span> <span class="string">=</span> <span class="string">"spring.datasource"</span><span class="string">)：作用就是将</span> <span class="string">全局配置文件中</span></span><br><span class="line">       <span class="string">前缀为</span> <span class="string">spring.datasource的属性值注入到</span> <span class="string">com.alibaba.druid.pool.DruidDataSource</span> <span class="string">的同名参数中</span></span><br><span class="line">     <span class="string">*/</span></span><br><span class="line">    <span class="string">@ConfigurationProperties(prefix</span> <span class="string">=</span> <span class="string">"spring.datasource"</span><span class="string">)</span></span><br><span class="line">    <span class="string">@Bean</span></span><br><span class="line">    <span class="string">public</span> <span class="string">DataSource</span> <span class="string">druidDataSource()</span> <span class="string">&#123;</span></span><br><span class="line">        <span class="string">return</span> <span class="string">new</span> <span class="string">DruidDataSource();</span></span><br><span class="line">    <span class="string">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure></li>
+<li>配置Druid数据源监控的配置（可视化界面的配置）<br>Druid 数据源具有监控的功能，并提供了一个 web 界面方便用户查看，类似安装 路由器 时，人家也提供了一个默认的 web 页面。  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//配置 Druid 监控管理后台的Servlet；</span></span><br><span class="line"><span class="comment">//内置 Servlet 容器时没有web.xml文件，所以使用 Spring Boot 的注册 Servlet 方式</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> ServletRegistrationBean <span class="title">statViewServlet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ServletRegistrationBean bean = <span class="keyword">new</span> ServletRegistrationBean(<span class="keyword">new</span> StatViewServlet(), <span class="string">"/druid/*"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 这些参数可以在 com.alibaba.druid.support.http.StatViewServlet </span></span><br><span class="line">    <span class="comment">// 的父类 com.alibaba.druid.support.http.ResourceServlet 中找到</span></span><br><span class="line">    Map&lt;String, String&gt; initParams = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    initParams.put(<span class="string">"loginUsername"</span>, <span class="string">"admin"</span>); <span class="comment">//后台管理界面的登录账号</span></span><br><span class="line">    initParams.put(<span class="string">"loginPassword"</span>, <span class="string">"123456"</span>); <span class="comment">//后台管理界面的登录密码</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//后台允许谁可以访问</span></span><br><span class="line">    <span class="comment">//initParams.put("allow", "localhost")：表示只有本机可以访问</span></span><br><span class="line">    <span class="comment">//initParams.put("allow", "")：为空或者为null时，表示允许所有访问</span></span><br><span class="line">    initParams.put(<span class="string">"allow"</span>, <span class="string">""</span>);</span><br><span class="line">    <span class="comment">//deny：Druid 后台拒绝谁访问</span></span><br><span class="line">    <span class="comment">//initParams.put("kuangshen", "192.168.1.20");表示禁止此ip访问</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置初始化参数</span></span><br><span class="line">    bean.setInitParameters(initParams);</span><br><span class="line">    <span class="keyword">return</span> bean;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>学习笔记·Java</tag>
+        <tag>学习笔记·SpringBoot</tag>
       </tags>
   </entry>
   <entry>
@@ -2642,6 +2715,22 @@ Route::any(<span class="string">'new/:id'</span>,<span class="string">'News/read
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>SpringBoot整合Mybatis</title>
+    <url>/2020/07/31/SpringBoot%E6%95%B4%E5%90%88Mybatis/</url>
+    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文简述了SpringBoot整合Mybatis的主要步骤。  </p>
+<a id="more"></a>
+<ol>
+<li>导入 MyBatis 所需要的依赖  <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis.spring.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.1.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">2. 配置数据库连接信息(此配置为引入Druid数据源之后的数据源配置)  </span><br><span class="line">```yaml</span><br><span class="line">spring:</span><br><span class="line">  datasource:</span><br><span class="line">    username: root</span><br><span class="line">    password: 123456</span><br><span class="line">    #?serverTimezone=UTC解决时区的报错</span><br><span class="line">    url: jdbc:mysql://localhost:3306/springboot?serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=utf-8</span><br><span class="line">    driver-class-name: com.mysql.cj.jdbc.Driver</span><br><span class="line">    type: com.alibaba.druid.pool.DruidDataSource</span><br><span class="line"></span><br><span class="line">    #Spring Boot 默认是不注入这些属性值的，需要自己绑定</span><br><span class="line">    #druid 数据源专有配置</span><br><span class="line">    initialSize: 5</span><br><span class="line">    minIdle: 5</span><br><span class="line">    maxActive: 20</span><br><span class="line">    maxWait: 60000</span><br><span class="line">    timeBetweenEvictionRunsMillis: 60000</span><br><span class="line">    minEvictableIdleTimeMillis: 300000</span><br><span class="line">    validationQuery: SELECT 1 FROM DUAL</span><br><span class="line">    testWhileIdle: true</span><br><span class="line">    testOnBorrow: false</span><br><span class="line">    testOnReturn: false</span><br><span class="line">    poolPreparedStatements: true</span><br><span class="line"></span><br><span class="line">    #配置监控统计拦截的filters，stat:监控统计、log4j：日志记录、wall：防御sql注入</span><br><span class="line">    #如果允许时报错  java.lang.ClassNotFoundException: org.apache.log4j.Priority</span><br><span class="line">    #则导入 log4j 依赖即可，Maven 地址：https://mvnrepository.com/artifact/log4j/log4j</span><br><span class="line">    filters: stat,wall,log4j</span><br><span class="line">    maxPoolPreparedStatementPerConnectionSize: 20</span><br><span class="line">    useGlobalDataSourceStat: true</span><br><span class="line">    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500</span><br></pre></td></tr></table></figure></li>
+<li>测试数据库是否连接成功！  </li>
+<li>接下来的操作和Spring中的一样，即，创建实体类和对应的映射文件，在service和controller中调用，完成业务</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>学习笔记·Java</tag>
+        <tag>学习笔记·SpringBoot</tag>
+      </tags>
   </entry>
   <entry>
     <title>Vue简要回顾</title>
@@ -2777,11 +2866,148 @@ Route::any(<span class="string">'new/:id'</span>,<span class="string">'News/read
       </tags>
   </entry>
   <entry>
-    <title>操作系统相关知识点的回顾和学习</title>
-    <url>/2020/04/17/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9%E7%9A%84%E5%9B%9E%E9%A1%BE%E5%92%8C%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[]]></content>
+    <title>关于博客网站</title>
+    <url>/2020/02/18/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/</url>
+    <content><![CDATA[<h1 id="关于这篇博客"><a href="#关于这篇博客" class="headerlink" title="关于这篇博客"></a>关于这篇博客</h1><h2 id="博客的主要内容"><a href="#博客的主要内容" class="headerlink" title="博客的主要内容"></a>博客的主要内容</h2><a id="more"></a>
+<ul>
+<li>学习笔记<ul>
+<li>平时学习到的技术知识的总结</li>
+<li>学校课程的笔记</li>
+</ul>
+</li>
+<li>所思所想<ul>
+<li>对学习路线的梳理</li>
+<li>对博客相关的整理</li>
+<li>对一些平时所见结合知识点发表的见解</li>
+</ul>
+</li>
+<li>（待增加……）</li>
+</ul>
+<h2 id="博客的目的"><a href="#博客的目的" class="headerlink" title="博客的目的"></a>博客的目的</h2><ul>
+<li>为了能够在遇到相同问题时，快速的找到相应的解决办法，并加深印象</li>
+<li>为了能够使自己对自己的技术能力、技术学习周期和时限有一个更直观的认识</li>
+<li>(待完善……)</li>
+</ul>
+]]></content>
       <tags>
-        <tag>学习笔记·操作系统</tag>
+        <tag>所思所想</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>new a blog article</title>
+    <url>/2020/02/12/new-a-blog-article/</url>
+    <content><![CDATA[<ol>
+<li><p>创建一个文章的md文件<br><code>hexo new &quot;XXX&quot;</code><br>格式如上，XXX部分为文章的名字</p>
+<a id="more"></a></li>
+<li><p>自定义文章的标签<br>在md文件中的头部，tags中写入标签的类型</p>
+</li>
+<li><p>运用markdown格式书写内容<br>markdown格式的学习会在之后的文章中详细的写出。</p>
+</li>
+<li><p>编译运行网站<br>运行hexo的命令为<br><code>hexo s</code> 或 <code>hexo server</code></p>
+</li>
+<li><p>部署到远端<br>如果已经在GitHub搭建了博客主页，要部署到远端，则需要一下几步（用GitHub搭建博客的方法，在之后的文章中详细的描述）：  </p>
+<ul>
+<li><code>hexo clean</code> (执行此步骤，直到hexo目录下的public文件夹删除)</li>
+<li><code>hexo g</code> 或 <code>hexo generate</code> (执行此步，重新编译网站文件)</li>
+<li><code>hexo s</code> 或 <code>hexo server</code> (执行此步，在本地预览，无问题的话，执行下一步，部署到远端)</li>
+<li><code>hexo d</code> 或 <code>hexo deploy</code> (执行此步，将网站public文件夹中新的文件部署到远端，过程结束)</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>学习笔记·hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>微信小程序实现订阅消息推送</title>
+    <url>/2021/02/21/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0%E8%AE%A2%E9%98%85%E6%B6%88%E6%81%AF%E6%8E%A8%E9%80%81/</url>
+    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文你主要记录微信小程序中如何实现消息推送功能和实现此功能时遇到的问题和解决办法。（本篇文章主要阐述云开发中的方法）  </p>
+<a id="more"></a>
+<h2 id="实现的功能"><a href="#实现的功能" class="headerlink" title="实现的功能"></a>实现的功能</h2><p>这里使用的是小程序的订阅消息功能。消息能力是小程序能力中的重要组成，小程序为开发者提供了订阅消息能力，以便实现服务的闭环和更优的体验。  </p>
+<ul>
+<li>订阅消息推送位置：服务通知  </li>
+<li>订阅消息下发条件：用户自主订阅  </li>
+<li>订阅消息卡片跳转能力：点击查看详情可跳转至该小程序的页面  </li>
+</ul>
+<p>订阅消息包括两种：  </p>
+<ul>
+<li><p>一次性订阅消息<br>一次性订阅消息用于解决用户使用小程序后，后续服务环节的通知问题。用户自主订阅后，开发者可不限时间地下发一条对应的服务消息；每条消息可单独订阅或退订。  </p>
+</li>
+<li><p>长期订阅消息<br>一次性订阅消息可满足小程序的大部分服务场景需求，但线下公共服务领域存在一次性订阅无法满足的场景，如航班延误，需根据航班实时动态来多次发送消息提醒。为便于服务，我们提供了长期性订阅消息，用户订阅一次后，开发者可长期下发多条消息。<br>目前长期性订阅消息仅向政务民生、医疗、交通、金融、教育等线下公共服务开放，后期将逐步支持到其他线下公共服务业务。  </p>
+</li>
+</ul>
+<h2 id="需要完成的步骤"><a href="#需要完成的步骤" class="headerlink" title="需要完成的步骤"></a>需要完成的步骤</h2><p>步骤一：获取模板 ID<br>在微信公众平台手动配置获取模板 ID：<br>登录 <a href="https://mp.weixin.qq.com" target="_blank" rel="noopener">https://mp.weixin.qq.com</a> 获取模板，如果没有合适的模板，可以申请添加新模板，审核通过后可使用。  </p>
+<p><img src="https://res.wx.qq.com/wxdoc/dist/assets/img/subscribe-message.b562750a.jpg" alt="订阅消息" title="订阅消息"></p>
+<p>步骤二：获取下发权限<br>详见小程序端消息订阅接口 <code>wx.requestSubscribeMessage</code></p>
+<p>步骤三：调用接口下发订阅消息<br>详见服务端消息发送接口 <code>subscribeMessage.send</code></p>
+<p>注意事项  </p>
+<ul>
+<li>用户勾选 “总是保持以上选择，不再询问” 之后，下次订阅调用 <code>wx.requestSubscribeMessage</code> 不会弹窗，保持之前的选择，修改选择需要打开小程序设置进行修改。</li>
+</ul>
+<h2 id="关于步骤二"><a href="#关于步骤二" class="headerlink" title="关于步骤二"></a>关于步骤二</h2><p>示例代码  </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">wx.requestSubscribeMessage(&#123;</span><br><span class="line">  tmplIds: [<span class="string">''</span>],</span><br><span class="line">  success (res) &#123; &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>除了上述的tmplIds属性和success回调函数，还有fail和complete回调函数。<br><img src="https://i.loli.net/2021/03/17/C8X2mFfAsUvMBul.png" alt="订阅消息参数.png">  </p>
+<h2 id="关于步骤三"><a href="#关于步骤三" class="headerlink" title="关于步骤三"></a>关于步骤三</h2><p>示例代码  </p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> cloud = <span class="built_in">require</span>(<span class="string">'wx-server-sdk'</span>)</span><br><span class="line">cloud.init(&#123;</span><br><span class="line">  env: cloud.DYNAMIC_CURRENT_ENV</span><br><span class="line">&#125;)</span><br><span class="line">exports.main = <span class="keyword">async</span> (event, context) =&gt; &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> result = <span class="keyword">await</span> cloud.openapi.templateMessage.send(&#123;</span><br><span class="line">      touser: cloud.getWXContext().OPENID, <span class="comment">// 通过 getWXContext 获取 OPENID</span></span><br><span class="line">      page: <span class="string">'index'</span>,</span><br><span class="line">      data: &#123;</span><br><span class="line">        keyword1: &#123;</span><br><span class="line">          value: <span class="string">'339208499'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        keyword2: &#123;</span><br><span class="line">          value: <span class="string">'2015年01月05日 12:30'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        keyword3: &#123;</span><br><span class="line">          value: <span class="string">'腾讯微信总部'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        keyword4: &#123;</span><br><span class="line">          value: <span class="string">'广州市海珠区新港中路397号'</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      templateId: <span class="string">'TEMPLATE_ID'</span>,</span><br><span class="line">      formId: <span class="string">'FORMID'</span>,</span><br><span class="line">      emphasisKeyword: <span class="string">'keyword1.DATA'</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">// result 结构</span></span><br><span class="line">    <span class="comment">// &#123; errCode: 0, errMsg: 'openapi.templateMessage.send:ok' &#125;</span></span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">  &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">    <span class="comment">// 错误处理</span></span><br><span class="line">    <span class="comment">// err.errCode !== 0</span></span><br><span class="line">    <span class="keyword">throw</span> err</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>需要配置云调用权限，每个云函数需要声明其会使用到的接口，否则无法调用。声明的方法是在云函数目录下的 config.json（如无需新建）配置文件的 permissions.openapi 字段中增加要调用的接口名。（该配置有10分钟的缓存，如果更新后提示没有权限，稍等10分钟后再试）  </p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"permissions"</span>: &#123;</span><br><span class="line">    <span class="attr">"openapi"</span>: [</span><br><span class="line">      <span class="string">"templateMessage.send"</span></span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>问题解决·微信小程序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初识Redis</title>
+    <url>/2020/04/20/%E5%88%9D%E8%AF%86Redis/</url>
+    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>2020年四月末，在教程视频中，第一次简单了解了Redis，在此记录其间的部分知识点  </p>
+<a id="more"></a>  
+<ol>
+<li><p>说说你用过的Redis的数据类型<br>供用户使用的数据类型  </p>
+<ul>
+<li><p>String：最基本的数据类型，二进制安全  </p>
+</li>
+<li><p>Hash：String元素组成的字典，适合用于存储对象  </p>
+</li>
+<li><p>List：列表，按照String元素插入顺序排序  </p>
+</li>
+<li><p>Set：String元素组成的无序集合，通过哈希表实现，不允许重复  </p>
+</li>
+<li><p>Sorted Set：通过分数来为集合中的成员进行从小到大的排序</p>
+</li>
+<li><p>用于计数的HyperLogLog，用于支持存储地理位置信息的Geo </p>
+<p>（记前五个）  </p>
+</li>
+</ul>
+</li>
+<li><p>如何解决SETNX长期有效的问题<br>EXPIRE key seconds<br>设置key的生存时间，当key过期时（即生存时间为0），会被自动删除  </p>
+</li>
+<li><p>如何通过Redis实现分布式锁<br>SET key value [EX seconds] [PX milliseconds] [NX|XX]  </p>
+<ul>
+<li>EX second：设置键的过期时间为second秒  </li>
+<li>PX millisecond：设置键的过期时间为millisecond毫秒  </li>
+<li>NX：只在键不存在时，才对键进行设置操作  </li>
+<li>XX：只在键已经存在时，才对键进行设置操作  </li>
+<li>SET操作完成时，返回OK，否则返回nil  </li>
+</ul>
+</li>
+<li><p>大量的key同时过期的注意事项<br>集中过期，由于清除大量的key很耗时，会出现短暂的卡顿现象<br>解决方案：在设置key的过期时间的时候，给每个key加上随机值  </p>
+</li>
+<li><p>pub/sub的缺点<br>消息的发布是无状态的，无法保证可达。  </p>
+</li>
+<li><p>自动化触发RDB持久化的方式  </p>
+<ul>
+<li>根据redis.conf配置里的SAVE m n 定时触发（用的是BGSAVE）  </li>
+<li>主从复制时，主节点自动触发  </li>
+<li>执行Debug Reload  </li>
+<li>执行Shutdown且没有开启AOF持久化  </li>
+</ul>
+</li>
+<li></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>学习笔记·Redis</tag>
       </tags>
   </entry>
   <entry>
@@ -2843,29 +3069,167 @@ Route::any(<span class="string">'new/:id'</span>,<span class="string">'News/read
       </tags>
   </entry>
   <entry>
-    <title>new a blog article</title>
-    <url>/2020/02/12/new-a-blog-article/</url>
-    <content><![CDATA[<ol>
-<li><p>创建一个文章的md文件<br><code>hexo new &quot;XXX&quot;</code><br>格式如上，XXX部分为文章的名字</p>
-<a id="more"></a></li>
-<li><p>自定义文章的标签<br>在md文件中的头部，tags中写入标签的类型</p>
-</li>
-<li><p>运用markdown格式书写内容<br>markdown格式的学习会在之后的文章中详细的写出。</p>
-</li>
-<li><p>编译运行网站<br>运行hexo的命令为<br><code>hexo s</code> 或 <code>hexo server</code></p>
-</li>
-<li><p>部署到远端<br>如果已经在GitHub搭建了博客主页，要部署到远端，则需要一下几步（用GitHub搭建博客的方法，在之后的文章中详细的描述）：  </p>
+    <title>操作系统相关知识点回顾</title>
+    <url>/2020/04/17/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9%E7%9A%84%E5%9B%9E%E9%A1%BE%E5%92%8C%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文主要收集整理在面试中常见的操作系统问题和涉及到的知识点。  </p>
+<a id="more"></a>
+<ol>
+<li>进程和线程以及他们的区别  </li>
+</ol>
 <ul>
-<li><code>hexo clean</code> (执行此步骤，直到hexo目录下的public文件夹删除)</li>
-<li><code>hexo g</code> 或 <code>hexo generate</code> (执行此步，重新编译网站文件)</li>
-<li><code>hexo s</code> 或 <code>hexo server</code> (执行此步，在本地预览，无问题的话，执行下一步，部署到远端)</li>
-<li><code>hexo d</code> 或 <code>hexo deploy</code> (执行此步，将网站public文件夹中新的文件部署到远端，过程结束)</li>
+<li>进程是对运行时程序的封装，是系统进行资源调度和分配的基本单位，实现了操作系统的并发  </li>
+<li>线程是进程的子任务，是CPU调度和分派的基本单位，用于保证程序的实时性，实现进程内部的并发  </li>
+<li>一个程序至少一个进程，一个进程至少一个线程，线程依赖于进程而存在  </li>
+<li>进程拥有独立的内存单元，而线程共享进程的内存单元  </li>
+</ul>
+<ol start="2">
+<li>进程间通信的几种方式  </li>
+</ol>
+<ul>
+<li>管道以及命名管道：管道用于具有父子关系的进程通信，有名管道无论两个进程间有没有关系，都可以通信  </li>
+<li>信号：用于通知接收进程某个事情已经发生  </li>
+<li>消息队列：消息的链接表，克服了上面两种方式中信号量有限的缺点，对消息队列具有写权限的进程可以按照一定的规则向消息队列中添加消息，对消息队列具有读权限的进程可以从消息队列中读取信息  </li>
+<li>共享内存：进程间最有用的通信方式，需要同步方式，比如互斥锁和信号量等  </li>
+<li>信号量：进程间或同一进程不同线程间同步和互斥的手段  </li>
+<li>套接字：应用于网络中的一般进程间的通信方式  </li>
+</ul>
+<ol start="3">
+<li>线程同步的方式  </li>
+</ol>
+<ul>
+<li>互斥量（Synchronized/Lock）：互斥对象机制。只有拥有互斥对象的线程才有访问公共资源的权限。因为互斥对象只有一个，所以可以保证公共资源不会被多个线程同时访问。    </li>
+<li>信号量：这种方式下允许运行同一时刻同一线程访问同一资源，但是要控制同一时刻访问此资源的最大线程数量  </li>
+<li>时间（信号）（Wait/Notify）：通过通知操作来保持多线程同步，还可以方便的实现多线程优先级的比较操作  </li>
+</ul>
+<ol start="4">
+<li>死锁  </li>
+</ol>
+<ul>
+<li>什么是死锁<br>在两个或者多个并发进程中，如果每个进程持有某种资源而又等待其它进程释放它或它们现在保持着的资源，在未改变这种状态之前都不能向前推进，称这一组进程产生了死锁。通俗的讲就是两个或多个进程无限期的阻塞、相互等待的一种状态。</li>
+<li>死锁产生的四个必要条件  <ul>
+<li>互斥：一个资源一次只能被一个进程使用  </li>
+<li>占用并等待：一个进程因请求资源而阻塞时，对已获得资源保持不放  </li>
+<li>非抢占：不能抢占，只能自愿释放  </li>
+<li>循环等待：若干进程之间形成一种头尾相接的环形等待资源关系  </li>
 </ul>
 </li>
+<li>死锁的基本处理策略  <ul>
+<li>死锁预防：打破死锁四个必要条件中的一个就可以了  <ul>
+<li>打破互斥条件：允许进程同时访问某些资源，但是某些资源因为自身属性问题，不能被同时访问，所以这种方法实用性不大  </li>
+<li>打破占用并等待条件：可以实行资源先分配策略（进程在运行前一次性向系统申请它需要的全部资源，若所需全部资源得不到满足，则不分配任何资源，此进程暂不运行，只有当系统能满足当前线程所需全部资源时，才一次性将所需资源全部分配给该进程）或者只允许进程在没有占用资源时间才允许申请资源（一个进程可以申请一些资源并使用他们，但是在当前进程申请更多资源之前，它必须全部释放当前所占用的资源，但是这种策略也存在一些缺点：很多情况下，无法预知一个进程所需要的全部资源，因为进程是动态运行的，不可预知，同时会降低资源的利用效率，降低进程的并发性  </li>
+<li>打破非抢占条件：允许某个进程在资源得不到满足时强行从其他进程那里获取资源，实现起来困难，会降低系统性能  </li>
+<li>打破循环等待条件：实行资源有序分配策略，对所有资源排序编号，所有进程对资源的请求必须严格按照资源序号递增的顺序提出，即只有占用了小号资源才能占用大号资源，这样就不产生回环路，预防死锁  </li>
+</ul>
+</li>
+<li>死锁避免：动态的检测资源分配状态，以确保循环等待条件不成立，从而确保系统处于安全状态  </li>
+<li>安全状态:存在安全序列，使得系统处于安全状态，比如银行家算法和资源分配图算法  </li>
+<li>死锁解除：进程终止和资源抢占。所谓进程终止是指简单的终止一个或者多个进程以打破循环等待，包括：终止所有死锁进程和一次只终止一个进程直到死锁消失。所谓资源抢占是指从一个或多个死锁进程那里抢占一个或多个资源。这个时候必须考虑三个问题：  <ul>
+<li>选择一个牺牲品  </li>
+<li>回滚到安全状态  </li>
+<li>饥饿（在代价因素中加上回滚次数，回滚得越多则越不可能继续作为牺牲品，避免一个进程总是被回滚）  </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol start="5">
+<li>分页和分段有什么区别？（内存管理）  </li>
 </ol>
+<ul>
+<li>段式储存管理是一种符合用户视角的内存分配管理方案，在段式储存管理中，将程序地址空间划分为若干段，比如代码段，数据段，这样每一个进程有一个二维空间地址空间，相互独立，互不干扰，段式管理的优点是：没有内存碎片（因为段大小可变，改变段来消除内碎片），但段换入换出时，会产生外碎片（比如4K的段换5K的段，会产生1K的外碎片）  </li>
+<li>页式储存管理方案用户视角和物理内存相分离的内存分配管理方案，在页式存储中，将程序逻辑地址划分为固定大小的页，而物理内存划分为同样大小的帧，程序加载时，可以将任意一页放入内存中任意一帧，这些帧不必连续，从而实现了离散分离，页式存储管理的优点是：没有外碎片，因为页的大小固定，但会产生内碎片（一个页可能填充不满）  </li>
+<li>两者的不同点：  <ul>
+<li>目的不同：分页是由于系统管理的需要而不是用户的需要，它是物理信息的单位，分段的目的是为了能够更好的用户的需要，它是信息的逻辑单位，它含有一组意义相对完整的信息  </li>
+<li>大小不同：页的大小固定且由系统决定，段的长度不固定，大小由其功能决定  </li>
+<li>地址空间不同：段向用户提供二维地址空间，页向用户提供一维地址空间  </li>
+<li>信息共享：段是信息的逻辑单位，便于储存保护和信息共享，页的信息保护和共享收到限制  </li>
+<li>内存碎片：页式没有外碎片，但是有内碎片，段式有内碎片，但是没有外碎片  </li>
+</ul>
+</li>
+</ul>
+<ol start="6">
+<li>操作系统中进程调度的策略有哪几种？  </li>
+</ol>
+<ul>
+<li>FCFS（先来先服务，队列实现，非抢占）：先请求CPU的进程先分配CPU  </li>
+<li>SJF(最短作业优先调度算法）：平均等待时间最短的优先  </li>
+<li>优先级调度算法（可以是抢占的，也可以是非抢占的）：优先级越高越先分配到CPU，相同优先级先到先服务，存在的主要问题：低优先级进程无穷等待CPU，会导致无穷阻塞或饥饿，解决方案：老化（根据等待时间和运行时间对优先数进行动态老化算法）  </li>
+<li>时间片轮转调度算法（可抢占）  </li>
+<li>多级队列调度算法：将就绪队列分成多个独立队列，每个队列都有自己的调度算法，队列之间采用固定优先级抢占调度，其中，一个进程根据自身属性被永久的分配到一个队列中  </li>
+<li>多级反馈队列调度算法：与多级队列调度算法相比，其允许进程在队列之间移动，若进程过多使用CPU时间，那么它会被转移到更低优先级的队列，在较低优先级队列等待时间过长的进程会被转移到更高的优先级，以防止饥饿发生<br>或  </li>
+<li>线程调度指的是系统为线程分配CPU使用权的方式。主要有协同式线程调度和抢占式线程调度。  <ul>
+<li>协同式线程调度（Cooperative Threads-Scheduling）<br>  在多线程系统中，线程的执行时间由线程自身控制，执行结束后要主动通知系统切换到另一线程。优劣势：  <ul>
+<li>实现简单，由于线程执行结束后才会进行线程转换，切换操作对线程可见，所以不存在线程同步问题</li>
+<li>线程执行时间不可控，如果一个线程实现有问题，一直不通知系统进行线程切换，那整个系统就会阻塞</li>
+</ul>
+</li>
+<li>抢占式线程调度（Preemptive Threads-Scheduling）<br>  在多线程系统中，每个线程由系统来分配执行时间，线程的切换不由线程本身控制（Java的Thread.yield()可以让出执行时间，但是无法主动获取执行时间）。优劣势：  <ul>
+<li>线程的执行时间是可控的，不会由于一个线程导致整个进程阻塞，Java采用的是这种调度方式</li>
+<li>进程不能控制自身的执行，系统会进行时间片的切分，会涉及到上下文的保存，线程同步等问题，实现较复杂</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>JVM的实现：<br>  JVM规范中规定每个线程都有优先级，且优先级越高越优先执行，但优先级高并不代表能独自占用执行时间片，可能是优先级高得到越多的执行时间片，反之，优先级低的分到的执行时间少但不会分配不到执行时间。java使用的线程调度是抢占式调度。Java中线程会按优先级分配CPU时间片运行。线程让出cpu的情况：  <ul>
+<li>当前运行线程主动放弃CPU，JVM暂时放弃CPU操作，如调用yield()方法  </li>
+<li>当前运行线程因为某些原因进入阻塞状态，例如阻塞在I/O上  </li>
+<li>线程结束（Dead）  </li>
+</ul>
+</li>
+</ul>
+<ol start="7">
+<li>页面置换算法  </li>
+</ol>
+<ul>
+<li>FIFO（先进先出算法）  </li>
+<li>LRU（最近最少使用算法）  </li>
+<li>LFU（最少使用次数算法）  </li>
+<li>OPT（最优置换算法）：理论的最优，理论：保证被置换出去等待是不再被使用的页，或者是在实际内存中使用最晚的页  </li>
+</ul>
+<ol start="8">
+<li>系统颠簸：频繁的页面调度行为，因为不断产生缺页中断，导致不断要调入页调出页<br>解决方案：  </li>
+</ol>
+<ul>
+<li>替换合适的页面调度算法  </li>
+<li>因为运行的程序太多，造成程序无法同时将所有频繁访问的页面调入内存，则要降低多道程序的数量  </li>
+<li>终止该进程或者增加物理内存容量  </li>
+</ul>
+<ol start="9">
+<li>程序局部性原理  </li>
+</ol>
+<ul>
+<li>空间上的局部性：内存中被访问的页的周围的页很有可能被访问  </li>
+<li>时间上的局部性：最近被访问的页在不久的将来还会被访问  </li>
+</ul>
+<ol start="10">
+<li>线程状态和切换  </li>
+</ol>
+<ul>
+<li><a href="https://blog.csdn.net/xiamiflying/article/details/82903361" target="_blank" rel="noopener">https://blog.csdn.net/xiamiflying/article/details/82903361</a>  </li>
+</ul>
+<ol start="11">
+<li>进程的三种状态  </li>
+</ol>
+<ul>
+<li>就绪状态：进程已获得除处理机以外的所需资源，等待分配处理机资源  </li>
+<li>运行状态：占用处理机资源运行，处于此状态的进程数小于等于CPU数  </li>
+<li>阻塞状态： 进程等待某种条件，在条件满足之前无法执行  </li>
+</ul>
+<ol start="12">
+<li>什么是缓冲区溢出？有什么危害？  </li>
+</ol>
+<ul>
+<li>缓冲区溢出是指当计算机向缓冲区填充数据时超出了缓冲区本身的容量，溢出的数据覆盖在合法数据上。危害有以下两点：  <ul>
+<li>程序崩溃，导致拒绝额服务  </li>
+<li>跳转并且执行一段恶意代码  </li>
+</ul>
+</li>
+</ul>
+<p>造成缓冲区溢出的主要原因是程序中没有仔细检查用户输入。  </p>
+<h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><p>知识点罗列：<a href="https://www.cnblogs.com/lhspeppa/p/10461338.html" target="_blank" rel="noopener">https://www.cnblogs.com/lhspeppa/p/10461338.html</a>  </p>
 ]]></content>
       <tags>
-        <tag>学习笔记·hexo</tag>
+        <tag>学习笔记·操作系统</tag>
       </tags>
   </entry>
   <entry>
@@ -3005,71 +3369,229 @@ Route::any(<span class="string">'new/:id'</span>,<span class="string">'News/read
       </tags>
   </entry>
   <entry>
-    <title>初识Redis</title>
-    <url>/2020/04/20/%E5%88%9D%E8%AF%86Redis/</url>
-    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>2020年四月末，在教程视频中，第一次简单了解了Redis，在此记录其间的部分知识点  </p>
-<a id="more"></a>  
-<ol>
-<li><p>说说你用过的Redis的数据类型<br>供用户使用的数据类型  </p>
-<ul>
-<li><p>String：最基本的数据类型，二进制安全  </p>
-</li>
-<li><p>Hash：String元素组成的字典，适合用于存储对象  </p>
-</li>
-<li><p>List：列表，按照String元素插入顺序排序  </p>
-</li>
-<li><p>Set：String元素组成的无序集合，通过哈希表实现，不允许重复  </p>
-</li>
-<li><p>Sorted Set：通过分数来为集合中的成员进行从小到大的排序</p>
-</li>
-<li><p>用于计数的HyperLogLog，用于支持存储地理位置信息的Geo </p>
-<p>（记前五个）  </p>
-</li>
-</ul>
-</li>
-<li><p>如何解决SETNX长期有效的问题<br>EXPIRE key seconds<br>设置key的生存时间，当key过期时（即生存时间为0），会被自动删除  </p>
-</li>
-<li><p>如何通过Redis实现分布式锁<br>SET key value [EX seconds] [PX milliseconds] [NX|XX]  </p>
-<ul>
-<li>EX second：设置键的过期时间为second秒  </li>
-<li>PX millisecond：设置键的过期时间为millisecond毫秒  </li>
-<li>NX：只在键不存在时，才对键进行设置操作  </li>
-<li>XX：只在键已经存在时，才对键进行设置操作  </li>
-<li>SET操作完成时，返回OK，否则返回nil  </li>
-</ul>
-</li>
-<li><p>大量的key同时过期的注意事项<br>集中过期，由于清除大量的key很耗时，会出现短暂的卡顿现象<br>解决方案：在设置key的过期时间的时候，给每个key加上随机值  </p>
-</li>
-<li><p>pub/sub的缺点<br>消息的发布是无状态的，无法保证可达。  </p>
-</li>
-<li><p>自动化触发RDB持久化的方式  </p>
-<ul>
-<li>根据redis.conf配置里的SAVE m n 定时触发（用的是BGSAVE）  </li>
-<li>主从复制时，主节点自动触发  </li>
-<li>执行Debug Reload  </li>
-<li>执行Shutdown且没有开启AOF持久化  </li>
-</ul>
-</li>
-<li></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>学习笔记·Redis</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>计算机网络相关知识点的回顾和学习</title>
     <url>/2020/04/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9%E7%9A%84%E5%9B%9E%E9%A1%BE%E5%92%8C%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>本文主要整理了计算机网络相关的知识点以及面试常见问题。  </p>
 <a id="more"></a>
 <ol>
-<li><p>七层网络模型  </p>
-</li>
+<li>七层网络模型（OSI开放式互联参考模型、网络分层）  </li>
+</ol>
+<ul>
+<li>网络层<br>控制子网的运行，如逻辑编址、分组传输、路由选择  </li>
+<li>数据链路层<br>物理寻址、同时将原始比特流转变为逻辑传输线路  </li>
+<li>物理层<br>机械、 电子、定时接口通信信道上的原始比特流传输<br><img src="https://i.loli.net/2020/12/19/vq8oiZbJCuNeOQ7.png" alt="网络分层模型" title="网络分层模型"></li>
+</ul>
+<ol start="2">
 <li><p>滑动窗口问题  </p>
 </li>
 <li><p>TCP/IP协议：  </p>
 </li>
+<li><p>TCP四次挥手  </p>
+</li>
+<li><p>HTTP状态码  </p>
+<ul>
+<li>状态码类别描述  <ul>
+<li>1xx：服务器收到请求，需要请求者继续执行操作  </li>
+<li>2xx：成功，操作被成功接收并处理  </li>
+<li>3xx：重定向，需要进一步的操作以完成请求  </li>
+<li>4xx：请求错误，请求包含语法错误或无法完成请求  </li>
+<li>5xx：服务器错误，服务器在处理请求时发生错误  </li>
+</ul>
+</li>
+<li>常见状态码  <ul>
+<li>200 OK：客户端请求成功  </li>
+<li>301 Moved Permanently (永久重定向)：请求的URL已经移走。Response中应该包含一个Location URL，说明资源现在所处的位置    </li>
+<li>302 Move Temporarily (临时重定向)  </li>
+<li>400 Bad Request：客户端请求有语法错误，不能被服务器所理解  </li>
+<li>401 Unaythorized：请求未经授权，这个状态码必须和WWW-Authenticate报头域一起使用  </li>
+<li>403 Forbidden：服务端禁止访问该资源    </li>
+<li>404 Not Found：请求资源不存在，输入了错误的URL  </li>
+<li>408 Request Timeout  </li>
+<li>500 Internal Server Error：服务器发生了不可预期的错误  </li>
+<li>502 Bad Gateway  </li>
+<li>503 Service Unavailable：服务器当前不能处理客户端的请求，一段时间后可能恢复正常  </li>
+<li>504 Gateway Timeout  </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>HTTP Request的几种类型  </p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>描述</th>
+<th>幂等性</th>
+<th>安全性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>POST</td>
+<td>向指定资源提交数据进行处理请求（例如提交表单或上传文件）</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>向指定资源位置上传其最新内容</td>
+<td>是</td>
+<td>否</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>请求服务器删除所标识的资源</td>
+<td>是</td>
+<td>否</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>向特定的资源发出请求</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>OPTIONS</td>
+<td>返回服务器针对特定资源所支持的HTTP请求方法</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>HEAD</td>
+<td>向服务器索要与GET请求相一致的响应，不过响应体不会被返回</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>TRACE</td>
+<td>回显服务器收到的请求，主要用于测试或诊断</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>CONNECT</td>
+<td>HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>注：幂等性：指该方法多次调用最终资源状态是一样的。 安全性：指访问资源的时候资源本身不会发生改变。</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+<li><p>HTTP 1.0、HTTP1.1、HTTP2.0  </p>
+</li>
 </ol>
+<ul>
+<li>HTTP 1.0中，客户端的每次请求都要建立一次单独的连接，在处理完本次请求后，就自动释放连接。  </li>
+<li>HTTP 1.1中，支持长连接和流水线请求处理，在一个TCP连接上可以传送多个HTTP请求和响应，若干个请求串行化单线程处理。  </li>
+<li>HTTP2.0中，基于二进制解析，可多路复用，多个请求可同时在一个连接上并行处理。  </li>
+</ul>
+<ol start="8">
+<li><p>HTTP的传输流程  </p>
+<ul>
+<li>地址解析：地址解析通过域名系统DNS解析服务器域名从而获得主机的IP地址。  </li>
+<li>封装Http数据包：解析协议名，主机名，端口号，对象路径并结合本机自己的信息封装成一个Http请求数据包。  </li>
+<li>封装TCP包：将Http请求数据包进一步封装成TCP数据包  </li>
+<li>建立TCP连接：基于TCP的三次握手机制建立TCP连接。  </li>
+<li>客户端发送请求：在建立连接后，客户端发送一个请求给服务器  </li>
+<li>服务器响应：服务器在收到请求后，结合业务逻辑对数据进行处理，然后向客户端返回相应的响应信息。在响应信息中包含状态行，协议版本号，成功或错误的代码，消息体等内容。  </li>
+<li>服务器关闭TCP连接：服务器在向浏览器发送请求响应数据后关闭TCP连接。但如果浏览器或者服务器在消息头中加入了Connection:keep-alive，则TCP连接在请求响应数据发送后仍保持连接状态。在下次请求中浏览器还可以使用相同的连接发送请求。  </li>
+</ul>
+</li>
+<li><p>DNS域名解析过程  </p>
+<ul>
+<li>浏览器先检查自身缓存中有没有被解析过的这个域名对应的ip地址，如果有，解析结束。  </li>
+<li>如果浏览器缓存中没有，浏览器会检查操作系统中有没有对应的已解析的结果。操作系统也有一个域名解析的过程。在windows中有一个hosts文件，可以在里面设置一个域名对应的ip地址。  </li>
+<li>如果仍然没有，主机可向本地服务器进行递归查询。  </li>
+<li>本地服务器采用迭代查询，向一个根域名服务器进行查询  </li>
+<li>根域名服务器告诉本地域名服务器，下次应该查询的顶级域名服务器ip地址  </li>
+<li>本地服务器向顶级域名服务器进行查询  </li>
+<li>顶级域名服务器告诉本地服务器，下次应该查询的权限服务器ip地址  </li>
+<li>本地服务器向权限服务器进行查询  </li>
+<li>权限服务器告诉本地服务器所查询的主机的ip地址  </li>
+<li>本地服务器最后把查询结果告诉主机。  </li>
+</ul>
+</li>
+<li><p>ARP解析过程  </p>
+<ul>
+<li>网络层封装IP数据包，数据链路层封装报文  </li>
+<li>首先会查询自己的ARP表，查看目的IP到目的MAC的映射，如果有就进行封装，如果没有进行下一步。  </li>
+<li>ARP会产生ARP Request去解析目的MAC，此时源MAC为数据发起者的MAC，目的地址MAC为FFFF:FFFF:FFFF（全为1，代表所有MAC）  </li>
+<li>ARP Requqst到达本网段中的所有设备上，因为目的MAC全为1，所以所有设备都可以拆掉封装，解析ARP数据包中需要解析的目的IP  </li>
+<li>目的IP不正确的设备直接忽略这个ARP请求，目的IP正确的设备，会产生ARP Reply去回应这个ARP Request，这时，源MAC为解析设备的MAC,目的MAC为ARP解析发起者的MAC  </li>
+<li>解析发起者在收到ARP Reply后，将目的IP和目的MAC的对应关系添加到自己的ARP表中  </li>
+<li>封装数据链路层(数据帧)，进行数据传输  </li>
+</ul>
+</li>
+<li><p>Forward与Redirect  </p>
+<ul>
+<li>直接转发（Forward）：也称转发，浏览器发出请求，服务器把响应内容读取过来，然后再把这些内容发给浏览器。地址栏显示原来的URL。  </li>
+<li>间接转发（Redirect）：也称重定向，浏览器发出请求，服务器端在响应第一次请求的时候，让浏览器向另一个地址发出请求，然后得到响应。地址栏显示新的URL。  </li>
+</ul>
+</li>
+<li><p>Cookie与Session  </p>
+<ul>
+<li>Cookie：为了辨别用户身份而储存在客户端的数据。服务器在Http响应头中添加Set-Cookie信息，浏览器收到响应后会根据头中的字段保存Cookie，下一次访问时在请求头中附带Cookie内容，供服务器根据Cookie值进行后续处理。  </li>
+<li>Session：为了保存用户信息而储存在服务端的数据。当客户端第一次访问时，服务器会计算出一个sessionID，创建一个对应的Session对象并存储；然后将sessionID保存至浏览器Cookie，下一次访问时服务器根据sessionID来匹配Session，Session中可以存一些键值对。  </li>
+<li>Cookie最典型的应用是：①判断用户是否登陆过网站，以便下次登录时能够直接登录。②购物车信息处理。  </li>
+</ul>
+</li>
+<li><p>访问一个网页全过程  </p>
+<ul>
+<li>输入URL；  </li>
+<li>DNS将域名解析成IP地址；  </li>
+<li>建立TCP连接；  </li>
+<li>OSPF（内部网关协议）决定经过哪些路由器，ARP（地址解析协议）负责求下一个节点地址；  </li>
+<li>发送HTTP请求；  </li>
+<li>得到响应，展现HTML界面。  </li>
+</ul>
+</li>
+<li><p>使用Socket通信的几个关键函数  </p>
+<ul>
+<li>初始化socket：int socket(int domain, int type, int protocol);<ul>
+<li>domain ：指定通信协议族。  </li>
+<li>type：指定socket类型。  </li>
+<li>protocol ：协议类型。  </li>
+<li>返回值：成功返回非负整数。  </li>
+</ul>
+</li>
+<li>绑定端口：int bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen);  <ul>
+<li>sockfd：socket函数返回的套接字。  </li>
+<li>addr：要绑定的地址。  </li>
+<li>addrlen：地址长度。  </li>
+<li>返回值：成功返回0，失败返回-1。  </li>
+</ul>
+</li>
+<li>监听端口：int listen(int sockfd, int backlog);  <ul>
+<li>sockfd：socket函数返回的套接字。  </li>
+<li>backlog：已完成三次握手的最大连接个数。  </li>
+<li>返回值：成功返回0，失败返回-1。  </li>
+</ul>
+</li>
+<li>响应连接请求：int accept(int sockfd, struct sockaddr *addr, socklen_t *addrlen);  <ul>
+<li>sockfd：服务器套接字。  </li>
+<li>addr：将返回对等方的套接字地址。  </li>
+<li>addrlen：返回对等方的套接字地址长度。  </li>
+<li>返回值：成功返回非负整数，失败返回-1。  </li>
+</ul>
+</li>
+<li>建立连接：int connect(int sockfd, const struct sockaddr *addr, socklen_t addrlen);  <ul>
+<li>sockfd：未连接套接字。  </li>
+<li>addr：要连接的套接字地址。  </li>
+<li>addrlen：第二个参数addr长度。  </li>
+<li>返回值：成功返回0，失败返回-1。  </li>
+</ul>
+</li>
+</ul>
+</li>
+<li></li>
+</ol>
+<h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><ul>
+<li>参考资料<br><a href="https://blog.csdn.net/qq_43752469/article/details/108836490" target="_blank" rel="noopener">https://blog.csdn.net/qq_43752469/article/details/108836490</a><br><a href="https://www.cnblogs.com/echola/p/11094695.html" target="_blank" rel="noopener">https://www.cnblogs.com/echola/p/11094695.html</a></li>
+</ul>
 ]]></content>
       <tags>
         <tag>学习笔记·计算机网络</tag>
@@ -3299,8 +3821,8 @@ Route::any(<span class="string">'new/:id'</span>,<span class="string">'News/read
 <p>公平锁是指多个线程在等待同一个锁时，必须按照申请锁的时间顺序来依次获得锁。</p>
 <p>synchronized 中的锁是非公平的，ReentrantLock 默认情况下也是非公平的，但是也可以是公平的。</p>
 <p><strong>5. 锁绑定多个条件</strong>  </p>
-<p>一个 ReentrantLock 可以同时绑定多个 Condition 对象。</p>
-<h2 id="使用选择"><a href="#使用选择" class="headerlink" title="使用选择"></a>使用选择</h2><p>除非需要使用 ReentrantLock 的高级功能，否则优先使用 synchronized。这是因为 synchronized 是 JVM 实现的一种锁机制，JVM 原生地支持它，而 ReentrantLock 不是所有的 JDK 版本都支持。并且使用 synchronized 不用担心没有释放锁而导致死锁问题，因为 JVM 会确保锁的释放。</p>
+<p>一个 ReentrantLock 可以同时绑定多个 Condition 对象。<br><em>（注：Condition是Java提供了来实现等待/通知的类，Condition类还提供比wait/notify更丰富的功能，Condition对象是由lock对象所创建的。但是同一个锁可以创建多个Condition的对象，即创建多个对象监视器。这样的好处就是可以指定唤醒线程。notify唤醒的线程是随机唤醒一个。Condition对象有signal()和signalAll()方法）</em>  </p>
+<h2 id="使用选择"><a href="#使用选择" class="headerlink" title="使用选择"></a>使用选择</h2><p>除非需要使用 ReentrantLock 的高级功能，否则优先使用 synchronized。这是因为 synchronized 是 JVM 实现的一种锁机制，JVM 原生地支持它，而 ReentrantLock 不是所有的 JDK 版本都支持。并且使用 synchronized 不用担心没有释放锁而导致死锁问题，因为 JVM 会确保锁的释放。<br><em>（ReentrantLock 的高级功能：<br>1、等待可中断：等待可中断是指当持有锁的线程长期不释放锁，那么正在等待的线程可以选择放弃等待，转而处理其它事情。可中断的特性对于处理执行时间非常长的同步块有很好的帮助。<br>2、公平锁：公平锁是指多个线程在等待同一个锁时，必须按照申请锁的时间顺序来获得锁，可以理解为操作系统中的先来先服务。synchrnized是非公平锁，任何一个等待锁的线程都有可能获得锁，ReentrantLock默认情况下也是非公平的，但是可以通过构造函数来设定使用公平锁。<br>3、锁可以绑定多个条件：锁可以绑定多个条件是指ReentrantLock可以绑定多个Condition对象，而在synchronized中，锁对象的wait()、notify()、notifyAll()方法可以实现一个隐含的条件，如果要和多个条件进行关联时，就不得不多添加锁，而ReentrantLock则无需这样做，只需要多次调用newCondition()方法就可以实现。）</em></p>
 <h1 id="五、线程之间的协作"><a href="#五、线程之间的协作" class="headerlink" title="五、线程之间的协作"></a>五、线程之间的协作</h1><p>当多个线程可以一起工作去解决某个问题时，如果某些部分必须在其它部分之前完成，那么就需要对线程进行协调。</p>
 <h2 id="join"><a href="#join" class="headerlink" title="join()"></a>join()</h2><p>在线程中调用另一个线程的 join() 方法，会将当前线程挂起，而不是忙等待，直到目标线程结束。</p>
 <p>对于以下代码，虽然 b 线程先启动，但是因为在 b 线程中调用了 a 线程的 join() 方法，b 线程会等待 a 线程结束才继续执行，因此最后能够保证 a 线程的输出先于 b 线程的输出。</p>
